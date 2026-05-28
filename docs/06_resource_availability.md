@@ -14,7 +14,8 @@ users.
 | Workbook CSV exports | [`workbook/exports/`](../workbook/exports/) | Zenodo (TBD) |
 | 14-rubric definitions & anchors | [`docs/03_fourteen_rubrics.md`](03_fourteen_rubrics.md) + [`workbook/exports/rubrics_14_anchors.csv`](../workbook/exports/rubrics_14_anchors.csv) | Zenodo (TBD) |
 | Workbox (6 tools / 48 entries) | [`docs/04_workbox_six_tools.md`](04_workbox_six_tools.md) + [`workbook/exports/toolbox_48_tools.csv`](../workbook/exports/toolbox_48_tools.csv) | Zenodo (TBD) |
-| Dataset index (~72 datasets) | [`datasets/README.md`](../datasets/README.md) + Google Drive | Zenodo (TBD) |
+| Full benchmark catalogue (103 entries) | [`datasets/README.md`](../datasets/README.md) | Zenodo (TBD) |
+| Per-benchmark paper / code / Drive URL index | [`datasets/sources.md`](../datasets/sources.md) + Google Drive | Zenodo (TBD) |
 | Web Demo source | [github.com/QingjingChen/heart_web_demo_pub](https://github.com/QingjingChen/heart_web_demo_pub) | — |
 | Companion paper PDF | [`paper/README.md`](../paper/README.md) (added at release time) | — |
 
