@@ -26,7 +26,8 @@ rather than as a competing "gold standard." It bundles together:
 | [`docs/06_resource_availability.md`](docs/06_resource_availability.md) | FAIR statement, mirror locations, citation, license |
 | [`workbook/heart_toolkit.xlsx`](workbook/heart_toolkit.xlsx) | Master workbook (7 sheets) — the source of truth |
 | [`workbook/exports/`](workbook/exports/) | CSV exports of every workbook sheet for tool-agnostic access |
-| [`datasets/README.md`](datasets/README.md) | Index of 72 source datasets grouped by the 5 dimensions |
+| [`datasets/README.md`](datasets/README.md) | Full catalogue of 103 benchmarks (per-dimension tables) with representative tool, why-it-improves rationale, adaptation example, and limits |
+| [`datasets/sources.md`](datasets/sources.md) | Per-benchmark **paper / code / Drive dataset** URL index (one row per benchmark) |
 | [`demo/README.md`](demo/README.md) | Pointer to the [Web Demo source repository](https://github.com/QingjingChen/heart_web_demo_pub) and run instructions |
 | [`paper/README.md`](paper/README.md) | Companion paper (PDF + bibtex) — added at release time |
 
