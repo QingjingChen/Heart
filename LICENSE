@@ -1,0 +1,40 @@
+Attribution 4.0 International (CC BY 4.0)
+=========================================
+
+Copyright (c) 2026 Qingjing Chen.
+
+This license applies to the following components of this repository:
+  - The HEART workbook (workbook/heart_toolkit.xlsx and all CSV exports)
+  - All documentation in docs/, datasets/, demo/, paper/, and README.md
+  - The 14-rubric definitions and 0-5 anchors
+  - The dataset index and policy-to-dimension mapping
+
+You are free to:
+  Share  — copy and redistribute the material in any medium or format
+  Adapt  — remix, transform, and build upon the material for any purpose,
+           even commercially.
+
+Under the following terms:
+  Attribution — You must give appropriate credit, provide a link to the
+  license, and indicate if changes were made. You may do so in any reasonable
+  manner, but not in any way that suggests the licensor endorses you or your
+  use.
+
+No additional restrictions — You may not apply legal terms or technological
+measures that legally restrict others from doing anything the license permits.
+
+The full legal text of the Creative Commons Attribution 4.0 International
+License is available at:
+
+  https://creativecommons.org/licenses/by/4.0/legalcode
+
+When citing this resource, please use the bibtex entry in CITATION.cff or the
+README.md.
+
+NOTE ON UPSTREAM DATASETS
+-------------------------
+The datasets indexed under datasets/ are NOT covered by this license. Each
+upstream dataset (BBQ, WinoQueer, HarmBench, PrivacyLens, etc.) is governed
+by its own license as published by its original authors. This repository
+only provides an index, organisational metadata, and rubric annotations
+about those datasets. See datasets/README.md for upstream license pointers.

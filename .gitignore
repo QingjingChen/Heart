@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Office temp lock files
+~$*
+.~*
+
+# Python (in case any exporter scripts are run locally)
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# LaTeX build artifacts (if paper/ ever gets a tex source)
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
