@@ -13,7 +13,7 @@ web application:
 - the HEART workbook (mirrored from this repository),
 - maintenance scripts and API documentation.
 
-A live deployment URL will be added here prior to camera-ready.
+A live deployment URL will be added here at release time.
 
 ## What the demo does
 

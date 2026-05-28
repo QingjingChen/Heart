@@ -1,7 +1,8 @@
 Attribution 4.0 International (CC BY 4.0)
 =========================================
 
-Copyright (c) 2026 Qingjing Chen.
+Copyright (c) 2026 the HEART Authors (anonymous; canonical attribution to be
+added at release time).
 
 This license applies to the following components of this repository:
   - The HEART workbook (workbook/heart_toolkit.xlsx and all CSV exports)
@@ -28,8 +29,9 @@ License is available at:
 
   https://creativecommons.org/licenses/by/4.0/legalcode
 
-When citing this resource, please use the bibtex entry in CITATION.cff or the
-README.md.
+When citing this resource, please consult CITATION.cff or the README.md for
+the current attribution placeholder; final author and venue metadata will be
+added at release time.
 
 NOTE ON UPSTREAM DATASETS
 -------------------------

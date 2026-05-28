@@ -1,8 +1,8 @@
 # 06 — Resource Availability & FAIR Statement
 
 This document records the **availability, licensing, and FAIR-principle
-status** of the HEART resource. It is the canonical reference for reviewers
-and downstream users.
+status** of the HEART resource. It is the canonical reference for downstream
+users.
 
 ---
 
@@ -10,16 +10,16 @@ and downstream users.
 
 | Component | Primary location | Mirror / DOI |
 |---|---|---|
-| Master workbook (xlsx) | [`workbook/heart_toolkit.xlsx`](../workbook/heart_toolkit.xlsx) | Zenodo (TBD, prior to camera-ready) |
+| Master workbook (xlsx) | [`workbook/heart_toolkit.xlsx`](../workbook/heart_toolkit.xlsx) | Zenodo (TBD, at release) |
 | Workbook CSV exports | [`workbook/exports/`](../workbook/exports/) | Zenodo (TBD) |
 | 14-rubric definitions & anchors | [`docs/03_fourteen_rubrics.md`](03_fourteen_rubrics.md) + [`workbook/exports/rubrics_14_anchors.csv`](../workbook/exports/rubrics_14_anchors.csv) | Zenodo (TBD) |
 | Workbox (6 tools / 48 entries) | [`docs/04_workbox_six_tools.md`](04_workbox_six_tools.md) + [`workbook/exports/toolbox_48_tools.csv`](../workbook/exports/toolbox_48_tools.csv) | Zenodo (TBD) |
-| Dataset index (72 datasets) | [`datasets/README.md`](../datasets/README.md) + Google Drive | Zenodo (TBD) |
+| Dataset index (~72 datasets) | [`datasets/README.md`](../datasets/README.md) + Google Drive | Zenodo (TBD) |
 | Web Demo source | [github.com/QingjingChen/heart_web_demo_pub](https://github.com/QingjingChen/heart_web_demo_pub) | — |
-| CIKM 2026 paper PDF | [`paper/README.md`](../paper/README.md) (after acceptance) | arXiv (TBD) |
+| Companion paper PDF | [`paper/README.md`](../paper/README.md) (added at release time) | — |
 
-A permanent **Zenodo DOI** will be minted prior to camera-ready and
-back-filled into this table.
+A permanent **Zenodo DOI** will be minted at release time and back-filled
+into this table.
 
 ---
 
@@ -28,10 +28,10 @@ back-filled into this table.
 ### Findable
 
 - This repository is **public** at <https://github.com/QingjingChen/AI-Ethics-benchmark>.
-- A persistent **Zenodo DOI** will be issued before camera-ready (CIKM 2026
-  Resource Paper requirement).
-- The repository has a `CITATION.cff` with full bibliographic metadata, so
-  GitHub's "Cite this repository" feature works out-of-the-box.
+- A persistent **Zenodo DOI** will be issued at release time.
+- The repository has a `CITATION.cff` with bibliographic metadata (final
+  author / venue fields added at release time), so GitHub's "Cite this
+  repository" feature works out-of-the-box.
 - Top-level keywords (AI ethics, benchmark, fairness, safety, privacy,
   trustworthiness, human-centered) are in the README and `CITATION.cff`.
 
@@ -49,8 +49,8 @@ back-filled into this table.
 - The dataset index points to **upstream Hugging Face / GitHub** locations
   wherever the original authors made them available, so existing dataset
   tooling works unchanged.
-- Bibliographic metadata is exposed in three formats: `CITATION.cff` (CFF),
-  `bibtex` (in `README.md`), and `paper/` (after acceptance).
+- Bibliographic metadata is exposed in `CITATION.cff` (CFF format) and will
+  be added in BibTeX form at release time.
 
 ### Reusable
 
@@ -86,7 +86,7 @@ back-filled into this table.
 
 - Releases follow **semantic versioning** (e.g., `1.0.0`).
 - A `CHANGELOG.md` is appended on every release.
-- The CIKM 2026 submission corresponds to **v1.0.0**.
+- The current snapshot corresponds to **v1.0.0**.
 - Bug-fix and rubric-clarification updates go to `1.0.x`. New benchmark
   additions to the workbook trigger a `1.x.0` release.
 
@@ -104,4 +104,4 @@ back-filled into this table.
 
 ## Contact
 
-Qingjing Chen — `jucikawa@gmail.com` — Alibaba Group
+Open a GitHub issue for questions or contributions.

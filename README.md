@@ -12,10 +12,6 @@ rather than as a competing "gold standard." It bundles together:
 - an index of **~72 source datasets** organised by the 5 dimensions
 - a companion **Web Demo** that walks a user through diagnosis → tool selection → revision plan
 
-> **CIKM 2026 Resource Paper companion.** This repository is the official artifact of
-> *HEART: A Policy-Grounded Workbox for Revising AI Ethics Benchmarks* (CIKM 2026, under review).
-> A permanent Zenodo DOI will be minted prior to camera-ready.
-
 ---
 
 ## What's in this repository
@@ -32,7 +28,7 @@ rather than as a competing "gold standard." It bundles together:
 | [`workbook/exports/`](workbook/exports/) | CSV exports of every workbook sheet for tool-agnostic access |
 | [`datasets/README.md`](datasets/README.md) | Index of 72 source datasets grouped by the 5 dimensions |
 | [`demo/README.md`](demo/README.md) | Pointer to the [Web Demo source repository](https://github.com/QingjingChen/heart_web_demo_pub) and run instructions |
-| [`paper/README.md`](paper/README.md) | CIKM 2026 paper PDF + bibtex (after acceptance) |
+| [`paper/README.md`](paper/README.md) | Companion paper (PDF + bibtex) — added at release time |
 
 ## The 5 dimensions, at a glance
 
@@ -71,17 +67,8 @@ Source datasets are indexed in [`datasets/README.md`](datasets/README.md).
 
 ## How to cite
 
-See [`CITATION.cff`](CITATION.cff) or:
-
-```bibtex
-@inproceedings{chen2026heart,
-  title     = {HEART: A Policy-Grounded Workbox for Revising AI Ethics Benchmarks},
-  author    = {Chen, Qingjing},
-  booktitle = {Proceedings of the 35th ACM International Conference on Information and Knowledge Management (CIKM '26)},
-  year      = {2026},
-  note      = {Resource Paper, under review}
-}
-```
+A companion paper is in preparation; bibtex and DOI will be added at release time.
+See [`CITATION.cff`](CITATION.cff) for the placeholder metadata.
 
 ## License
 
@@ -93,4 +80,5 @@ licenses — see each upstream repository.
 
 ## Contact
 
-Qingjing Chen — `jucikawa@gmail.com` — Alibaba Group
+Open a GitHub issue for questions or contributions; see
+[`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/).

@@ -1,33 +1,21 @@
 # Paper
 
-This folder is reserved for the CIKM 2026 Resource Paper artifacts.
+This folder is reserved for the **companion paper** PDF and supporting
+artifacts. The paper will be added here at release time, together with the
+final BibTeX entry and the Zenodo DOI.
 
 ## Status
 
 | Item | Status |
 |---|---|
-| Submission to CIKM 2026 Resource Papers track | Submitted (under review) |
-| Camera-ready PDF | TBD upon acceptance |
-| arXiv preprint | TBD |
-| Permanent DOI (Zenodo) | TBD, minted before camera-ready |
+| Companion paper PDF | Added at release time |
+| Preprint (arXiv) | TBD |
+| Permanent DOI (Zenodo) | TBD, minted at release time |
+| Final BibTeX entry | TBD |
 
-## How to cite (current)
+## Reviewer / reader access notes
 
-```bibtex
-@inproceedings{chen2026heart,
-  title     = {HEART: A Policy-Grounded Workbox for Revising AI Ethics Benchmarks},
-  author    = {Chen, Qingjing},
-  booktitle = {Proceedings of the 35th ACM International Conference on Information and Knowledge Management (CIKM '26)},
-  year      = {2026},
-  publisher = {ACM},
-  note      = {Resource Paper, under review}
-}
-```
-
-## Reviewer access notes
-
-- **All review-relevant artifacts** are public in this repository (no login
-  required).
+- **All artifacts** are public in this repository (no login required).
 - The Web Demo source is at <https://github.com/QingjingChen/heart_web_demo_pub>
   and runs locally per [`../demo/README.md`](../demo/README.md).
 - The raw source datasets indexed in [`../datasets/README.md`](../datasets/README.md)
