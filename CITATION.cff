@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+title: "HEART: A Policy-Grounded Workbox for Revising AI Ethics Benchmarks"
+message: "If you use this resource, please cite the CIKM 2026 paper below."
+type: dataset
+authors:
+  - family-names: Chen
+    given-names: Qingjing
+    email: jucikawa@gmail.com
+    affiliation: Alibaba Group
+repository-code: "https://github.com/QingjingChen/AI-Ethics-benchmark"
+url: "https://github.com/QingjingChen/AI-Ethics-benchmark"
+abstract: >
+  HEART is a benchmark-revision resource for AI ethics evaluation. It treats
+  existing benchmarks as bundles of reusable tools (dataset patterns, task
+  formats, metrics, evaluator protocols, governance practices) rather than
+  competing leaderboards. The resource bundles together: (a) a meta-review of
+  103 survey and benchmark papers along 5 policy-grounded ethical dimensions;
+  (b) a 14-rubric diagnostic workbook with 0-5 anchors, expert-validated
+  across all 103 papers; (c) a 48-entry tool-indexed workbox of repair
+  operations; (d) an index of ~72 source datasets organised by the 5
+  dimensions; and (e) a Web Demo that walks a user through diagnosis, tool
+  selection, and revision planning.
+keywords:
+  - AI ethics
+  - benchmark revision
+  - evaluation validity
+  - policy alignment
+  - fairness
+  - safety
+  - privacy
+  - trustworthiness
+  - human-centered AI
+license: CC-BY-4.0
+license-url: "https://creativecommons.org/licenses/by/4.0/"
+version: "1.0.0"
+date-released: "2026-05-28"
+preferred-citation:
+  type: conference-paper
+  title: "HEART: A Policy-Grounded Workbox for Revising AI Ethics Benchmarks"
+  authors:
+    - family-names: Chen
+      given-names: Qingjing
+      affiliation: Alibaba Group
+  conference:
+    name: "35th ACM International Conference on Information and Knowledge Management"
+    acronym: "CIKM '26"
+    location: "Anonymous Location"
+    year: 2026
+  year: 2026
+  notes: "Resource Paper, under review"
