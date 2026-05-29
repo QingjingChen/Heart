@@ -152,7 +152,6 @@ All entries are also recorded in the citation-verification sheet of
 
 | # | Survey | Authors | Year | Venue | URL |
 |---|---|---|---|---|---|
-
 | 2 | **Is ETHICS about ethics? Evaluating ETHICS dataset** | Hancox-Li & Blili-Hamelin | 2024 | NeurIPS EvalEval Workshop | <https://arxiv.org/abs/2410.13009> |
 | 3 | **LLM Ethics Benchmark: A Three-Dimensional Assessment System** | Jiao et al. | 2025 | Scientific Reports | <https://doi.org/10.1038/s41598-025-18489-7> |
 | 4 | **Computational Machine Ethics: A Survey** | Zhong et al. | 2025 | JAIR | <https://doi.org/10.1613/jair.1.16836> |
