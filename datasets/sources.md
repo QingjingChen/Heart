@@ -142,6 +142,38 @@ upstream resources become discoverable. Contributions welcome via the
 | 11 | **LLM-PBE (2024)** | <https://arxiv.org/abs/2408.12787> | <https://github.com/QinbinLi/LLM-PBE> | — |
 | 12 | **MPCI-Bench (2026)** | <https://arxiv.org/abs/2601.08235> | <https://github.com/shoujuw/MPCI-Bench> | [MPCI-Bench](https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb) |
 
+## Survey papers consulted
+
+The meta-review draws on the following surveys for the benchmark inventory,
+rubric calibration, normative grounding, and cross-comparison of evidence
+across bias / safety / privacy / trustworthiness / human-centered dimensions.
+All entries are also recorded in the citation-verification sheet of
+[`workbook/heart_toolkit.xlsx`](../workbook/heart_toolkit.xlsx).
+
+| # | Survey | Authors | Year | Venue | URL |
+|---|---|---|---|---|---|
+| 1 | **A Comprehensive Survey of AI Ethics Benchmarks via a Human-Centric Framework** | Internal authors | 2026 | Working draft (local PDF) | — |
+| 2 | **Is ETHICS about ethics? Evaluating ETHICS dataset** | Hancox-Li & Blili-Hamelin | 2024 | NeurIPS EvalEval Workshop | <https://arxiv.org/abs/2410.13009> |
+| 3 | **LLM Ethics Benchmark: A Three-Dimensional Assessment System** | Jiao et al. | 2025 | Scientific Reports | <https://doi.org/10.1038/s41598-025-18489-7> |
+| 4 | **Computational Machine Ethics: A Survey** | Zhong et al. | 2025 | JAIR | <https://doi.org/10.1613/jair.1.16836> |
+| 5 | **Bias and Fairness in Large Language Models: A Survey** | Gallegos et al. | 2024 | Computational Linguistics | <https://arxiv.org/abs/2309.00770> |
+| 6 | **A Survey on LLM-as-a-Judge** | Gu et al. | 2025 | arXiv preprint | <https://arxiv.org/abs/2411.15594> |
+| 7 | **Aligning Large Language Models with Human: A Survey** | Wang et al. | 2023 | arXiv preprint | <https://arxiv.org/abs/2307.12966> |
+| 8 | **Survey on AI Ethics: A Socio-technical Perspective** | Mbiazi et al. | 2025 | Computational Intelligence | <https://doi.org/10.1111/coin.70149> |
+| 9 | **A Survey on Privacy Risks and Protection in Large Language Models** | Chen et al. | 2025 | AI Review | <https://doi.org/10.1007/s44443-025-00177-1> |
+| 10 | **A Survey on Large Language Model (LLM) Security and Privacy: The Good, the Bad, and the Ugly** | Yao et al. | 2024 | arXiv preprint | <https://arxiv.org/abs/2312.02003> |
+| 11 | **A Survey of Privacy Attacks in Machine Learning** | Rigaki & Garcia | 2023 | ACM Computing Surveys | <https://doi.org/10.1145/3624010> |
+| 12 | **Security and Privacy Challenges of Large Language Models: A Survey** | Das et al. | 2024 | arXiv preprint | <https://arxiv.org/abs/2402.00888> |
+| 13 | **On Protecting the Data Privacy of Large Language Models (LLMs): A Survey** | Yan et al. | 2024 | arXiv preprint | <https://arxiv.org/abs/2403.05156> |
+| 14 | **Privacy and Security Concerns in Generative AI: A Comprehensive Survey** | Golda et al. | 2024 | IEEE Access | <https://ieeexplore.ieee.org/document/10565250> |
+| 15 | **The Ethics of AI Ethics: An Evaluation of Guidelines** | Hagendorff | 2020 | Minds and Machines | <https://doi.org/10.1007/s11023-020-09517-8> |
+| 16 | **Everything is Connected: Inseparable Algorithmic Bias from Algorithmic Performance** | Raji et al. | 2021 | NeurIPS Datasets and Benchmarks | <https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/084b6fbb10729ed4da8c3d3f5a3ae7c9-Abstract-round2.html> |
+| 17 | **A Survey on Evaluation of Large Language Models** | Chang et al. | 2024 | ACM TIST | <https://arxiv.org/abs/2307.03109> |
+| 18 | **Trust in AI: Progress, Challenges, and Future Directions** | Eriksson et al. | 2025 | Humanities and Social Sciences Communications | <https://doi.org/10.1057/s41599-025-04746-7> |
+| 19 | **BetterBench: Assessing AI Benchmarks, Uncovering Issues, and Establishing Best Practices** | Reuel et al. | 2024 | NeurIPS | <https://arxiv.org/abs/2411.12990> |
+| 20 | **Worldwide AI Ethics: A Review of 200+ Guidelines and Recommendations** | Correa et al. | 2023 | Patterns | <https://doi.org/10.1016/j.patter.2023.100857> |
+| 21 | **Measuring Massive Multitask Language Understanding** | Hendrycks et al. | 2021 | ICLR | <https://arxiv.org/abs/2009.03300> |
+
 ---
 
 ## Coverage statistics
