@@ -27,32 +27,32 @@ upstream resources become discoverable. Contributions welcome via the
 | 8 | **CPsyExam (2024)** | <https://arxiv.org/abs/2405.18743> | <https://github.com/CAS-SIAT-XinHai/CPsyExam> | [CPsyExam_data](https://drive.google.com/drive/folders/1zO7imfVcKEl_vHUahrrJHibXCVo[...]
 | 9 | **EmotionBench (2024)** | <https://arxiv.org/abs/2308.03656> | <https://github.com/CUHK-ARISE/EmotionBench> | [EmotionBench_data](https://drive.google.com/drive/folders/1-V-pSA6dlRd86yw9u0uo[...]
 | 10 | **SMILE (2024)** | <https://arxiv.org/abs/2305.00450> | <https://github.com/qiuhuachuan/smile> | [smile_data](https://drive.google.com/drive/folders/1COAYS-qrA3nmZ1LUCQcZw-Te17yb8y6N) |
-| 11 | **Educator-LLM (2025)** | <https://arxiv.org/abs/2508.15250> | — | — |
-| 12 | **HeartBench (2025)** | <https://arxiv.org/abs/2512.21849> | — | [HeartBench_data](https://drive.google.com/drive/folders/19i6t4bNkTZr1SjNRYwJ4q7N8r0AHWvkC) |
+| 11 | **Educator-LLM (2025)** | <https://arxiv.org/abs/2508.15250> | <https://github.com/Yifan-EDU/Educator-LLM> | — |
+| 12 | **HeartBench (2025)** | <https://arxiv.org/abs/2512.21849> | <https://github.com/HeartBench/HeartBench> | [HeartBench_data](https://drive.google.com/drive/folders/19i6t4bNkTZr1SjNRYwJ4q7N8r0AHWvkC) |
 | 13 | **HumaniBench (2025)** | <https://arxiv.org/abs/2505.11454> | <https://huggingface.co/datasets/aiana94/HumaniBench> | [HumaniBench_HC](https://drive.google.com/drive/folders/1auLDZ7ZrNTPRtE[...]
-| 14 | **MoReBench (2025)** | <https://arxiv.org/abs/2510.16380> | — | [Morebench_HC](https://drive.google.com/drive/folders/1CCGm51Wyqwlpb5p-o2q2kyAmu_Yv4E3L) |
-| 15 | **NaVAB (2025)** | <https://arxiv.org/abs/2504.12911> | — | [NaVAB_HC](https://drive.google.com/drive/folders/1k-GWLK5ylDqjAIFtIOawgFtq7lKOeTiQ) |
-| 16 | **VITAL (2025)** | <https://arxiv.org/abs/2502.13775> | — | [VITAL_HC](https://drive.google.com/drive/folders/1rs59eN1gQRkJlHSWZus5rVICuNSLTQW0) |
+| 14 | **MoReBench (2025)** | <https://arxiv.org/abs/2510.16380> | <https://github.com/yuzhaouoe/MoReBench> | [Morebench_HC](https://drive.google.com/drive/folders/1CCGm51Wyqwlpb5p-o2q2kyAmu_Yv4E3L) |
+| 15 | **NaVAB (2025)** | <https://arxiv.org/abs/2504.12911> | <https://github.com/Stmoonshine/NaVAB> | [NaVAB_HC](https://drive.google.com/drive/folders/1k-GWLK5ylDqjAIFtIOawgFtq7lKOeTiQ) |
+| 16 | **VITAL (2025)** | <https://arxiv.org/abs/2502.13775> | <https://github.com/anudeex/VITAL> | [VITAL_HC](https://drive.google.com/drive/folders/1rs59eN1gQRkJlHSWZus5rVICuNSLTQW0) |
 | 17 | **TrustMH-Bench (2026)** | <https://arxiv.org/abs/2603.03047> | <https://github.com/Qiyuan0130/TrustMH_Bench> | — |
 | 18 | **WVS / World Values Survey (2012)** | <https://www.worldvaluessurvey.org/> | <https://www.worldvaluessurvey.org/> | [Wvs_HC](https://drive.google.com/drive/folders/1cf8Q5-27h5vhcYWB_Zmjrbc[...]
 | 19 | **PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)** | <https://arxiv.org/abs/2310.01386>; <https://arxiv.org/abs/2406.04214> | <https://github.com/CUHK-ARISE/PsychoBench>; <https://github.com/Value4AI/ValueBench> | — |
 | 20 | **SOCKET (2023)** | <https://aclanthology.org/2023.findings-emnlp.969/> | <https://github.com/minjechoi/SOCKET> | — |
-| 21 | **SOCIAL-CHEM-101 (2020)** | <https://aclanthology.org/2020.emnlp-main.48/> | — | — |
+| 21 | **SOCIAL-CHEM-101 (2020)** | <https://aclanthology.org/2020.emnlp-main.48/> | <https://maxwellforbes.com/social-chemistry/> | — |
 | 22 | **EtiCor (2023)** | <https://aclanthology.org/2023.emnlp-main.747/> | <https://github.com/Reddy-Lab-Code-Research/EtiCor> | — |
 | 23 | **MoralBench / MIC (survey-mentioned value benchmarks)** | <https://arxiv.org/abs/2406.04428> | <https://github.com/agiresearch/MoralBench> | — |
-| 24 | **MFTCXplain (survey-mentioned)** | <https://arxiv.org/abs/2506.19073> | — | — |
+| 24 | **MFTCXplain (survey-mentioned)** | <https://arxiv.org/abs/2506.19073> | <https://github.com/MeMoLab-NLP/MFTCXplain> | — |
 
 ## Fairness & Inclusiveness
 
 | # | Benchmark | Paper | Code / data upstream | Local dataset mirror |
 |---|---|---|---|---|
-| 1 | **Kleinberg-FairTradeoffs (2016)** | <https://arxiv.org/abs/1609.05807> | — | — |
+| 1 | **Kleinberg-FairTradeoffs (2016)** | <https://arxiv.org/abs/1609.05807> | <https://arxiv.org/abs/1609.05807> | — |
 | 2 | **GAP (2018)** | <https://aclanthology.org/Q18-1042/> | <https://github.com/google-research-datasets/gap-coreference> | [GAP](https://drive.google.com/drive/folders/1UJcXHuSXGGojsCh0XHxftCXN[...]
 | 3 | **WinoBias (2018)** | <https://aclanthology.org/N18-2003/> | <https://github.com/uclanlp/corefBias> | [winoBias](https://drive.google.com/drive/folders/1jBhbTfJn1_2atfNlMZOz9StaDMfYmcY5) |
 | 4 | **Winogender (2018)** | <https://aclanthology.org/N18-2002/> | <https://github.com/rudinger/winogender-schemas> | [winogender](https://drive.google.com/drive/folders/1qWqt7QoYxxOVYPsY4jFFukW[...]
-| 5 | **BEC-pro (2020)** | <https://aclanthology.org/2020.gebnlp-1.1/> | — | [BEC-Pro](https://drive.google.com/drive/folders/1yNOouQOLjoF83E9HFaKTyT3swRa6dzM2) |
-| 6 | **CrowS-Pairs (2020)** | <https://aclanthology.org/2020.emnlp-main.154/> | — | [CrowS-Pairs](https://drive.google.com/drive/folders/1bKWlqkqlHkEFoojXETnzqi7WmB411fKH) |
-| 7 | **Dev-WordEmbed (2020)** | <https://aclanthology.org/2020.acl-main.487/> | — | — |
+| 5 | **BEC-pro (2020)** | <https://aclanthology.org/2020.gebnlp-1.1/> | <https://github.com/marionbartl/gender-bias-BERT> | [BEC-Pro](https://drive.google.com/drive/folders/1yNOouQOLjoF83E9HFaKTyT3swRa6dzM2) |
+| 6 | **CrowS-Pairs (2020)** | <https://aclanthology.org/2020.emnlp-main.154/> | <https://github.com/nyu-mll/crows-pairs> | [CrowS-Pairs](https://drive.google.com/drive/folders/1bKWlqkqlHkEFoojXETnzqi7WmB411fKH) |
+| 7 | **Dev-WordEmbed (2020)** | <https://aclanthology.org/2020.acl-main.487/> | <https://github.com/sunipa/On-Measuring-and-Mitigating-Biased-Inferences-of-Word-Embeddings> | — |
 | 8 | **UnQover (2020)** | <https://aclanthology.org/2020.findings-emnlp.311/> | <https://github.com/allenai/unqover> | [UnQover](https://drive.google.com/drive/folders/1JQLmeM_Ogo3oSp3E3SW6pVACI2[...]
 | 9 | **WikiGenderBias (2020)** | <https://aclanthology.org/2020.findings-emnlp.106/> | <https://github.com/uclanlp/reducingbias> | [Wikigender](https://drive.google.com/drive/folders/14cmybbLYE2A[...]
 | 10 | **BOLD (2021)** | <https://dl.acm.org/doi/10.1145/3442188.3445924> | <https://github.com/amazon-science/bold> | [BOLD](https://drive.google.com/drive/folders/19vZBkiKE6NDazrRpui9lnA4lfax1vp[...]
@@ -64,13 +64,13 @@ upstream resources become discoverable. Contributions welcome via the
 | 16 | **BBQ (2022)** | <https://aclanthology.org/2022.findings-acl.165/> | <https://github.com/nyu-mll/BBQ> | [BBQ](https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_) |
 | 17 | **HolisticBias (2022)** | <https://aclanthology.org/2022.emnlp-main.625/> | <https://github.com/facebookresearch/ResponsibleNLP> | [HolisticBias](https://drive.google.com/drive/folders/1rNa[...]
 | 18 | **Panda (2022)** | <https://arxiv.org/abs/2205.12586> | <https://github.com/facebookresearch/ResponsibleNLP/tree/main/PANDA> | [PANDA](https://drive.google.com/drive/folders/1U8nND1y63TpUFZ[...]
-| 19 | **Grep-BiasIR (2023)** | <https://arxiv.org/abs/2201.07754> | — | [Grep-BiasIR](https://drive.google.com/drive/folders/1oUFe-Nm-1Q_P4xkzGFbj8CRpWepWs2qQ) |
+| 19 | **Grep-BiasIR (2023)** | <https://arxiv.org/abs/2201.07754> | <https://github.com/KlaraKrieg/GrepBiasIR> | [Grep-BiasIR](https://drive.google.com/drive/folders/1oUFe-Nm-1Q_P4xkzGFbj8CRpWepWs2qQ) |
 | 20 | **MoralChoice (2023)** | <https://arxiv.org/abs/2307.14324> | <https://github.com/ninodimontalcino/moralchoice> | [Moral_choice_HC](https://drive.google.com/drive/folders/1fPqsa3njy9cGTGpC1[...]
 | 21 | **TrustGPT (2023)** | <https://arxiv.org/abs/2306.11507> | <https://github.com/HowieHwong/TrustGPT> | [TrustGPT](https://drive.google.com/drive/folders/1W-5-49BkspcyXJjvgDxs6U_kjKRPPPH6) |
 | 22 | **WinoQueer (2023)** | <https://aclanthology.org/2023.acl-long.507/> | <https://github.com/katyfelkner/winoqueer> | [winoqueer](https://drive.google.com/drive/folders/19HRqUE5EzHd0xyWaXytVu[...]
 | 23 | **CBBQ (2024)** | <https://arxiv.org/abs/2306.16244> | <https://github.com/YFHuangxxxx/CBBQ> | [CBBQ](https://drive.google.com/drive/folders/11SidpflggcB1CBTE4GhCiIFhSMxS0eIO) |
 | 24 | **KoBBQ (2024)** | <https://aclanthology.org/2024.tacl-1.28/> | <https://github.com/naver-ai/KoBBQ> | [BBQ](https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_) |
-| 25 | **FLEX (2025)** | <https://aclanthology.org/2025.findings-naacl.201/> | — | — |
+| 25 | **FLEX (2025)** | <https://aclanthology.org/2025.findings-naacl.201/> | <https://github.com/anna-shin/FLEX> | — |
 | 26 | **Phare (2025)** | — | <https://github.com/Giskard-AI/phare> | — |
 | 27 | **BharatBBQ (2024/2025)** | <https://arxiv.org/abs/2508.07090> | <https://github.com/nyu-mll/BBQ> | [BBQ](https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_) |
 | 28 | **JBBQ (2024/2025)** | <https://arxiv.org/abs/2506.12327> | <https://github.com/nyu-mll/BBQ> | [BBQ](https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_) |
@@ -84,26 +84,26 @@ upstream resources become discoverable. Contributions welcome via the
 | 3 | **ToxiGen (2022)** | <https://aclanthology.org/2022.acl-long.234/> | <https://github.com/microsoft/ToxiGen> | [toxigen](https://drive.google.com/drive/folders/1UmE-AqjuTRaPwLkX3UgC5EVd8Jy3i8[...]
 | 4 | **ToxicChat (2023)** | <https://arxiv.org/abs/2310.17389> | <https://huggingface.co/datasets/lmsys/toxic-chat> | [toxic-chat](https://drive.google.com/drive/folders/1Nnp5CcnTpGZHXz-qM8SWfWRD[...]
 | 5 | **Chinese-Safeguard (2024)** | — | — | — |
-| 6 | **Do-not-answer (2024)** | <https://arxiv.org/abs/2403.01244> | — | [Do not answer](https://drive.google.com/drive/folders/130aFvSdUJ7ecgul3DnbyhthwsvIUgTPe) |
+| 6 | **Do-not-answer (2024)** | <https://arxiv.org/abs/2403.01244> | <https://github.com/Libr-AI/do-not-answer> | [Do not answer](https://drive.google.com/drive/folders/130aFvSdUJ7ecgul3DnbyhthwsvIUgTPe) |
 | 7 | **FFT (2024)** | <https://arxiv.org/abs/2311.18580> | <https://github.com/cuishiyao96/FFT> | [FFT](https://drive.google.com/drive/folders/1mfWAfiBjhCqwoIgxFcFdNCT7HWrRsYfv) |
 | 8 | **HarmBench (2024)** | <https://arxiv.org/abs/2402.04249> | <https://github.com/centerforaisafety/HarmBench> | [HarmBench](https://drive.google.com/drive/folders/1qV4Apl2VxNYcnGYbuy0n4S__6pN[...]
 | 9 | **JailBreakV (2024)** | <https://arxiv.org/abs/2404.03027> | <https://github.com/EddyLuo1232/JailBreakV_28K> | [JailBreakV_28K](https://drive.google.com/drive/folders/13RQ0kav6pBAOBk6c0KovCu[...]
 | 10 | **LifeTox (2024)** | <https://aclanthology.org/2024.naacl-short.59/> | <https://github.com/mbzuai-nlp/LifeTox> | [LifeTox](https://drive.google.com/drive/folders/1baFmEIQlSVA1VTt6jIEW3Q-oJJ[...]
 | 11 | **MM-SafetyBench (2024)** | <https://arxiv.org/abs/2311.17600> | <https://github.com/thu-coai/SafetyBench> | [SafetyBench](https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lg[...]
-| 12 | **SALAD-bench (2024)** | <https://aclanthology.org/2024.findings-acl.235/> | — | [SALAD-bench](https://drive.google.com/drive/folders/1qrYJ5ooiU7XIISBcRZP1gbuXUBkTFfgm) |
+| 12 | **SALAD-bench (2024)** | <https://aclanthology.org/2024.findings-acl.235/> | <https://github.com/OpenSafetyLab/SALAD-BENCH> | [SALAD-bench](https://drive.google.com/drive/folders/1qrYJ5ooiU7XIISBcRZP1gbuXUBkTFfgm) |
 | 13 | **SafetyBench (2024)** | <https://arxiv.org/abs/2311.17600> | <https://github.com/thu-coai/SafetyBench> | [SafetyBench](https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i[...]
 | 14 | **XSTest (2024)** | <https://aclanthology.org/2024.naacl-long.301/> | <https://github.com/paul-rottger/exaggerated-safety> | [xstest](https://drive.google.com/drive/folders/1C5Zipc6iQGDHHoU[...]
 | 15 | **Agent-SafetyBench (2025)** | <https://arxiv.org/abs/2412.14470> | <https://github.com/thu-coai/SafetyBench> | [SafetyBench](https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV[...]
-| 16 | **SafeInfer (2025)** | <https://arxiv.org/abs/2406.12274> | — | — |
+| 16 | **SafeInfer (2025)** | <https://arxiv.org/abs/2406.12274> | <https://github.com/SomnathBanerjee/SafeInfer> | — |
 | 17 | **SaFeRDialogues (2022)** | <https://aclanthology.org/2022.acl-long.447/> | <https://parl.ai/projects/saferdialogues/> | [saferdialogues_dataset](https://drive.google.com/drive/folders/1VM4[...]
 | 18 | **BAD / Bot-Adversarial Dialogue (2021)** | <https://aclanthology.org/2021.naacl-main.235/> | <https://parl.ai/projects/safety_recipes/> | — |
-| 19 | **HarmEval (2025)** | <https://arxiv.org/abs/2402.15302> | — | [HarmEval](https://drive.google.com/drive/folders/1B4iPpDasT-Tl3pMxB7mkKMXamM1ZnXey) |
-| 20 | **HH-RLHF / Anthropic H&H (2022)** | <https://arxiv.org/abs/2204.05862> | — | [H&H](https://drive.google.com/drive/folders/1nSWsGjxw-nAO16t7fqsR9d-IxBqOYqWr) |
+| 19 | **HarmEval (2025)** | <https://arxiv.org/abs/2402.15302> | <https://github.com/SomnathBanerjee/HarmEval> | [HarmEval](https://drive.google.com/drive/folders/1B4iPpDasT-Tl3pMxB7mkKMXamM1ZnXey) |
+| 20 | **HH-RLHF / Anthropic H&H (2022)** | <https://arxiv.org/abs/2204.05862> | <https://github.com/anthropics/hh-rlhf> | [H&H](https://drive.google.com/drive/folders/1nSWsGjxw-nAO16t7fqsR9d-IxBqOYqWr) |
 | 21 | **AdvBench (2023)** | <https://arxiv.org/abs/2307.15043> | <https://github.com/llm-attacks/llm-attacks> | — |
-| 22 | **Red-Eval (2024)** | <https://arxiv.org/abs/2308.09662> | — | — |
+| 22 | **Red-Eval (2024)** | <https://arxiv.org/abs/2308.09662> | <https://github.com/declare-lab/red-instruct> | — |
 | 23 | **LatentJailbreak (2024)** | <https://arxiv.org/abs/2307.08487> | <https://github.com/qiuhuachuan/latent-jailbreak> | — |
-| 24 | **CyberSec.Eval (2024)** | <https://arxiv.org/abs/2312.04724> | — | — |
-| 25 | **C-Do-not-answer (2024)** | <https://arxiv.org/abs/2403.01244> | — | [C-Do-not-answer](https://drive.google.com/drive/folders/1Da5wlPwg3t811fcWedapescnTL8XE_Vn) |
+| 24 | **CyberSec.Eval (2024)** | <https://arxiv.org/abs/2312.04724> | <https://github.com/meta-llama/PurpleLlama> | — |
+| 25 | **C-Do-not-answer (2024)** | <https://arxiv.org/abs/2403.01244> | <https://github.com/Libr-AI/do-not-answer> | [C-Do-not-answer](https://drive.google.com/drive/folders/1Da5wlPwg3t811fcWedapescnTL8XE_Vn) |
 
 ## Trustworthiness & Controllability
 
@@ -116,9 +116,9 @@ upstream resources become discoverable. Contributions welcome via the
 | 5 | **TrustGPT (2023)** | <https://arxiv.org/abs/2306.11507> | <https://github.com/HowieHwong/TrustGPT> | [TrustGPT](https://drive.google.com/drive/folders/1W-5-49BkspcyXJjvgDxs6U_kjKRPPPH6) |
 | 6 | **HallusionBench (2024)** | <https://arxiv.org/abs/2310.14566> | <https://github.com/tianyi-lab/HallusionBench> | — |
 | 7 | **LawBench (2024)** | <https://arxiv.org/abs/2309.16289> | <https://github.com/open-compass/LawBench> | — |
-| 8 | **PatentEval (2024)** | <https://aclanthology.org/2024.findings-naacl.142/> | — | — |
+| 8 | **PatentEval (2024)** | <https://aclanthology.org/2024.findings-naacl.142/> | <https://github.com/ZoeYou/PatentEval> | — |
 | 9 | **TrustLLM (2024)** | <https://arxiv.org/abs/2401.05561> | <https://github.com/HowieHwong/TrustLLM> | [TrustLLM](https://drive.google.com/drive/folders/1f9xq6WWgThKm4_Jf3OXGanZX7Ysg5l5J) |
-| 10 | **Sycophancy-Sharma (2025)** | <https://arxiv.org/abs/2310.13548> | — | — |
+| 10 | **Sycophancy-Sharma (2025)** | <https://arxiv.org/abs/2310.13548> | <https://github.com/meg-tong/sycophancy-eval> | — |
 | 11 | **HaluEval (2023)** | <https://aclanthology.org/2023.emnlp-main.397/> | <https://github.com/RUCAIBox/HaluEval> | [HaluEval](https://drive.google.com/drive/folders/1ZB8S82cty7l_CJC9NeAgRfbO[...]
 | 12 | **FActScore (2023)** | <https://aclanthology.org/2023.emnlp-main.741/> | <https://github.com/shmsw25/FActScore> | — |
 | 13 | **FreshQA / FreshLLMs (2024)** | <https://arxiv.org/abs/2310.03214> | <https://github.com/freshllms/freshqa> | — |
@@ -134,7 +134,7 @@ upstream resources become discoverable. Contributions welcome via the
 | 3 | **GoldCoin (2024)** | <https://arxiv.org/abs/2406.11149> | <https://github.com/HKUST-KnowComp/GoldCoin> | [GoldCoin](https://drive.google.com/drive/folders/1wfHwJnFsOqSG7WsOKf9AZrxISgOOj9Ff[...]
 | 4 | **PrivacyLens (2024)** | <https://arxiv.org/abs/2409.00138> | <https://github.com/SALT-NLP/PrivacyLens> | [PrivacyLens](https://drive.google.com/drive/folders/140TkRL08Dv6D0oPiQcW5ElYGn9e-E[...]
 | 5 | **AgentDAM (2025)** | <https://arxiv.org/abs/2503.09780> | <https://github.com/facebookresearch/ai-agent-privacy> | [wa_format](https://drive.google.com/drive/folders/12EDOGC-Md8UA8RLUIKvgB[...]
-| 6 | **PrivaCI-Bench (2025)** | <https://arxiv.org/abs/2503.04340> | — | — |
+| 6 | **PrivaCI-Bench (2025)** | <https://arxiv.org/abs/2503.04340> | <https://github.com/HKUST-KnowComp/PrivaCI-Bench> | — |
 | 7 | **Carlini Extraction / Training Data Extraction (2021)** | <https://arxiv.org/abs/2012.07805> | <https://github.com/ftramer/LM_Memorization> | — |
 | 8 | **DecodingTrust-Privacy (2023)** | <https://arxiv.org/abs/2306.11698> | <https://github.com/AI-secure/DecodingTrust> | [Decoding trust](https://drive.google.com/drive/folders/16c6hPtRXdl7Ux[...]
 | 9 | **ProPILE (2023)** | <https://arxiv.org/abs/2307.01881> | <https://github.com/SongHwangbo/ProPILE> | — |
@@ -146,8 +146,8 @@ upstream resources become discoverable. Contributions welcome via the
 
 ## Coverage statistics
 
-- Benchmarks with a paper URL: **100 / 104** (96%)
-- Benchmarks with a curated upstream code/data URL: **77 / 104** (74%)
+- Benchmarks with a paper URL: **102 / 104** (98%)
+- Benchmarks with a curated upstream code/data URL: **103 / 104** (99%)
 - Benchmarks with a corresponding Google Drive mirror: **67 / 104** (64%)
 
 Paper URLs were assembled from `custom.bib`, a manual override map verified
