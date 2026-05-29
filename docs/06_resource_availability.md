@@ -28,7 +28,7 @@ into this table.
 
 ### Findable
 
-- This repository is **public** at <https://github.com/QingjingChen/AI-Ethics-benchmark>.
+- This repository is **public** at <https://github.com/QingjingChen/Heart>.
 - A persistent **Zenodo DOI** will be issued at release time.
 - The repository has a `CITATION.cff` with bibliographic metadata (final
   author / venue fields added at release time), so GitHub's "Cite this

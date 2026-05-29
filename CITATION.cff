@@ -4,8 +4,8 @@ message: "Author and citation metadata will be added at release time."
 type: dataset
 authors:
   - name: "Anonymous Authors"
-repository-code: "https://github.com/QingjingChen/AI-Ethics-benchmark"
-url: "https://github.com/QingjingChen/AI-Ethics-benchmark"
+repository-code: "https://github.com/QingjingChen/Heart"
+url: "https://github.com/QingjingChen/Heart"
 abstract: >
   HEART is a benchmark-revision resource for AI ethics evaluation. It treats
   existing benchmarks as bundles of reusable tools (dataset patterns, task
