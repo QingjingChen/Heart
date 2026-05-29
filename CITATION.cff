@@ -11,9 +11,9 @@ abstract: >
   existing benchmarks as bundles of reusable tools (dataset patterns, task
   formats, metrics, evaluator protocols, governance practices) rather than
   competing leaderboards. The resource bundles together: (a) a meta-review of
-  103 survey and benchmark papers along 5 policy-grounded ethical dimensions;
+  104 survey and benchmark papers along 5 policy-grounded ethical dimensions;
   (b) a 14-rubric diagnostic workbook with 0-5 anchors, cross-validated by
-  at least four experts across all 103 papers; (c) a 48-entry tool-indexed
+  at least four experts across all 104 papers; (c) a 48-entry tool-indexed
   workbox of repair operations; (d) an index of ~72 source datasets organised
   by the 5 dimensions; and (e) a Web Demo that walks a user through
   diagnosis, tool selection, and revision planning.

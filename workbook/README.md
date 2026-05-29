@@ -7,10 +7,10 @@ This folder contains the **master HEART workbook** and its CSV exports.
 | File | What it is |
 |---|---|
 | `heart_toolkit.xlsx` | The master workbook (7 sheets). Contains formatting, notes, and cell comments not preserved in CSV. |
-| `exports/benchmarks_104_tool_distribution.csv` | One row per benchmark (n = 103 + header). Each row has its primary dimension, representative tool, 14-rubric annotations, adaptation example, lineage critiques, self-acknowledged limits, external survey views, and a Chinese synthesis. |
+| `exports/benchmarks_104_tool_distribution.csv` | One row per benchmark (n = 104 + header). Each row has its primary dimension, representative tool, 14-rubric annotations, adaptation example, lineage critiques, self-acknowledged limits, external survey views, and a Chinese synthesis. |
 | `exports/toolbox_48_tools.csv` | The tool-indexed toolbox: 48 entries with `English name / Chinese name / core practice / problem repaired / rubric improved / applicable ethics scenarios / source paper / limitations / mini-case`. |
 | `exports/benchmark_diagnosis_140rows.csv` | The 14-rubric diagnostic main table — one row per (benchmark × rubric-layer) cell. |
-| `exports/rubrics_14_anchors.csv` | The 14 rubrics with 0–5 anchors, calibration examples, and the current score distribution across the 103 reviewed papers. |
+| `exports/rubrics_14_anchors.csv` | The 14 rubrics with 0–5 anchors, calibration examples, and the current score distribution across the 104 reviewed papers. |
 | `exports/citation_verification.csv` | Citation-by-citation verification status for the most-cited works. |
 
 ## Sheet-by-sheet description (xlsx)

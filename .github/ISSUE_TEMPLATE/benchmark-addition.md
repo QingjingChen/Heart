@@ -34,7 +34,7 @@ section, dataset card).
 ## Why it should be added
 
 What new dimension coverage, normative source, scenario type, metric, or
-governance practice does this benchmark add that the current 103-paper set
+governance practice does this benchmark add that the current 104-paper set
 does not already cover?
 
 ## Review checklist (for maintainers)

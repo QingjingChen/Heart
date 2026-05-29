@@ -1,14 +1,14 @@
 # Benchmark Source Index
 
-For each of the 103 benchmarks in the HEART meta-review, this page lists:
+For each of the 104 benchmarks in the HEART meta-review, this page lists:
 
 - **Paper** — link to the original paper (arXiv / ACL Anthology / DOI)
 - **Code / data upstream** — the original authors' GitHub or Hugging Face repository
 - **Local dataset mirror** — the corresponding subfolder in the project's Google Drive
   ([root folder](https://drive.google.com/drive/folders/1imN8G7mQ-RgBCkT7-7tBiVF0RPvYJZtK))
 
-Cells marked `—` indicate the URL could not be located. For very recent (2026)
-or survey-only-mentioned benchmarks (e.g. `TrustMH-Bench`, `PsycoLLM` cluster,
+Cells marked `—` indicate the URL could not be located. For very recent benchmarks
+or survey-only-mentioned clusters (e.g. `TrustMH-Bench`, `PsycoLLM` cluster,
 `Chinese-Safeguard`, `WebArena-Privacy`, `Phare`), URLs will be added as the
 upstream resources become discoverable. Contributions welcome via the
 `benchmark-addition` issue template.
@@ -129,25 +129,27 @@ upstream resources become discoverable. Contributions welcome via the
 
 | # | Benchmark | Paper | Code / data upstream | Local dataset mirror |
 |---|---|---|---|---|
-| 1 | **Converse (2024)** | <https://arxiv.org/abs/2511.05359> | <https://github.com/skywalker023/confAIde> | [Converse](https://drive.google.com/drive/folders/117OloShfJJfokRK1mQer_s5DfMe-1Ktd) |
-| 2 | **EAI-Bench (2024)** | <https://arxiv.org/abs/2510.02356> | — | [eai_bench](https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjvWvox) |
+| 1 | **ConVerse (Findings of EACL 2026)** | <https://arxiv.org/abs/2511.05359> | <https://github.com/amrgomaaelhady/ConVerse> | [Converse](https://drive.google.com/drive/folders/117OloShfJJfokRK1mQer_s5DfMe-1Ktd) |
+| 2 | **EAPrivacy (ICLR 2026)** | <https://arxiv.org/abs/2510.02356> | <https://github.com/xinjie-shen/EAPrivacy> | [eai_bench](https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjvWvox) |
 | 3 | **GoldCoin (2024)** | <https://arxiv.org/abs/2406.11149> | <https://github.com/HKUST-KnowComp/GoldCoin> | [GoldCoin](https://drive.google.com/drive/folders/1wfHwJnFsOqSG7WsOKf9AZrxISgOOj9Ff) |
 | 4 | **PrivacyLens (2024)** | <https://arxiv.org/abs/2409.00138> | <https://github.com/SALT-NLP/PrivacyLens> | [PrivacyLens](https://drive.google.com/drive/folders/140TkRL08Dv6D0oPiQcW5ElYGn9e-EMf-) |
-| 5 | **WebArena-Privacy (2024)** | — | — | — |
+| 5 | **AgentDAM (2025)** | <https://arxiv.org/abs/2503.09780> | <https://github.com/facebookresearch/ai-agent-privacy> | [wa_format](https://drive.google.com/drive/folders/12EDOGC-Md8UA8RLUIKvgBUIi-6f-zaXN) |
 | 6 | **PrivaCI-Bench (2025)** | <https://arxiv.org/abs/2503.04340> | — | — |
 | 7 | **Carlini Extraction / Training Data Extraction (2021)** | <https://arxiv.org/abs/2012.07805> | <https://github.com/ftramer/LM_Memorization> | — |
 | 8 | **DecodingTrust-Privacy (2023)** | <https://arxiv.org/abs/2306.11698> | <https://github.com/AI-secure/DecodingTrust> | [Decoding trust](https://drive.google.com/drive/folders/16c6hPtRXdl7UxWoyOIO_kNKgIVvvvAac) |
 | 9 | **ProPILE (2023)** | <https://arxiv.org/abs/2307.01881> | <https://github.com/SongHwangbo/ProPILE> | — |
 | 10 | **ConfAIde (2023)** | <https://arxiv.org/abs/2310.17884> | <https://github.com/skywalker023/confAIde> | — |
-| 11 | **LLM-PBE (2024)** | <https://www.vldb.org/pvldb/vol17/p3201-li.pdf> | — | — |
+| 11 | **LLM-PBE (2024)** | <https://arxiv.org/abs/2408.12787> | <https://github.com/QinbinLi/LLM-PBE> | — |
+| 12 | **MPCI-Bench (2026)** | <https://arxiv.org/abs/2601.08235> | <https://github.com/shoujuw/MPCI-Bench> | [MPCI-Bench](https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb) |
 
 ---
 
 ## Coverage statistics
 
-- Benchmarks with a paper URL: - Benchmarks with a curated upstream code/data URL: - Benchmarks with a corresponding Google Drive mirror: 
-Paper URLs were assembled from three sources:
+- Benchmarks with a paper URL: **100 / 104** (96%)
+- Benchmarks with a curated upstream code/data URL: **77 / 104** (74%)
+- Benchmarks with a corresponding Google Drive mirror: **67 / 104** (64%)
 
-1. **`custom.bib`** (78 entries) — for benchmarks present in the manuscript bibliography
-2. **Manual override map** — for benchmarks not in the bib but verifiable via the arXiv title search or our local PDF library (`Tool来源分布表` annotations)
-3. **Author-confirmed GitHub README pointers** — where the upstream repo links to the paper
+Paper URLs were assembled from `custom.bib`, a manual override map verified
+against the arXiv title search and the local PDF library, and author-confirmed
+upstream-repo pointers.
