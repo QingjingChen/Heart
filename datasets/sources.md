@@ -83,7 +83,7 @@ upstream resources become discoverable. Contributions welcome via the
 | 2 | **HateCheck (2021)** | <https://aclanthology.org/2021.acl-long.4/> | <https://github.com/paul-rottger/hatecheck-data> | [hatecheck](https://drive.google.com/drive/folders/1tef9nBTgdbuzoVh9C7DaqYhVdQ8dlu81) |
 | 3 | **ToxiGen (2022)** | <https://aclanthology.org/2022.acl-long.234/> | <https://github.com/microsoft/ToxiGen> | [toxigen](https://drive.google.com/drive/folders/1UmE-AqjuTRaPwLkX3UgC5EVd8Jy3i8qU) |
 | 4 | **ToxicChat (2023)** | <https://arxiv.org/abs/2310.17389> | <https://huggingface.co/datasets/lmsys/toxic-chat> | [toxic-chat](https://drive.google.com/drive/folders/1Nnp5CcnTpGZHXz-qM8SWfWRDY0t0gq3r) |
-| 5 | **Chinese-Safeguard (2024)** | <https://aclanthology.org/2024.findings-acl.184/> | <https://huggingface.co/datasets/Libr-AI/do-not-answer/tree/main/files/cdna> | — |
+| 5 | **Chinese-Safeguard (2024)** | <https://aclanthology.org/2024.findings-acl.184/> | <[https://huggingface.co/datasets/Libr-AI/do-not-answer/tree/main/files/cdna](https://github.com/Libr-AI/do-not-answer/tree/main/cdna)> | — |
 | 6 | **Do-not-answer (2024)** | <https://arxiv.org/abs/2403.01244> | <https://github.com/Libr-AI/do-not-answer> | [Do not answer](https://drive.google.com/drive/folders/130aFvSdUJ7ecgul3DnbyhthwsQlD0MRM) |
 | 7 | **FFT (2024)** | <https://arxiv.org/abs/2311.18580> | <https://github.com/cuishiyao96/FFT> | [FFT](https://drive.google.com/drive/folders/1mfWAfiBjhCqwoIgxFcFdNCT7HWrRsYfv) |
 | 8 | **HarmBench (2024)** | <https://arxiv.org/abs/2402.04249> | <https://github.com/centerforaisafety/HarmBench> | [HarmBench](https://drive.google.com/drive/folders/1qV4Apl2VxNYcnGYbuy0n4S__6pNFxq4N) |
