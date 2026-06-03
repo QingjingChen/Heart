@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>14 Calibrated Rubrics — HEART</title>
 <link rel="stylesheet" href="assets/main.css">
+<script src="assets/lang.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 <style>
 .layer-tag {
@@ -87,6 +88,46 @@
 .dist-mini span.s3 { background:#E5E7EB; color:#333; }
 .dist-mini span.s4 { background:#67A9CF; }
 .dist-mini span.s5 { background:#2166AC; }
+
+.calib-basis {
+  background: linear-gradient(135deg, #F1F8F5 0%, #E8F2EC 100%);
+  border: 1px solid #B7D7C5;
+  border-left: 4px solid #2E7D32;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 16px 0 4px;
+}
+.calib-basis h4 {
+  margin: 0 0 10px;
+  color: #1B5E20;
+  font-size: 13px;
+}
+.calib-summary { display: grid; gap: 10px; }
+.calib-row {
+  background: rgba(255,255,255,.7);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.calib-row b {
+  display: block;
+  color: #1B5E20;
+  font-size: 11.5px;
+  margin-bottom: 4px;
+  letter-spacing: .3px;
+}
+.ref-list {
+  background: rgba(255,255,255,.65);
+  padding: 8px 12px 8px 28px;
+  border-radius: 4px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.ref-list li { margin: 2px 0; }
+.ref-list a { color: var(--primary); text-decoration: none; font-weight: 500; }
+.ref-list a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -100,13 +141,16 @@
   <a href="rubric_matrix.html">14×14 Index</a>
   <a href="tools.html">14 Tools</a>
   <a href="benches.html">103 Benches</a>
+  <a href="dimensions.html">5 Dimensions</a>
   <a href="mini_cases.html">Mini Cases</a>
+  <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
 <section class="card">
-  <h2>How to read this</h2>
+  <h2><span class="lang-en">How to read this</span><span class="lang-zh">如何阅读</span></h2>
   <p>
-    Bars show the share of the 103 audited benchmarks falling into each score bucket (<b>0 – 5</b>) for the corresponding rubric. Rubrics are grouped by the 3 layers used in the diagnostic codebook (Content Validity / Evaluation Design / Governance Reliability) and sorted by their mean score within each layer. <b>R12 (Robustness vs gaming &amp; contamination)</b> and <b>R14 (Maintenance &amp; update governance)</b> are the two layers with the worst score floor — most public benchmarks have no hidden split, no contamination guard, and no retirement policy. Click any bar to open the calibrated v2 anchor with concrete benchmark examples per score.
+    <span class="lang-en">Each bar shows the share of the 103 audited benchmarks that fall into each score bucket (<b>0–5</b>) for the corresponding rubric. Rubrics are grouped into the 3 audit layers and sorted by mean score within each layer (worst-first). <b>R12 (Robustness vs gaming)</b> and <b>R14 (Maintenance &amp; governance)</b> have the worst score floor — most public benchmarks have no hidden split, no contamination guard, and no retirement policy. <b>Click any bar</b> to open the rubric's full card: key question, v1/v2 anchors with concrete benchmark examples, and the calibration basis (which surveys drove the revision).</span>
+    <span class="lang-zh">每条柱状图表示 103 个被审计的 benchmark 在该 rubric 上的得分分布 (<b>0–5 分</b>)。Rubrics 按 3 大审计层级分组，并在每个层级内按均分由低到高排序。<b>R12（抗作弊与防污染）</b>和 <b>R14（维护与治理）</b>的得分底部最差——大多数公开 benchmark 既没有 hidden split、也没有污染防护和退役机制。<b>点击任意柱状图</b>查看完整 rubric 卡片：关键问题、v1/v2 锚点（含 benchmark 示例）和校准依据（参考了哪些 survey 文献）。</span>
   </p>
   <div class="legend">
     <span><span class="swatch" style="background:#B2182B"></span>0</span>
@@ -115,6 +159,27 @@
     <span><span class="swatch" style="background:#E5E7EB"></span>3</span>
     <span><span class="swatch" style="background:#67A9CF"></span>4</span>
     <span><span class="swatch" style="background:#2166AC"></span>5</span>
+  </div>
+</section>
+
+<section class="callout">
+  <h3><span class="lang-en">The 3 audit layers</span><span class="lang-zh">三大审计维度</span></h3>
+  <div class="layers-row">
+    <div class="layer-cell">
+      <b><span class="lang-en">Content Validity</span><span class="lang-zh">内容有效性</span></b>
+      <span class="muted" style="font-size:11px"><span class="lang-en">What the benchmark claims to measure</span><span class="lang-zh">benchmark 声称在测的是什么</span></span>
+      <div class="layer-rubrics-list" style="margin-top:6px">R1 · R2 · R3 · R4 · R5</div>
+    </div>
+    <div class="layer-cell">
+      <b><span class="lang-en">Evaluation Design</span><span class="lang-zh">评测设计</span></b>
+      <span class="muted" style="font-size:11px"><span class="lang-en">How claims become items + scores</span><span class="lang-zh">声称如何变成题目和分数</span></span>
+      <div class="layer-rubrics-list" style="margin-top:6px">R6 · R7 · R8 · R9 · R10</div>
+    </div>
+    <div class="layer-cell">
+      <b><span class="lang-en">Governance Reliability</span><span class="lang-zh">治理可靠性</span></b>
+      <span class="muted" style="font-size:11px"><span class="lang-en">How it stays auditable and current</span><span class="lang-zh">如何保持可审计和长期有效</span></span>
+      <div class="layer-rubrics-list" style="margin-top:6px">R11 · R12 · R13 · R14</div>
+    </div>
   </div>
 </section>
 
@@ -140,9 +205,13 @@ const LAYER_CLASS = {
 };
 
 let RUBRICS = [];
+let SURVEY_REFS = {};
 
 async function init() {
-  RUBRICS = await fetch('data/rubrics_full.json').then(r=>r.json());
+  [RUBRICS, SURVEY_REFS] = await Promise.all([
+    fetch('data/rubrics_full.json').then(r=>r.json()),
+    fetch('data/survey_refs.json').then(r=>r.json()),
+  ]);
   // sort by layer then by mean asc (worst first within each layer)
   RUBRICS.sort((a,b) => {
     const la = LAYER_ORDER.indexOf(a.layer);
@@ -169,30 +238,40 @@ function buildChart() {
     });
   }
 
-  // shapes: layer separators
+  // shapes: layer separator bands (no in-chart layer text — moved to callout above)
   const shapes = [];
-  let prev_layer = null, prev_idx = -1;
+  const LAYER_BAND = {
+    'Content Validity':'rgba(44,82,130,.06)',
+    'Evaluation Design':'rgba(46,125,50,.06)',
+    'Governance Reliability':'rgba(237,108,2,.06)',
+  };
+  let prev_layer = null;
+  let band_start = 0;
   const annotations = [];
   for (let i=0; i<RUBRICS.length; i++) {
     if (RUBRICS[i].layer !== prev_layer) {
       if (prev_layer !== null) {
         shapes.push({
+          type:'rect', xref:'paper', yref:'y',
+          x0:0, x1:1, y0:band_start-0.5, y1:i-0.5,
+          fillcolor: LAYER_BAND[prev_layer], line:{width:0}, layer:'below',
+        });
+        shapes.push({
           type:'line', xref:'paper', yref:'y',
           x0:0, x1:1, y0:i-0.5, y1:i-0.5,
           line:{color:'#94a3b8', width:1, dash:'dot'}
         });
+        band_start = i;
       }
-      annotations.push({
-        x: -0.18, xref:'paper', y: i, yref:'y',
-        text: `<b>${LAYER_ZH[RUBRICS[i].layer]}<br>${RUBRICS[i].layer}</b>`,
-        showarrow:false,
-        font:{size:9.5, color:'#475569'},
-        align:'left',
-        xanchor:'left',
-      });
       prev_layer = RUBRICS[i].layer;
     }
   }
+  // final band
+  shapes.push({
+    type:'rect', xref:'paper', yref:'y',
+    x0:0, x1:1, y0:band_start-0.5, y1:RUBRICS.length-0.5,
+    fillcolor: LAYER_BAND[prev_layer], line:{width:0}, layer:'below',
+  });
   // mean labels on the right
   for (let i=0; i<RUBRICS.length; i++) {
     annotations.push({
@@ -206,9 +285,9 @@ function buildChart() {
 
   const layout = {
     barmode:'stack',
-    margin:{l:300, r:90, t:20, b:60},
+    margin:{l:220, r:90, t:20, b:60},
     xaxis:{range:[0,100], title:'Share of audited entries (%)', tickfont:{size:10}, gridcolor:'#E5E7EB'},
-    yaxis:{automargin:false, tickfont:{size:10.5}, autorange:'reversed'},
+    yaxis:{automargin:true, tickfont:{size:10.5}, autorange:'reversed'},
     legend:{orientation:'h', y:-0.13, x:0.5, xanchor:'center', font:{size:11}},
     annotations,
     shapes,
@@ -275,14 +354,31 @@ function openRubric(rname) {
   html += `</div>`;
   html += `<div class="muted" style="font-size:11.5px">${escapeHtml(r.distribution_raw)}</div>`;
 
-  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">修订建议 · Calibration notes</h4>`;
-  html += `<div class="section-block">${escapeHtml(r.revision_notes)}</div>`;
+  // === Calibration basis (consolidated bottom block) ===
+  const sourceList = (r.survey_sources || '').split(/[;；,，]/).map(s => s.trim()).filter(Boolean);
+  const refHtml = sourceList.map(key => {
+    const meta = SURVEY_REFS[key];
+    if (meta && meta.url) {
+      return `<li><a href="${meta.url}" target="_blank">${escapeHtml(key)}</a> <span class="muted" style="font-size:11px">— ${escapeHtml(meta.title)} <i>(${escapeHtml(meta.venue || '')})</i></span></li>`;
+    }
+    return `<li>${escapeHtml(key)}</li>`;
+  }).join('');
 
-  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">Survey 文献补充：好/坏 bench 类型</h4>`;
-  html += `<div class="section-block">${escapeHtml(r.survey_good_bad)}</div>`;
-
-  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">Survey 来源</h4>`;
-  html += `<div class="muted">${escapeHtml(r.survey_sources)}</div>`;
+  html += `<div class="calib-basis">
+    <h4>
+      <span class="lang-en">Calibration basis · how this rubric was revised</span>
+      <span class="lang-zh">校准依据 · 这条 rubric 是怎么修订的</span>
+    </h4>
+    <div class="calib-summary">
+      <div class="calib-row"><b><span class="lang-en">Revision summary</span><span class="lang-zh">修订要点</span></b><div>${escapeHtml(r.revision_notes)}</div></div>
+      <div class="calib-row"><b><span class="lang-en">What surveys say is good vs. bad</span><span class="lang-zh">survey 文献中的好/坏 benchmark 类型</span></b><div>${escapeHtml(r.survey_good_bad)}</div></div>
+    </div>
+    <h5 style="margin:14px 0 6px;color:var(--primary);font-size:12.5px">
+      <span class="lang-en">References</span><span class="lang-zh">参考文献</span>
+      <span class="muted" style="font-weight:normal">(${sourceList.length})</span>
+    </h5>
+    <ol class="ref-list">${refHtml}</ol>
+  </div>`;
 
   document.getElementById('modal').innerHTML = html;
   document.getElementById('modal-bg').style.display = 'flex';

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>14×14 Tool×Rubric Index — HEART</title>
 <link rel="stylesheet" href="assets/main.css">
+<script src="assets/lang.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 </head>
 <body>
@@ -18,7 +19,9 @@
   <a href="rubric_matrix.html" class="active">14×14 Index</a>
   <a href="tools.html">14 Tools</a>
   <a href="benches.html">103 Benches</a>
+  <a href="dimensions.html">5 Dimensions</a>
   <a href="mini_cases.html">Mini Cases</a>
+  <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
 <section class="card">
@@ -121,8 +124,9 @@ function buildHeatmap() {
     }
   }
   const layout = {
-    margin:{l:240, r:20, t:20, b:140},
-    xaxis:{side:'top', tickangle:-45, tickfont:{size:10}, fixedrange:true},
+    margin:{l:240, r:20, t:170, b:40},
+    height: 720,
+    xaxis:{side:'top', tickangle:-40, tickfont:{size:11}, fixedrange:true, automargin:true, standoff:8},
     yaxis:{automargin:true, tickfont:{size:11}, fixedrange:true},
     annotations,
     plot_bgcolor:'#FAFBFC',

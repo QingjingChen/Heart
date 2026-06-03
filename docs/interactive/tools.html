@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>14 HEART Workbox Tools</title>
 <link rel="stylesheet" href="assets/main.css">
+<script src="assets/lang.js"></script>
 <style>
 .toolbox-grid {
   display: grid;
@@ -120,6 +121,40 @@
   background: var(--surface);
   white-space: pre-wrap;
 }
+.subtool-card {
+  background: var(--bg);
+  border-left: 3px solid var(--primary-light);
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin: 10px 0;
+  white-space: normal;
+}
+.subtool-card:hover { border-left-color: var(--primary); }
+.subtool-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+.subtool-evi {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 4px;
+}
+.subtool-guide {
+  font-size: 11.5px;
+  color: var(--text);
+  line-height: 1.5;
+  margin: 4px 0 6px;
+  background: rgba(255,255,255,.5);
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+.subtool-guide b { color: var(--primary); font-size: 11px; }
+.subtool-sources { font-size: 11px; margin-top: 6px; }
+.subtool-sources .bench-pill { font-size: 10.5px; padding: 1px 8px; margin: 1px 2px; }
 </style>
 </head>
 <body>
@@ -133,7 +168,9 @@
   <a href="rubric_matrix.html">14×14 Index</a>
   <a href="tools.html" class="active">14 Tools</a>
   <a href="benches.html">103 Benches</a>
+  <a href="dimensions.html">5 Dimensions</a>
   <a href="mini_cases.html">Mini Cases</a>
+  <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
 <section class="card">
@@ -235,18 +272,34 @@ function benchPill(name) {
 function openTool(tid) {
   const t = TOOLS.find(x => x['Tool ID'] === tid);
   if (!t) return;
-  const benchNames = (t['代表来源 / 论文（前10）'] || '').split(';').map(s=>s.trim()).filter(Boolean);
   const subToolEntries = PROMPTS.filter(p => (p['整合工具ID']||'').trim() === tid);
-  // Group: sub_tool_text -> set of source benches
+  // Group: sub_tool_text -> { benches: [{name, type}], evidence, prompt_guide }
   const subToolMap = {};
   for (const e of subToolEntries) {
     const sub = (e['细分工具'] || '').trim();
+    if (!sub) return; // skip unnamed
+    if (!subToolMap[sub]) {
+      subToolMap[sub] = {
+        benches: [],
+        seen: new Set(),
+        evidence: '',
+        prompt_guide: '',
+      };
+    }
+    const slot = subToolMap[sub];
     const bn = (e['Benchmark / Source'] || '').trim();
-    if (!sub) continue;
-    if (!subToolMap[sub]) subToolMap[sub] = new Set();
-    if (bn) subToolMap[sub].add(bn);
+    const mt = (e['匹配类型'] || '').trim();
+    if (bn && !slot.seen.has(bn)) {
+      slot.seen.add(bn);
+      slot.benches.push({ name: bn, type: mt });
+    }
+    // capture first non-empty evidence + prompt guide
+    if (!slot.evidence) slot.evidence = (e['匹配证据'] || '').trim();
+    if (!slot.prompt_guide) slot.prompt_guide = (e['改编Prompt指导'] || '').trim();
   }
-  const subToolList = Object.entries(subToolMap).slice(0, 16);
+  // sort: more sources first
+  const subToolList = Object.entries(subToolMap)
+    .sort((a, b) => b[1].benches.length - a[1].benches.length);
 
   let html = `<span class="close" onclick="closeModal()">×</span>`;
   html += `<h3>${tid} · ${t['Toolbox 英文名']}
@@ -285,20 +338,37 @@ function openTool(tid) {
     <summary>自动化 vs 人工边界 · Auto vs human gating</summary>
     <div class="acc-body"><b>可自动化：</b> ${t['自动化可做部分'] || ''}<br><br><b>需人工治理：</b> ${t['需人工校验/治理部分'] || ''}</div>
   </details>`;
+  // Trim helper for sub-tool cards
+  const trim = (s, n) => {
+    if (!s) return '';
+    // grab first sentence-ish, then truncate
+    const stripped = s.replace(/匹配到[^：:]*[：:]/, '').replace(/基于[^"""]*?["""]/, '').trim();
+    if (stripped.length <= n) return stripped;
+    return stripped.slice(0, n).replace(/[，,。.；;][^，,。.；;]*$/, '') + '…';
+  };
+
+  const totalBenches = subToolList.reduce((s, [_, v]) => s + v.benches.length, 0);
   html += `<details class="acc" open>
-    <summary>Member benches (top 10) · 点击 → 论文</summary>
-    <div class="acc-body">${benchNames.map(benchPill).join(' ')}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary>Sub-tools represented (${subToolList.length}) · 每条带源 benchmark 链接</summary>
-    <div class="acc-body">${subToolList.map(([sub, bnSet]) => {
-      const benches = [...bnSet];
-      const pills = benches.map(bn => benchPill(bn)).join(' ');
-      return `<div style="margin:8px 0;padding:8px 10px;border-left:2px solid var(--primary-light);background:var(--bg);border-radius:3px">
-        <div style="font-size:12.5px;margin-bottom:4px">${sub}</div>
-        <div style="font-size:11px"><span class="muted">来源: </span>${pills || '<span class="muted">—</span>'}</div>
-      </div>`;
-    }).join('')}</div>
+    <summary>Sub-tools × benchmarks (${subToolList.length} sub-tools · ${totalBenches} benches) · click any pill → paper</summary>
+    <div class="acc-body" style="padding:8px 12px">
+      ${subToolList.map(([sub, slot]) => {
+        const benchPills = slot.benches.map(b => {
+          const cls = b.type === '主匹配' ? 'has-url' : '';
+          const tag = b.type === '主匹配' ? '' : '<span style="font-size:9px;color:#888;margin-right:2px">[次]</span>';
+          return tag + benchPill(b.name);
+        }).join(' ');
+        const ev = trim(slot.evidence, 180);
+        const pg = trim(slot.prompt_guide, 140);
+        return `<div class="subtool-card">
+          <div class="subtool-title">${sub}</div>
+          ${ev ? `<div class="subtool-evi">${ev}</div>` : ''}
+          ${pg ? `<div class="subtool-guide"><b>改编要点 · Adaptation:</b> ${pg}</div>` : ''}
+          <div class="subtool-sources">
+            <span class="muted">来源 (${slot.benches.length}): </span>${benchPills || '<span class="muted">—</span>'}
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
   </details>`;
 
   html += `<p class="muted" style="margin-top:10px"><b>局限：</b> ${t['局限 / 避免过度声称'] || ''}</p>`;

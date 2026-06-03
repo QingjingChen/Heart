@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>103 Benches Lookup — HEART</title>
 <link rel="stylesheet" href="assets/main.css">
+<script src="assets/lang.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
 </head>
 <body>
@@ -18,7 +19,9 @@
   <a href="rubric_matrix.html">14×14 Index</a>
   <a href="tools.html">14 Tools</a>
   <a href="benches.html" class="active">103 Benches</a>
+  <a href="dimensions.html">5 Dimensions</a>
   <a href="mini_cases.html">Mini Cases</a>
+  <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
 <section class="card">
@@ -32,13 +35,13 @@
 <section class="card" style="overflow-x:auto">
   <table id="bench-table" class="dt display" style="width:100%">
     <thead><tr>
-      <th>Dimension</th>
+      <th><span class="lang-en">Dimension</span><span class="lang-zh">维度</span></th>
       <th>Benchmark</th>
-      <th>专家标签</th>
-      <th>主整合工具</th>
-      <th>主细分工具</th>
-      <th>次整合工具</th>
-      <th>Rubrics improved</th>
+      <th><span class="lang-en">Expert tag</span><span class="lang-zh">专家标签</span></th>
+      <th><span class="lang-en">Primary tool</span><span class="lang-zh">主整合工具</span></th>
+      <th><span class="lang-en">Primary sub-tool</span><span class="lang-zh">主细分工具</span></th>
+      <th><span class="lang-en">Secondary tool</span><span class="lang-zh">次整合工具</span></th>
+      <th><span class="lang-en">Rubrics improved</span><span class="lang-zh">提升的 rubric</span></th>
       <th>+ Detail</th>
     </tr></thead>
     <tbody></tbody>
@@ -84,7 +87,7 @@ function buildTable() {
     tr.innerHTML = `
       <td>${b['一级标签']||''}</td>
       <td>${benchPill(b['Benchmark / Source'])}</td>
-      <td><span class="muted">${b['专家标签']||''}</span></td>
+      <td>${b['专家标签']?`<span class="expert-tag">${b['专家标签']}</span>`:'<span class="muted">—</span>'}</td>
       <td><b>${(b['主整合工具ID']||'').padEnd(3)}</b><br><span class="muted">${b['主整合工具']||''}</span></td>
       <td style="font-size:12px">${(b['主细分工具']||'').slice(0,140)}${(b['主细分工具']||'').length>140?'…':''}</td>
       <td><b>${b['次整合工具ID']||''}</b><br><span class="muted">${b['次整合工具']||''}</span></td>
@@ -105,7 +108,9 @@ function openDetail(i) {
   const secTool = T_TOOLS.find(t => t['Tool ID'] === b['次整合工具ID']);
   let html = `<span class="close" onclick="closeModal()">×</span>`;
   html += `<h3>${benchPill(b['Benchmark / Source'])} <span class="muted">[${b['一级标签']}]</span></h3>`;
-  html += `<p class="muted"><b>专家标签：</b> ${b['专家标签']||'—'}<br>`;
+  const tagHtml = b['专家标签'] ? `<span class="expert-tag">${b['专家标签']}</span>` : '—';
+  const oldTag = b['专家标签_v1'] && b['专家标签_v1'] !== b['专家标签'] ? ` <span class="muted" style="font-size:11px">(v1: ${b['专家标签_v1']})</span>` : '';
+  html += `<p class="muted"><b><span class="lang-en">Expert tag:</span><span class="lang-zh">专家标签：</span></b> ${tagHtml}${oldTag}<br>`;
   html += `<b>原 representative tool：</b> ${b['原Representative tool']||'—'}<br>`;
   html += `<b>文章特有分类/标签：</b> ${b['文章特有分类/标签结构']||'—'}</p>`;
 

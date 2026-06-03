@@ -5,11 +5,127 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HEART Interactive — Workbox & Rubric Index</title>
 <link rel="stylesheet" href="assets/main.css">
+<script src="assets/lang.js"></script>
+<style>
+/* === Architecture diagram === */
+.arch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 14px 0 4px;
+  position: relative;
+}
+.arch-box {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.arch-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(44,82,130,.12);
+  border-color: var(--primary);
+}
+.arch-box .arch-code {
+  font-size: 11px;
+  letter-spacing: .8px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+.arch-box .arch-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.3;
+}
+.arch-box .arch-zh {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.arch-box ul {
+  margin: 6px 0 0;
+  padding-left: 16px;
+  font-size: 11.5px;
+  color: var(--text);
+  line-height: 1.55;
+}
+.arch-box ul li { margin: 2px 0; }
+.arch-box .links {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+  font-size: 11px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.arch-box .links a {
+  background: #EEF3F9;
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.arch-box .links a:hover { background: var(--primary); color: white; }
+.arch-a { border-top-color: #2C5282; }
+.arch-b { border-top-color: #2E7D32; }
+.arch-c { border-top-color: #C62828; }
+.arch-d { border-top-color: #6A1B9A; }
+.arch-flow {
+  text-align: center;
+  font-family: ui-monospace, monospace;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin: 8px 0 2px;
+  letter-spacing: .5px;
+}
+.arch-flow b { color: var(--primary); }
+@media (max-width: 900px) {
+  .arch-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .arch-grid { grid-template-columns: 1fr; }
+}
+
+/* Stats strip */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 14px 0 6px;
+}
+.stat-box {
+  background: linear-gradient(135deg, #EFF6FB 0%, #E3EEF8 100%);
+  border: 1px solid #B8D4E8;
+  border-radius: 6px;
+  padding: 12px 14px;
+  text-align: center;
+}
+.stat-box .stat-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+}
+.stat-box .stat-label {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+</style>
 </head>
 <body>
 <header>
-  <h1>HEART · Interactive Workbox & Rubric Index</h1>
-  <div class="subtitle">14 canonical repair tools (in 3 rubric layers) × 14 audit rubrics × 103 benchmarks (interactive view)</div>
+  <h1><span class="lang-en">HEART · Interactive Workbox &amp; Rubric Index</span><span class="lang-zh">HEART · 互动版工具箱与 rubric 索引</span></h1>
+  <div class="subtitle"><span class="lang-en">14 canonical repair tools (in 3 rubric layers) × 14 audit rubrics × 5 ethical dimensions × 103 benchmarks</span><span class="lang-zh">14 个规范化修复工具（3 层）× 14 条审计 rubric × 5 个伦理维度 × 103 个 benchmark</span></div>
 </header>
 <nav>
   <a href="index.html" class="active">概览 Overview</a>
@@ -17,31 +133,105 @@
   <a href="rubric_matrix.html">14×14 Index</a>
   <a href="tools.html">14 Tools</a>
   <a href="benches.html">103 Benches</a>
+  <a href="dimensions.html">5 Dimensions</a>
   <a href="mini_cases.html">Mini Cases</a>
+  <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
+
 <section class="card">
-  <h2>What is this</h2>
+  <h2><span class="lang-en">HEART Architecture</span><span class="lang-zh">HEART 系统架构</span></h2>
   <p>
-    The HEART resource turns 103 AI-ethics benchmarks into a compact workbox of <b>14 canonical repair tools</b>
-    (T01–T14) organised by the <b>3 rubric layers</b> used in the diagnostic codebook
-    (<b>内容有效性 Content Validity / 评测设计 Evaluation Design / 治理可靠性 Governance Reliability</b>).
-    Each tool is indexed against the <b>14 audit rubrics</b>; every cell of the index links to the benchmark that
-    proves it. This site is the interactive companion to the HEART_Excel workbook and the resource paper.
+    <span class="lang-en">HEART (Human-centric Ethical Assessment &amp; Revision Toolkit) is a 4-stage pipeline that turns the policy corpus into a workbox of repair tools. Each block is interactive — click through to the corresponding section.</span>
+    <span class="lang-zh">HEART（以人为本的伦理评测与修订工具箱）是一个 4 阶段流水线，把政策语料转化为可操作的修复工具集。每个模块可点击进入对应页面。</span>
   </p>
+
+  <div class="stat-strip">
+    <div class="stat-box"><div class="stat-num">103</div><div class="stat-label"><span class="lang-en">benchmarks audited</span><span class="lang-zh">已审计 benchmark</span></div></div>
+    <div class="stat-box"><div class="stat-num">14</div><div class="stat-label"><span class="lang-en">audit rubrics</span><span class="lang-zh">审计 rubric</span></div></div>
+    <div class="stat-box"><div class="stat-num">14</div><div class="stat-label"><span class="lang-en">repair tools</span><span class="lang-zh">修复工具</span></div></div>
+    <div class="stat-box"><div class="stat-num">5</div><div class="stat-label"><span class="lang-en">ethical dimensions</span><span class="lang-zh">伦理维度</span></div></div>
+    <div class="stat-box"><div class="stat-num">18</div><div class="stat-label"><span class="lang-en">policy sources</span><span class="lang-zh">政策来源</span></div></div>
+  </div>
+
+  <div class="arch-grid">
+
+    <a class="arch-box arch-a" href="dimensions.html">
+      <div class="arch-code">A · INPUTS</div>
+      <div class="arch-title"><span class="lang-en">Policy &amp; Corpus</span><span class="lang-zh">政策语料</span></div>
+      <div class="arch-zh"><span class="lang-en">5 ethical dimensions × 18 policy sources</span><span class="lang-zh">5 伦理维度 × 18 政策来源</span></div>
+      <ul>
+        <li><span class="lang-en">UNESCO, OECD, EU AI Act, GDPR, NIST RMF</span><span class="lang-zh">UNESCO、OECD、EU AI Act、GDPR、NIST RMF</span></li>
+        <li><span class="lang-en">PIPL, AI Bill of Rights, ISO 42001</span><span class="lang-zh">PIPL、AI 权利法案、ISO 42001</span></li>
+        <li><span class="lang-en">Corporate &amp; industry practice</span><span class="lang-zh">集团及行业实践</span></li>
+      </ul>
+      <div class="links">
+        <a href="dimensions.html">5 Dimensions →</a>
+      </div>
+    </a>
+
+    <a class="arch-box arch-b" href="rubrics.html">
+      <div class="arch-code">B · AUDIT</div>
+      <div class="arch-title"><span class="lang-en">Expert Audit</span><span class="lang-zh">专家审计</span></div>
+      <div class="arch-zh"><span class="lang-en">14 calibrated rubrics in 3 layers</span><span class="lang-zh">14 条已校准 rubric × 3 大层级</span></div>
+      <ul>
+        <li><span class="lang-en">Content Validity (R1–R5)</span><span class="lang-zh">内容有效性 (R1–R5)</span></li>
+        <li><span class="lang-en">Evaluation Design (R6–R10)</span><span class="lang-zh">评测设计 (R6–R10)</span></li>
+        <li><span class="lang-en">Governance Reliability (R11–R14)</span><span class="lang-zh">治理可靠性 (R11–R14)</span></li>
+      </ul>
+      <div class="links">
+        <a href="rubrics.html">14 Rubrics →</a>
+        <a href="benches.html">103 Benches →</a>
+      </div>
+    </a>
+
+    <a class="arch-box arch-c" href="rubric_matrix.html">
+      <div class="arch-code">C · SYNTHESIS</div>
+      <div class="arch-title"><span class="lang-en">Gap → Tool Index</span><span class="lang-zh">缺口 → 工具索引</span></div>
+      <div class="arch-zh"><span class="lang-en">14 × 14 evidence-weighted matrix</span><span class="lang-zh">14×14 证据权重矩阵</span></div>
+      <ul>
+        <li><span class="lang-en">Each cell: tool × rubric repair evidence</span><span class="lang-zh">每格：工具 × rubric 的修复证据</span></li>
+        <li><span class="lang-en">Click → strongest benchmark + paper</span><span class="lang-zh">点击 → 最强 benchmark 证据 + 论文</span></li>
+        <li><span class="lang-en">Identifies low-coverage rubrics</span><span class="lang-zh">识别覆盖率最低的 rubric</span></li>
+      </ul>
+      <div class="links">
+        <a href="rubric_matrix.html">14×14 Index →</a>
+      </div>
+    </a>
+
+    <a class="arch-box arch-d" href="tools.html">
+      <div class="arch-code">D · OUTPUTS</div>
+      <div class="arch-title"><span class="lang-en">HEART Workbox</span><span class="lang-zh">HEART 工具箱</span></div>
+      <div class="arch-zh"><span class="lang-en">14 repair tools + adaptation prompts</span><span class="lang-zh">14 修复工具 + 改编 prompt</span></div>
+      <ul>
+        <li><span class="lang-en">Tool cards w/ sub-tools 1-1 to source papers</span><span class="lang-zh">工具卡片，子工具与论文 1-1 对应</span></li>
+        <li><span class="lang-en">Auto-vs-human gating per tool</span><span class="lang-zh">每个工具的自动化 / 人工边界</span></li>
+        <li><span class="lang-en">Mini cases: real revision examples</span><span class="lang-zh">Mini cases：真实改编案例</span></li>
+      </ul>
+      <div class="links">
+        <a href="tools.html">14 Tools →</a>
+        <a href="mini_cases.html">Mini Cases →</a>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="arch-flow">
+    <b>ethical claim</b> &nbsp;→&nbsp; <b>construct</b> &nbsp;→&nbsp; <b>task</b> &nbsp;→&nbsp; <b>metric</b> &nbsp;→&nbsp; <b>governance evidence</b>
+  </div>
 </section>
 
 <section class="card">
-  <h2>The 3 rubric layers and their tools</h2>
+  <h2><span class="lang-en">The 3 rubric layers and their tools</span><span class="lang-zh">三大 rubric 层级与对应工具</span></h2>
   <table class="dt">
     <thead><tr>
-      <th style="width:140px">Layer</th>
-      <th style="width:300px">Rubrics</th>
-      <th>Tools</th>
+      <th style="width:140px"><span class="lang-en">Layer</span><span class="lang-zh">层级</span></th>
+      <th style="width:300px"><span class="lang-en">Rubrics</span><span class="lang-zh">Rubrics</span></th>
+      <th><span class="lang-en">Tools</span><span class="lang-zh">工具</span></th>
     </tr></thead>
     <tbody>
     <tr>
-      <td><b>内容有效性<br>Content Validity</b><br><span class="muted" style="font-size:11px">what the benchmark claims to measure</span></td>
+      <td><b><span class="lang-en">Content Validity</span><span class="lang-zh">内容有效性</span></b><br><span class="muted" style="font-size:11px"><span class="lang-en">what the benchmark claims to measure</span><span class="lang-zh">benchmark 声称在测的是什么</span></span></td>
       <td><span class="muted" style="font-size:12px">R1 Construct clarity · R2 Normative grounding · R3 Source provenance &amp; evidence fitness · R4 Context &amp; stakeholder coverage · R5 Real-world harm linkage</span></td>
       <td>
         <a class="bench-pill" href="tools.html#T01"><b>T01</b> Claim-Construct &amp; Protected-Interest Mapper</a>
@@ -52,7 +242,7 @@
       </td>
     </tr>
     <tr>
-      <td><b>评测设计<br>Evaluation Design</b><br><span class="muted" style="font-size:11px">how claims become items + scores</span></td>
+      <td><b><span class="lang-en">Evaluation Design</span><span class="lang-zh">评测设计</span></b><br><span class="muted" style="font-size:11px"><span class="lang-en">how claims become items + scores</span><span class="lang-zh">声称如何变成题目和分数</span></span></td>
       <td><span class="muted" style="font-size:12px">R6 Scenario validity · R7 Task-format fit · R8 Ground truth &amp; disagreement design · R9 Metric validity · R10 Evaluator reliability</span></td>
       <td>
         <a class="bench-pill" href="tools.html#T04"><b>T04</b> Risk-Tier &amp; Hazard Taxonomy</a>
@@ -64,7 +254,7 @@
       </td>
     </tr>
     <tr>
-      <td><b>治理可靠性<br>Governance Reliability</b><br><span class="muted" style="font-size:11px">how the benchmark stays auditable and current</span></td>
+      <td><b><span class="lang-en">Governance Reliability</span><span class="lang-zh">治理可靠性</span></b><br><span class="muted" style="font-size:11px"><span class="lang-en">how the benchmark stays auditable and current</span><span class="lang-zh">如何保持可审计和长期有效</span></span></td>
       <td><span class="muted" style="font-size:12px">R11 Data &amp; annotation QA · R12 Robustness against gaming &amp; contamination · R13 Documentation &amp; reproducibility · R14 Maintenance &amp; update governance</span></td>
       <td>
         <a class="bench-pill" href="tools.html#T08"><b>T08</b> Multi-Turn &amp; Adversarial Red-Team Protocol</a>
@@ -77,23 +267,10 @@
 </section>
 
 <section class="card">
-  <h2>Quick links</h2>
-  <ul>
-    <li><a href="rubrics.html">14 audit rubrics</a> — calibrated rubric definitions with key questions, v1/v2 anchors, score distributions across 103 benchmarks, and revision notes (click any bar to drill down).</li>
-    <li><a href="rubric_matrix.html">14×14 interactive index</a> — click any cell to see how a tool lifts a rubric, with the strongest benchmark evidence (paper link).</li>
-    <li><a href="tools.html">Toolbox UI</a> — 14 tool cards as collapsible cards organised by the 3 rubric layers.</li>
-    <li><a href="benches.html">103 benchmark lookup</a> — searchable, shows the expert label (refined from manual labels) and the primary &amp; secondary canonical tool that this benchmark maps to.</li>
-    <li><a href="mini_cases.html">5 mini cases</a> — <b>real-data</b> adaptation examples from BBQ / XSTest / FreshQA / PrivacyLens / CounselBench-Adv, each with the original item (entry ID), HEART-revised version, applied tools, lifted rubrics, and detailed why-improved explanations.</li>
-  </ul>
-</section>
-
-<section class="card">
-  <h2>Data sources</h2>
+  <h2><span class="lang-en">Data sources</span><span class="lang-zh">数据来源</span></h2>
   <p class="muted">
-    Source workbook: <code>HEART_Excel_含原始与修订_整合压缩.xlsx</code>. All data on this site is loaded from JSON files
-    under <code>data/</code>; nothing is generated at runtime. The 18 originally-blank expert labels were filled via Qwen
-    using each benchmark's representative tool + tool explanation + adaptation example as context, then committed back to
-    the bench mapping JSON.
+    <span class="lang-en">Source workbook: <code>HEART_Excel_含原始与修订_整合压缩.xlsx</code>. All data on this site is loaded from JSON files under <code>data/</code>; nothing is generated at runtime. Expert labels for each benchmark are LLM-polished into 6-12 字 noun-phrase tags and rendered as chips on the 103-bench page.</span>
+    <span class="lang-zh">源 workbook：<code>HEART_Excel_含原始与修订_整合压缩.xlsx</code>。本站所有数据均由 <code>data/</code> 下的 JSON 文件加载，无运行时生成。各 benchmark 的"专家标签"由 LLM 统一润色成 6-12 字名词短语，并以 chip 形式渲染在 103-bench 页。</span>
   </p>
 </section>
 </main>
