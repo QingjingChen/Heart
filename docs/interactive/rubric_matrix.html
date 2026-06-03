@@ -7,6 +7,49 @@
 <link rel="stylesheet" href="assets/main.css">
 <script src="assets/lang.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+.prescription-bar {
+  background: linear-gradient(135deg, #EFF6FB 0%, #E1ECF5 100%);
+  border: 1px solid #B8D4E8;
+  border-left: 4px solid #1565C0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 10px 0 0;
+}
+.prescription-bar > b {
+  display: block;
+  font-size: 11.5px;
+  color: #0D47A1;
+  margin-bottom: 6px;
+  letter-spacing: .3px;
+}
+.prescription-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 6px; }
+.prescription-pill {
+  background: rgba(255,255,255,.85);
+  border: 1px solid #B8D4E8;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11.5px;
+  color: #0D47A1;
+  text-decoration: none;
+  font-weight: 600;
+}
+.prescription-pill.primary { border-color: #1565C0; background: #1565C0; color: white; }
+.prescription-pill.secondary { background: rgba(255,255,255,.85); }
+.prescription-pill.self { outline: 2px solid #FF6F00; outline-offset: 1px; }
+.prescription-pill:hover { background: #BBDEFB; color: #0D47A1; }
+.prescription-pill.primary:hover { background: #0D47A1; color: white; }
+.prescription-status {
+  font-size: 11.5px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  margin-top: 2px;
+  line-height: 1.5;
+}
+.prescription-status.prim { background: rgba(46,125,50,.1); color: #1B5E20; }
+.prescription-status.sec  { background: rgba(245,124,0,.1); color: #E65100; }
+.prescription-status.oth  { background: rgba(0,0,0,.05); color: var(--text-muted); }
+</style>
 </head>
 <body>
 <header>
@@ -66,17 +109,19 @@ const RUBRIC_NAMES = [
 ];
 const TOOL_IDS = ["T01","T02","T03","T04","T05","T06","T07","T08","T09","T10","T11","T12","T13","T14"];
 
+let PRESCRIPTION = {};
 async function loadData() {
-  const [tools, rubricIdx, matrix, benchUrls, benchMap, prompts] = await Promise.all([
+  const [tools, rubricIdx, matrix, benchUrls, benchMap, prompts, pres] = await Promise.all([
     fetch('data/t_tools.json').then(r=>r.json()),
     fetch('data/rubric_index.json').then(r=>r.json()),
     fetch('data/matrix.json').then(r=>r.json()),
     fetch('data/bench_urls.json').then(r=>r.json()),
     fetch('data/bench_map.json').then(r=>r.json()),
     fetch('data/prompts.json').then(r=>r.json()),
+    fetch('data/rubric_to_tool_prescription.json').then(r=>r.json()),
   ]);
   TOOLS = tools; RUBRIC_INDEX = rubricIdx; MATRIX = matrix; BENCH_URLS = benchUrls;
-  BENCH_MAP = benchMap; PROMPTS = prompts;
+  BENCH_MAP = benchMap; PROMPTS = prompts; PRESCRIPTION = pres;
   buildHeatmap();
 }
 
@@ -159,9 +204,38 @@ function openCell(toolId, rubric, score) {
     ((p['索引用rubrics（该匹配，精简）']||'').includes(rubric))
   ).slice(0, 4);
 
+  // Rubric code (e.g. R1) from name
+  const rubricCode = (() => {
+    const idx = RUBRIC_NAMES.indexOf(rubric);
+    return idx >= 0 ? `R${idx+1}` : null;
+  })();
+
   let html = `<span class="close" onclick="closeModal()">×</span>`;
   html += `<h3>${toolId} · ${tool ? tool['Toolbox 英文名'] : ''} <span class="muted">(${tool ? tool['中文译名'] : ''})</span></h3>`;
-  html += `<div class="muted">Rubric: <b>${rubric}</b> · Evidence weight: <b>${score.toFixed(1)}</b></div>`;
+  html += `<div class="muted"><b>${rubricCode||''}</b> ${rubric} · <span class="lang-en">Evidence weight:</span><span class="lang-zh">证据权重：</span> <b>${score.toFixed(1)}</b></div>`;
+
+  // Rubric → default-tool prescription block (from doc04, applied to web 14-tool)
+  if (rubricCode && PRESCRIPTION[rubricCode]) {
+    const defaults = PRESCRIPTION[rubricCode].default_tools_web14 || [];
+    const docIds = PRESCRIPTION[rubricCode].default_tools_doc16 || [];
+    const isDefault = defaults.length && defaults[0] === toolId;
+    const inList = defaults.includes(toolId);
+    const tags = defaults.map((tid, i) => {
+      const isThis = tid === toolId;
+      const role = i === 0 ? 'primary' : 'secondary';
+      return `<a href="tools.html#${tid}" class="prescription-pill ${role} ${isThis?'self':''}">${tid}${i===0?' ★':''}</a>`;
+    }).join(' ');
+    html += `<div class="prescription-bar">
+      <b><span class="lang-en">Default tools for ${rubricCode}</span><span class="lang-zh">${rubricCode} 默认工具</span></b>
+      <div class="prescription-pills">${tags}</div>
+      <div class="prescription-status ${isDefault?'prim':inList?'sec':'oth'}">
+        ${isDefault ? `<span class="lang-en">${toolId} is the <b>primary</b> default tool for ${rubricCode}.</span><span class="lang-zh">${toolId} 是 ${rubricCode} 的<b>主</b>默认工具。</span>` :
+          inList ? `<span class="lang-en">${toolId} is a <b>secondary</b> default tool for ${rubricCode}.</span><span class="lang-zh">${toolId} 是 ${rubricCode} 的<b>辅助</b>默认工具。</span>` :
+          `<span class="lang-en">${toolId} is <b>not</b> on the default-tool list for ${rubricCode}; this cell's positive evidence comes from cross-cutting use.</span><span class="lang-zh">${toolId} 不在 ${rubricCode} 的默认工具列表上；本格的证据来自跨主题的复用。</span>`}
+      </div>
+      ${docIds.length ? `<div class="muted" style="font-size:10.5px;margin-top:3px"><span class="lang-en">Internal doc-16 IDs:</span><span class="lang-zh">内部 doc-16 ID：</span> ${docIds.join(', ')}</div>` : ''}
+    </div>`;
+  }
   html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
 
   if (entries.length === 0) {

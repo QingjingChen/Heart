@@ -1,0 +1,37 @@
+{
+  "note": "Mapping from internal doc 16-tool standardized decomposition (docs 01-05) to the public web 14-tool canonical set. The web treats the 14-tool form as the public-facing canonical structure; the doc's 16-tool form is the internal expanded decomposition useful for fine-grained attribution.",
+  "doc_to_web": {
+    "T1":  { "web_tool_id": "T01", "web_name": "Claim-Construct & Protected-Interest Mapper", "merge_with": ["T4"], "note": "T1 + T4 (Harm-Pathway Mapping) collapse into T01" },
+    "T2":  { "web_tool_id": "T02", "web_name": "Normative Source & Decision-Boundary Ledger", "merge_with": [], "note": "1-1" },
+    "T3":  { "web_tool_id": "T10", "web_name": "Evidence & Claim Verification Pipeline", "merge_with": [], "note": "1-1 (web renames Evidence Provenance → Evidence & Claim Verification)" },
+    "T4":  { "web_tool_id": "T01", "web_name": "Claim-Construct & Protected-Interest Mapper", "merge_with": ["T1"], "note": "Harm-Pathway Mapping merged into Claim-Construct & Protected-Interest Mapper" },
+    "T5":  { "web_tool_id": "T03", "web_name": "Scenario-Stakeholder-Information-Flow Template", "merge_with": ["T8"], "note": "T5 (Stakeholder-Scenario Expansion, with T5a/T5b subtypes) + T8 (Contextual Integrity) merged into T03" },
+    "T6":  { "web_tool_id": "T05", "web_name": "Cultural & Cross-Lingual Adaptation Protocol", "merge_with": [], "note": "1-1" },
+    "T7":  { "web_tool_id": "T04", "web_name": "Risk-Tier & Hazard Taxonomy", "merge_with": [], "note": "1-1" },
+    "T8":  { "web_tool_id": "T03", "web_name": "Scenario-Stakeholder-Information-Flow Template", "merge_with": ["T5"], "note": "Contextual Integrity / Information-Flow Modeling merged into T03" },
+    "T9":  { "web_tool_id": "T06", "web_name": "Contrast-Set Builder", "merge_with": [], "note": "1-1 (T9a/T9b/T9c subtypes preserved within T06)" },
+    "T10": { "web_tool_id": "T08", "web_name": "Multi-Turn & Adversarial Red-Team Protocol", "merge_with": [], "note": "1-1" },
+    "T11": { "web_tool_id": "T09", "web_name": "Agent & Workflow Simulation", "merge_with": [], "note": "1-1" },
+    "T12": { "web_tool_id": "T12", "web_name": "Rubric-Based & Multi-Judge Evaluation Protocol", "merge_with": ["T13", "T14"], "note": "Label Structure & Disagreement Protocol merged into T12" },
+    "T13": { "web_tool_id": "T12", "web_name": "Rubric-Based & Multi-Judge Evaluation Protocol", "merge_with": ["T12", "T14"], "note": "Rubric-based Scoring merged into T12" },
+    "T14": { "web_tool_id": "T12", "web_name": "Rubric-Based & Multi-Judge Evaluation Protocol", "merge_with": ["T12", "T13"], "note": "Evaluator Calibration & Multi-rater Aggregation merged into T12" },
+    "T15": { "web_tool_id": "T11", "web_name": "Multi-Metric Failure-Mode Profile", "merge_with": [], "note": "1-1" },
+    "T16": { "web_tool_id": ["T13", "T14"], "web_name": "Reproducible Evaluation & Benchmark Card Package + Lifecycle/Hidden-Split/Contamination Governance", "merge_with": [], "note": "T16 unpacks into web T13 (T16a, T16c: dataset QA + docs) and web T14 (T16b, T16d: anti-gaming + lifecycle)" }
+  },
+  "web_to_doc": {
+    "T01": { "doc_tool_ids": ["T1", "T4"], "doc_names": ["Claim-Construct Alignment", "Protected-Interest & Harm-Pathway Mapping"], "collapse_reason": "Both target the upstream content-validity layer: T01 clarifies what is being claimed (T1) and links it to the protected interest / harm pathway (T4)." },
+    "T02": { "doc_tool_ids": ["T2"], "doc_names": ["Normative Source Ledger"], "collapse_reason": "1-1; web adds explicit decision-boundary framing." },
+    "T03": { "doc_tool_ids": ["T5", "T8"], "doc_names": ["Stakeholder-Scenario Expansion", "Contextual Integrity / Information-Flow Modeling"], "collapse_reason": "T5 + T8 are usually co-applied (scenarios need information-flow framing, esp. for privacy). T5a/T5b and the information-flow schema are preserved as subsections within T03." },
+    "T04": { "doc_tool_ids": ["T7"], "doc_names": ["Risk-tier & Risk Modifier Taxonomy"], "collapse_reason": "1-1; web renames Risk-tier → Risk-Tier & Hazard Taxonomy." },
+    "T05": { "doc_tool_ids": ["T6"], "doc_names": ["Cultural / Jurisdictional Adaptation Protocol"], "collapse_reason": "1-1; web emphasises Cross-Lingual to make the language axis explicit." },
+    "T06": { "doc_tool_ids": ["T9"], "doc_names": ["Contrast Set Builder"], "collapse_reason": "1-1; T9a/T9b/T9c are preserved as internal subtypes." },
+    "T07": { "doc_tool_ids": [], "doc_names": [], "collapse_reason": "Web-only construct: Behavioural Coverage Matrix. Not in doc's 16. Spans CheckList-style behavioural testing + the coverage view that the doc folds into T5/T9. Retained for cases where coverage is the primary deliverable rather than the means." },
+    "T08": { "doc_tool_ids": ["T10"], "doc_names": ["Multi-turn Red Teaming"], "collapse_reason": "1-1; web emphasises Adversarial Red-Team Protocol." },
+    "T09": { "doc_tool_ids": ["T11"], "doc_names": ["Agent / Workflow Simulation"], "collapse_reason": "1-1." },
+    "T10": { "doc_tool_ids": ["T3"], "doc_names": ["Evidence Provenance & Fitness Check"], "collapse_reason": "1-1; web adds Claim Verification Pipeline framing for trustworthiness/factuality benches." },
+    "T11": { "doc_tool_ids": ["T15"], "doc_names": ["Multi-metric Profile & Failure-mode Reporting"], "collapse_reason": "1-1." },
+    "T12": { "doc_tool_ids": ["T12", "T13", "T14"], "doc_names": ["Label Structure & Disagreement Protocol", "Rubric-based Scoring", "Evaluator Calibration & Multi-rater Aggregation"], "collapse_reason": "Web folds the three label/scoring/judge tools into one Rubric-Based & Multi-Judge Evaluation Protocol because in practice label structure + scoring rubric + judge calibration ship as one evaluation package; the doc preserves the finer split for internal source-attribution." },
+    "T13": { "doc_tool_ids": ["T16a", "T16c"], "doc_names": ["Dataset construction and annotation QA", "Documentation and reproducibility"], "collapse_reason": "Doc's T16 governance package is split in the web into two: T13 (Reproducible Evaluation & Benchmark Card Package) takes T16a + T16c." },
+    "T14": { "doc_tool_ids": ["T16b", "T16d"], "doc_names": ["Anti-gaming and contamination control", "Lifecycle maintenance and update governance"], "collapse_reason": "T14 (Lifecycle, Hidden-Split & Contamination Governance) takes T16b + T16d from doc T16." }
+  }
+}

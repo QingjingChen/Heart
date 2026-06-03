@@ -135,6 +135,73 @@
 .ref-list li { margin: 2px 0; }
 .ref-list a { color: var(--primary); text-decoration: none; font-weight: 500; }
 .ref-list a:hover { text-decoration: underline; }
+
+/* Gap detection card */
+.gd-card {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 1px solid #F2D78E;
+  border-left: 4px solid #B45309;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+.gd-block { margin-top: 8px; }
+.gd-block b { display: block; color: #7C5306; font-size: 11.5px; margin-bottom: 4px; letter-spacing: .3px; }
+.gd-bullets {
+  margin: 4px 0 0;
+  padding-left: 20px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.gd-bullets li { margin: 2px 0; }
+.gd-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.gd-chip {
+  background: rgba(255,255,255,.75);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  color: #5D4037;
+  border: 1px solid #F2D78E;
+}
+.gd-domain-list { display: grid; gap: 3px; font-size: 11.5px; line-height: 1.45; }
+.gd-domain-list .gd-domain-name { font-weight: 600; color: #7C5306; font-size: 11px; }
+.gd-score { display: grid; gap: 4px; }
+.gd-score-row { display: flex; gap: 8px; align-items: flex-start; font-size: 11.5px; line-height: 1.45; }
+.gd-score-num {
+  flex-shrink: 0;
+  width: 22px; height: 22px;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.gd-sc-0 { background: #B2182B; }
+.gd-sc-1 { background: #EF6548; }
+.gd-sc-2 { background: #FDB863; color: #333; }
+.gd-sc-3 { background: #2166AC; }
+
+/* Boundary clarification card */
+.boundary-card {
+  background: linear-gradient(135deg, #EFF6FB 0%, #E1ECF5 100%);
+  border: 1px solid #B8D4E8;
+  border-left: 4px solid #1565C0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 16px 0;
+}
+.bd-pair {
+  background: rgba(255,255,255,.7);
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin: 6px 0;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.bd-pair-head { font-size: 12px; color: #0D47A1; margin-bottom: 4px; }
+.bd-pair-body { color: var(--text); }
+.bd-pair-eg { margin-top: 4px; font-size: 11.5px; color: var(--text-muted); }
+.bd-pair-eg b { color: #0D47A1; }
 </style>
 </head>
 <body>
@@ -212,12 +279,16 @@ const LAYER_CLASS = {
 let RUBRICS = [];
 let SURVEY_REFS = {};
 let CALIB = {};
+let BOUNDARIES = null;
+let GAP_DETECT = {};
 
 async function init() {
-  [RUBRICS, SURVEY_REFS, CALIB] = await Promise.all([
+  [RUBRICS, SURVEY_REFS, CALIB, BOUNDARIES, GAP_DETECT] = await Promise.all([
     fetch('data/rubrics_full.json').then(r=>r.json()),
     fetch('data/survey_refs.json').then(r=>r.json()),
     fetch('data/rubric_calibration.json').then(r=>r.json()),
+    fetch('data/rubric_boundaries.json').then(r=>r.json()),
+    fetch('data/gap_detection.json').then(r=>r.json()),
   ]);
   // sort by layer then by mean asc (worst first within each layer)
   RUBRICS.sort((a,b) => {
@@ -343,6 +414,76 @@ function openRubric(rname) {
     if (pct > 0) html += `<span class="s${s}" style="width:${pct}%" title="Score ${s}: ${r.counts[s]} (${pct.toFixed(1)}%)">${pct>5 ? r.counts[s] : ''}</span>`;
   }
   html += `</div>`;
+
+  // 3.5 Gap detection card (typical symptoms, red flags, evidence to inspect, simple scoring)
+  const gd = GAP_DETECT[r.code];
+  if (gd && !gd.error) {
+    const symptoms = `
+      <p style="margin:0 0 8px"><span class="lang-en">${escapeHtml(gd.typical_symptoms_en||'')}</span><span class="lang-zh">${escapeHtml(gd.typical_symptoms_zh||'')}</span></p>`;
+    const redFlags = (gd.red_flags_en && gd.red_flags_en.length)
+      ? `<div class="gd-block">
+          <b><span class="lang-en">Red flags</span><span class="lang-zh">典型红旗</span></b>
+          <ul class="gd-bullets lang-en">${gd.red_flags_en.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>
+          <ul class="gd-bullets lang-zh">${(gd.red_flags_zh||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>
+        </div>` : '';
+    const evidence = (gd.evidence_to_inspect && gd.evidence_to_inspect.length)
+      ? `<div class="gd-block">
+          <b><span class="lang-en">Evidence to inspect</span><span class="lang-zh">需检查的材料</span></b>
+          <div class="gd-chips">${gd.evidence_to_inspect.map(x=>`<span class="gd-chip">${escapeHtml(x)}</span>`).join('')}</div>
+        </div>` : '';
+    const dq = (gd.diagnostic_questions_en && gd.diagnostic_questions_en.length)
+      ? `<details style="margin-top:8px"><summary style="cursor:pointer;color:var(--primary);font-size:12px;font-weight:600"><span class="lang-en">Diagnostic questions</span><span class="lang-zh">诊断问题</span></summary>
+        <ul class="gd-bullets lang-en">${gd.diagnostic_questions_en.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>
+        <ul class="gd-bullets lang-zh">${(gd.diagnostic_questions_zh||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>
+      </details>` : '';
+    const domains = gd.domain_symptoms ? Object.entries(gd.domain_symptoms).filter(([k,v])=>v && v.trim()) : [];
+    const domSection = domains.length
+      ? `<div class="gd-block">
+          <b><span class="lang-en">Domain-specific symptoms</span><span class="lang-zh">领域化症状</span></b>
+          <div class="gd-domain-list">${domains.map(([k,v])=>`<div><span class="gd-domain-name">${escapeHtml(k)}:</span> ${escapeHtml(v)}</div>`).join('')}</div>
+        </div>` : '';
+    const score = gd.scoring_simple
+      ? `<div class="gd-block">
+          <b><span class="lang-en">Simple 0–3 scoring</span><span class="lang-zh">简化 0–3 评分</span></b>
+          <div class="gd-score">
+            ${[0,1,2,3].map(n=>`<div class="gd-score-row"><span class="gd-score-num gd-sc-${n}">${n}</span><span>${escapeHtml(gd.scoring_simple[n]||gd.scoring_simple[String(n)]||'')}</span></div>`).join('')}
+          </div>
+        </div>` : '';
+    const mis = gd.common_misdiagnosis_en
+      ? `<div class="gd-block">
+          <b><span class="lang-en">Common misdiagnosis</span><span class="lang-zh">常见误判</span></b>
+          <p style="margin:4px 0"><span class="lang-en">${escapeHtml(gd.common_misdiagnosis_en)}</span><span class="lang-zh">${escapeHtml(gd.common_misdiagnosis_zh||'')}</span></p>
+        </div>` : '';
+    html += `<div class="gd-card">
+      <h4 style="margin:0 0 6px;color:#7C5306;font-size:13px"><span class="lang-en">Gap detection · how to spot this</span><span class="lang-zh">如何识别这条 gap · 问诊指南</span></h4>
+      ${symptoms}${redFlags}${evidence}${domSection}${mis}${score}${dq}
+    </div>`;
+  }
+
+  // 3.6 Boundary clarification (if this rubric is part of a confusable pair)
+  if (BOUNDARIES && BOUNDARIES.pairs) {
+    const myPairs = BOUNDARIES.pairs.filter(p => p.left === r.code || p.right === r.code);
+    if (myPairs.length) {
+      html += `<div class="boundary-card">
+        <h4 style="margin:0 0 6px;color:#0D47A1;font-size:13px"><span class="lang-en">Boundary vs. nearby rubrics</span><span class="lang-zh">与相邻 rubric 的边界</span></h4>
+        ${myPairs.map(p => {
+          const other = p.left === r.code ? `${p.right} ${p.right_name}` : `${p.left} ${p.left_name}`;
+          return `<div class="bd-pair">
+            <div class="bd-pair-head"><b>${p.left} ${p.left_name}</b> <span class="muted">vs.</span> <b>${p.right} ${p.right_name}</b></div>
+            <div class="bd-pair-body">
+              <span class="lang-en">${escapeHtml(p.core_difference_en)}</span>
+              <span class="lang-zh">${escapeHtml(p.core_difference_zh)}</span>
+            </div>
+            <div class="bd-pair-eg">
+              <b><span class="lang-en">Example:</span><span class="lang-zh">例子：</span></b>
+              <span class="lang-en">${escapeHtml(p.example_en)}</span>
+              <span class="lang-zh">${escapeHtml(p.example_zh)}</span>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>`;
+    }
+  }
 
   // 4. Consolidated Calibration & Anchors block
   const sourceList = (r.survey_sources || '').split(/[;；,，]/).map(s => s.trim()).filter(Boolean);

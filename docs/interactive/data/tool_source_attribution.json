@@ -1,0 +1,688 @@
+{
+  "T07": {
+    "web_tool_id": "T07",
+    "web_tool_name": "Behavioral Coverage Matrix",
+    "consolidates_doc_tools": [],
+    "source_attribution": [],
+    "note": "Web-only construct; no direct doc 16-tool ancestry."
+  },
+  "T04": {
+    "web_tool_id": "T04",
+    "web_tool_name": "Risk-Tier & Hazard Taxonomy",
+    "consolidates_doc_tools": [
+      "T7"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "XSTest",
+        "domain": "safety / refusal",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides a mechanism to distinguish safe-but-sensitive requests from truly unsafe ones, enabling granular risk-tiered evaluation instead of blanket refusal.",
+        "contribution_zh": "提供区分‘安全但敏感’请求与真正不安全请求的机制，支撑基于风险等级的细粒度评估，避免一刀切拒绝。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "HarmBench",
+        "domain": "safety",
+        "contribution_type": "provides taxonomy",
+        "contribution_en": "Provides a standardized, behavior-level taxonomy of harmful categories that informs the hazard classification dimension of T04.",
+        "contribution_zh": "提供标准化、行为层面的有害行为分类体系，为T04的危害分类维度提供结构化依据。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "TrustLLM",
+        "domain": "trustworthiness / safety",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the conceptual decomposition of safety into sub-dimensions (e.g., jailbreak, misuse, exaggerated safety), reinforcing the need for tiered risk treatment within safety evaluation.",
+        "contribution_zh": "支持将安全性解构为越狱、滥用、过度安全等子维度，强化了在安全评估中实施分层风险处置的理论必要性。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "Psychological / medical / legal benchmarks",
+        "domain": "professional advice",
+        "contribution_type": "motivates",
+        "contribution_en": "Motivates risk-tiering by demonstrating that high-stakes professional domains require escalation protocols tied to severity, urgency, and user vulnerability.",
+        "contribution_zh": "通过证明高风险专业领域（如心理、医疗、法律）需依据严重性、紧迫性及用户脆弱性启动升级响应，驱动了风险等级划分的必要性。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "HEART draft",
+        "domain": "over-refusal construct-separation",
+        "contribution_type": "HEART adaptation",
+        "contribution_en": "Adapts XSTest’s safe-vs-unsafe distinction into a unified risk-tier and hazard taxonomy framework integrated with labeling, scoring, and reporting logic.",
+        "contribution_zh": "将XSTest的‘安全vs不安全’区分适配为统一的风险等级与危害分类框架，并与标注、评分和报告逻辑协同整合。",
+        "evidence_strength": "strong"
+      }
+    ]
+  },
+  "T08": {
+    "web_tool_id": "T08",
+    "web_tool_name": "Multi-Turn & Adversarial Red-Team Protocol",
+    "web_tool_zh": "多轮与对抗红队协议",
+    "consolidates_doc_tools": [
+      "T10"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "HH-RedTeam",
+        "domain": "safety",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides human-red-teaming methodology and diverse harmful prompt trajectories that ground the multi-turn adversarial protocol.",
+        "contribution_zh": "提供了人工红队方法论及多样化的有害提示轨迹，为多轮对抗协议提供基础机制。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "HarmBench",
+        "domain": "safety",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the protocol with standardized harmful behavior categories, enabling systematic targeting of boundary violations across turns.",
+        "contribution_zh": "通过标准化的有害行为分类，支持该协议在多轮中系统性定位边界违规。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "JailbreakBench",
+        "domain": "jailbreak",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies structured adversarial evaluation with turn-aware jailbreak templates, informing the escalation and boundary-check phases.",
+        "contribution_zh": "以结构化越狱评估为范例，其轮次感知的越狱模板启发了升级与边界检查阶段的设计。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "ToxicChat",
+        "domain": "conversational safety",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies realistic, multi-turn user interactions involving toxicity and safety trade-offs, grounding the protocol in authentic conversational dynamics.",
+        "contribution_zh": "以真实多轮用户交互（含毒性与安全权衡）为范例，使协议扎根于真实的对话动态。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "Adversarial safety benchmarks",
+        "domain": "safety",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the necessity of hidden/refreshed attack sets and dynamic testing—core principles embedded in the protocol’s anti-gaming and contamination control design.",
+        "contribution_zh": "支撑了隐藏/动态更新攻击集与动态测试的必要性——这些是本协议反博弈与防污染设计的核心原则。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "HEART",
+        "domain": "safety governance",
+        "contribution_type": "HEART adaptation",
+        "contribution_en": "Adapts HEART’s safety/tool extraction logic—including red-teaming, harm categorization, and anti-contamination requirements—into an integrated multi-turn adversarial protocol.",
+        "contribution_zh": "将HEART的安全/工具提取逻辑（包括红队、危害分类及反污染要求）适配整合为统一的多轮对抗协议。",
+        "evidence_strength": "strong"
+      }
+    ]
+  },
+  "T05": {
+    "web_tool_id": "T05",
+    "web_tool_name": "Cultural & Cross-Lingual Adaptation Protocol",
+    "web_tool_zh": "文化与跨语言适配流程",
+    "consolidates_doc_tools": [
+      "T6"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "BBQ",
+        "domain": "fairness/bias",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides the core ambiguous/disambiguated contrast mechanism for detecting stereotyped reasoning.",
+        "contribution_zh": "提供了用于检测刻板化推理的核心模糊/消歧对比机制。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "CBBQ",
+        "domain": "Chinese fairness",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies cultural adaptation of BBQ by re-grounding ageism in Chinese service contexts (e.g., elderly customers questioning staff), not US race-based anchors.",
+        "contribution_zh": "以中文服务场景中的年龄偏见（如老年用户反复询问工作人员）替代美国基于种族的刻板锚点，示范了BBQ的文化适配。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "KoBBQ",
+        "domain": "Korean fairness",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies adaptation to Korean identity axes, such as regional dialect, generational hierarchy, and employment status, validating T6’s cross-jurisdictional flexibility.",
+        "contribution_zh": "通过适配韩国本土身份轴（如地域方言、代际等级、雇佣状态）验证了T6在跨法域场景中的适用性。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "BharatBBQ",
+        "domain": "Indian fairness",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies multilingual and multi-identity adaptation, showing how T6 handles layered social categories (caste, language, religion) absent in original BBQ.",
+        "contribution_zh": "示范了多语言与多重身份轴（种姓、语言、宗教）的适配，展现了T6对原BBQ中缺失的复杂社会类别的处理能力。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "PRISM",
+        "domain": "pluralistic values",
+        "contribution_type": "supports",
+        "contribution_en": "Provides empirical evidence that value trade-offs and preference structures vary significantly across cultures, grounding T6’s requirement for local normative calibration.",
+        "contribution_zh": "提供了跨文化价值权衡与偏好结构差异的实证依据，支撑T6要求本地化规范校准的必要性。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "NaVAB",
+        "domain": "national value alignment",
+        "contribution_type": "supports",
+        "contribution_en": "Highlights systematic national-level divergence in ethical alignment priorities, motivating T6’s insistence on jurisdiction-specific evidence and normative sourcing.",
+        "contribution_zh": "揭示了伦理对齐优先级存在系统性国别差异，支撑T6强调需采用法域特异性证据与规范来源的立场。",
+        "evidence_strength": "medium"
+      }
+    ]
+  },
+  "T06": {
+    "web_tool_id": "T06",
+    "web_tool_name": "Contrast-Set Builder",
+    "web_tool_zh": "对照集构造器",
+    "consolidates_doc_tools": [
+      "T9"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "BBQ",
+        "domain": "fairness/bias",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides the ambiguous/disambiguated contrast mechanism for testing model reasoning under information sufficiency.",
+        "contribution_zh": "提供了信息充分性/不充分性下的消歧对照机制，用于检验模型在模糊情境中的推理能力。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "XSTest",
+        "domain": "safety/refusal",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides the safe/unsafe + over-refusal contrast mechanism to distinguish harmful compliance from excessive refusal.",
+        "contribution_zh": "提供了安全/危险意图与过度拒答的对照机制，用以区分有害服从与过度拒绝行为。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "Raji et al. 2021",
+        "domain": "behavioral testing",
+        "contribution_type": "motivates",
+        "contribution_en": "Motivates the shift from aggregate benchmarking to behavioral, counterfactual, and disaggregated evaluation of model decisions.",
+        "contribution_zh": "推动了从整体式基准测试向基于行为、反事实和分组拆解的模型决策评估范式的转变。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "CheckList",
+        "domain": "behavioral testing",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the core idea of invariance and directional expectations as foundations for behavioral stress-testing.",
+        "contribution_zh": "为行为压力测试中不变性与方向性预期的核心思想提供了理论与方法支撑。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "CrowS-Pairs",
+        "domain": "stereotype",
+        "contribution_type": "provides examples",
+        "contribution_en": "Provides stereotype vs. anti-stereotype minimal-pair examples that instantiate T9a-style attribute-level counterfactual contrasts.",
+        "contribution_zh": "提供了刻板印象与反刻板印象的最小对样本，实例化了T9a类型的属性级反事实对照。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "StereoSet",
+        "domain": "stereotype",
+        "contribution_type": "provides examples",
+        "contribution_en": "Offers stereotypical association benchmarks across social categories, enabling systematic counterfactual probing of bias.",
+        "contribution_zh": "提供了跨社会类别的刻板关联基准，支持对偏见进行系统性的反事实探测。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "CBBQ / KoBBQ / BharatBBQ",
+        "domain": "localized fairness",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies how the contrast mechanism can be adapted to local cultural, linguistic, and normative contexts.",
+        "contribution_zh": "展示了对照机制如何适配本地文化、语言与规范语境。",
+        "evidence_strength": "medium"
+      }
+    ]
+  },
+  "T03": {
+    "web_tool_id": "T03",
+    "web_tool_name": "Scenario-Stakeholder-Information-Flow Template",
+    "web_tool_zh": "场景-利益相关方-信息流模板",
+    "consolidates_doc_tools": [
+      "T5",
+      "T8"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "BBQ",
+        "domain": "fairness / bias",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides the foundational mechanism of ambiguous vs. disambiguated scenario contrast for ethical judgment validity.",
+        "contribution_zh": "提供了伦理判断有效性所需的‘模糊场景’与‘明确化场景’对比这一基础机制。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "ConfAIde",
+        "domain": "privacy/helpfulness",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies rich, context-sensitive conversational scenarios where stakeholder roles and information flow determine privacy and helpfulness trade-offs.",
+        "contribution_zh": "以富含上下文的对话场景为例，说明利益相关方角色与信息流向如何决定隐私与帮助性之间的权衡。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "PrivaCI-Bench",
+        "domain": "privacy",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the adoption of contextual integrity as a normative framework for evaluating information flow in AI assessments.",
+        "contribution_zh": "为在AI评估中采用情境完整性作为信息流规范性框架提供了实证支持。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "CBBQ",
+        "domain": "Chinese fairness",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies culturally grounded adaptation of bias benchmarks, informing stakeholder framing (e.g., family caregiver, regulator) in Chinese service contexts.",
+        "contribution_zh": "展示了偏见基准在中国语境下的文化适配范例，指导了中国服务场景中（如家属照护者、监管者等）的利益相关方框架构建。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "WinoQueer",
+        "domain": "fairness / community harm",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the centrality of affected communities and group-level context in ethical scenario design.",
+        "contribution_zh": "强调受影响社群与群体语境在伦理场景设计中的核心地位，提供理论支撑。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "MoralStories",
+        "domain": "moral reasoning",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies the norm-situation-action-consequence structure that underpins scenario realism and evidential sufficiency in T5.",
+        "contribution_zh": "以‘规范—情境—行为—后果’结构为例，支撑了T5中场景真实性与证据充分性的设计逻辑。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "PrivacyLens",
+        "domain": "privacy / action-grounded eval",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies action-oriented privacy vignettes that integrate stakeholder roles, purpose, and transmission principles — directly informing T8’s information-flow schema.",
+        "contribution_zh": "以行动导向的隐私小品为例，整合利益相关方角色、目的与传输原则，直接启发了T8的信息流建模框架。",
+        "evidence_strength": "medium"
+      }
+    ]
+  },
+  "T13": {
+    "web_tool_id": "T13",
+    "web_tool_name": "Reproducible Evaluation & Benchmark Card Package",
+    "consolidates_doc_tools": [],
+    "source_attribution": [],
+    "note": "Web-only construct; no direct doc 16-tool ancestry."
+  },
+  "T14": {
+    "web_tool_id": "T14",
+    "web_tool_name": "Lifecycle, Hidden-Split & Contamination Governance",
+    "consolidates_doc_tools": [],
+    "source_attribution": [],
+    "note": "Web-only construct; no direct doc 16-tool ancestry."
+  },
+  "T02": {
+    "web_tool_id": "T02",
+    "web_tool_name": "Normative Source & Decision-Boundary Ledger",
+    "web_tool_zh": "规范来源与决策边界台账",
+    "consolidates_doc_tools": [
+      "T2"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "ETHICS critique",
+        "domain": "moral reasoning",
+        "contribution_type": "critique-motivates",
+        "contribution_en": "Highlights that moral labels in benchmarks often conflate crowd preferences with normative authority, motivating the need to distinguish legitimate sources of ethical justification.",
+        "contribution_zh": "指出基准测试中的道德标签常将众包偏好与规范性权威混为一谈，从而推动本工具对伦理依据来源进行严格区分。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "LegalBench",
+        "domain": "legal reasoning",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Demonstrates how legal tasks require explicit specification of rules, jurisdiction, and normative sources — directly informing T02’s ledger structure for law- and policy-grounded judgments.",
+        "contribution_zh": "展示了法律任务如何必须明确规则、法域和规范来源，直接启发了T02台账中对法律/政策依据的结构化记录方式。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "Contextual privacy benchmarks",
+        "domain": "privacy",
+        "contribution_type": "supports",
+        "contribution_en": "Shows that privacy judgments depend on context-specific norms (purpose, recipient, consent), supporting T02’s emphasis on domain, exception conditions, and protected interests.",
+        "contribution_zh": "表明隐私判断依赖于语境化规范（目的、接收方、授权），支撑T02对适用领域、例外条件及受保护利益的精细化标注要求。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "UNESCO / OECD / EU AI Act / NIST AI RMF / GDPR / PIPL",
+        "domain": "governance / policy",
+        "contribution_type": "supports",
+        "contribution_en": "Provide authoritative, tiered governance frameworks and risk-based normative principles that ground T02’s classification of normative strength, jurisdiction, and protected interests.",
+        "contribution_zh": "提供权威的分层治理框架与基于风险的规范性原则，构成T02对规范强度、管辖域及受保护利益分类的根基。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "Professional advice benchmarks",
+        "domain": "medical / legal / psychological",
+        "contribution_type": "motivates",
+        "contribution_en": "Motivates the need for clear professional boundaries and referral protocols in high-stakes domains, justifying T02’s focus on domain-specific normative sources and red-line judgments.",
+        "contribution_zh": "凸显高风险专业领域需明确职业边界与转介机制，佐证T02聚焦领域特异性规范来源与红线判断的必要性。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "HEART Table 2",
+        "domain": "benchmark design",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Defines the core ledger schema — distinguishing source types (law, policy, expert judgment, etc.) and marking red lines, consensus, uncertainty, and local cases — which T02 directly implements and extends.",
+        "contribution_zh": "定义了核心台账机制——区分规范来源类型（法律、政策、专家判断等）并标注红线、共识、不确定性与本地化情形，T02直接实现并拓展该机制。",
+        "evidence_strength": "strong"
+      }
+    ]
+  },
+  "T01": {
+    "web_tool_id": "T01",
+    "web_tool_name": "Claim-Construct & Protected-Interest Mapper",
+    "web_tool_zh": "声明-构念-受保护利益映射器",
+    "consolidates_doc_tools": [
+      "T1",
+      "T4"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "WinoQueer",
+        "domain": "fairness / LGBTQ+ representation",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides a community-in-the-loop mechanism for defining harm, grounding protected interests in affected groups’ lived experience.",
+        "contribution_zh": "提供了基于社区参与的危害定义机制，将受保护利益锚定在受影响群体的真实经验中。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "HarmBench",
+        "domain": "safety",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides a standardized taxonomy of harmful behaviors, enabling systematic mapping from model outputs to concrete harm types and severity levels.",
+        "contribution_zh": "提供了标准化的有害行为分类法，支持从模型输出到具体伤害类型与严重程度的系统化映射。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "PrivacyLens / PrivaCI-Bench / ConfAIde",
+        "domain": "privacy",
+        "contribution_type": "supports",
+        "contribution_en": "Support the claim that privacy harms arise from information-flow misalignment—e.g., mismatched recipient, purpose, or consent—thus informing protected-interest identification and harm-pathway modeling.",
+        "contribution_zh": "支持‘隐私伤害源于信息流错位（如接收者、目的或授权不匹配）’这一主张，为受保护利益识别与伤害路径建模提供依据。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "MoralStories",
+        "domain": "moral reasoning",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies norm-situation-action-consequence structure, demonstrating how abstract ethical norms link to specific actions and real-world consequences—directly informing Claim–Construct alignment and harm-chain articulation.",
+        "contribution_zh": "以‘规范–情境–行动–后果’结构为范例，展示了抽象伦理规范如何连接具体行动与现实后果，直接支撑声明–构念对齐与伤害链构建。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "HolisticBias",
+        "domain": "fairness / representation",
+        "contribution_type": "supports",
+        "contribution_en": "Supports broader conceptualization of protected interests beyond binary categories, highlighting intersectional identity axes (e.g., race × gender × disability) as relevant to harm susceptibility and interest protection.",
+        "contribution_zh": "支持对受保护利益的更广义理解（超越二元范畴），强调交叉身份轴（如种族×性别×残障）与伤害易感性及利益保护的相关性。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "HEART draft",
+        "domain": "benchmark validity",
+        "contribution_type": "motivates",
+        "contribution_en": "Motivates the need for explicit real-world harm linkage (Rubric R5) as a core content validity requirement—driving the integration of Claim–Construct alignment and Protected-Interest mapping into one coherent tool.",
+        "contribution_zh": "指出‘现实伤害路径连接’（R5准则）是内容效度的核心要求，从而推动声明–构念对齐与受保护利益映射整合为统一工具。",
+        "evidence_strength": "strong"
+      }
+    ]
+  },
+  "T09": {
+    "web_tool_id": "T09",
+    "web_tool_name": "Agent & Workflow Simulation",
+    "web_tool_zh": "智能体与工作流仿真",
+    "consolidates_doc_tools": [
+      "T11"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "AgentDAM",
+        "domain": "agent privacy/safety",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies privacy and safety risks that emerge during agent execution—not just in outputs, but in actions like reading, filtering, and sharing sensitive data.",
+        "contribution_zh": "例示了智能体执行过程中（而非仅输出中）出现的隐私与安全风险，如读取、过滤和共享敏感数据等行为。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "WebArena-Privacy",
+        "domain": "web agent privacy",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies real-world privacy risks in interactive web environments where agents perform multi-step actions with access to personal data.",
+        "contribution_zh": "例示了在交互式网页环境中智能体执行多步操作并接触个人数据时产生的现实隐私风险。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "ToolEmu",
+        "domain": "tool-use safety",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the need for simulated tool-use environments to surface safety constraints before real-world deployment.",
+        "contribution_zh": "支持构建模拟工具调用环境以在实际部署前揭示安全约束的必要性。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "Agent-SafetyBench",
+        "domain": "agent safety",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the paradigm shift from chat-based safety evaluation to end-to-end agent behavior assessment across task lifecycles.",
+        "contribution_zh": "支持从基于对话的安全评估范式转向覆盖任务全生命周期的端到端智能体行为评估。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "ConVerse",
+        "domain": "conversational/workflow privacy",
+        "contribution_type": "supports",
+        "contribution_en": "Supports trajectory-level evaluation by modeling how private information flows across conversational turns and workflow steps.",
+        "contribution_zh": "通过建模私密信息如何在对话轮次与工作流步骤间流动，支持轨迹层级的评估方法。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "LLM-as-a-Judge survey",
+        "domain": "agent evaluation methodology",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the necessity of evaluating entire agent trajectories—not just final outputs—by highlighting feedback-driven decision-making in dynamic environments.",
+        "contribution_zh": "通过强调智能体在动态环境中基于反馈进行决策的特点，支持对完整行动轨迹（而非仅最终输出）进行评估的必要性。",
+        "evidence_strength": "medium"
+      }
+    ]
+  },
+  "T10": {
+    "web_tool_id": "T10",
+    "web_tool_name": "Evidence & Claim Verification Pipeline",
+    "web_tool_zh": "证据与声明核验流水线",
+    "consolidates_doc_tools": [
+      "T3"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "Datasheets / Data Cards / Model Cards",
+        "domain": "documentation / provenance",
+        "contribution_type": "supports",
+        "contribution_en": "Provides a foundational documentation tradition for recording data sources, intended uses, limitations, and maintenance history.",
+        "contribution_zh": "提供了记录数据来源、用途、局限性和维护历史的基础性文档范式。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "BetterBench",
+        "domain": "benchmark quality",
+        "contribution_type": "supports",
+        "contribution_en": "Demonstrates that benchmark quality must span design, implementation, documentation, and maintenance — directly informing the scope of evidence fitness checks.",
+        "contribution_zh": "证明基准质量需覆盖设计、实现、文档和维护四个阶段，直接界定了证据适配性检查的范围。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "HEART source-tool evidence map",
+        "domain": "project method",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Offers a structured schema to map source contributions (e.g., dataset design, metric logic, documentation practice) to tool derivations, enabling auditable claim verification.",
+        "contribution_zh": "提供结构化模式，将源贡献（如数据集设计、指标逻辑、文档实践）映射到工具推导，支撑可审计的声明核验。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "Benchmark critique papers",
+        "domain": "critique",
+        "contribution_type": "critique-motivates",
+        "contribution_en": "Identify specific failure modes (e.g., cultural gaps, hidden sets, uncalibrated evaluators) that motivate repair-oriented verification steps in the pipeline.",
+        "contribution_zh": "指出具体失效模式（如文化覆盖缺失、隐藏测试集、评估器未校准），驱动流水线中修复导向的核验步骤。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "HEART draft",
+        "domain": "project method",
+        "contribution_type": "HEART adaptation",
+        "contribution_en": "Adapts traceability principles from documentation standards and critique practices into an integrated, operational pipeline for source-to-claim validation.",
+        "contribution_zh": "将文档标准与批评实践中的可追溯性原则，整合适配为端到端的源—声明验证流水线。",
+        "evidence_strength": "strong"
+      }
+    ]
+  },
+  "T11": {
+    "web_tool_id": "T11",
+    "web_tool_name": "Multi-Metric Failure-Mode Profile",
+    "web_tool_zh": "多指标失败模式画像",
+    "consolidates_doc_tools": [
+      "T15"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "FActScore",
+        "domain": "truthfulness",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides atomic fact decomposition and evidence-supported verification as a reusable schema for fine-grained, auditable factuality assessment.",
+        "contribution_zh": "提供了原子事实分解与证据支持验证的可复用机制，实现细粒度、可审计的事实性评估。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "HarmBench",
+        "domain": "safety",
+        "contribution_type": "provides mechanism",
+        "contribution_en": "Provides a standardized taxonomy of harmful behavior categories that enables systematic failure-mode classification and reporting.",
+        "contribution_zh": "提供标准化的有害行为分类体系，支撑系统化的失败模式归类与报告。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "TrustLLM",
+        "domain": "trustworthiness",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies multi-faceted trustworthiness evaluation by defining and measuring eight distinct dimensions across diverse datasets and models.",
+        "contribution_zh": "通过定义并跨数据集与模型评测八个独立维度，实例化了多维可信度评估范式。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "DecodingTrust",
+        "domain": "trustworthiness",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Exemplifies multi-dimensional trustworthiness reporting with empirical validation across safety, truthfulness, fairness, and robustness metrics.",
+        "contribution_zh": "通过在安全性、真实性、公平性与鲁棒性等维度上的实证评测，实例化了多维可信度报告实践。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "HELM",
+        "domain": "holistic evaluation",
+        "contribution_type": "supports",
+        "contribution_en": "Supports the conceptual foundation for scenario × metric cross-tabulated reporting, reinforcing that ethical claims require structured multidimensional evidence.",
+        "contribution_zh": "为‘场景×指标’交叉报告范式提供理论支撑，强化伦理主张需结构化多维证据支持的观点。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "FreshQA",
+        "domain": "temporal truthfulness",
+        "contribution_type": "motivates",
+        "contribution_en": "Motivates the need for temporal-aware failure-mode reporting by exposing model brittleness on outdated premises and time-sensitive facts.",
+        "contribution_zh": "通过揭示模型在过时前提和时效性事实上的脆弱性，驱动了对时间感知型失败模式报告的需求。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "HEART Table 2",
+        "domain": "evaluation design",
+        "contribution_type": "HEART adaptation",
+        "contribution_en": "Adapts existing practice by synthesizing metric reporting and failure-mode taxonomy into a unified, construct-aligned profile framework.",
+        "contribution_zh": "将指标报告与失败模式分类法整合为统一的、构念对齐的画像框架，属HEART对既有实践的适应性重构。",
+        "evidence_strength": "strong"
+      }
+    ]
+  },
+  "T12": {
+    "web_tool_id": "T12",
+    "web_tool_name": "Rubric-Based & Multi-Judge Evaluation Protocol",
+    "web_tool_zh": "细则化与多评分者评估协议",
+    "consolidates_doc_tools": [
+      "T12",
+      "T13",
+      "T14"
+    ],
+    "source_attribution": [
+      {
+        "source_name": "Moral Machine",
+        "domain": "moral dilemmas",
+        "contribution_type": "motivates",
+        "contribution_en": "Demonstrates cross-cultural and value-system variation in ethical judgments, motivating the need for non-binary label structures.",
+        "contribution_zh": "展示了不同文化与价值体系对伦理判断的差异，促使采用非二元化的标签结构。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "ETHICS critique",
+        "domain": "moral reasoning",
+        "contribution_type": "critique-motivates",
+        "contribution_en": "Critiques the conflation of moral labels with objective truth, directly motivating T12’s multi-status label design to accommodate reasonable disagreement.",
+        "contribution_zh": "批判将道德标签等同于客观真理的做法，直接推动T12采用包含合理分歧的多状态标签设计。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "Professional advice benchmarks",
+        "domain": "medical/legal/psychological",
+        "contribution_type": "supports",
+        "contribution_en": "Provides empirical grounding for expert escalation and answerability boundaries in high-stakes domains, supporting T12’s 'expert escalation' and 'insufficient evidence' labels.",
+        "contribution_zh": "为高风险领域中的专家升级和可回答性边界提供实证依据，支撑T12的‘专家升级’和‘证据不足’标签。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "HarmBench",
+        "domain": "safety",
+        "contribution_type": "supports",
+        "contribution_en": "Offers a validated taxonomy of red-line harmful behaviors that maps directly to T12’s 'prohibited / red-line' label category.",
+        "contribution_zh": "提供了经验证的红线有害行为分类法，可直接映射至T12的‘禁止/红线’标签类别。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "LLM-as-a-Judge survey (Gu et al.)",
+        "domain": "evaluator reliability",
+        "contribution_type": "supports",
+        "contribution_en": "Systematically documents biases in LLM evaluators (e.g., length, position, familiarity bias), justifying T14’s calibration requirements and multi-rater aggregation in the integrated protocol.",
+        "contribution_zh": "系统梳理了LLM评估者的各类偏差（如长度、位置、熟悉度偏差），为T14的校准要求与多评分者聚合提供了依据。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "Psychological support benchmarks",
+        "domain": "human-centered",
+        "contribution_type": "exemplifies",
+        "contribution_en": "Illustrates domain-specific scoring needs—such as crisis recognition, boundary maintenance, and respectful communication—that inform T13’s multi-dimensional rubric design.",
+        "contribution_zh": "展现了心理支持领域特有的评分需求（如危机识别、专业边界维护、尊重式沟通），为T13的多维评分细则设计提供实例支撑。",
+        "evidence_strength": "medium"
+      },
+      {
+        "source_name": "HEART expert cross-check",
+        "domain": "project method",
+        "contribution_type": "HEART adaptation",
+        "contribution_en": "Adapts HEART’s expert cross-check practice into an operationalized component of multi-judge calibration and disagreement reporting within the integrated protocol.",
+        "contribution_zh": "将HEART的专家交叉检查实践适配为集成协议中多评分者校准与分歧报告的操作化组成部分。",
+        "evidence_strength": "strong"
+      },
+      {
+        "source_name": "G-Eval / LLM evaluator methods",
+        "domain": "evaluation",
+        "contribution_type": "supports",
+        "contribution_en": "Validates the feasibility and structure of rubric-guided automatic evaluation, supporting the integration of structured scoring (T13) and calibrated judging (T14) in the protocol.",
+        "contribution_zh": "验证了细则引导式自动评估的可行性与结构合理性，支撑本协议中结构化评分（T13）与校准化评判（T14）的整合。",
+        "evidence_strength": "medium"
+      }
+    ]
+  }
+}
