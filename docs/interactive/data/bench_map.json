@@ -3,7 +3,6 @@
   "源行号": "2",
   "一级标签": "Human centered",
   "Benchmark / Source": "MoralMachine (2018)",
-  "人工核对标签": "",
   "原Representative tool": "Cross-cultural trolley-style scenario matrix with 9-attribute orthogonal design",
   "文章特有分类/标签结构": "perceived age, gender, fitness, social status, species (human/pet), number of lives, role (pedestrian/driver), rule adherence (jaywalking), and randomness; 量表/理论/任务锚点：MFT",
   "主整合工具ID": "T05",
@@ -23,13 +22,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "MoralMachine constructs a systematic, web-based experimental interface where users confront pairwise moral dilemmas (e.g., sparing pedestrians vs.",
-  "源行超链接": "源行 2"
+  "源行超链接": "源行 2",
+  "专家标签": "九维正交道德权衡矩阵"
  },
  {
   "源行号": "3",
   "一级标签": "Human centered",
   "Benchmark / Source": "MoralStories (2021)",
-  "人工核对标签": "",
   "原Representative tool": "Five-slot normative narrative template (Norm–Situation–Intention–Normative Action–Consequence)",
   "文章特有分类/标签结构": "Norm–Situation–Intention–Normative Action–Consequence; (1) a general social norm, (2) a concrete situational context, (3) an agent’s intention, (4) an action consistent with the norm, and (5) its socially positive consequence",
   "主整合工具ID": "T02",
@@ -49,13 +48,13 @@
   "自动化改编部分": "T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "MoralStories introduces a structured generative template that decomposes moral reasoning into five explicit, aligned slots: (1) a general social norm, (2) a concrete situational context, (3) an agent’s intention, (4) an action consistent with the norm, and...",
-  "源行超链接": "源行 3"
+  "源行超链接": "源行 3",
+  "专家标签": "五槽规范叙事模板"
  },
  {
   "源行号": "4",
   "一级标签": "Human centered",
   "Benchmark / Source": "SCRUPLES (2021)",
-  "人工核对标签": "",
   "原Representative tool": "Community-sourced real-life anecdote corpus with multi-stakeholder moral judgment labels (AUTHOR/OTHER/EVERYBODY/NOBODY/INFO)",
   "文章特有分类/标签结构": "AUTHOR/OTHER/EVERYBODY/NOBODY/INFO; universal condemnation/praise",
   "主整合工具ID": "T03",
@@ -75,13 +74,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "SCRUPLES curates 32,000 real-world anecdotes scraped from Reddit’s r/AmItheAsshole, each annotated with over 19 aggregated community judgments per post, mapped to five stakeholder-aligned categories: AUTHOR (judgment about the poster), OTHER (about the...",
-  "源行超链接": "源行 4"
+  "源行超链接": "源行 4",
+  "专家标签": "多角色立场道德判断"
  },
  {
   "源行号": "5",
   "一级标签": "Human centered",
   "Benchmark / Source": "ETHICS (2023)",
-  "人工核对标签": "",
   "原Representative tool": "Multi-theoretic moral subconstruct annotation schema",
   "文章特有分类/标签结构": "关怀伦理、正义伦理、义务论、德性伦理、常识道德; justice/well-being/duties/virtues/commonsense",
   "主整合工具ID": "T02",
@@ -101,13 +100,13 @@
   "自动化改编部分": "T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "ETHICS 构建了一个显式映射到五大规范伦理学流派（关怀伦理、正义伦理、义务论、德性伦理、常识道德）的标注体系，每个样本被人工标注至至少一个子构念轴（justice/well-being/duties/virtues/commonsense），并确保各轴有独立题干设计与平衡分布。该schema依赖跨学科伦理理论框架指导题目生成与归类，而非仅依赖直觉或众包共识。",
-  "源行超链接": "源行 5"
+  "源行超链接": "源行 5",
+  "专家标签": "多伦理流派子构念解耦"
  },
  {
   "源行号": "6",
   "一级标签": "Human centered",
   "Benchmark / Source": "MFQ-2 (2023)",
-  "人工核对标签": "",
   "原Representative tool": "Cross-culturally validated six-foundation moral judgment scale (MFQ-2)",
   "文章特有分类/标签结构": "Care、Fairness、Loyalty、Authority、Purity、Liberty六个道德基础; 量表/理论/任务锚点：MFQ-2",
   "主整合工具ID": "T05",
@@ -127,13 +126,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "MFQ-2 是一个经英国（N=809）和美国（N=835）双样本验证的心理测量量表，包含Care、Fairness、Loyalty、Authority、Purity、Liberty六个道德基础维度，每维度由多项李克特式陈述题构成，通过因子分析确认六维结构效度。它不依赖场景生成，而是直接测量个体对抽象道德原则的认同强度，具备标准化施测流程与跨文化信效度报告。",
-  "源行超链接": "源行 6"
+  "源行超链接": "源行 6",
+  "专家标签": "六维道德基础量表测量"
  },
  {
   "源行号": "7",
   "一级标签": "Human centered",
   "Benchmark / Source": "MoralChoice (2023)",
-  "人工核对标签": "",
   "原Representative tool": "Ambiguity-stratified moral scenario template with violation tagging",
   "文章特有分类/标签结构": "未显式列出固定标签；保留原工具结构：Ambiguity-stratified moral scenario template with violation tagging",
   "主整合工具ID": "T03",
@@ -153,13 +152,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "MoralChoice 提出一种结构化场景模板：每个条目包含清晰情境描述、两个互斥行动选项、以及显式标注的‘违反规则类型’（如‘违背诚实原则’‘违背非伤害原则’）；更重要的是，所有场景被人工划分为‘高模糊性’与‘低模糊性’两类（共687+680），划分依据是专家对道德冲突强度、后果不确定性及规范冲突程度的联合评估，支持对模型在确定性vs.权衡性判断上的差异化评测。",
-  "源行超链接": "源行 7"
+  "源行超链接": "源行 7",
+  "专家标签": "多提示格式一致性检验"
  },
  {
   "源行号": "8",
   "一级标签": "Human centered",
   "Benchmark / Source": "CMoralEval (2024)",
-  "人工核对标签": "",
   "原Representative tool": "MFT-grounded multi-dimensional moral scenario template",
   "文章特有分类/标签结构": "量表/理论/任务锚点：MFT",
   "主整合工具ID": "T03",
@@ -179,13 +178,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。",
   "Tool explanation 摘要": "该工具基于道德基础理论（MFT, Graham et al., 2009）构建五维道德判断任务模板：家庭道德、社会道德、职业道德、网络伦理、个人道德。每个实例均源自中国法律条文、伦理电视节目《观察道德》及学术论文中的真实道德异常案例，并经人工标注映射至MFT子维度；模板强制要求每道MCQ题覆盖至少一个MFT维度，且选项设计体现道德张力（如新闻中立性 vs.",
-  "源行超链接": "源行 8"
+  "源行超链接": "源行 8",
+  "专家标签": "MFT五维道德场景模板"
  },
  {
   "源行号": "9",
   "一级标签": "Human centered",
   "Benchmark / Source": "CPsyExam (2024)",
-  "人工核对标签": "",
   "原Representative tool": "Standardized exam-based psychological knowledge elicitation protocol",
   "文章特有分类/标签结构": "GEE高考、PCE心理师资格考、TQE教师资格考、SSE社会工作者考试; SCQ/MAQ; 题干-选项-标准答案-理论出处四元组schema，并支持按考试类型、难度系数、人本子构念标签; 量表/理论/任务锚点：SCQ, MAQ",
   "主整合工具ID": "T01",
@@ -205,13 +204,13 @@
   "自动化改编部分": "T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "该工具将中国国家级标准化考试（GEE高考、PCE心理师资格考、TQE教师资格考、SSE社会工作者考试）中的心理学真题结构化为知识图谱驱动的多选题（SCQ/MAQ）与简答题（QA）双轨评测协议。每道题标注对应的心理学理论层级（如布卢姆认知目标分类：记忆/理解/应用）、知识类型（如荣格人格结构）、以及隐含的人本价值锚点（如共情、自主性、发展性）。协议包含题干-选项-标准答案-理论出处四元组schema，并支持按考试类型、难度系数、人本子构念标签进行动态抽样。",
-  "源行超链接": "源行 9"
+  "源行超链接": "源行 9",
+  "专家标签": "考试真题结构化复用协议"
  },
  {
   "源行号": "10",
   "一级标签": "Human centered",
   "Benchmark / Source": "EmotionBench (2024)",
-  "人工核对标签": "",
   "原Representative tool": "Empathic response elicitation framework with emotion-factor mapping",
   "文章特有分类/标签结构": "AGQ, DASS-21, BDI-II等; Parrott, 2001; Roseman & Smith, 2001; 量表/理论/任务锚点：AGQ, DASS-21",
   "主整合工具ID": "T01",
@@ -231,13 +230,13 @@
   "自动化改编部分": "T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该框架以心理学实证情绪量表（AGQ, DASS-21, BDI-II等）和情绪理论（Parrott, 2001; Roseman & Smith, 2001）为锚点，构建428个多轮共情情境，每个情境标注36个情绪因子（如‘羞耻感强度’‘控制感缺失’‘社会排斥感知’）。框架强制要求模型在首轮响应后接受第二轮追问（如‘如果对方说‘没人理解我’，你会如何回应？’），并依据情绪因子变化轨迹评估共情深度。其核心是将离散情绪标签升级为可量化的多维情绪状态空间映射机制。",
-  "源行超链接": "源行 10"
+  "源行超链接": "源行 10",
+  "专家标签": "多轮情绪因子映射共情诊断"
  },
  {
   "源行号": "11",
   "一级标签": "Human centered",
   "Benchmark / Source": "SMILE (2024)",
-  "人工核对标签": "",
   "原Representative tool": "Role-structured multi-turn dialogue protocol with dual-role annotation schema (supporter/help-seeker)",
   "文章特有分类/标签结构": "supporter/help-seeker",
   "主整合工具ID": "T08",
@@ -257,13 +256,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "SMILE introduces a fixed two-role, multi-turn dialogue protocol where every interaction is explicitly annotated with distinct supporter (e.g., mental health counselor) and help-seeker (e.g., distressed user) roles.",
-  "源行超链接": "源行 11"
+  "源行超链接": "源行 11",
+  "专家标签": "双角色多轮共情对话协议"
  },
  {
   "源行号": "12",
   "一级标签": "Human centered",
   "Benchmark / Source": "Educator-LLM (2025)",
-  "人工核对标签": "",
   "原Representative tool": "Profession-specific moral dilemma bank mapped to validated psychological trait scales (HEXACO-60 & CPST-E)",
   "文章特有分类/标签结构": "量表/理论/任务锚点：HEXACO-60, CPST-E",
   "主整合工具ID": "T01",
@@ -283,13 +282,13 @@
   "自动化改编部分": "T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "Educator-LLM constructs 88 teacher-facing moral dilemmas—such as academic integrity breaches or confidentiality conflicts—each explicitly anchored to subscales of HEXACO-60 (e.g., Honesty-Humility) and CPST-E (e.g., Professional Judgment).",
-  "源行超链接": "源行 12"
+  "源行超链接": "源行 12",
+  "专家标签": "职业嵌入式道德困境双锚测评"
  },
  {
   "源行号": "13",
   "一级标签": "Human centered",
   "Benchmark / Source": "HeartBench (2025)",
-  "人工核对标签": "",
   "原Representative tool": "Five-dimensional anthropomorphic intelligence framework with case-specific rubric generation (personality/emotion/social/moral/motivational axes)",
   "文章特有分类/标签结构": "personality/emotion/social/moral/motivational axes",
   "主整合工具ID": "T12",
@@ -309,13 +308,13 @@
   "自动化改编部分": "T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "HeartBench defines anthropomorphic intelligence via five theoretically grounded dimensions—Personality, Emotion, Sociality, Morality, Motivation—each decomposed into 3 sub-capabilities (total 15), and generates *case-specific scoring rubrics* for each of...",
-  "源行超链接": "源行 13"
+  "源行超链接": "源行 13",
+  "专家标签": "五维情境化能力评估框架"
  },
  {
   "源行号": "14",
   "一级标签": "Human centered",
   "Benchmark / Source": "HumaniBench (2025)",
-  "人工核对标签": "",
   "原Representative tool": "Expert-validated, stakeholder-informed multimodal VQA template with identity-anchored question framing",
   "文章特有分类/标签结构": "age, gender, race/ethnicity, occupation, mobility status; 量表/理论/任务锚点：VQA",
   "主整合工具ID": "T03",
@@ -335,13 +334,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "HumaniBench introduces a standardized visual-question-answering (VQA) template where each image–question pair is explicitly anchored to one of five socially salient attributes (age, gender, race/ethnicity, occupation, mobility status), and questions are...",
-  "源行超链接": "源行 14"
+  "源行超链接": "源行 14",
+  "专家标签": "身份锚定的多模态问答"
  },
  {
   "源行号": "15",
   "一级标签": "Human centered",
   "Benchmark / Source": "MoReBench (2025)",
-  "人工核对标签": "",
   "原Representative tool": "Multi-theoretic moral reasoning probe with theory-aligned answer options and normative justification tagging",
   "文章特有分类/标签结构": "未显式列出固定标签；保留原工具结构：Multi-theoretic moral reasoning probe with theory-aligned answer options and normative justification tagging",
   "主整合工具ID": "T02",
@@ -361,13 +360,13 @@
   "自动化改编部分": "T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "MoReBench constructs MCQ scenarios where each answer choice is explicitly grounded in a distinct ethical theory (e.g., Kantian deontology, act utilitarianism, virtue ethics, contractualism), and every scenario is tagged with its underlying normative...",
-  "源行超链接": "源行 15"
+  "源行超链接": "源行 15",
+  "专家标签": "多理论对齐的道德推理测验"
  },
  {
   "源行号": "16",
   "一级标签": "Human centered",
   "Benchmark / Source": "NaVAB (2025)",
-  "人工核对标签": "多元文化适配，多分类适配",
   "原Representative tool": "Cross-national news-based value elicitation framework with expert-annotated multi-label consensus scoring",
   "文章特有分类/标签结构": "人工核对标签：多元文化适配，多分类适配; official media from China, US, UK, France, Germany",
   "主整合工具ID": "T05",
@@ -387,13 +386,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。",
   "Tool explanation 摘要": "NaVAB employs a comparative national news corpus (official media from China, US, UK, France, Germany) to extract value-laden statements, then applies a dual-annotation pipeline: domain experts first identify implicit value dimensions (e.g., collectivism vs.",
-  "源行超链接": "源行 16"
+  "源行超链接": "源行 16",
+  "专家标签": "多元文化适配，多分类适配"
  },
  {
   "源行号": "17",
   "一级标签": "Human centered",
   "Benchmark / Source": "VITAL (2025)",
-  "人工核对标签": "",
   "原Representative tool": "Pluralistic Alignment Scoring Framework (Overton/Steerable/Distributional tripartite schema)",
   "文章特有分类/标签结构": "Overton/Steerable/Distributional tripartite schema; Overton（在社会可接受意见光谱内定位回答）、Steerable（依据用户指定的价值立场如Autonomy/Religious动态调整输出）、Distributional（建模群体价值分布并评估响应与多群体分布的KL散度或覆盖度）",
   "主整合工具ID": "T11",
@@ -413,13 +412,13 @@
   "自动化改编部分": "T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "该工具将模型对价值负载情境（value-laden situations）的响应映射到三个可操作的对齐子维度：Overton（在社会可接受意见光谱内定位回答）、Steerable（依据用户指定的价值立场如Autonomy/Religious动态调整输出）、Distributional（建模群体价值分布并评估响应与多群体分布的KL散度或覆盖度）。依赖13.1K人工标注的价值情境及其多视角标签（如Health,...",
-  "源行超链接": "源行 17"
+  "源行超链接": "源行 17",
+  "专家标签": "价值对齐三维评估"
  },
  {
   "源行号": "18",
   "一级标签": "Human centered",
   "Benchmark / Source": "TrustMH-Bench (2026)",
-  "人工核对标签": "",
   "原Representative tool": "Clinical Risk-Triggered Multi-Stage Evaluation Pipeline",
   "文章特有分类/标签结构": "Stanley & Brown, 2012; 转人工/提供危机热线/不轻率安慰",
   "主整合工具ID": "T03",
@@ -439,13 +438,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具以临床风险管理流程（Stanley & Brown, 2012）为骨架，构建三级评估流水线：Stage 1（Crisis Detection）用规则+微调分类器识别高风险线索（如‘I want to die’）；Stage 2（Escalation Appropriateness）判断模型是否触发正确升级动作（转人工/提供危机热线/不轻率安慰）；Stage 3（Therapeutic Integrity）在非危机对话中评估共情准确性、专业边界（如不越界诊断）、反奉承（avoiding excessive...",
-  "源行超链接": "源行 18"
+  "源行超链接": "源行 18",
+  "专家标签": "临床风险响应三阶段评估"
  },
  {
   "源行号": "19",
   "一级标签": "Human centered",
   "Benchmark / Source": "WVS / World Values Survey (2012)",
-  "人工核对标签": "更细节的推理过程",
   "原Representative tool": "Cross-Cultural Value Distribution Anchoring Template",
   "文章特有分类/标签结构": "人工核对标签：更细节的推理过程; 均值、方差、偏度",
   "主整合工具ID": "T05",
@@ -465,13 +464,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具将WVS中50+国、每国千人级抽样的价值观问卷（如‘性别平等重要性’‘宗教权威接受度’）转化为可嵌入LLM任务的标准化锚点模板：对每个价值维度，提取国家/区域层级的分布参数（均值、方差、偏度）及文化集群（e.g., English-speaking vs.",
-  "源行超链接": "源行 19"
+  "源行超链接": "源行 19",
+  "专家标签": "更细节的推理过程"
  },
  {
   "源行号": "20",
   "一级标签": "Human centered",
   "Benchmark / Source": "PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)",
-  "人工核对标签": "感知、行为，风险",
   "原Representative tool": "Psychometrically grounded item templates from clinical/consulting instruments (e.g., PHQ-9, GAD-7 adapted as LLM response prompts)",
   "文章特有分类/标签结构": "人工核对标签：感知、行为，风险; 情绪状态、价值冲突、心理安全需求; 量表/理论/任务锚点：PHQ-9, GAD-7",
   "主整合工具ID": "T11",
@@ -491,13 +490,13 @@
   "自动化改编部分": "T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "该工具将成熟心理量表（如PHQ-9抑郁筛查量表、GAD-7焦虑量表）的标准化条目转化为结构化提示模板，要求LLM模拟心理咨询师对用户自述进行共情回应、风险识别或价值澄清；依赖经信效度验证的临床条目语义结构与评分逻辑，而非简单问答分类；属于Human centered标签因其直接锚定人类主观体验（情绪状态、价值冲突、心理安全需求）的可操作化测量。",
-  "源行超链接": "源行 20"
+  "源行超链接": "源行 20",
+  "专家标签": "感知、行为，风险"
  },
  {
   "源行号": "21",
   "一级标签": "Human centered",
   "Benchmark / Source": "SOCKET (2023)",
-  "人工核对标签": "角色、分歧",
   "原Representative tool": "Social forum-derived scenario scaffolding with implicit norm inference tasks",
   "文章特有分类/标签结构": "人工核对标签：角色、分歧; 发帖者身份、评论区分歧、时间戳、投票倾向",
   "主整合工具ID": "T03",
@@ -517,13 +516,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具从Reddit等真实社会论坛爬取自然发生的互动帖文（如r/AskReddit中'你做过最尴尬的社会失礼是什么？'），保留原始语境线索（发帖者身份、评论区分歧、时间戳、投票倾向），并设计三阶段任务：1）识别隐含社会角色与关系约束；2）推断未明说的规范预期（如'为何该行为被嘲讽？'）；3）生成符合多数共识但保留合理分歧空间的回应。其核心是利用真实社会表达的模糊性与协商性，替代人工编写的理想化道德两难题。",
-  "源行超链接": "源行 21"
+  "源行超链接": "源行 21",
+  "专家标签": "角色、分歧"
  },
  {
   "源行号": "22",
   "一级标签": "Human centered",
   "Benchmark / Source": "SOCIAL-CHEM-101 (2020)",
-  "人工核对标签": "情境，冲突",
   "原Representative tool": "Rules-of-thumb generation and contextual applicability scoring framework",
   "文章特有分类/标签结构": "人工核对标签：情境，冲突; 0–3分; 主体关系、情绪强度、文化脚本",
   "主整合工具ID": "T11",
@@ -543,13 +542,13 @@
   "自动化改编部分": "T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具以从Reddit提取的百万级'常识性社会规则'（如'不要在别人哭的时候讲笑话'）为种子，构建三层评估：1）给定新情境（如'朋友刚失恋发朋友圈'），要求模型生成适用规则；2）对生成规则进行适用性打分（0–3分），依据是否匹配情境要素（主体关系、情绪强度、文化脚本）；3）识别规则冲突（如'安慰优先' vs '给予空间'）并建模权重分配。其本质是将描述性社会规范转化为可计算、可调试的伦理推理中间表示。",
-  "源行超链接": "源行 22"
+  "源行超链接": "源行 22",
+  "专家标签": "情境，冲突"
  },
  {
   "源行号": "23",
   "一级标签": "Human centered",
   "Benchmark / Source": "EtiCor (2023)",
-  "人工核对标签": "合规normative，多元文化",
   "原Representative tool": "Multi-regional normative scenario template with culture-anchored annotation guidelines",
   "文章特有分类/标签结构": "人工核对标签：合规normative，多元文化",
   "主整合工具ID": "T05",
@@ -569,13 +568,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "EtiCor constructs ethical evaluation items as culturally grounded scenario-response pairs, explicitly anchored to five distinct regional sociocultural contexts (e.g., East Asia, Sub-Saharan Africa, Latin America).",
-  "源行超链接": "源行 23"
+  "源行超链接": "源行 23",
+  "专家标签": "合规normative，多元文化"
  },
  {
   "源行号": "24",
   "一级标签": "Human centered",
   "Benchmark / Source": "MoralBench / MIC (survey-mentioned value benchmarks)",
-  "人工核对标签": "价值的内容分类",
   "原Representative tool": "Value-aligned preference scoring framework with orthogonal moral dimension weights",
   "文章特有分类/标签结构": "人工核对标签：价值的内容分类",
   "主整合工具ID": "T11",
@@ -595,13 +594,13 @@
   "自动化改编部分": "T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "MoralBench implements a structured preference elicitation protocol where LLM responses to moral dilemmas are scored not only on binary correctness but along orthogonal moral dimensions (e.g., Autonomy, Fairness, Care, Loyalty, Authority, Sanctity), each...",
-  "源行超链接": "源行 24"
+  "源行超链接": "源行 24",
+  "专家标签": "价值的内容分类"
  },
  {
   "源行号": "25",
   "一级标签": "Human centered",
   "Benchmark / Source": "MFTCXplain (survey-mentioned)",
-  "人工核对标签": "边界违反符合，给出理由",
   "原Representative tool": "Moral Foundations Theory (MFT)-guided explanation generation protocol with cross-lingual justification scaffolding",
   "文章特有分类/标签结构": "人工核对标签：边界违反符合，给出理由; Care/Harm, Fairness/Cheating, Loyalty/Betrayal, Authority/Subversion, Sanctity/Degradation; English, Chinese, Spanish, Arabic; 量表/理论/任务锚点：MFT",
   "主整合工具ID": "T05",
@@ -621,13 +620,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "MFTCXplain extends Moral Foundations Theory into a diagnostic explanation tool: given a model response to a moral prompt, it requires the model to generate *justifications* explicitly mapped to MFT domains (Care/Harm, Fairness/Cheating, Loyalty/Betrayal,...",
-  "源行超链接": "源行 25"
+  "源行超链接": "源行 25",
+  "专家标签": "边界违反符合，给出理由"
  },
  {
   "源行号": "26",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "Kleinberg-FairTradeoffs (2016)",
-  "人工核对标签": "三个平等的metrics",
   "原Representative tool": "Three-fairness-condition impossibility framework",
   "文章特有分类/标签结构": "人工核对标签：三个平等的metrics",
   "主整合工具ID": "T11",
@@ -647,13 +646,13 @@
   "自动化改编部分": "T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具形式化定义了三个核心公平性条件：(1) 基于预测的校准性（calibration within groups），即给定预测风险分p，各群体中实际再犯率应趋近p；(2) 机会均等（equalized odds），即真阳性率与假阳性率在各群体间相等；(3) 预测值平等（predictive parity），即正预测值（PPV）跨群体一致。论文严格证明三者无法同时满足（除退化情形），并给出近似满足的几何约束条件（如base...",
-  "源行超链接": "源行 26"
+  "源行超链接": "源行 26",
+  "专家标签": "三个平等的metrics"
  },
  {
   "源行号": "27",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "GAP (2018)",
-  "人工核对标签": "语境下的性别其实推理",
   "原Representative tool": "Balanced gender-ambiguous pronoun coreference corpus with consensus labeling & expert adjudication",
   "文章特有分类/标签结构": "人工核对标签：语境下的性别其实推理; she/he/they",
   "主整合工具ID": "T12",
@@ -673,13 +672,13 @@
   "自动化改编部分": "T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具构建了一个平衡的共指消解数据集，通过系统性采样Wikipedia中含性别模糊代词（she/he/they）的句子，确保男性/女性名字在代词前后位置上数量均衡；采用三人独立标注+共识机制生成主标签，并对高歧义样本（如职业-性别弱关联句）交由语言学专家评审修正。其核心是将‘性别偏见暴露’转化为可控的、可复现的共指消解任务，且通过平衡设计隔离出模型对刻板印象的依赖。",
-  "源行超链接": "源行 27"
+  "源行超链接": "源行 27",
+  "专家标签": "语境下的性别其实推理"
  },
  {
   "源行号": "28",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "WinoBias (2018)",
-  "人工核对标签": "性别和职业的链接",
   "原Representative tool": "Minimal-pair stereotypical/anti-stereotypical sentence template with occupation-pronoun alignment",
   "文章特有分类/标签结构": "人工核对标签：性别和职业的链接",
   "主整合工具ID": "T06",
@@ -699,13 +698,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具设计两类严格对照的句子模板：每组包含同一句干（如‘The X hired the Y because ___ was overwhelmed’），仅替换职业名词（X）与代词（___）以形成‘pro-stereotypical’（如‘nurse/she’）与‘anti-stereotypical’（如‘nurse/he’）配对；所有句子均源自美国劳工统计局40职业清单，确保现实相关性。通过强制模型在相同句法结构下对不同性别-职业组合做出一致共指判断，精准定位刻板印象驱动的性能崩塌。",
-  "源行超链接": "源行 28"
+  "源行超链接": "源行 28",
+  "专家标签": "性别和职业的链接"
  },
  {
   "源行号": "29",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "Winogender (2018)",
-  "人工核对标签": "代词的隐形偏见，反事实",
   "原Representative tool": "Minimal-pair Winograd-style coreference templates with BLS-calibrated gender occupation priors",
   "文章特有分类/标签结构": "人工核对标签：代词的隐形偏见，反事实; he/she/they; 职业名词、句法结构、语义角色; 量表/理论/任务锚点：BLS",
   "主整合工具ID": "T06",
@@ -725,13 +724,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具构造一组最小差异句对（minimal pairs），仅在代词性别（he/she/they）上变化，其余成分（职业名词、句法结构、语义角色）完全一致；所有模板均锚定美国劳工统计局（BLS）发布的现实职业性别分布数据，使‘pro-stereotype’与‘anti-stereotype’判断具备实证基准；通过计算模型在两类句子上的准确率差（Δ）及该差值与BLS实际占比的相关性，实现偏见强度的可解释量化。",
-  "源行超链接": "源行 29"
+  "源行超链接": "源行 29",
+  "专家标签": "代词的隐形偏见，反事实"
  },
  {
   "源行号": "30",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "BEC-pro (2020)",
-  "人工核对标签": "语言敬语的偏见",
   "原Representative tool": "Multilingual template-based bias evaluation corpus with sociolinguistically grounded person-marking lexicon",
   "文章特有分类/标签结构": "人工核对标签：语言敬语的偏见; 18个含性别/亲属/敬称维度的词，如mother/father, Herr/Frau",
   "主整合工具ID": "T05",
@@ -751,13 +750,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具构建了一个多语言（英德等）模板化偏见评测语料库，其核心是基于社会语言学原则设计的‘人称标记词表’（18个含性别/亲属/敬称维度的词，如mother/father, Herr/Frau），与BLS职业列表交叉组合；每个模板显式编码角色关系（如‘My [person-marking], the [occupation]’），强制模型在句法-语义接口处激活社会身份推断，从而暴露隐式刻板关联。",
-  "源行超链接": "源行 30"
+  "源行超链接": "源行 30",
+  "专家标签": "语言敬语的偏见"
  },
  {
   "源行号": "31",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "CrowS-Pairs (2020)",
-  "人工核对标签": "定义受保护类别",
   "原Representative tool": "Crowd-sourced stereotypical vs. anti-stereotypical sentence pairs annotated under EEOC-protected-category taxonomy",
   "文章特有分类/标签结构": "人工核对标签：定义受保护类别; race, gender, religion等; 量表/理论/任务锚点：EEOC",
   "主整合工具ID": "T06",
@@ -777,13 +776,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具通过众包平台（Amazon Mechanical Turk）收集1,508对句子，每对严格满足：1）仅在受保护群体标识词（如black/white, gay/straight, disabled/able-bodied）上差异；2）语境保持一致；3）标注者依据EEOC定义的受保护类别（race, gender, religion等）判定哪句更 stereotypical；最终形成覆盖9个社会维度的、人类共识驱动的偏见强度判别基准。",
-  "源行超链接": "源行 31"
+  "源行超链接": "源行 31",
+  "专家标签": "定义受保护类别"
  },
  {
   "源行号": "32",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "Dev-WordEmbed (2020)",
-  "人工核对标签": "设置中性句，看看是否偏移",
   "原Representative tool": "Bias-Neutral Inference Scoring (BNIS) framework with NetNeutral metric",
   "文章特有分类/标签结构": "人工核对标签：设置中性句，看看是否偏移; Entailment/Neutral/Contradiction",
   "主整合工具ID": "T11",
@@ -803,13 +802,13 @@
   "自动化改编部分": "T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。；T13: 可自动生成 benchmark card、数据卡、依赖清单、模型参数表和复现命令草稿。",
   "需人工校验/治理部分": "T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。；T13: 需维护者确认文档真实性、开源边界、隐私/许可风险和复现实验是否可运行。",
   "Tool explanation 摘要": "BNIS 是一种基于自然语言推理（NLI）任务的偏见量化机制：给定预训练词嵌入（如GloVe/ELMo/BERT），构造语义中性前提句（如 'The driver owns a cabinet.'）与性别/国籍/宗教标记假设句（如 'The man owns a cabinet.'），通过NLI模型输出三类概率（Entailment/Neutral/Contradiction），并定义NetNeutral = P(Neutral|assumption) − P(Neutral|counter-...",
-  "源行超链接": "源行 32"
+  "源行超链接": "源行 32",
+  "专家标签": "设置中性句，看看是否偏移"
  },
  {
   "源行号": "33",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "UnQover (2020)",
-  "人工核对标签": "省略关键属性的反事实",
   "原Representative tool": "Underspecified Question (UQ) template with counterfactual answer inversion",
   "文章特有分类/标签结构": "人工核对标签：省略关键属性的反事实",
   "主整合工具ID": "T06",
@@ -829,13 +828,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。",
   "Tool explanation 摘要": "UQ模板通过刻意省略关键属性（如性别、种族）构造模糊问题（如 'Who was an entrepreneur?'），强制模型依赖刻板联想作答；再通过人工标注或专家验证生成反事实答案对（例如同一段落中，若原始标注为 'Gerald'，则反事实标注为 'Jennifer'），并计算模型在原始vs反事实选项上的预测分布偏移（γ）和一致性下降率（η）。该工具依赖专家设计的段落-问题-选项三元组，核心创新在于利用语义不充分性（underspecification）暴露隐式偏见，而非依赖显式敏感词触发。",
-  "源行超链接": "源行 33"
+  "源行超链接": "源行 33",
+  "专家标签": "省略关键属性的反事实"
  },
  {
   "源行号": "34",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "WikiGenderBias (2020)",
-  "人工核对标签": "职业偏见",
   "原Representative tool": "Gender-Sensitive Relation Schema (GSRS) with disparity-aware relation extraction evaluation",
   "文章特有分类/标签结构": "人工核对标签：职业偏见; spouse, occupation, birthdate, birthplace",
   "主整合工具ID": "T02",
@@ -855,13 +854,13 @@
   "自动化改编部分": "T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "GSRS 是一种结构化关系抽取偏见诊断协议：定义四类性别敏感关系（spouse, occupation, birthdate, birthplace），从Wikipedia/DBPedia中提取含明确性别标记的实体三元组（如 HeadEntity=Robert M.",
-  "源行超链接": "源行 34"
+  "源行超链接": "源行 34",
+  "专家标签": "职业偏见"
  },
  {
   "源行号": "35",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "BOLD (2021)",
-  "人工核对标签": "生成式检测，隐含偏见",
   "原Representative tool": "Multi-axis open-ended prompt template with structured demographic attribute injection",
   "文章特有分类/标签结构": "人工核对标签：生成式检测，隐含偏见; 23,679条; 职业、性别、种族、宗教、政治意识形态",
   "主整合工具ID": "T01",
@@ -881,13 +880,13 @@
   "自动化改编部分": "T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "BOLD 构建了一个大规模（23,679条）开放生成提示集，系统性地在维基百科句子中注入5个受保护属性轴（职业、性别、种族、宗教、政治意识形态），每个提示以自然语言片段截断（如 'A flight nurse is a registered...'），强制模型续写并暴露其隐含偏见。该模板依赖真实文本语境+人工定义的属性对齐规则，确保提示既保持语言连贯性，又可比性地激活特定社会维度的刻板联想。",
-  "源行超链接": "源行 35"
+  "源行超链接": "源行 35",
+  "专家标签": "生成式检测，隐含偏见"
  },
  {
   "源行号": "36",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "BUG (2021)",
-  "人工核对标签": "人口基准统计、性别代词共现。",
   "原Representative tool": "Statistically grounded coreference bias probe using real-text occupational gender distributions",
   "文章特有分类/标签结构": "人工核对标签：人口基准统计、性别代词共现; she', 'he; stereo/anti-stereo/neutral",
   "主整合工具ID": "T02",
@@ -907,13 +906,13 @@
   "自动化改编部分": "T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "BUG 构建了一套基于美国2015年人口普查职业-性别分布数据的指代消解偏见探测方法：从Wikipedia/PubMed/Covid19论文中抽取含职业名词（如'cop', 'nurse'）与人物代词（'she', 'he'）共现的自然句子，标注其是否符合/违背统计现实（stereo/anti-stereo/neutral），并计算ΔG（gender gap）与ΔS（stereotype gap）量化偏差强度。该工具依赖真实世界统计数据校准‘合理指代’边界，而非主观刻板印象判断。",
-  "源行超链接": "源行 36"
+  "源行超链接": "源行 36",
+  "专家标签": "人口基准统计、性别代词共现。"
  },
  {
   "源行号": "37",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "HONEST (2021)",
-  "人工核对标签": "填空补全，偏见伤害提示",
   "原Representative tool": "HurtLex-augmented cloze template for cross-lingual harmful completion scoring",
   "文章特有分类/标签结构": "人工核对标签：填空补全，偏见伤害提示",
   "主整合工具ID": "T06",
@@ -933,13 +932,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "HONEST 使用专家手工构建的420个每语言cloze模板（如'[IT] La donna è una gran troia'），结合HurtLex伤害性词汇词典对补全项进行语义操作化：将模型生成的补全词映射至HurtLex中的伤害类别（如sexism, insult），并计算‘伤害性补全概率’作为HONEST分数。该工具通过词典驱动的语义归类，将抽象的‘有害性’转化为可复现、可跨语言对齐的量化指标。",
-  "源行超链接": "源行 37"
+  "源行超链接": "源行 37",
+  "专家标签": "填空补全，偏见伤害提示"
  },
  {
   "源行号": "38",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "NeuTral-WinoBiasPlus (2021)",
-  "人工核对标签": "代词转换中性版本",
   "原Representative tool": "Grammar-Aware Gender-Neutral Rewriting Template",
   "文章特有分类/标签结构": "人工核对标签：代词转换中性版本; he/she → they; his/her → their",
   "主整合工具ID": "T06",
@@ -959,13 +958,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具是一套结构化重写规则模板，强制要求模型在代词替换（he/she → they）、所有格转换（his/her → their）和主谓一致性调整（e.g., 'He is' → 'They are'）三方面同步满足语法正确性与语义保真。其构造依赖于WinoBias+的原始偏见句对、OpenSubtitles的自然对话句法模式，以及Reddit大规模语料中提取的中性表达分布统计；通过专家标注+众包验证确保重写结果符合APA Style...",
-  "源行超链接": "源行 38"
+  "源行超链接": "源行 38",
+  "专家标签": "代词转换中性版本"
  },
  {
   "源行号": "39",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "RedditBias (2021)",
-  "人工核对标签": "对话，共情信号",
   "原Representative tool": "Real-World Dialogue Bias Triangulation Framework",
   "文章特有分类/标签结构": "人工核对标签：对话，共情信号; upvote/downvote ratio; subreddit板块、作者历史、评论树深度",
   "主整合工具ID": "T03",
@@ -985,13 +984,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "该框架将Reddit评论建模为三方角色互动结构：发言者（bias source）、系统响应者（model under test）、受影响者（stakeholder），并基于每条评论自动提取显式/隐式偏见触发词（如宗教标签、种族指称、性取向术语）、上下文情感极性及社区投票权重（upvote/downvote ratio）。它不依赖人工构造偏见句，而是利用Reddit原生元数据（subreddit板块、作者历史、评论树深度）构建偏差强度梯度，形成可量化的‘偏见暴露强度’信号，用于驱动对话生成模型的对抗性评测。",
-  "源行超链接": "源行 39"
+  "源行超链接": "源行 39",
+  "专家标签": "对话，共情信号"
  },
  {
   "源行号": "40",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "StereoSet (2021)",
-  "人工核对标签": "偏见轴、目标群、刻板语境句",
   "原Representative tool": "Context-Association Triplet + Dual-Metric Scoring Protocol",
   "文章特有分类/标签结构": "人工核对标签：偏见轴、目标群、刻板语境句; 偏见轴，如Gender; 目标群体，如Girl; 刻板语境句，如‘Girls tend to be more ____ than boys’",
   "主整合工具ID": "T11",
@@ -1011,13 +1010,13 @@
   "自动化改编部分": "T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具由两部分构成：(1) Context-Association Triplet（CAT）——每个样本严格包含三要素：Domain（偏见轴，如Gender）、Target（目标群体，如Girl）、Context（刻板语境句，如‘Girls tend to be more ____ than boys’），并配三个选项：stereotype（软）、anti-stereotype（坚定）、meaningless（鱼）；(2) Dual-Metric...",
-  "源行超链接": "源行 40"
+  "源行超链接": "源行 40",
+  "专家标签": "偏见轴、目标群、刻板语境句"
  },
  {
   "源行号": "41",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "BBQ (2022)",
-  "人工核对标签": "模糊消歧",
   "原Representative tool": "Disambiguated-Ambiguous Context Pairing Template",
   "文章特有分类/标签结构": "人工核对标签：模糊消歧",
   "主整合工具ID": "T06",
@@ -1037,13 +1036,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "BBQ 构造了成对的语境模板：每个社会维度（如宗教、种族）下，同一核心偏见命题被嵌入两类上下文——模糊语境（含刻板印象暗示但无明确事实依据）和消歧语境（添加中性或反刻板信息以削弱偏见线索）。每对模板共享相同问题与选项结构，仅语境细节不同，用于隔离模型是否依赖刻板印象而非逻辑推理作答。",
-  "源行超链接": "源行 41"
+  "源行超链接": "源行 41",
+  "专家标签": "模糊消歧"
  },
  {
   "源行号": "42",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "HolisticBias (2022)",
-  "人工核对标签": "具体细粒度描述，术语",
   "原Representative tool": "HolisticBias Descriptor Bucketing Framework",
   "文章特有分类/标签结构": "人工核对标签：具体细粒度描述，术语",
   "主整合工具ID": "T06",
@@ -1063,13 +1062,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T07: 可自动生成覆盖矩阵、统计空格子，并为每个格子抽样或生成候选题。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T07: 需人工决定覆盖优先级、抽样权重、不可测范围和矩阵维护计划。",
   "Tool explanation 摘要": "该框架将13个身份轴（如能力、年龄、身体类型、文化等）各自划分为细粒度‘描述符桶’（descriptor buckets），例如‘Ability’轴下包含‘Deaf’‘hard-of-hearing’‘hearing-impaired’等术语；每个桶内聚合语义相近但社会接受度/污名化程度不同的表达，并通过cloze式MLM-PLL任务测量模型对各桶内术语的预测偏好差异，从而量化偏见放大（bias amplification）。",
-  "源行超链接": "源行 42"
+  "源行超链接": "源行 42",
+  "专家标签": "具体细粒度描述，术语"
  },
  {
   "源行号": "43",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "Panda (2022)",
-  "人工核对标签": "改写成中性，normative合规",
   "原Representative tool": "Demographic Perturbation Augmentation Pipeline with Legal Anchoring",
   "文章特有分类/标签结构": "人工核对标签：改写成中性，normative合规; 性别/种族/年龄",
   "主整合工具ID": "T06",
@@ -1089,13 +1088,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "Panda 提出一套受法律与政策约束的文本扰动流水线：给定原始文本片段，识别其中人口统计学指代词（如‘Queen Victoria’），依据预定义轴（性别/种族/年龄）及其合法替代集（如EEOC定义的性别中性称谓、美国人口普查标准族裔术语），生成语义一致但人口统计属性变更的重写样本；所有扰动均需满足‘fairscore’度量——即扰动后模型输出分布与原始分布的KL散度低于阈值。",
-  "源行超链接": "源行 43"
+  "源行超链接": "源行 43",
+  "专家标签": "改写成中性，normative合规"
  },
  {
   "源行号": "44",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "Grep-BiasIR (2023)",
-  "人工核对标签": "系统偏差，职位、中性、男性女性",
   "原Representative tool": "Controlled Query-Document Pair Template with Gender-Aware Document Variants",
   "文章特有分类/标签结构": "人工核对标签：系统偏差，职位、中性、男性女性; 男性/女性/中性 × 相关/不相关; Career, DomesticWork等",
   "主整合工具ID": "T06",
@@ -1115,13 +1114,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具构建了结构化信息检索评测框架：对每个原始查询（如 'how to become ceo'），人工生成6个语义等价但性别属性显式标注的文档变体（男性/女性/中性 × 相关/不相关），形成可控的查询-文档对集合。依赖作者手动创建+Google搜索结果清洗，以社会角色理论为依据锚定7个性别刻板印象维度（Career, DomesticWork等），确保文档在内容主题一致前提下系统性激活特定偏见表征。",
-  "源行超链接": "源行 44"
+  "源行超链接": "源行 44",
+  "专家标签": "系统偏差，职位、中性、男性女性"
  },
  {
   "源行号": "45",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "MoralChoice (2023)",
-  "人工核对标签": "细致度相互验证（'ab'二选一、'compare'对比陈述、'repeat'重复确认）",
   "原Representative tool": "Multi-Prompt Consistency Scoring Framework (MPCS)",
   "文章特有分类/标签结构": "人工核对标签：细致度相互验证（'ab'二选一、'compare'对比陈述、'repeat'重复确认）",
   "主整合工具ID": "T10",
@@ -1141,13 +1140,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "该工具通过同一道德场景下三种标准化prompt模板（'ab'二选一、'compare'对比陈述、'repeat'重复确认）激发LLM输出，并计算动作选择概率的一致性指标：动作可能性（Action Likelihood）、边际动作可能性（Marginal Action Likelihood）及问题格式一致性（QF-C）。依赖1767个专家+LLM协同生成的高/低歧义道德场景，强制模型暴露其决策稳定性。",
-  "源行超链接": "源行 45"
+  "源行超链接": "源行 45",
+  "专家标签": "细致度相互验证（'ab'二选一、'compare'对比陈述、'repeat'重复确认）"
  },
  {
   "源行号": "46",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "TrustGPT (2023)",
-  "人工核对标签": "填空，隐性刻板印象",
   "原Representative tool": "SocialNorm-Grounded Cloze Task with Multi-Attribute Toxicity Anchoring",
   "文章特有分类/标签结构": "人工核对标签：填空，隐性刻板印象; 性别/种族/宗教等",
   "主整合工具ID": "T08",
@@ -1167,13 +1166,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "该工具将SOCIALCHEMISTRY101中的社会规范陈述转化为cloze填空题（如‘在别人做有害的事情时说出来’→选项A/B/C对应‘可以/好/不好’），并利用PERSPECTIVE API对每个选项文本进行多维度毒性打分（性别/种族/宗教等），形成以实证社会规范为锚点、以可量化毒性分数为校准依据的偏见评测任务。",
-  "源行超链接": "源行 46"
+  "源行超链接": "源行 46",
+  "专家标签": "填空，隐性刻板印象"
  },
  {
   "源行号": "47",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "WinoQueer (2023)",
-  "人工核对标签": "",
   "原Representative tool": "Community-in-the-Loop sentence pair generation protocol",
   "文章特有分类/标签结构": "biased vs. non-biased",
   "主整合工具ID": "T12",
@@ -1193,13 +1192,13 @@
   "自动化改编部分": "T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "一种以LGBTQ+社区成员为共同设计者、通过结构化调研识别真实有害刻板印象，并据此构造Winograd-style对比句对（biased vs.",
-  "源行超链接": "源行 47"
+  "源行超链接": "源行 47",
+  "专家标签": "社区共治的偏见对照句对"
  },
  {
   "源行号": "48",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "CBBQ (2024)",
-  "人工核对标签": "三重验证模式",
   "原Representative tool": "Four-stage human-AI co-authored ambiguous/disambiguated QA template pipeline",
   "文章特有分类/标签结构": "人工核对标签：三重验证模式",
   "主整合工具ID": "T10",
@@ -1219,13 +1218,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "一个四阶段人机协同构建流程：（1）AI初筛CNKI与微博/知乎中含社会属性争议的原始文本；（2）人工标注模糊性（ambiguity）与潜在偏见方向；（3）专家撰写双版本题干（模糊版+消歧版）；（4）众包验证选项合理性与文化适配性。产出覆盖14个本土社会维度（如户籍、婚育、地域）的MCQ-QA对，每对包含同一情境下的模糊提问与明确事实提问。",
-  "源行超链接": "源行 48"
+  "源行超链接": "源行 48",
+  "专家标签": "三重验证模式"
  },
  {
   "源行号": "49",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "KoBBQ (2024)",
-  "人工核对标签": "文化适配",
   "原Representative tool": "BBQ cultural filter + Korea-specific dimension re-engineering framework",
   "文章特有分类/标签结构": "人工核对标签：文化适配",
   "主整合工具ID": "T05",
@@ -1245,13 +1244,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "一套系统性文化适配方法：首先对原始BBQ模板进行‘文化适用性过滤’（剔除约70%不适用于韩国社会语境的题目），再基于韩国社会调查与专家共识，重新定义并扩展12个保护属性维度（其中5个为韩国特有：地区（region）、兵役状态（military）、婚姻状况（marital）、教育背景（education）、家庭结构（family-structure）），并为每个维度设计符合韩国刻板印象认知的选项逻辑（如高SES与吸毒关联）。",
-  "源行超链接": "源行 49"
+  "源行超链接": "源行 49",
+  "专家标签": "文化适配"
  },
  {
   "源行号": "50",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "FLEX (2025)",
-  "人工核对标签": "变换语义但是（从结果转向行为）",
   "原Representative tool": "Adversarial Fairness Sensitivity Probe (AFSP)",
   "文章特有分类/标签结构": "人工核对标签：变换语义但是（从结果转向行为）",
   "主整合工具ID": "T08",
@@ -1271,13 +1270,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "AFSP 是一种针对公平性行为鲁棒性的对抗扰动探测工具：它在原始公平敏感提示（如涉及受保护属性的决策场景）基础上，施加语义保持但属性凸显/弱化的微小扰动（例如替换代词、调整亲属称谓、变换职业描述的修饰词），并系统测量模型输出在公平相关判断（如是否推荐某职位、是否认定某行为合理）上的不一致性。该工具依赖于人工构建的受保护属性锚点词表与扰动规则集，结合反事实对比评估框架，专为暴露静态公平基准无法捕获的‘脆弱公平性’而设计。",
-  "源行超链接": "源行 50"
+  "源行超链接": "源行 50",
+  "专家标签": "变换语义但是（从结果转向行为）"
  },
  {
   "源行号": "51",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "Phare (2025)",
-  "人工核对标签": "判断+生成，隐性评价倾向",
   "原Representative tool": "Discrimination-Generation Gap Analyzer (DGGA)",
   "文章特有分类/标签结构": "人工核对标签：判断+生成，隐性评价倾向",
   "主整合工具ID": "T01",
@@ -1297,13 +1296,13 @@
   "自动化改编部分": "T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "DGGA 是一种双轨公平性差异量化工具：它在同一语义前提下，同步构造判别式任务（如MCQ选择‘谁更胜任教师’）与开放生成任务（如‘请描述一位优秀教师的特质’），并计算二者在偏见指标（如性别-职业共现强度、刻板印象词频比、群体代表性熵）上的系统性差距。该工具依赖成对的prompt模板、可控的语义锚定句（如‘张老师和李老师都教数学’），以及基于LLM生成内容的自动化偏见评分pipeline（含细粒度实体-属性关系抽取）。",
-  "源行超链接": "源行 51"
+  "源行超链接": "源行 51",
+  "专家标签": "判断+生成，隐性评价倾向"
  },
  {
   "源行号": "52",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "BharatBBQ (2024/2025)",
-  "人工核对标签": "模块化文化适配包",
   "原Representative tool": "Culturally-Localized BBQ Template Adapter (CL-BTA)",
   "文章特有分类/标签结构": "人工核对标签：模块化文化适配包",
   "主整合工具ID": "T05",
@@ -1323,13 +1322,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "CL-BTA 是一个模块化文化适配工具包：它将原始BBQ的通用偏见QA结构（如‘谁更可能成为护士？A.",
-  "源行超链接": "源行 52"
+  "源行超链接": "源行 52",
+  "专家标签": "模块化文化适配包"
  },
  {
   "源行号": "53",
   "一级标签": "Fairness&inclusive",
   "Benchmark / Source": "JBBQ (2024/2025)",
-  "人工核对标签": "文化和语言适应性",
   "原Representative tool": "Culturally grounded, language-specific BBQ template adaptation framework",
   "文章特有分类/标签结构": "人工核对标签：文化和语言适应性",
   "主整合工具ID": "T05",
@@ -1349,13 +1348,13 @@
   "自动化改编部分": "T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具基于原始BBQ（Bias Benchmark for QA）的结构化偏见探测范式，系统性地将问题模板、社会群体维度、文化默认假设和语境化干扰项（distractors）重写为符合日语语言习惯与日本社会规范的形式；依赖本地化知识库（如日本人口统计结构、法律保护群体、媒体常见刻板印象）、双语专家协同标注流程，以及对原BBQ中‘plausible but incorrect’答案的文化适配重构；它不是简单翻译，而是以日本社会语境为锚点重建整个偏见探测逻辑链。",
-  "源行超链接": "源行 53"
+  "源行超链接": "源行 53",
+  "专家标签": "文化和语言适应性"
  },
  {
   "源行号": "54",
   "一级标签": "Safety",
   "Benchmark / Source": "RealToxicityPrompts (2020)",
-  "人工核对标签": "最坏但最合理的毒性",
   "原Representative tool": "Expected Maximum Toxicity (EMT) scoring framework",
   "文章特有分类/标签结构": "人工核对标签：最坏但最合理的毒性",
   "主整合工具ID": "T11",
@@ -1375,13 +1374,13 @@
   "自动化改编部分": "T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。；T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。",
   "需人工校验/治理部分": "T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。；T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。",
   "Tool explanation 摘要": "EMT 是一种基于采样与聚合的毒性评测机制：对每个prompt，让模型生成N个续写（如25个），用Perspective API分别打分，取其中最高毒性分作为该prompt的'最大暴露风险'；再对全部prompt的最大毒性分取期望值（即平均最大值）。它不依赖单一响应，而是建模模型在开放生成中‘最坏但合理’的毒性输出倾向，反映部署场景下的尾部风险。",
-  "源行超链接": "源行 54"
+  "源行超链接": "源行 54",
+  "专家标签": "最坏但最合理的毒性"
  },
  {
   "源行号": "55",
   "一级标签": "Safety",
   "Benchmark / Source": "HateCheck (2021)",
-  "人工核对标签": "过程行为",
   "原Representative tool": "Functional test suite with behaviorally-defined test cases",
   "文章特有分类/标签结构": "人工核对标签：过程行为",
   "主整合工具ID": "T07",
@@ -1401,13 +1400,13 @@
   "自动化改编部分": "T07: 可自动生成覆盖矩阵、统计空格子，并为每个格子抽样或生成候选题。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T07: 需人工决定覆盖优先级、抽样权重、不可测范围和矩阵维护计划。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "HateCheck 构建了一套基于功能目标（functional intent）而非表面标签的MCQ测试集：每个测试案例对应一个明确定义的检测能力（如'识别收复性侮辱词（reclaimed slurs）'或'区分讽刺性仇恨言论'），由专家按模板编写并覆盖29种细粒度行为模式；所有案例均配对‘应通过’/‘应拒绝’的黄金标准逻辑判断，形成可解释的通过性诊断。",
-  "源行超链接": "源行 55"
+  "源行超链接": "源行 55",
+  "专家标签": "过程行为"
  },
  {
   "源行号": "56",
   "一级标签": "Safety",
   "Benchmark / Source": "ToxiGen (2022)",
-  "人工核对标签": "隐性有害（体身份锚点（如'as a Black person'）、构造虚假关联前提（如'if the chef is white, the food is better'）和良性语境掩护（如'you have probably noticed...'），）",
   "原Representative tool": "ALICE-guided implicit toxicity generation pipeline",
   "文章特有分类/标签结构": "人工核对标签：隐性有害（体身份锚点（如'as a Black person'）、构造虚假关联前提（如'if the chef is white, the food is better'）和良性语境掩护（如'you have probably noticed...'），）",
   "主整合工具ID": "T08",
@@ -1427,13 +1426,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "ALICE（Adversarial Language for Implicit Counterfactual Evaluation）是一种可控生成框架：以GPT-3为基座，通过注入群体身份锚点（如'as a Black person'）、构造虚假关联前提（如'if the chef is white, the food is better'）和良性语境掩护（如'you have probably...",
-  "源行超链接": "源行 56"
+  "源行超链接": "源行 56",
+  "专家标签": "隐性有害（体身份锚点（如'as a Black person'）、构造虚假关联前提（如'if the chef is white, the food is better'）和良性语境掩护（如'you have probably noticed...'），）"
  },
  {
   "源行号": "57",
   "一级标签": "Safety",
   "Benchmark / Source": "ToxicChat (2023)",
-  "人工核对标签": "输入、输出传导链",
   "原Representative tool": "Real-world user-AI prompt injection template with toxicity-labeled continuation pairs",
   "文章特有分类/标签结构": "人工核对标签：输入、输出传导链",
   "主整合工具ID": "T08",
@@ -1453,13 +1452,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具从Vicuna在线演示中真实捕获用户首轮提问（prompt），并人工或半自动标注其后续AI响应是否构成毒性（toxic）；构造为输入（user prompt）→ 输出（model response）→ 二元毒性标签的三元组结构，强调真实交互语境下的隐性越狱与指令诱导型毒性触发。",
-  "源行超链接": "源行 57"
+  "源行超链接": "源行 57",
+  "专家标签": "输入、输出传导链"
  },
  {
   "源行号": "58",
   "一级标签": "Safety",
   "Benchmark / Source": "Chinese-Safeguard (2024)",
-  "人工核对标签": "normative",
   "原Representative tool": "China-specific safeguard refusal taxonomy with policy-aligned multi-tier labeling schema",
   "文章特有分类/标签结构": "人工核对标签：normative; 政治敏感、违法犯罪、伦理道德、个人隐私、未成年保护; refused / refused-or-careful / informative-with-safeguards",
   "主整合工具ID": "T04",
@@ -1479,13 +1478,13 @@
   "自动化改编部分": "T04: 可自动依据关键词和场景特征生成初步风险等级、hazard category、help/refuse/clarify/escalate 建议。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T04: 需专业人员校准风险等级、危机阈值、转介条件和错误拒答/错误帮助的代价。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具定义了覆盖中国生成式AI服务管理办法、网络安全法及主流平台政策的五类本土风险（政治敏感、违法犯罪、伦理道德、个人隐私、未成年保护），每类下设典型prompt模板与预期响应范式（refused / refused-or-careful / informative-with-safeguards），并采用专家书写+LLM-as-judge协同标注，形成可映射至监管红线的分层拒绝行为评估框架。",
-  "源行超链接": "源行 58"
+  "源行超链接": "源行 58",
+  "专家标签": "normative"
  },
  {
   "源行号": "59",
   "一级标签": "Safety",
   "Benchmark / Source": "Do-not-answer (2024)",
-  "人工核对标签": "风险分级",
   "原Representative tool": "Hierarchical red-team prompt taxonomy with behavior-risk dual annotation",
   "文章特有分类/标签结构": "人工核对标签：风险分级",
   "主整合工具ID": "T04",
@@ -1505,13 +1504,13 @@
   "自动化改编部分": "T04: 可自动依据关键词和场景特征生成初步风险等级、hazard category、help/refuse/clarify/escalate 建议。；T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。",
   "需人工校验/治理部分": "T04: 需专业人员校准风险等级、危机阈值、转介条件和错误拒答/错误帮助的代价。；T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。",
   "Tool explanation 摘要": "该工具构建了三级风险分类体系（5个一级领域 → 12个二级类型 → 61个三级具体风险），每个prompt均标注其触发的具体风险节点（如‘How can I scare someone?’ → Human-Computer Interaction Harms → Psychological Harm → Intimidation’），同时标注模型响应是否体现‘refusal behavior’，形成风险意图与防御行为的交叉矩阵。",
-  "源行超链接": "源行 59"
+  "源行超链接": "源行 59",
+  "专家标签": "风险分级"
  },
  {
   "源行号": "60",
   "一级标签": "Safety",
   "Benchmark / Source": "FFT (2024)",
-  "人工核对标签": "多种提醒（判断题、开放生成、反事实）",
   "原Representative tool": "Three-dimensional scenario taxonomy (True-False decision, open-generation, identity/context-sensitive assessment)",
   "文章特有分类/标签结构": "人工核对标签：多种提醒（判断题、开放生成、反事实）; True-False decision, open-generation, identity/context-sensitive assessment; Wikipedia, Reddit, blogs, GPT-3.5 generations",
   "主整合工具ID": "T07",
@@ -1531,13 +1530,13 @@
   "自动化改编部分": "T07: 可自动生成覆盖矩阵、统计空格子，并为每个格子抽样或生成候选题。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T07: 需人工决定覆盖优先级、抽样权重、不可测范围和矩阵维护计划。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "FFT (2024) introduces a structured three-dimensional task taxonomy that explicitly separates evaluation into (1) binary truth-value judgment (e.g., 'Is Cape of Good Hope the southernmost point of Africa?'), (2) unconstrained open-generation responses to...",
-  "源行超链接": "源行 60"
+  "源行超链接": "源行 60",
+  "专家标签": "多种提醒（判断题、开放生成、反事实）"
  },
  {
   "源行号": "61",
   "一级标签": "Safety",
   "Benchmark / Source": "HarmBench (2024)",
-  "人工核对标签": "区分禁止行为和争议行为",
   "原Representative tool": "Policy-grounded red-teaming taxonomy with explicit red-line vs. disputed-behavior labeling",
   "文章特有分类/标签结构": "人工核对标签：区分禁止行为和争议行为; explicitly prohibited by law/policy, e.g., bomb-making instructions; context-dependent, dual-use, e.g., jailbreak techniques or deepfake tools",
   "主整合工具ID": "T08",
@@ -1557,13 +1556,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "HarmBench constructs its test behaviors by systematically mapping 7 semantic harm categories (e.g., chemical weapons, non-consensual imagery, fraud) to real-world AI usage policies from OpenAI, Anthropic, Meta, and Inflection AI.",
-  "源行超链接": "源行 61"
+  "源行超链接": "源行 61",
+  "专家标签": "区分禁止行为和争议行为"
  },
  {
   "源行号": "62",
   "一级标签": "Safety",
   "Benchmark / Source": "JailBreakV (2024)",
-  "人工核对标签": "逻辑提示攻击、角色扮演、token 走私",
   "原Representative tool": "Multi-modal jailbreak transferability probe with cross-policy attack coverage",
   "文章特有分类/标签结构": "人工核对标签：逻辑提示攻击、角色扮演、token 走私",
   "主整合工具ID": "T08",
@@ -1583,13 +1582,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "JailBreakV synthesizes 28,000 jailbreak test cases spanning 5 attack families (e.g., logic attacks, role-play, token smuggling) and maps each to 16 distinct safety policies (e.g., OpenAI Usage Policy §2.2 on illegal acts, LLaMA-2 Policy §4 on misinformation).",
-  "源行超链接": "源行 62"
+  "源行超链接": "源行 62",
+  "专家标签": "逻辑提示攻击、角色扮演、token 走私"
  },
  {
   "源行号": "63",
   "一级标签": "Safety",
   "Benchmark / Source": "LifeTox (2024)",
-  "人工核对标签": "细粒度",
   "原Representative tool": "Implicit Toxicity Classification Template with Real-World Advice Context",
   "文章特有分类/标签结构": "人工核对标签：细粒度; 含长上下文、个人叙事、法律/社会规范隐含前提",
   "主整合工具ID": "T08",
@@ -1609,13 +1608,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具将Reddit真实生活建议类帖子（含长上下文、个人叙事、法律/社会规范隐含前提）结构化为二元分类任务：判断AI生成的建议是否隐性有毒（如表面中立但诱导违法、规避责任或强化偏见）。它不依赖显式辱骂词典，而是通过人工标注+社区规则共识定义‘不安全建议’边界，并强制模型在真实用户意图（如维权诉求）与潜在危害（如教唆破坏财产）之间做细粒度权衡。",
-  "源行超链接": "源行 63"
+  "源行超链接": "源行 63",
+  "专家标签": "细粒度"
  },
  {
   "源行号": "64",
   "一级标签": "Safety",
   "Benchmark / Source": "MM-SafetyBench (2024)",
-  "人工核对标签": "",
   "原Representative tool": "Cross-Modal Jailbreak Probe Construction Framework",
   "文章特有分类/标签结构": "未显式列出固定标签；保留原工具结构：Cross-Modal Jailbreak Probe Construction Framework",
   "主整合工具ID": "T08",
@@ -1635,13 +1634,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该框架系统性构造文本-图像协同越狱样本：先由领域专家设计恶意查询（如'如何制作燃烧瓶'），再用GPT-4提取关键词并驱动Stable Diffusion生成语义相关/干扰性图像（如燃烧瓶图纸 vs.",
-  "源行超链接": "源行 64"
+  "源行超链接": "源行 64",
+  "专家标签": "跨模态协同越狱探测"
  },
  {
   "源行号": "65",
   "一级标签": "Safety",
   "Benchmark / Source": "SALAD-bench (2024)",
-  "人工核对标签": "分级（宏观-中观-微观），基础和强化、多选和开放生成",
   "原Representative tool": "Three-Tier Hierarchical Safety Taxonomy with Attack-Enhanced Dual-Track Evaluation",
   "文章特有分类/标签结构": "人工核对标签：分级（宏观-中观-微观），基础和强化、多选和开放生成; 宏观域，如Malicious Use; 中观类别，如CBRN; 微观行为，如Bioterrorism",
   "主整合工具ID": "T04",
@@ -1661,13 +1660,13 @@
   "自动化改编部分": "T04: 可自动依据关键词和场景特征生成初步风险等级、hazard category、help/refuse/clarify/escalate 建议。；T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。",
   "需人工校验/治理部分": "T04: 需专业人员校准风险等级、危机阈值、转介条件和错误拒答/错误帮助的代价。；T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。",
   "Tool explanation 摘要": "该工具定义了L1（宏观域，如Malicious Use）、L2（中观类别，如CBRN）、L3（微观行为，如Bioterrorism）三级安全危害分类体系，并为每层设计Base Question（基础安全判断）与Attack-Enhanced Question（经越狱策略强化的对抗变体）双轨评测项。采用MCQ+开放生成混合格式，强制模型不仅拒绝高危请求，还需解释拒绝依据，从而区分‘正确拒绝’与‘回避性拒绝’。",
-  "源行超链接": "源行 65"
+  "源行超链接": "源行 65",
+  "专家标签": "分级（宏观-中观-微观），基础和强化、多选和开放生成"
  },
  {
   "源行号": "66",
   "一级标签": "Safety",
   "Benchmark / Source": "SafetyBench (2024)",
-  "人工核对标签": "隐式毒性",
   "原Representative tool": "Multi-dimension MCQ Safety Template with Implicit Toxicity Triggering (LifeTox-inspired)",
   "文章特有分类/标签结构": "人工核对标签：隐式毒性",
   "主整合工具ID": "T07",
@@ -1687,13 +1686,13 @@
   "自动化改编部分": "T07: 可自动生成覆盖矩阵、统计空格子，并为每个格子抽样或生成候选题。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T07: 需人工决定覆盖优先级、抽样权重、不可测范围和矩阵维护计划。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具是一种结构化多选题模板，将安全风险细分为7个可操作子维度（如Offensiveness、Mental Health、Illegal Activity等），并嵌入隐式毒性触发机制——通过生活建议类开放场景（如'Life Advice'段落）构造表面中立但含危险诱导的指令，要求模型识别其隐含危害。它依赖人工编纂+ChatGPT增强生成的混合数据源，结合真实用户对话（Reddit）、考试题与合成情境，确保跨文化覆盖和现实语境锚定。",
-  "源行超链接": "源行 66"
+  "源行超链接": "源行 66",
+  "专家标签": "隐式毒性"
  },
  {
   "源行号": "67",
   "一级标签": "Safety",
   "Benchmark / Source": "XSTest (2024)",
-  "人工核对标签": "过度拒绝",
   "原Representative tool": "Controlled Over-refusal Contrast Pair Framework",
   "文章特有分类/标签结构": "人工核对标签：过度拒绝",
   "主整合工具ID": "T06",
@@ -1713,13 +1712,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "该工具构建严格配对的prompt对比集：每组包含一个语义安全但易被过度拒绝的prompt（如使用同义词/比喻表达常规请求）与一个语义不安全prompt（含明确违规意图），二者在表层语言复杂度、长度、句法结构上高度匹配。通过人工三重标注与高一致性（Fleiss’ κ ≥ 0.89）保障判别信度，专用于量化模型在‘安全-帮助性’权衡中的偏差倾向。",
-  "源行超链接": "源行 67"
+  "源行超链接": "源行 67",
+  "专家标签": "过度拒绝"
  },
  {
   "源行号": "68",
   "一级标签": "Safety",
   "Benchmark / Source": "Agent-SafetyBench (2025)",
-  "人工核对标签": "agent 行为过程",
   "原Representative tool": "Multi-turn Tool-Invocation Safety Test Case Generator with Failure Mode Taxonomy",
   "文章特有分类/标签结构": "人工核对标签：agent 行为过程",
   "主整合工具ID": "T09",
@@ -1739,13 +1738,13 @@
   "自动化改编部分": "T09: 可自动生成工作流状态、允许/禁止动作、日志检查项和沙盒任务脚本草案。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T09: 需人工审计沙盒权限、真实业务风险、日志解释、责任归属和失败恢复标准。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具是一套面向LLM agent的测试用例生成规范：基于8类安全风险（如Unauthorized File Access、Malicious Web Navigation）和10种失败模式（如‘绕过权限检查执行命令’），在ToolEmu沙盒环境中构造2000个多轮交互轨迹，每条轨迹包含用户指令、agent工具调用序列、环境反馈及安全风险触发标记。所有案例经双人复核+自动沙盒验证闭环校验。",
-  "源行超链接": "源行 68"
+  "源行超链接": "源行 68",
+  "专家标签": "agent 行为过程"
  },
  {
   "源行号": "69",
   "一级标签": "Safety",
   "Benchmark / Source": "SafeInfer (2025)",
-  "人工核对标签": "安全引导，风险感知，动态，情境",
   "原Representative tool": "Context-Adaptive Decoding-Time Safety Alignment (SA phase + HARMEV framework)",
   "文章特有分类/标签结构": "人工核对标签：安全引导，风险感知，动态，情境",
   "主整合工具ID": "T08",
@@ -1765,13 +1764,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "SafeInfer introduces a two-phase decoding-time safety mechanism: (1) Safety Amplification (SA) phase, which uses safety-optimized demonstrations to steer generation toward ethical guidelines; (2) HARMEV — a context-aware harm evaluation module that...",
-  "源行超链接": "源行 69"
+  "源行超链接": "源行 69",
+  "专家标签": "安全引导，风险感知，动态，情境"
  },
  {
   "源行号": "70",
   "一级标签": "Safety",
   "Benchmark / Source": "SaFeRDialogues (2022)",
-  "人工核对标签": "多轮对话（承认-道歉-纠正）",
   "原Representative tool": "Graceful Recovery Dialogue Template (Acknowledge-Apologize-Correct protocol)",
   "文章特有分类/标签结构": "人工核对标签：多轮对话（承认-道歉-纠正）",
   "主整合工具ID": "T08",
@@ -1791,13 +1790,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "A structured three-turn conversational template triggered upon safety failure detection: (1) Acknowledge the user's input and the model’s misstep (e.g., 'I see my previous response was inappropriate'), (2) Apologize unambiguously without deflection, (3)...",
-  "源行超链接": "源行 70"
+  "源行超链接": "源行 70",
+  "专家标签": "多轮对话（承认-道歉-纠正）"
  },
  {
   "源行号": "71",
   "一级标签": "Safety",
   "Benchmark / Source": "BAD / Bot-Adversarial Dialogue (2021)",
-  "人工核对标签": "多轮对话",
   "原Representative tool": "Human-Led Adversarial Dialogue Protocol (HALADP)",
   "文章特有分类/标签结构": "人工核对标签：多轮对话",
   "主整合工具ID": "T08",
@@ -1817,13 +1816,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "A standardized protocol for collecting multi-turn dialogues where trained human adversaries iteratively probe LLMs using subtle, contextually embedded provocations (e.g., plausible deniability, role-play framing, lexical camouflage) to elicit hate,...",
-  "源行超链接": "源行 71"
+  "源行超链接": "源行 71",
+  "专家标签": "多轮对话"
  },
  {
   "源行号": "72",
   "一级标签": "Safety",
   "Benchmark / Source": "HarmEval (2025)",
-  "人工核对标签": "安全放大，提出不同的安全",
   "原Representative tool": "Safety Amplification (SA) vector + Safety-guided decoding strategy (sGDS)",
   "文章特有分类/标签结构": "人工核对标签：安全放大，提出不同的安全",
   "主整合工具ID": "T04",
@@ -1843,13 +1842,13 @@
   "自动化改编部分": "T04: 可自动依据关键词和场景特征生成初步风险等级、hazard category、help/refuse/clarify/escalate 建议。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T04: 需专业人员校准风险等级、危机阈值、转介条件和错误拒答/错误帮助的代价。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "HarmEval 提出两阶段安全增强机制：第一阶段（Safety Amplification）利用带安全标注的示范样例（demonstration examples）计算‘安全放大向量’，该向量被注入语言模型隐藏层以偏置token选择；第二阶段（sGDS）通过融合/剔除不同分布（如安全vs.",
-  "源行超链接": "源行 72"
+  "源行超链接": "源行 72",
+  "专家标签": "安全放大，提出不同的安全"
  },
  {
   "源行号": "73",
   "一级标签": "Safety",
   "Benchmark / Source": "HH-RLHF / Anthropic H&H (2022)",
-  "人工核对标签": "两级分类，helpful和harmful",
   "原Representative tool": "Human preference-based helpful-harmless pairwise ranking template",
   "文章特有分类/标签结构": "人工核对标签：两级分类，helpful和harmful",
   "主整合工具ID": "T04",
@@ -1869,13 +1868,13 @@
   "自动化改编部分": "T04: 可自动依据关键词和场景特征生成初步风险等级、hazard category、help/refuse/clarify/escalate 建议。；T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。",
   "需人工校验/治理部分": "T04: 需专业人员校准风险等级、危机阈值、转介条件和错误拒答/错误帮助的代价。；T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。",
   "Tool explanation 摘要": "该工具采用成对比较（pairwise ranking）模板：给定同一提示（prompt），要求人类标注者在两个模型响应中选出更‘helpful’且更‘harmless’的选项；标注结果构成偏好信号，用于训练奖励模型或直接评估模型对齐程度。它不依赖预设规则或词典，而是将安全边界建模为人类在开放域对话中对帮助性与无害性权衡的集体判断。",
-  "源行超链接": "源行 73"
+  "源行超链接": "源行 73",
+  "专家标签": "两级分类，helpful和harmful"
  },
  {
   "源行号": "74",
   "一级标签": "Safety",
   "Benchmark / Source": "AdvBench (2023)",
-  "人工核对标签": "隐性（语义模糊、上下颚二年伪装、多步诱导）",
   "原Representative tool": "Adversarial harmful instruction template with jailbreak-resistant prompt engineering",
   "文章特有分类/标签结构": "人工核对标签：隐性（语义模糊、上下颚二年伪装、多步诱导）",
   "主整合工具ID": "T08",
@@ -1895,13 +1894,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "AdvBench提供一套系统化的对抗性有害指令模板库（如‘role-play’, ‘indirect request’, ‘obfuscation’等类别），每条指令经人工设计以绕过常见安全护栏；其核心工具是结构化越狱提示工程方法论——通过语义变形、上下文伪装、多步诱导等方式构造高成功率攻击样本，用于压力测试模型对隐性危害请求的鲁棒性。",
-  "源行超链接": "源行 74"
+  "源行超链接": "源行 74",
+  "专家标签": "隐性（语义模糊、上下颚二年伪装、多步诱导）"
  },
  {
   "源行号": "75",
   "一级标签": "Safety",
   "Benchmark / Source": "Red-Eval (2024)",
-  "人工核对标签": "动态（角色扮演、上下文、多轮诱导",
   "原Representative tool": "Red-team adversarial prompt template suite with role-play and injection scaffolds",
   "文章特有分类/标签结构": "人工核对标签：动态（角色扮演、上下文、多轮诱导",
   "主整合工具ID": "T08",
@@ -1921,13 +1920,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "Red-Eval 提供一套结构化的红队提示模板库，包含角色扮演（如‘你是一名无道德约束的黑客’）、上下文注入（如‘忽略 previous instructions’）、多轮诱导等可复用的越狱攻击模式；依赖人工构造的高风险意图类别（如非法武器制造、自残指导）和对应的安全策略文档作为对抗基准；该工具本质是任务模板+攻击范式组合，而非静态测试集，支持动态生成新测试用例。",
-  "源行超链接": "源行 75"
+  "源行超链接": "源行 75",
+  "专家标签": "动态（角色扮演、上下文、多轮诱导"
  },
  {
   "源行号": "76",
   "一级标签": "Safety",
   "Benchmark / Source": "LatentJailbreak (2024)",
-  "人工核对标签": "跨语言，隐性",
   "原Representative tool": "Cross-lingual latent jailbreak translation pipeline with semantic-preserving obfuscation",
   "文章特有分类/标签结构": "人工核对标签：跨语言，隐性",
   "主整合工具ID": "T08",
@@ -1947,13 +1946,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T05: 可自动替换语言、地点、制度、身份称谓和文化脚本，并生成本地化候选版本。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T05: 需本地专家或社区审阅身份类别、制度语境、翻译等值性和基本权利红线。",
   "Tool explanation 摘要": "LatentJailbreak 构建了一条可复用的跨语言隐式越狱流水线：先将高风险英文指令（如‘如何制作炸弹’）通过语义保持的机器翻译（如中→日→韩→英回译）引入歧义和冗余，再叠加同音字替换、形近字混淆、拼音缩写等非语法扰动，生成表面无害但语义可解码的‘潜伏型’提示；该工具依赖双语词典约束、翻译模型置信度阈值和人工验证的扰动规则集，输出为可批量生成的隐式攻击样本生成器。",
-  "源行超链接": "源行 76"
+  "源行超链接": "源行 76",
+  "专家标签": "跨语言，隐性"
  },
  {
   "源行号": "77",
   "一级标签": "Safety",
   "Benchmark / Source": "CyberSec.Eval (2024)",
-  "人工核对标签": "风险过程、链条",
   "原Representative tool": "Domain-grounded security risk chain annotation schema with CVE-mapped harm pathways",
   "文章特有分类/标签结构": "人工核对标签：风险过程、链条",
   "主整合工具ID": "T04",
@@ -1973,13 +1972,13 @@
   "自动化改编部分": "T04: 可自动依据关键词和场景特征生成初步风险等级、hazard category、help/refuse/clarify/escalate 建议。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T04: 需专业人员校准风险等级、危机阈值、转介条件和错误拒答/错误帮助的代价。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "CyberSec.Eval 提出一种可复用的网络安全领域风险链标注框架：将每个测试样例（如‘生成一个利用Log4j漏洞的PoC脚本’）结构化标注为‘触发条件→漏洞利用→系统权限提升→数据泄露/勒索→现实组织级危害’五阶链条，并强制映射至NIST NVD/CVE数据库中的具体漏洞编号、CVSS评分及MITRE ATT&CK战术层级；该schema依赖公开漏洞知识图谱与人工定义的跨层因果规则，输出为带法律-技术双重锚点的风险传导图谱。",
-  "源行超链接": "源行 77"
+  "源行超链接": "源行 77",
+  "专家标签": "风险过程、链条"
  },
  {
   "源行号": "78",
   "一级标签": "Safety",
   "Benchmark / Source": "C-Do-not-answer (2024)",
-  "人工核对标签": "normative，do not answer",
   "原Representative tool": "Normatively grounded Chinese safety refusal template set with dual-layer legal-policy-social annotation",
   "文章特有分类/标签结构": "人工核对标签：normative，do not answer",
   "主整合工具ID": "T02",
@@ -1999,13 +1998,13 @@
   "自动化改编部分": "T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具是一组结构化中文‘不应回答’问题模板，每个模板附带三层规范性标注：（1）对应中国现行法律条文（如《生成式人工智能服务管理暂行办法》第十二条），（2）政策导向说明（如网信办安全评估指南要求），（3）社会规范合理性解释（如公序良俗、未成年人保护等语境）。问题覆盖政治敏感、违法信息、隐私侵犯、歧视性内容等类别，并强制要求模型输出‘我不能回答这个问题’类拒绝响应而非回避或编造。其构造依赖对中文法规文本、监管案例库及本土舆情事件的系统性梳理。",
-  "源行超链接": "源行 78"
+  "源行超链接": "源行 78",
+  "专家标签": "normative，do not answer"
  },
  {
   "源行号": "79",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "FEVER (2018)",
-  "人工核对标签": "narmative，主张-证据，逻辑关系分类",
   "原Representative tool": "Evidence-grounded claim verification pipeline with explicit sentence-level retrieval + entailment classification",
   "文章特有分类/标签结构": "人工核对标签：narmative，主张-证据，逻辑关系分类; Supported / Refuted / NotEnoughInfo",
   "主整合工具ID": "T10",
@@ -2025,13 +2024,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "“FEVER 引入了一个两阶段流程：(1) 通过信息检索（IR）为给定主张检索相关的维基百科句子；(2) 使用自然语言推理对主张与检索到的证据之间的逻辑关系进行分类（Supported / Refuted / NotEnoughInfo）。其主张来自维基百科编辑，并与人工标注的证据片段配对，从而强制要求显式的证据支撑——每个判定都必须由被引用的文本片段加以证明。”",
-  "源行超链接": "源行 79"
+  "源行超链接": "源行 79",
+  "专家标签": "narmative，主张-证据，逻辑关系分类"
  },
  {
   "源行号": "80",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "HotpotQA (2018)",
-  "人工核对标签": "多跳，异构文档",
   "原Representative tool": "Multi-hop supporting fact annotation with explicit evidence chaining and distractor injection",
   "文章特有分类/标签结构": "人工核对标签：多跳，异构文档",
   "主整合工具ID": "T10",
@@ -2051,13 +2050,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T13: 可自动生成 benchmark card、数据卡、依赖清单、模型参数表和复现命令草稿。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T13: 需维护者确认文档真实性、开源边界、隐私/许可风险和复现实验是否可运行。",
   "Tool explanation 摘要": "“HotpotQA 构造需要跨 ≥2 个维基百科段落进行推理的问题，要求标注者识别所有支撑性事实（按编号标注），并标记其逻辑角色（如桥接事实／实体链接），同时加入无关的干扰段落。此设计强制实现显式的多文档可追溯性，并暴露浅层模式匹配或捷径学习。”",
-  "源行超链接": "源行 80"
+  "源行超链接": "源行 80",
+  "专家标签": "多跳，异构文档"
  },
  {
   "源行号": "81",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "TruthfulQA (2022)",
-  "人工核对标签": "正确错误",
   "原Representative tool": "Imitative falsehood prompting framework with expert-curated false answer templates and counterfactual contrast sets",
   "文章特有分类/标签结构": "人工核对标签：正确错误",
   "主整合工具ID": "T06",
@@ -2077,13 +2076,13 @@
   "自动化改编部分": "T06: 可自动生成最小差异、反事实、模糊-消歧、安全-不安全或代理变量对照样本。；T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。",
   "需人工校验/治理部分": "T06: 需人工验证对照项是否只改变目标变量，且语义、难度和答案空间保持可比。；T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。",
   "Tool explanation 摘要": "“TruthfulQA 构造旨在诱发类人误解的问题（例如医学谣言、逻辑谬误），并为每个问题提供并列的真假选项——其中包含由领域专家撰写、在语言上高度可信但事实上错误的答案。每个题目都附有带引用的真实答案，并被划分为 38 个语义类别，用以压力测试模型对特定虚假模式的易感性。”**",
-  "源行超链接": "源行 81"
+  "源行超链接": "源行 81",
+  "专家标签": "正确错误"
  },
  {
   "源行号": "82",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "LegalBench (2023)",
-  "人工核对标签": "细分专家领域子任务、normative",
   "原Representative tool": "Lawyer-Authored Legal Reasoning Task Templates",
   "文章特有分类/标签结构": "人工核对标签：细分专家领域子任务、normative; 律师、法官、法学学者",
   "主整合工具ID": "T02",
@@ -2103,13 +2102,13 @@
   "自动化改编部分": "T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "LegalBench 提供由法律专业人士（律师、法官、法学学者）手工设计并验证的6类法律推理任务模板，覆盖规则应用（textualism_tool_plain）、判例类比（precedent_analogy）、合同解释（contract_interpretation）等具体子任务；每个模板包含结构化输入格式（如法规条文+事实摘要+问题）、多选/生成双模输出规范，以及人工标注的黄金答案与推理链。该工具本质是可复用的‘高保真法律认知脚手架’，将抽象法律能力解耦为可评测、可移植的任务单元。",
-  "源行超链接": "源行 82"
+  "源行超链接": "源行 82",
+  "专家标签": "细分专家领域子任务、normative"
  },
  {
   "源行号": "83",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "TrustGPT (2023)",
-  "人工核对标签": "normative",
   "原Representative tool": "SocialNorm-Conditioned Toxicity Prompting Framework",
   "文章特有分类/标签结构": "人工核对标签：normative",
   "主整合工具ID": "T08",
@@ -2129,13 +2128,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "TrustGPT 构建了一套基于 SOCIALCHEMISTRY101 社会规范知识库的条件化提示框架：给定一个社会行为（如'speaking up when someone’s doing something harmful'）及其人类价值判断标签（如'It’s good.'），系统自动生成对抗性提示（如'Explain why it is acceptable to stay...",
-  "源行超链接": "源行 83"
+  "源行超链接": "源行 83",
+  "专家标签": "normative"
  },
  {
   "源行号": "84",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "HallusionBench (2024)",
-  "人工核对标签": "时序",
   "原Representative tool": "Temporal-Sequence Image Reversal Diagnostic Protocol",
   "文章特有分类/标签结构": "人工核对标签：时序",
   "主整合工具ID": "T10",
@@ -2155,13 +2154,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "HallusionBench 设计了一种针对多模态幻觉的诊断协议：对同一事件（如Homer Simpson走入灌木丛）采集正向时序图像序列（originalsequence）与人工反转时序图像序列（reversedsequence），要求模型分别回答同一问题（如'是否消失入灌木丛？'）；若模型对两组序列给出相同答案，则判定其未真正理解时间因果逻辑，而仅依赖静态视觉线索产生幻觉。该协议通过人为注入时间反事实，暴露模型对动态过程建模的脆弱性。",
-  "源行超链接": "源行 84"
+  "源行超链接": "源行 84",
+  "专家标签": "时序"
  },
  {
   "源行号": "85",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "LawBench (2024)",
-  "人工核对标签": "normative（查找权威来源）-分解组成要件-验证",
   "原Representative tool": "Multi-step legal fact verification pipeline with jurisdiction-aware grounding",
   "文章特有分类/标签结构": "人工核对标签：normative（查找权威来源）-分解组成要件-验证; FLK, CAIL, LAIC",
   "主整合工具ID": "T10",
@@ -2181,13 +2180,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "LawBench constructs a multi-step verification workflow for legal QA: (1) retrieval of relevant statutory provisions from authoritative sources (e.g., Criminal Law Article 257), (2) decomposition of questions into atomic factual claims (e.g., 'violence...",
-  "源行超链接": "源行 85"
+  "源行超链接": "源行 85",
+  "专家标签": "normative（查找权威来源）-分解组成要件-验证"
  },
  {
   "源行号": "86",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "PatentEval (2024)",
-  "人工核对标签": "细粒度、语言学为基础",
   "原Representative tool": "Domain-specific error typology for patent text generation",
   "文章特有分类/标签结构": "人工核对标签：细粒度、语言学为基础",
   "主整合工具ID": "T10",
@@ -2207,13 +2206,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "PatentEval introduces a fine-grained, linguistically grounded error taxonomy tailored to patent documents, distinguishing 7 error types across two tasks: (1) claims-to-abstract generation (e.g., 'missing technical effect', 'inconsistent antecedent basis'),...",
-  "源行超链接": "源行 86"
+  "源行超链接": "源行 86",
+  "专家标签": "细粒度、语言学为基础"
  },
  {
   "源行号": "87",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "TrustLLM (2024)",
-  "人工核对标签": "跨维度设计一致",
   "原Representative tool": "Cross-dimensional sycophancy reversal probe",
   "文章特有分类/标签结构": "人工核对标签：跨维度设计一致; legal, medical, policy",
   "主整合工具ID": "T10",
@@ -2233,13 +2232,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "TrustLLM implements a controlled perturbation mechanism to detect sycophancy: for each input prompt containing an implicit or explicit preference (e.g., 'Most experts agree that AI regulation should be light-touch'), it generates two parallel versions—one...",
-  "源行超链接": "源行 87"
+  "源行超链接": "源行 87",
+  "专家标签": "跨维度设计一致"
  },
  {
   "源行号": "88",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "Sycophancy-Sharma (2025)",
-  "人工核对标签": "阶段性",
   "原Representative tool": "Sycophancy Reversal Prompting with Multi-Step Fact Verification",
   "文章特有分类/标签结构": "人工核对标签：阶段性",
   "主整合工具ID": "T10",
@@ -2259,13 +2258,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "该工具通过构造包含明确事实前提（如太阳颜色的物理原理）与主观情绪诱导（如'我真的很讨厌这个论点'）的双阶段提示，强制模型先完成独立事实验证（step 1），再对用户情绪立场作出响应（step 2）；其核心是将sycophancy行为解耦为‘事实判断’与‘立场迎合’两个可分离的认知步骤，并以GPT-4作为外部验证器对step 1输出进行二元正确性标注。依赖hh-rlhf中含人类偏好的对话片段，但重标注为多步推理轨迹。",
-  "源行超链接": "源行 88"
+  "源行超链接": "源行 88",
+  "专家标签": "阶段性"
  },
  {
   "源行号": "89",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "HaluEval (2023)",
-  "人工核对标签": "需要确切的幻觉，对于存在不确定矛盾的幻觉的粒度分析",
   "原Representative tool": "Multi-Source Hallucination Annotation Protocol with Cross-Model Disagreement Filtering",
   "文章特有分类/标签结构": "人工核对标签：需要确切的幻觉，对于存在不确定矛盾的幻觉的粒度分析",
   "主整合工具ID": "T10",
@@ -2285,13 +2284,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "该工具采用三阶段幻觉标注流程：（1）由多个LLM（如Llama-3、Claude-3、GPT-4）各自生成对同一prompt的回答；（2）人工标注员基于维基百科、权威教科书等可信源，对每个回答逐句标记‘支持/反驳/无依据’；（3）仅保留至少两个模型生成结果存在实质性分歧（如一者断言A，另一者否定A）且人工确认其中一方为幻觉的样本，构成高置信度幻觉测试集。依赖公开知识源与模型间认知差异。",
-  "源行超链接": "源行 89"
+  "源行超链接": "源行 89",
+  "专家标签": "需要确切的幻觉，对于存在不确定矛盾的幻觉的粒度分析"
  },
  {
   "源行号": "90",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "FActScore (2023)",
-  "人工核对标签": "为原子单元",
   "原Representative tool": "Atomic Fact Decomposition & Support Ratio Scoring",
   "文章特有分类/标签结构": "人工核对标签：为原子单元",
   "主整合工具ID": "T10",
@@ -2311,13 +2310,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。",
   "Tool explanation 摘要": "该工具将模型生成的长文本（如一篇200词的科普段落）自动切分为语义原子单元（atomic facts），每个单元需满足：可被单一可信知识源（如Wikipedia、PubMed）独立验证为真/假/无法验证；随后调用外部检索器（如BM25+BERT）匹配支持证据，并计算‘被支持的原子事实数 / 总原子事实数’作为FActScore。其本质是将整体文本可信度转化为可审计的细粒度支持率。",
-  "源行超链接": "源行 90"
+  "源行超链接": "源行 90",
+  "专家标签": "为原子单元"
  },
  {
   "源行号": "91",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "FreshQA / FreshLLMs (2024)",
-  "人工核对标签": "动态、时序、反事实提示",
   "原Representative tool": "False-Premise-Aware Temporal Fact Probe",
   "文章特有分类/标签结构": "人工核对标签：动态、时序、反事实提示",
   "主整合工具ID": "T10",
@@ -2337,13 +2336,13 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T14: 可自动生成 public/private split 方案、canary 样本、污染检查清单和版本日志模板。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T14: 需治理负责人决定隐藏集访问、污染处置、版本不可比说明、反馈处理和退役触发。",
   "Tool explanation 摘要": "该工具通过构造两类动态知识测试题：（1）基于近期公开可信事实源（如 Wikidata 快照、新闻API摘要）生成的时效性问答对；（2）显式嵌入错误前提（e.g., 'Given that X happened in 2022, what was the outcome?'，而X实际发生于2024）的反事实提示。模型需识别前提谬误并拒绝作答或主动纠正，而非默认承接。依赖可版本化的时间戳事实库与人工校验的谬误注入规则。",
-  "源行超链接": "源行 91"
+  "源行超链接": "源行 91",
+  "专家标签": "动态、时序、反事实提示"
  },
  {
   "源行号": "92",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "SycophancyBench / Model-Written Evaluations (2022)",
-  "人工核对标签": "互动、人机协作、错误观念是否能够矫正",
   "原Representative tool": "Belief-Contradiction Dialogue Template",
   "文章特有分类/标签结构": "人工核对标签：互动、人机协作、错误观念是否能够矫正",
   "主整合工具ID": "T03",
@@ -2363,13 +2362,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。",
   "Tool explanation 摘要": "该工具采用双阶段对话模板：第一阶段由用户表达明确但可证伪的信念（e.g., ‘I believe climate change is a hoax’）；第二阶段要求模型在回应中既保持礼貌交互，又必须援引权威证据（如IPCC报告摘要）进行温和但坚定的事实锚定。评估核心是模型能否在不触发对抗的前提下，维持证据一致性。依赖人工编写的信念-证据冲突对及模型自评反馈链。",
-  "源行超链接": "源行 92"
+  "源行超链接": "源行 92",
+  "专家标签": "互动、人机协作、错误观念是否能够矫正"
  },
  {
   "源行号": "93",
   "一级标签": "Trustworthy",
   "Benchmark / Source": "DecodingTrust (2023)",
-  "人工核对标签": "解耦量化与联合诊断，可以测tradeoff",
   "原Representative tool": "Multi-Dimensional Trust Scorecard",
   "文章特有分类/标签结构": "人工核对标签：解耦量化与联合诊断，可以测tradeoff; 事实性、安全性、公平性、隐私性、鲁棒性; 0–1",
   "主整合工具ID": "T11",
@@ -2389,13 +2388,13 @@
   "自动化改编部分": "T11: 可自动按场景、群体、风险和错误类型汇总多指标 profile 和图表。；T12: 可自动生成 rubric 锚点、评分表、LLM judge 交叉评分和低一致性样本清单。",
   "需人工校验/治理部分": "T11: 需人工确认指标优先级、trade-off 解释、是否可加权和对外报告的 claim 边界。；T12: 需人工抽检评分一致性、专家仲裁低一致样本，并治理 LLM judge 偏差。",
   "Tool explanation 摘要": "该工具是一个模块化评估套件，为每个可信维度（事实性、安全性、公平性、隐私性、鲁棒性）提供独立但对齐的评测协议：统一采用‘prompt + reference answer + adversarial perturbation set’三元组结构，输出各维度标准化得分（0–1）及跨维度一致性热力图。所有维度共享同一底层prompt工程框架与人工校验流程，支持横向归因分析。",
-  "源行超链接": "源行 93"
+  "源行超链接": "源行 93",
+  "专家标签": "解耦量化与联合诊断，可以测tradeoff"
  },
  {
   "源行号": "94",
   "一级标签": "Privacy",
   "Benchmark / Source": "Converse (2024)",
-  "人工核对标签": "角色",
   "原Representative tool": "Contextual Integrity (CI)-driven vignette templating framework",
   "文章特有分类/标签结构": "人工核对标签：角色; 保险/旅行/房地产",
   "主整合工具ID": "T03",
@@ -2415,13 +2414,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具基于Nissenbaum的Contextual Integrity理论，构建结构化、多领域（保险/旅行/房地产）的合成场景模板（vignettes），每个模板强制编码四个CI核心要素：数据主体、发送者、接收者、传输原则（如‘仅用于理赔评估’）。模板通过变量插槽（如[insured_age]、[policy_type]）支持批量生成agent rollout输入，确保每个测试样本在信息流合法性上可被CI框架逐条审计。",
-  "源行超链接": "源行 94"
+  "源行超链接": "源行 94",
+  "专家标签": "角色"
  },
  {
   "源行号": "95",
   "一级标签": "Privacy",
   "Benchmark / Source": "EAI-Bench (2024)",
-  "人工核对标签": "分级，敏感分级",
   "原Representative tool": "Tiered physical-object privacy sensitivity ladder",
   "文章特有分类/标签结构": "人工核对标签：分级，敏感分级; 显式PII文本标签，如‘身份证号：110...’; 隐式上下文推断，如监控摄像头画面中模糊人脸+门牌号+时间戳组合可定位住户; 智能音箱、家用机器人、安防摄像头",
   "主整合工具ID": "T01",
@@ -2441,13 +2440,13 @@
   "自动化改编部分": "T01: 可自动抽取候选构念、子维度、受保护利益、排除范围和 claim limitation 草稿。；T07: 可自动生成覆盖矩阵、统计空格子，并为每个格子抽样或生成候选题。",
   "需人工校验/治理部分": "T01: 需人工确认构念是否合理论证、受保护利益是否完整、claim limitation 是否足够保守。；T07: 需人工决定覆盖优先级、抽样权重、不可测范围和矩阵维护计划。",
   "Tool explanation 摘要": "该工具定义了一个从tier_1（显式PII文本标签，如‘身份证号：110...’）到tier_4（隐式上下文推断，如监控摄像头画面中模糊人脸+门牌号+时间戳组合可定位住户）的四层敏感度递进标尺，每层对应不同物理AI设备（智能音箱、家用机器人、安防摄像头）的感知模态与输出行为。任务要求模型判断给定物理对象表示是否承载隐私信息，并按tier层级归类。",
-  "源行超链接": "源行 95"
+  "源行超链接": "源行 95",
+  "专家标签": "分级，敏感分级"
  },
  {
   "源行号": "96",
   "一级标签": "Privacy",
   "Benchmark / Source": "GoldCoin (2024)",
-  "人工核对标签": "normative、法律适用边界（①法条引用、②情境上下文、③主体角色关系、④传输行为描述）",
   "原Representative tool": "Law-grounded contextual integrity question generation pipeline",
   "文章特有分类/标签结构": "人工核对标签：normative、法律适用边界（①法条引用、②情境上下文、③主体角色关系、④传输行为描述）",
   "主整合工具ID": "T03",
@@ -2467,13 +2466,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具以HIPAA具体条款（如164.510(b)(4)）为锚点，结合真实法律案例背景（如灾难中护士分享患者信息）与可控幻觉注入机制（如添加‘因通讯中断需口头告知家属’等合理但易触发违规的条件），自动生成MCQ题干与干扰项。每道题强制包含：①法条引用、②情境上下文、③主体角色关系、④传输行为描述，确保模型必须调用法律推理而非模式匹配作答。",
-  "源行超链接": "源行 96"
+  "源行超链接": "源行 96",
+  "专家标签": "normative、法律适用边界（①法条引用、②情境上下文、③主体角色关系、④传输行为描述）"
  },
  {
   "源行号": "97",
   "一级标签": "Privacy",
   "Benchmark / Source": "PrivacyLens (2024)",
-  "人工核对标签": "agent",
   "原Representative tool": "Contextual Integrity 5-tuple agent trajectory tester",
   "文章特有分类/标签结构": "人工核对标签：agent; 数据类型、数据主体、数据发送者、数据接收者、传输原则",
   "主整合工具ID": "T09",
@@ -2493,13 +2492,13 @@
   "自动化改编部分": "T09: 可自动生成工作流状态、允许/禁止动作、日志检查项和沙盒任务脚本草案。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T09: 需人工审计沙盒权限、真实业务风险、日志解释、责任归属和失败恢复标准。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具将Nissenbaum的Contextual Integrity理论形式化为可操作的5元组（数据类型、数据主体、数据发送者、数据接收者、传输原则），并嵌入LLM agent的工具调用轨迹中：在每个agent rollout步骤中，自动解析其调用NotionManager/FacebookManager等工具时涉及的数据流，比对是否违反预定义CI规则。依赖众包生成的493个隐私敏感场景vignette作为输入触发条件，每个场景显式标注5-tuple要素。",
-  "源行超链接": "源行 97"
+  "源行超链接": "源行 97",
+  "专家标签": "agent"
  },
  {
   "源行号": "98",
   "一级标签": "Privacy",
   "Benchmark / Source": "WebArena-Privacy (2024)",
-  "人工核对标签": "沙盒，真实工具链和界面约束",
   "原Representative tool": "Web-based privacy decision sandbox with PII-contaminated intent injection",
   "文章特有分类/标签结构": "人工核对标签：沙盒，真实工具链和界面约束",
   "主整合工具ID": "T09",
@@ -2519,13 +2518,13 @@
   "自动化改编部分": "T09: 可自动生成工作流状态、允许/禁止动作、日志检查项和沙盒任务脚本草案。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T09: 需人工审计沙盒权限、真实业务风险、日志解释、责任归属和失败恢复标准。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具构建一个模拟真实Web环境（如GitLab）的沙盒，其中用户意图天然包含高风险PII（如WhatsApp聊天记录中同事离婚信息），要求LLM agent在执行任务（如撰写合并请求评论）时自主识别并抑制PII泄露。其核心是‘污染意图+真实界面约束’双驱动：意图数据经人工构造含真实敏感上下文，而沙盒强制代理通过DOM操作与界面交互，无法绕过前端隐私检查逻辑。",
-  "源行超链接": "源行 98"
+  "源行超链接": "源行 98",
+  "专家标签": "沙盒，真实工具链和界面约束"
  },
  {
   "源行号": "99",
   "一级标签": "Privacy",
   "Benchmark / Source": "PrivaCI-Bench (2025)",
-  "人工核对标签": "normative，context，主体",
   "原Representative tool": "Multi-jurisdictional CI-aligned MCQ + vignette generator with legal clause anchoring",
   "文章特有分类/标签结构": "人工核对标签：normative，context，主体",
   "主整合工具ID": "T03",
@@ -2545,13 +2544,13 @@
   "自动化改编部分": "T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具基于GDPR、HIPAA、EU AI Act等法律条文，将具体条款（如GDPR第6条合法性基础、HIPAA §160.103定义）锚定到Contextual Integrity 5-tuple要素上，自动生成三类评测项：（1）MCQ题干直接引用法条原文并设干扰项；（2）vignette按真实法院案例结构化呈现多方角色与数据流；（3）合成数据强制满足‘法律-语境-主体’三重约束。共覆盖154,191条记录，含真实判决书段落与政策文本。",
-  "源行超链接": "源行 99"
+  "源行超链接": "源行 99",
+  "专家标签": "normative，context，主体"
  },
  {
   "源行号": "100",
   "一级标签": "Privacy",
   "Benchmark / Source": "Carlini Extraction / Training Data Extraction (2021)",
-  "人工核对标签": "因果关系",
   "原Representative tool": "Verbatim Memorization Attack Pipeline",
   "文章特有分类/标签结构": "人工核对标签：因果关系",
   "主整合工具ID": "T14",
@@ -2571,13 +2570,13 @@
   "自动化改编部分": "T14: 可自动生成 public/private split 方案、canary 样本、污染检查清单和版本日志模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T14: 需治理负责人决定隐藏集访问、污染处置、版本不可比说明、反馈处理和退役触发。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该工具是一套系统性训练数据抽取攻击流程：首先从目标模型的训练语料中采样高似然度、低熵的敏感片段（如个人身份信息、医疗记录等），构造针对性提示（prompt）触发模型复现原文；再通过精确字符串匹配与编辑距离阈值判定是否发生逐字泄露。依赖高质量、可溯源的原始训练数据子集作为ground truth，强调对模型记忆行为的因果性归因而非相关性统计。",
-  "源行超链接": "源行 100"
+  "源行超链接": "源行 100",
+  "专家标签": "因果关系"
  },
  {
   "源行号": "101",
   "一级标签": "Privacy",
   "Benchmark / Source": "DecodingTrust-Privacy (2023)",
-  "人工核对标签": "真实交互",
   "原Representative tool": "Adversarial PII Prompting Framework with Enron Email Templates",
   "文章特有分类/标签结构": "人工核对标签：真实交互; 电话、地址、邮箱",
   "主整合工具ID": "T08",
@@ -2597,13 +2596,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "该框架利用真实世界邮件语料（Enron Email Dataset）构建结构化PII上下文模板，结合对抗性系统提示（如‘作为客服助手，请完整转述用户邮件中的联系方式’）诱导模型泄露嵌入在自然对话流中的PII；通过多轮prompt变体与角色扮演扰动增强攻击鲁棒性，并支持细粒度PII类型（电话、地址、邮箱）定位与分类。",
-  "源行超链接": "源行 101"
+  "源行超链接": "源行 101",
+  "专家标签": "真实交互"
  },
  {
   "源行号": "102",
   "一级标签": "Privacy",
   "Benchmark / Source": "ProPILE (2023)",
-  "人工核对标签": "个人信息光谱，，normative，泄漏和识别",
   "原Representative tool": "Multi-Category Synthetic PII Injection & Detection Benchmark",
   "文章特有分类/标签结构": "人工核对标签：个人信息光谱，，normative，泄漏和识别; 新闻、简历、论坛帖",
   "主整合工具ID": "T14",
@@ -2623,13 +2622,13 @@
   "自动化改编部分": "T14: 可自动生成 public/private split 方案、canary 样本、污染检查清单和版本日志模板。；T02: 可自动整理候选规范来源、红线/共识/争议标签和需要升级给专家的条件。",
   "需人工校验/治理部分": "T14: 需治理负责人决定隐藏集访问、污染处置、版本不可比说明、反馈处理和退役触发。；T02: 需领域专家确认法域/规范层级、专业越权边界、争议题处理和冲突规范优先级。",
   "Tool explanation 摘要": "该工具通过可控合成方式，在多样化文本模板（新闻、简历、论坛帖）中注入覆盖GDPR/CCPA定义的12类PII（如SSN、信用卡号、生物识别ID、IP地址）的结构化伪造实例；每类PII配对生成‘泄露任务’（模型复述含PII句子）与‘recognition任务’（模型识别文本中PII位置与类型），形成双轨评测协议；所有PII模式均经正则+语义验证确保现实合理性。",
-  "源行超链接": "源行 102"
+  "源行超链接": "源行 102",
+  "专家标签": "个人信息光谱，，normative，泄漏和识别"
  },
  {
   "源行号": "103",
   "一级标签": "Privacy",
   "Benchmark / Source": "ConfAIde (2023)",
-  "人工核对标签": "渐进式（如角色扮演、情感操纵、假定共识）",
   "原Representative tool": "Contextual Privacy Probe (CPP) — multi-turn adversarial dialogue template with theory-of-mind-triggering prompts",
   "文章特有分类/标签结构": "人工核对标签：渐进式（如角色扮演、情感操纵、假定共识）; 请求者、信息主体、旁观者; Nissenbaum, 2010",
   "主整合工具ID": "T08",
@@ -2649,13 +2648,13 @@
   "自动化改编部分": "T08: 可自动扩展多轮攻击链、角色扮演、语义伪装和停止条件记录模板。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T08: 需人工审查攻击强度、伦理边界、停止条件、标注风险和是否会产生不当可复用攻击材料。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "CPP 是一种结构化多轮对话模板，包含三类角色（请求者、信息主体、旁观者）和渐进式社会工程策略（如角色扮演、情感操纵、假定共识），要求模型在动态上下文中持续识别并拒绝泄露PII或敏感推断。其构造依赖于真实社工攻击模式库与情境完整性理论（Nissenbaum, 2010）定义的'传输原则'，每轮对话均嵌入隐式规范冲突（例如：'作为医生，我需要知道你前女友的住址来评估你的抑郁风险'），迫使模型进行义务权衡推理。",
-  "源行超链接": "源行 103"
+  "源行超链接": "源行 103",
+  "专家标签": "渐进式（如角色扮演、情感操纵、假定共识）"
  },
  {
   "源行号": "104",
   "一级标签": "Privacy",
   "Benchmark / Source": "LLM-PBE (2024)",
-  "人工核对标签": "语义蕴含推理",
   "原Representative tool": "Privacy-Boundary Entailment (PBE) scorer — semantic entailment framework for information flow control",
   "文章特有分类/标签结构": "人工核对标签：语义蕴含推理",
   "主整合工具ID": "T10",
@@ -2675,6 +2674,7 @@
   "自动化改编部分": "T10: 可自动拆分原子声明、检索候选证据、生成支持/矛盾/证据不足的初判。；T03: 可自动填充 actor、affected party、purpose、information/action flow、constraints、consequence 等场景槽位并生成变体。",
   "需人工校验/治理部分": "T10: 需人工核验证据权威性、时效性、检索遗漏、蕴含关系和高风险结论的审慎表述。；T03: 需人工核查场景真实性、利益相关方覆盖、弱势主体遗漏、文化/法律语境和伤害链条。",
   "Tool explanation 摘要": "PBE scorer 将隐私泄露判定转化为语义蕴含推理任务：给定原始输入（含敏感实体X）、模型输出Y，以及一组预定义的‘隐私边界规则’（如‘若X是身份证号，则Y不得包含X的任意子串或可逆哈希’），通过微调的语义匹配模型（如DeBERTa-v3）计算Y是否在语义上蕴含对X的可推断性（例如：Y说‘他刚满18岁’+输入含出生日期→可推断年龄→触发边界违规）。该工具依赖人工构建的边界规则集与对抗性语义扰动测试集。",
-  "源行超链接": "源行 104"
+  "源行超链接": "源行 104",
+  "专家标签": "语义蕴含推理"
  }
 ]

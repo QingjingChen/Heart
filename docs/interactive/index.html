@@ -9,64 +9,68 @@
 <body>
 <header>
   <h1>HEART · Interactive Workbox & Rubric Index</h1>
-  <div class="subtitle">14 canonical repair tools × 14 audit rubrics × 103 benchmarks (interactive view)</div>
+  <div class="subtitle">14 canonical repair tools (in 3 rubric layers) × 14 audit rubrics × 103 benchmarks (interactive view)</div>
 </header>
 <nav>
   <a href="index.html" class="active">概览 Overview</a>
   <a href="rubric_matrix.html">14×14 Index</a>
   <a href="tools.html">14 Tools</a>
   <a href="benches.html">103 Benches</a>
-  <a href="vignettes.html">Vignettes + Mini Case</a>
+  <a href="vignettes.html">Vignettes</a>
+  <a href="mini_cases.html">Mini Cases</a>
 </nav>
 <main>
 <section class="card">
   <h2>What is this</h2>
   <p>
     The HEART resource turns 103 AI-ethics benchmarks into a compact workbox of <b>14 canonical repair tools</b>
-    (T01–T14, grouped into 5 categories) and indexes each tool against the <b>14 audit rubrics</b>
-    that the benchmark-diagnosis sheet uses to score benchmarks. This site is the interactive companion to the
-    HEART_Excel workbook and the resource paper.
-  </p>
-  <p>
-    Click into any of the four views above. Every benchmark name in the tool cards and vignettes is a deep link
-    to the original paper; every cell in the 14×14 index opens a card showing the repair mechanism, the strongest
-    benchmark evidence, and the adaptation prompt that would be used to revise an item under that tool.
+    (T01–T14) organised by the <b>3 rubric layers</b> used in the diagnostic codebook
+    (<b>内容有效性 Content Validity / 评测设计 Evaluation Design / 治理可靠性 Governance Reliability</b>).
+    Each tool is indexed against the <b>14 audit rubrics</b>; every cell of the index links to the benchmark that
+    proves it. This site is the interactive companion to the HEART_Excel workbook and the resource paper.
   </p>
 </section>
 
 <section class="card">
-  <h2>The 5 tool categories</h2>
+  <h2>The 3 rubric layers and their tools</h2>
   <table class="dt">
     <thead><tr>
-      <th style="width:60px">Category</th>
+      <th style="width:140px">Layer</th>
+      <th style="width:300px">Rubrics</th>
       <th>Tools</th>
-      <th style="width:300px">When you reach for these</th>
     </tr></thead>
     <tbody>
     <tr>
-      <td><b>Construct & Normative</b></td>
-      <td>T01 Claim-Construct &amp; Protected-Interest Mapper · T02 Normative Source &amp; Decision-Boundary Ledger</td>
-      <td>The benchmark claim is too broad, the answer key is unjustified, or ethical disagreement is hidden.</td>
+      <td><b>内容有效性<br>Content Validity</b><br><span class="muted" style="font-size:11px">what the benchmark claims to measure</span></td>
+      <td><span class="muted" style="font-size:12px">R1 Construct clarity · R2 Normative grounding · R3 Source provenance &amp; evidence fitness · R4 Context &amp; stakeholder coverage · R5 Real-world harm linkage</span></td>
+      <td>
+        <a class="bench-pill" href="tools.html#T01"><b>T01</b> Claim-Construct &amp; Protected-Interest Mapper</a>
+        <a class="bench-pill" href="tools.html#T02"><b>T02</b> Normative Source &amp; Decision-Boundary Ledger</a>
+        <a class="bench-pill" href="tools.html#T03"><b>T03</b> Scenario-Stakeholder-Information-Flow Template</a>
+        <a class="bench-pill" href="tools.html#T05"><b>T05</b> Cultural &amp; Cross-Lingual Adaptation Protocol</a>
+        <a class="bench-pill" href="tools.html#T10"><b>T10</b> Evidence &amp; Claim Verification Pipeline</a>
+      </td>
     </tr>
     <tr>
-      <td><b>Scenario & Data Construction</b></td>
-      <td>T03 Scenario-Stakeholder-Information-Flow Template · T04 Risk-Tier &amp; Hazard Taxonomy · T05 Cultural &amp; Cross-Lingual Adaptation Protocol</td>
-      <td>Items are decontextualised, single-risk, US-anchored, or miss stakeholder roles.</td>
+      <td><b>评测设计<br>Evaluation Design</b><br><span class="muted" style="font-size:11px">how claims become items + scores</span></td>
+      <td><span class="muted" style="font-size:12px">R6 Scenario validity · R7 Task-format fit · R8 Ground truth &amp; disagreement design · R9 Metric validity · R10 Evaluator reliability</span></td>
+      <td>
+        <a class="bench-pill" href="tools.html#T04"><b>T04</b> Risk-Tier &amp; Hazard Taxonomy</a>
+        <a class="bench-pill" href="tools.html#T06"><b>T06</b> Contrast-Set Builder</a>
+        <a class="bench-pill" href="tools.html#T07"><b>T07</b> Behavioral Coverage Matrix</a>
+        <a class="bench-pill" href="tools.html#T09"><b>T09</b> Agent &amp; Workflow Simulation</a>
+        <a class="bench-pill" href="tools.html#T11"><b>T11</b> Multi-Metric Failure-Mode Profile</a>
+        <a class="bench-pill" href="tools.html#T12"><b>T12</b> Rubric-Based &amp; Multi-Judge Evaluation</a>
+      </td>
     </tr>
     <tr>
-      <td><b>Task & Interaction Design</b></td>
-      <td>T06 Contrast-Set Builder · T07 Behavioral Coverage Matrix · T08 Multi-Turn &amp; Adversarial Red-Team Protocol · T09 Agent &amp; Workflow Simulation · T10 Evidence &amp; Claim Verification Pipeline</td>
-      <td>Task format can't tell prejudice from behaviour shift; multi-turn / agent / factuality coverage missing.</td>
-    </tr>
-    <tr>
-      <td><b>Metric & Evaluator</b></td>
-      <td>T11 Multi-Metric Failure-Mode Profile · T12 Rubric-Based &amp; Multi-Judge Evaluation Protocol</td>
-      <td>Single proxy metric; LLM-judge uncalibrated; failure modes not reported.</td>
-    </tr>
-    <tr>
-      <td><b>Governance & Lifecycle</b></td>
-      <td>T13 Reproducible Evaluation &amp; Benchmark Card Package · T14 Lifecycle, Hidden-Split &amp; Contamination Governance</td>
-      <td>No card, no contamination guard, no retirement policy.</td>
+      <td><b>治理可靠性<br>Governance Reliability</b><br><span class="muted" style="font-size:11px">how the benchmark stays auditable and current</span></td>
+      <td><span class="muted" style="font-size:12px">R11 Data &amp; annotation QA · R12 Robustness against gaming &amp; contamination · R13 Documentation &amp; reproducibility · R14 Maintenance &amp; update governance</span></td>
+      <td>
+        <a class="bench-pill" href="tools.html#T08"><b>T08</b> Multi-Turn &amp; Adversarial Red-Team Protocol</a>
+        <a class="bench-pill" href="tools.html#T13"><b>T13</b> Reproducible Evaluation &amp; Benchmark Card Package</a>
+        <a class="bench-pill" href="tools.html#T14"><b>T14</b> Lifecycle, Hidden-Split &amp; Contamination Governance</a>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -75,20 +79,21 @@
 <section class="card">
   <h2>Quick links</h2>
   <ul>
-    <li><a href="rubric_matrix.html">14×14 interactive index</a> — click any cell to see how tool T<i>x</i> lifts rubric <i>y</i> (with the strongest benchmark evidence and a deep link to its detail).</li>
-    <li><a href="tools.html">14 tool cards</a> — core practice, boundary, prompt template, micro-edited example, member benches (with paper URLs).</li>
-    <li><a href="benches.html">103 benchmark lookup</a> — searchable; each row shows the primary &amp; secondary canonical tool that this benchmark maps to and an inline adaptation prompt.</li>
-    <li><a href="vignettes.html">5 vignettes + mini case</a> — baseline gap → HEART tools → revised → improved rubrics (one per policy dimension), plus the BBQ→Chinese-service mini case from the paper.</li>
+    <li><a href="rubric_matrix.html">14×14 interactive index</a> — click any cell to see how a tool lifts a rubric, with the strongest benchmark evidence (paper link).</li>
+    <li><a href="tools.html">Toolbox UI</a> — 14 tool cards as collapsible cards organised by the 3 rubric layers.</li>
+    <li><a href="benches.html">103 benchmark lookup</a> — searchable, shows the expert label (refined from manual labels) and the primary &amp; secondary canonical tool that this benchmark maps to.</li>
+    <li><a href="vignettes.html">5 dimension vignettes</a> — paper-level 150-220 word summaries of baseline gap → tools → revised, one per policy dimension.</li>
+    <li><a href="mini_cases.html">5 mini cases</a> — <b>real-data</b> adaptation examples from BBQ / XSTest / FreshQA / PrivacyLens / CounselBench-Adv, each with the original item (with entry ID), HEART-revised version, applied tools, lifted rubrics, and why improved.</li>
   </ul>
 </section>
 
 <section class="card">
-  <h2>How the data is produced</h2>
+  <h2>Data sources</h2>
   <p class="muted">
-    Source: <code>HEART_Excel_含原始与修订_整合压缩.xlsx</code>. The workbook was hand-curated from 103 benchmark
-    audits in <code>Tool来源分布表-cqj</code> (with manual labels) plus the workbox compression into 14 canonical
-    tools. All data on this site is loaded from JSON files under <code>data/</code>; nothing is generated at
-    runtime. To regenerate, edit the workbook and re-export via the <code>build_site.py</code> script.
+    Source workbook: <code>HEART_Excel_含原始与修订_整合压缩.xlsx</code>. All data on this site is loaded from JSON files
+    under <code>data/</code>; nothing is generated at runtime. The 18 originally-blank expert labels were filled via Qwen
+    using each benchmark's representative tool + tool explanation + adaptation example as context, then committed back to
+    the bench mapping JSON.
   </p>
 </section>
 </main>

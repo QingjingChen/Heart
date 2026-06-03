@@ -1,852 +1,852 @@
 [
  {
-  "人工核对标签": "分级，敏感分级",
   "条数": "1",
   "主整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "主工具条数": "1",
   "次整合工具": "T07 Behavioral Coverage Matrix",
   "次工具条数": "1",
   "代表来源": "EAI-Bench (2024)",
-  "源行链接": "源行 95"
+  "源行链接": "源行 95",
+  "专家标签": "分级，敏感分级"
  },
  {
-  "人工核对标签": "判断+生成，隐性评价倾向",
   "条数": "1",
   "主整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "Phare (2025)",
-  "源行链接": "源行 51"
+  "源行链接": "源行 51",
+  "专家标签": "判断+生成，隐性评价倾向"
  },
  {
-  "人工核对标签": "生成式检测，隐含偏见",
   "条数": "1",
   "主整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "BOLD (2021)",
-  "源行链接": "源行 35"
+  "源行链接": "源行 35",
+  "专家标签": "生成式检测，隐含偏见"
  },
  {
-  "人工核对标签": "normative，do not answer",
   "条数": "1",
   "主整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "C-Do-not-answer (2024)",
-  "源行链接": "源行 78"
+  "源行链接": "源行 78",
+  "专家标签": "normative，do not answer"
  },
  {
-  "人工核对标签": "人口基准统计、性别代词共现。",
   "条数": "1",
   "主整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "BUG (2021)",
-  "源行链接": "源行 36"
+  "源行链接": "源行 36",
+  "专家标签": "人口基准统计、性别代词共现。"
  },
  {
-  "人工核对标签": "细分专家领域子任务、normative",
   "条数": "1",
   "主整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "LegalBench (2023)",
-  "源行链接": "源行 82"
+  "源行链接": "源行 82",
+  "专家标签": "细分专家领域子任务、normative"
  },
  {
-  "人工核对标签": "职业偏见",
   "条数": "1",
   "主整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "WikiGenderBias (2020)",
-  "源行链接": "源行 34"
+  "源行链接": "源行 34",
+  "专家标签": "职业偏见"
  },
  {
-  "人工核对标签": "(blank)",
   "条数": "18",
   "主整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "主工具条数": "5",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "6",
   "代表来源": "MoralMachine (2018); MoralStories (2021); SCRUPLES (2021); ETHICS (2023); MFQ-2 (2023)",
-  "源行链接": "源行 2"
+  "源行链接": "源行 2",
+  "专家标签": "(blank)"
  },
  {
-  "人工核对标签": "normative、法律适用边界（①法条引用、②情境上下文、③主体角色关系、④传输行为描述）",
   "条数": "1",
   "主整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "GoldCoin (2024)",
-  "源行链接": "源行 96"
+  "源行链接": "源行 96",
+  "专家标签": "normative、法律适用边界（①法条引用、②情境上下文、③主体角色关系、④传输行为描述）"
  },
  {
-  "人工核对标签": "normative，context，主体",
   "条数": "1",
   "主整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "PrivaCI-Bench (2025)",
-  "源行链接": "源行 99"
+  "源行链接": "源行 99",
+  "专家标签": "normative，context，主体"
  },
  {
-  "人工核对标签": "互动、人机协作、错误观念是否能够矫正",
   "条数": "1",
   "主整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "主工具条数": "1",
   "次整合工具": "T10 Evidence & Claim Verification Pipeline",
   "次工具条数": "1",
   "代表来源": "SycophancyBench / Model-Written Evaluations (2022)",
-  "源行链接": "源行 92"
+  "源行链接": "源行 92",
+  "专家标签": "互动、人机协作、错误观念是否能够矫正"
  },
  {
-  "人工核对标签": "对话，共情信号",
   "条数": "1",
   "主整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "RedditBias (2021)",
-  "源行链接": "源行 39"
+  "源行链接": "源行 39",
+  "专家标签": "对话，共情信号"
  },
  {
-  "人工核对标签": "角色",
   "条数": "1",
   "主整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "Converse (2024)",
-  "源行链接": "源行 94"
+  "源行链接": "源行 94",
+  "专家标签": "角色"
  },
  {
-  "人工核对标签": "角色、分歧",
   "条数": "1",
   "主整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "SOCKET (2023)",
-  "源行链接": "源行 21"
+  "源行链接": "源行 21",
+  "专家标签": "角色、分歧"
  },
  {
-  "人工核对标签": "normative",
   "条数": "2",
   "主整合工具": "T04 Risk-Tier & Hazard Taxonomy",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "2",
   "代表来源": "Chinese-Safeguard (2024); TrustGPT (2023)",
-  "源行链接": "源行 58"
+  "源行链接": "源行 58",
+  "专家标签": "normative"
  },
  {
-  "人工核对标签": "两级分类，helpful和harmful",
   "条数": "1",
   "主整合工具": "T04 Risk-Tier & Hazard Taxonomy",
   "主工具条数": "1",
   "次整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "次工具条数": "1",
   "代表来源": "HH-RLHF / Anthropic H&H (2022)",
-  "源行链接": "源行 73"
+  "源行链接": "源行 73",
+  "专家标签": "两级分类，helpful和harmful"
  },
  {
-  "人工核对标签": "分级（宏观-中观-微观），基础和强化、多选和开放生成",
   "条数": "1",
   "主整合工具": "T04 Risk-Tier & Hazard Taxonomy",
   "主工具条数": "1",
   "次整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "次工具条数": "1",
   "代表来源": "SALAD-bench (2024)",
-  "源行链接": "源行 65"
+  "源行链接": "源行 65",
+  "专家标签": "分级（宏观-中观-微观），基础和强化、多选和开放生成"
  },
  {
-  "人工核对标签": "安全放大，提出不同的安全",
   "条数": "1",
   "主整合工具": "T04 Risk-Tier & Hazard Taxonomy",
   "主工具条数": "1",
   "次整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "次工具条数": "1",
   "代表来源": "HarmEval (2025)",
-  "源行链接": "源行 72"
+  "源行链接": "源行 72",
+  "专家标签": "安全放大，提出不同的安全"
  },
  {
-  "人工核对标签": "风险分级",
   "条数": "1",
   "主整合工具": "T04 Risk-Tier & Hazard Taxonomy",
   "主工具条数": "1",
   "次整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "次工具条数": "1",
   "代表来源": "Do-not-answer (2024)",
-  "源行链接": "源行 59"
+  "源行链接": "源行 59",
+  "专家标签": "风险分级"
  },
  {
-  "人工核对标签": "风险过程、链条",
   "条数": "1",
   "主整合工具": "T04 Risk-Tier & Hazard Taxonomy",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "CyberSec.Eval (2024)",
-  "源行链接": "源行 77"
+  "源行链接": "源行 77",
+  "专家标签": "风险过程、链条"
  },
  {
-  "人工核对标签": "合规normative，多元文化",
   "条数": "1",
   "主整合工具": "T05 Cultural & Cross-Lingual Adaptation Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "EtiCor (2023)",
-  "源行链接": "源行 23"
+  "源行链接": "源行 23",
+  "专家标签": "合规normative，多元文化"
  },
  {
-  "人工核对标签": "多元文化适配，多分类适配",
   "条数": "1",
   "主整合工具": "T05 Cultural & Cross-Lingual Adaptation Protocol",
   "主工具条数": "1",
   "次整合工具": "T11 Multi-Metric Failure-Mode Profile",
   "次工具条数": "1",
   "代表来源": "NaVAB (2025)",
-  "源行链接": "源行 16"
+  "源行链接": "源行 16",
+  "专家标签": "多元文化适配，多分类适配"
  },
  {
-  "人工核对标签": "文化和语言适应性",
   "条数": "1",
   "主整合工具": "T05 Cultural & Cross-Lingual Adaptation Protocol",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "JBBQ (2024/2025)",
-  "源行链接": "源行 53"
+  "源行链接": "源行 53",
+  "专家标签": "文化和语言适应性"
  },
  {
-  "人工核对标签": "文化适配",
   "条数": "1",
   "主整合工具": "T05 Cultural & Cross-Lingual Adaptation Protocol",
   "主工具条数": "1",
   "次整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "次工具条数": "1",
   "代表来源": "KoBBQ (2024)",
-  "源行链接": "源行 49"
+  "源行链接": "源行 49",
+  "专家标签": "文化适配"
  },
  {
-  "人工核对标签": "更细节的推理过程",
   "条数": "1",
   "主整合工具": "T05 Cultural & Cross-Lingual Adaptation Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "WVS / World Values Survey (2012)",
-  "源行链接": "源行 19"
+  "源行链接": "源行 19",
+  "专家标签": "更细节的推理过程"
  },
  {
-  "人工核对标签": "模块化文化适配包",
   "条数": "1",
   "主整合工具": "T05 Cultural & Cross-Lingual Adaptation Protocol",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "BharatBBQ (2024/2025)",
-  "源行链接": "源行 52"
+  "源行链接": "源行 52",
+  "专家标签": "模块化文化适配包"
  },
  {
-  "人工核对标签": "语言敬语的偏见",
   "条数": "1",
   "主整合工具": "T05 Cultural & Cross-Lingual Adaptation Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "BEC-pro (2020)",
-  "源行链接": "源行 30"
+  "源行链接": "源行 30",
+  "专家标签": "语言敬语的偏见"
  },
  {
-  "人工核对标签": "边界违反符合，给出理由",
   "条数": "1",
   "主整合工具": "T05 Cultural & Cross-Lingual Adaptation Protocol",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "MFTCXplain (survey-mentioned)",
-  "源行链接": "源行 25"
+  "源行链接": "源行 25",
+  "专家标签": "边界违反符合，给出理由"
  },
  {
-  "人工核对标签": "代词的隐形偏见，反事实",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "Winogender (2018)",
-  "源行链接": "源行 29"
+  "源行链接": "源行 29",
+  "专家标签": "代词的隐形偏见，反事实"
  },
  {
-  "人工核对标签": "代词转换中性版本",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "NeuTral-WinoBiasPlus (2021)",
-  "源行链接": "源行 38"
+  "源行链接": "源行 38",
+  "专家标签": "代词转换中性版本"
  },
  {
-  "人工核对标签": "具体细粒度描述，术语",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T07 Behavioral Coverage Matrix",
   "次工具条数": "1",
   "代表来源": "HolisticBias (2022)",
-  "源行链接": "源行 42"
+  "源行链接": "源行 42",
+  "专家标签": "具体细粒度描述，术语"
  },
  {
-  "人工核对标签": "填空补全，偏见伤害提示",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "HONEST (2021)",
-  "源行链接": "源行 37"
+  "源行链接": "源行 37",
+  "专家标签": "填空补全，偏见伤害提示"
  },
  {
-  "人工核对标签": "定义受保护类别",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "CrowS-Pairs (2020)",
-  "源行链接": "源行 31"
+  "源行链接": "源行 31",
+  "专家标签": "定义受保护类别"
  },
  {
-  "人工核对标签": "性别和职业的链接",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "WinoBias (2018)",
-  "源行链接": "源行 28"
+  "源行链接": "源行 28",
+  "专家标签": "性别和职业的链接"
  },
  {
-  "人工核对标签": "改写成中性，normative合规",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "Panda (2022)",
-  "源行链接": "源行 43"
+  "源行链接": "源行 43",
+  "专家标签": "改写成中性，normative合规"
  },
  {
-  "人工核对标签": "模糊消歧",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "BBQ (2022)",
-  "源行链接": "源行 41"
+  "源行链接": "源行 41",
+  "专家标签": "模糊消歧"
  },
  {
-  "人工核对标签": "正确错误",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T10 Evidence & Claim Verification Pipeline",
   "次工具条数": "1",
   "代表来源": "TruthfulQA (2022)",
-  "源行链接": "源行 81"
+  "源行链接": "源行 81",
+  "专家标签": "正确错误"
  },
  {
-  "人工核对标签": "省略关键属性的反事实",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T10 Evidence & Claim Verification Pipeline",
   "次工具条数": "1",
   "代表来源": "UnQover (2020)",
-  "源行链接": "源行 33"
+  "源行链接": "源行 33",
+  "专家标签": "省略关键属性的反事实"
  },
  {
-  "人工核对标签": "系统偏差，职位、中性、男性女性",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "Grep-BiasIR (2023)",
-  "源行链接": "源行 44"
+  "源行链接": "源行 44",
+  "专家标签": "系统偏差，职位、中性、男性女性"
  },
  {
-  "人工核对标签": "过度拒绝",
   "条数": "1",
   "主整合工具": "T06 Contrast-Set Builder",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "XSTest (2024)",
-  "源行链接": "源行 67"
+  "源行链接": "源行 67",
+  "专家标签": "过度拒绝"
  },
  {
-  "人工核对标签": "多种提醒（判断题、开放生成、反事实）",
   "条数": "1",
   "主整合工具": "T07 Behavioral Coverage Matrix",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "FFT (2024)",
-  "源行链接": "源行 60"
+  "源行链接": "源行 60",
+  "专家标签": "多种提醒（判断题、开放生成、反事实）"
  },
  {
-  "人工核对标签": "过程行为",
   "条数": "1",
   "主整合工具": "T07 Behavioral Coverage Matrix",
   "主工具条数": "1",
   "次整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "次工具条数": "1",
   "代表来源": "HateCheck (2021)",
-  "源行链接": "源行 55"
+  "源行链接": "源行 55",
+  "专家标签": "过程行为"
  },
  {
-  "人工核对标签": "隐式毒性",
   "条数": "1",
   "主整合工具": "T07 Behavioral Coverage Matrix",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "SafetyBench (2024)",
-  "源行链接": "源行 66"
+  "源行链接": "源行 66",
+  "专家标签": "隐式毒性"
  },
  {
-  "人工核对标签": "动态（角色扮演、上下文、多轮诱导",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "Red-Eval (2024)",
-  "源行链接": "源行 75"
+  "源行链接": "源行 75",
+  "专家标签": "动态（角色扮演、上下文、多轮诱导"
  },
  {
-  "人工核对标签": "区分禁止行为和争议行为",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "HarmBench (2024)",
-  "源行链接": "源行 61"
+  "源行链接": "源行 61",
+  "专家标签": "区分禁止行为和争议行为"
  },
  {
-  "人工核对标签": "变换语义但是（从结果转向行为）",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "次工具条数": "1",
   "代表来源": "FLEX (2025)",
-  "源行链接": "源行 50"
+  "源行链接": "源行 50",
+  "专家标签": "变换语义但是（从结果转向行为）"
  },
  {
-  "人工核对标签": "填空，隐性刻板印象",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "次工具条数": "1",
   "代表来源": "TrustGPT (2023)",
-  "源行链接": "源行 46"
+  "源行链接": "源行 46",
+  "专家标签": "填空，隐性刻板印象"
  },
  {
-  "人工核对标签": "多轮对话",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "BAD / Bot-Adversarial Dialogue (2021)",
-  "源行链接": "源行 71"
+  "源行链接": "源行 71",
+  "专家标签": "多轮对话"
  },
  {
-  "人工核对标签": "多轮对话（承认-道歉-纠正）",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "SaFeRDialogues (2022)",
-  "源行链接": "源行 70"
+  "源行链接": "源行 70",
+  "专家标签": "多轮对话（承认-道歉-纠正）"
  },
  {
-  "人工核对标签": "安全引导，风险感知，动态，情境",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "SafeInfer (2025)",
-  "源行链接": "源行 69"
+  "源行链接": "源行 69",
+  "专家标签": "安全引导，风险感知，动态，情境"
  },
  {
-  "人工核对标签": "渐进式（如角色扮演、情感操纵、假定共识）",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "ConfAIde (2023)",
-  "源行链接": "源行 103"
+  "源行链接": "源行 103",
+  "专家标签": "渐进式（如角色扮演、情感操纵、假定共识）"
  },
  {
-  "人工核对标签": "真实交互",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "DecodingTrust-Privacy (2023)",
-  "源行链接": "源行 101"
+  "源行链接": "源行 101",
+  "专家标签": "真实交互"
  },
  {
-  "人工核对标签": "细粒度",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "LifeTox (2024)",
-  "源行链接": "源行 63"
+  "源行链接": "源行 63",
+  "专家标签": "细粒度"
  },
  {
-  "人工核对标签": "跨语言，隐性",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T05 Cultural & Cross-Lingual Adaptation Protocol",
   "次工具条数": "1",
   "代表来源": "LatentJailbreak (2024)",
-  "源行链接": "源行 76"
+  "源行链接": "源行 76",
+  "专家标签": "跨语言，隐性"
  },
  {
-  "人工核对标签": "输入、输出传导链",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "ToxicChat (2023)",
-  "源行链接": "源行 57"
+  "源行链接": "源行 57",
+  "专家标签": "输入、输出传导链"
  },
  {
-  "人工核对标签": "逻辑提示攻击、角色扮演、token 走私",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "JailBreakV (2024)",
-  "源行链接": "源行 62"
+  "源行链接": "源行 62",
+  "专家标签": "逻辑提示攻击、角色扮演、token 走私"
  },
  {
-  "人工核对标签": "隐性有害（体身份锚点（如'as a Black person'）、构造虚假关联前提（如'if the chef is white, the food is better'）和良性语境掩护（如'you have probably noticed...'），）",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "ToxiGen (2022)",
-  "源行链接": "源行 56"
+  "源行链接": "源行 56",
+  "专家标签": "隐性有害（体身份锚点（如'as a Black person'）、构造虚假关联前提（如'if the chef is white, the food is better'）和良性语境掩护（如'you have probably noticed...'），）"
  },
  {
-  "人工核对标签": "隐性（语义模糊、上下颚二年伪装、多步诱导）",
   "条数": "1",
   "主整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "AdvBench (2023)",
-  "源行链接": "源行 74"
+  "源行链接": "源行 74",
+  "专家标签": "隐性（语义模糊、上下颚二年伪装、多步诱导）"
  },
  {
-  "人工核对标签": "agent",
   "条数": "1",
   "主整合工具": "T09 Agent & Workflow Simulation",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "PrivacyLens (2024)",
-  "源行链接": "源行 97"
+  "源行链接": "源行 97",
+  "专家标签": "agent"
  },
  {
-  "人工核对标签": "agent 行为过程",
   "条数": "1",
   "主整合工具": "T09 Agent & Workflow Simulation",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "Agent-SafetyBench (2025)",
-  "源行链接": "源行 68"
+  "源行链接": "源行 68",
+  "专家标签": "agent 行为过程"
  },
  {
-  "人工核对标签": "沙盒，真实工具链和界面约束",
   "条数": "1",
   "主整合工具": "T09 Agent & Workflow Simulation",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "WebArena-Privacy (2024)",
-  "源行链接": "源行 98"
+  "源行链接": "源行 98",
+  "专家标签": "沙盒，真实工具链和界面约束"
  },
  {
-  "人工核对标签": "narmative，主张-证据，逻辑关系分类",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "FEVER (2018)",
-  "源行链接": "源行 79"
+  "源行链接": "源行 79",
+  "专家标签": "narmative，主张-证据，逻辑关系分类"
  },
  {
-  "人工核对标签": "normative（查找权威来源）-分解组成要件-验证",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "LawBench (2024)",
-  "源行链接": "源行 85"
+  "源行链接": "源行 85",
+  "专家标签": "normative（查找权威来源）-分解组成要件-验证"
  },
  {
-  "人工核对标签": "三重验证模式",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "CBBQ (2024)",
-  "源行链接": "源行 48"
+  "源行链接": "源行 48",
+  "专家标签": "三重验证模式"
  },
  {
-  "人工核对标签": "为原子单元",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "次工具条数": "1",
   "代表来源": "FActScore (2023)",
-  "源行链接": "源行 90"
+  "源行链接": "源行 90",
+  "专家标签": "为原子单元"
  },
  {
-  "人工核对标签": "动态、时序、反事实提示",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T14 Lifecycle, Hidden-Split & Contamination Governance",
   "次工具条数": "1",
   "代表来源": "FreshQA / FreshLLMs (2024)",
-  "源行链接": "源行 91"
+  "源行链接": "源行 91",
+  "专家标签": "动态、时序、反事实提示"
  },
  {
-  "人工核对标签": "多跳，异构文档",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T13 Reproducible Evaluation & Benchmark Card Package",
   "次工具条数": "1",
   "代表来源": "HotpotQA (2018)",
-  "源行链接": "源行 80"
+  "源行链接": "源行 80",
+  "专家标签": "多跳，异构文档"
  },
  {
-  "人工核对标签": "时序",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "HallusionBench (2024)",
-  "源行链接": "源行 84"
+  "源行链接": "源行 84",
+  "专家标签": "时序"
  },
  {
-  "人工核对标签": "细粒度、语言学为基础",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "PatentEval (2024)",
-  "源行链接": "源行 86"
+  "源行链接": "源行 86",
+  "专家标签": "细粒度、语言学为基础"
  },
  {
-  "人工核对标签": "细致度相互验证（'ab'二选一、'compare'对比陈述、'repeat'重复确认）",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "MoralChoice (2023)",
-  "源行链接": "源行 45"
+  "源行链接": "源行 45",
+  "专家标签": "细致度相互验证（'ab'二选一、'compare'对比陈述、'repeat'重复确认）"
  },
  {
-  "人工核对标签": "语义蕴含推理",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "LLM-PBE (2024)",
-  "源行链接": "源行 104"
+  "源行链接": "源行 104",
+  "专家标签": "语义蕴含推理"
  },
  {
-  "人工核对标签": "跨维度设计一致",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "TrustLLM (2024)",
-  "源行链接": "源行 87"
+  "源行链接": "源行 87",
+  "专家标签": "跨维度设计一致"
  },
  {
-  "人工核对标签": "阶段性",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "Sycophancy-Sharma (2025)",
-  "源行链接": "源行 88"
+  "源行链接": "源行 88",
+  "专家标签": "阶段性"
  },
  {
-  "人工核对标签": "需要确切的幻觉，对于存在不确定矛盾的幻觉的粒度分析",
   "条数": "1",
   "主整合工具": "T10 Evidence & Claim Verification Pipeline",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "HaluEval (2023)",
-  "源行链接": "源行 89"
+  "源行链接": "源行 89",
+  "专家标签": "需要确切的幻觉，对于存在不确定矛盾的幻觉的粒度分析"
  },
  {
-  "人工核对标签": "三个平等的metrics",
   "条数": "1",
   "主整合工具": "T11 Multi-Metric Failure-Mode Profile",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "Kleinberg-FairTradeoffs (2016)",
-  "源行链接": "源行 26"
+  "源行链接": "源行 26",
+  "专家标签": "三个平等的metrics"
  },
  {
-  "人工核对标签": "价值的内容分类",
   "条数": "1",
   "主整合工具": "T11 Multi-Metric Failure-Mode Profile",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "MoralBench / MIC (survey-mentioned value benchmarks)",
-  "源行链接": "源行 24"
+  "源行链接": "源行 24",
+  "专家标签": "价值的内容分类"
  },
  {
-  "人工核对标签": "偏见轴、目标群、刻板语境句",
   "条数": "1",
   "主整合工具": "T11 Multi-Metric Failure-Mode Profile",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "StereoSet (2021)",
-  "源行链接": "源行 40"
+  "源行链接": "源行 40",
+  "专家标签": "偏见轴、目标群、刻板语境句"
  },
  {
-  "人工核对标签": "情境，冲突",
   "条数": "1",
   "主整合工具": "T11 Multi-Metric Failure-Mode Profile",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "SOCIAL-CHEM-101 (2020)",
-  "源行链接": "源行 22"
+  "源行链接": "源行 22",
+  "专家标签": "情境，冲突"
  },
  {
-  "人工核对标签": "感知、行为，风险",
   "条数": "1",
   "主整合工具": "T11 Multi-Metric Failure-Mode Profile",
   "主工具条数": "1",
   "次整合工具": "T01 Claim-Construct & Protected-Interest Mapper",
   "次工具条数": "1",
   "代表来源": "PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)",
-  "源行链接": "源行 20"
+  "源行链接": "源行 20",
+  "专家标签": "感知、行为，风险"
  },
  {
-  "人工核对标签": "最坏但最合理的毒性",
   "条数": "1",
   "主整合工具": "T11 Multi-Metric Failure-Mode Profile",
   "主工具条数": "1",
   "次整合工具": "T08 Multi-Turn & Adversarial Red-Team Protocol",
   "次工具条数": "1",
   "代表来源": "RealToxicityPrompts (2020)",
-  "源行链接": "源行 54"
+  "源行链接": "源行 54",
+  "专家标签": "最坏但最合理的毒性"
  },
  {
-  "人工核对标签": "解耦量化与联合诊断，可以测tradeoff",
   "条数": "1",
   "主整合工具": "T11 Multi-Metric Failure-Mode Profile",
   "主工具条数": "1",
   "次整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "次工具条数": "1",
   "代表来源": "DecodingTrust (2023)",
-  "源行链接": "源行 93"
+  "源行链接": "源行 93",
+  "专家标签": "解耦量化与联合诊断，可以测tradeoff"
  },
  {
-  "人工核对标签": "设置中性句，看看是否偏移",
   "条数": "1",
   "主整合工具": "T11 Multi-Metric Failure-Mode Profile",
   "主工具条数": "1",
   "次整合工具": "T13 Reproducible Evaluation & Benchmark Card Package",
   "次工具条数": "1",
   "代表来源": "Dev-WordEmbed (2020)",
-  "源行链接": "源行 32"
+  "源行链接": "源行 32",
+  "专家标签": "设置中性句，看看是否偏移"
  },
  {
-  "人工核对标签": "语境下的性别其实推理",
   "条数": "1",
   "主整合工具": "T12 Rubric-Based & Multi-Judge Evaluation Protocol",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "GAP (2018)",
-  "源行链接": "源行 27"
+  "源行链接": "源行 27",
+  "专家标签": "语境下的性别其实推理"
  },
  {
-  "人工核对标签": "个人信息光谱，，normative，泄漏和识别",
   "条数": "1",
   "主整合工具": "T14 Lifecycle, Hidden-Split & Contamination Governance",
   "主工具条数": "1",
   "次整合工具": "T02 Normative Source & Decision-Boundary Ledger",
   "次工具条数": "1",
   "代表来源": "ProPILE (2023)",
-  "源行链接": "源行 102"
+  "源行链接": "源行 102",
+  "专家标签": "个人信息光谱，，normative，泄漏和识别"
  },
  {
-  "人工核对标签": "因果关系",
   "条数": "1",
   "主整合工具": "T14 Lifecycle, Hidden-Split & Contamination Governance",
   "主工具条数": "1",
   "次整合工具": "T03 Scenario-Stakeholder-Information-Flow Template",
   "次工具条数": "1",
   "代表来源": "Carlini Extraction / Training Data Extraction (2021)",
-  "源行链接": "源行 100"
+  "源行链接": "源行 100",
+  "专家标签": "因果关系"
  }
 ]
