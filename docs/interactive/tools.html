@@ -201,10 +201,98 @@
 .src-strength.str-strong { background:#C8E6C9; color:#2E7D32; }
 .src-strength.str-medium { background:#FFE0B2; color:#E65100; }
 .src-strength.str-weak { background:#FFCDD2; color:#C62828; }
-.collapse-note summary { list-style: none; }
-.collapse-note summary::-webkit-details-marker { display: none; }
-.collapse-note summary::before { content: "▸ "; transition: transform .2s; display: inline-block; }
-.collapse-note[open] summary::before { content: "▾ "; }
+/* New cleaner tool-modal section style */
+.tm-section {
+  margin: 14px 0;
+  border-radius: 6px;
+}
+.tm-section.tm-collapse {
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.tm-h {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+.tm-collapse > summary.tm-h {
+  background: var(--bg);
+  padding: 10px 14px;
+  cursor: pointer;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.tm-collapse > summary.tm-h::-webkit-details-marker { display: none; }
+.tm-collapse > summary.tm-h::after { content: "▸"; margin-left: auto; font-size: 11px; transition: transform .2s; color: var(--text-muted); }
+.tm-collapse[open] > summary.tm-h::after { transform: rotate(90deg); }
+.tm-collapse-body { padding: 12px 16px; background: var(--surface); }
+.tm-body {
+  background: var(--bg);
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.tm-sub {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.55;
+  padding: 6px 12px;
+  background: rgba(238, 243, 249, .5);
+  border-radius: 3px;
+}
+.tm-sub b { color: var(--primary); font-size: 11.5px; }
+.tm-sub-block { margin: 10px 0; }
+.tm-sub-block > b {
+  display: block;
+  font-size: 11.5px;
+  color: var(--primary);
+  margin-bottom: 4px;
+  letter-spacing: .2px;
+}
+.tm-grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  font-size: 12.5px;
+}
+.tm-grid2 b { color: var(--primary); font-size: 11.5px; }
+@media (max-width: 640px) { .tm-grid2 { grid-template-columns: 1fr; } }
+.tm-footer {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* Bench row inside merged sub-tool card */
+.bench-list { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
+.bench-row {
+  background: rgba(255,255,255,.55);
+  padding: 5px 8px;
+  border-radius: 3px;
+  font-size: 11.5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.bench-row .bench-pill { font-size: 11px; padding: 1px 8px; margin: 0; }
+.bench-contrib {
+  width: 100%;
+  margin-top: 3px;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  padding-left: 6px;
+  border-left: 2px solid var(--border);
+}
 </style>
 </head>
 <body>
@@ -235,27 +323,6 @@
     <span class="lang-zh">14 条审计 rubric 分布在 3 层（内容有效性 / 评测设计 / 治理可靠性）。每件修复工具按其主提升的 rubric 归层。点击工具卡片可展开完整内容：核心做法、与相邻工具的边界、改编 prompt 骨架、润色后的示例、自动化 vs 人工边界，以及成员 benchmark（带论文链接）。</span>
   </p>
 </section>
-
-<details class="card collapse-note" style="background: #FFFBEB; border-color: #F2D78E;">
-  <summary style="cursor:pointer; font-weight:600; color:#7C5306; padding: 4px 0;">
-    <span class="lang-en">📐 Public 14-tool view vs. internal 16-tool decomposition</span>
-    <span class="lang-zh">📐 公开 14-tool 视图 vs. 内部 16-tool 拆分</span>
-  </summary>
-  <div style="margin-top: 10px; font-size: 12.5px; line-height: 1.55;">
-    <p>
-      <span class="lang-en">The public web canonical is <b>14 tools</b> (T01–T14). The internal HEART working docs (Docs 02 &amp; 04) preserve a finer <b>16-tool</b> decomposition (T1–T16, with subtypes like T5a/T5b, T9a/T9b/T9c, T16a–T16d) for source-attribution and gap-to-tool prescription bookkeeping. The doc 16-tool form is <i>not</i> the future replacement of the web's 14 — the two are <b>different abstraction levels</b> of the same toolkit.</span>
-      <span class="lang-zh">网页公开版本采用 <b>14 个工具</b>（T01–T14）。HEART 内部工作文档（Doc 02 &amp; 04）保留 <b>16 个工具</b>的更细拆分（T1–T16，含 T5a/T5b、T9a/T9b/T9c、T16a–T16d 等 subtype），方便 source-attribution 与 gap-to-tool 处方记账。文档 16-tool 不是网页 14-tool 的替代版，两者是同一工具集的<b>不同抽象层级</b>。</span>
-    </p>
-    <table class="dt" style="font-size: 11.5px; margin-top: 8px;">
-      <thead><tr>
-        <th style="width: 32%"><span class="lang-en">Web 14-tool ID + name</span><span class="lang-zh">网页 14-tool ID + 名称</span></th>
-        <th style="width: 22%"><span class="lang-en">Consolidates doc tools</span><span class="lang-zh">合并自文档</span></th>
-        <th><span class="lang-en">Collapse reason</span><span class="lang-zh">合并理由</span></th>
-      </tr></thead>
-      <tbody id="collapse-map-rows"></tbody>
-    </table>
-  </div>
-</details>
 
 <div id="layers-container">loading…</div>
 </main>
@@ -288,32 +355,15 @@ const LAYERS = [
 
 let TOOLS = [], BENCH_URLS = {}, PROMPTS = [];
 
-let TOOL_MAPPING = null, SOURCE_ATTR = null;
+let SOURCE_ATTR = null;
 
 async function build() {
-  [TOOLS, BENCH_URLS, PROMPTS, TOOL_MAPPING, SOURCE_ATTR] = await Promise.all([
+  [TOOLS, BENCH_URLS, PROMPTS, SOURCE_ATTR] = await Promise.all([
     fetch('data/t_tools.json').then(r=>r.json()),
     fetch('data/bench_urls.json').then(r=>r.json()),
     fetch('data/prompts.json').then(r=>r.json()),
-    fetch('data/tool_mapping_doc_to_web.json').then(r=>r.json()),
     fetch('data/tool_source_attribution.json').then(r=>r.json()),
   ]);
-  // Populate the 16→14 collapse map
-  const cmRows = document.getElementById('collapse-map-rows');
-  const orderedIds = ['T01','T02','T03','T04','T05','T06','T07','T08','T09','T10','T11','T12','T13','T14'];
-  for (const wid of orderedIds) {
-    const tool = TOOLS.find(t => t['Tool ID'] === wid);
-    const m = TOOL_MAPPING.web_to_doc[wid];
-    if (!tool || !m) continue;
-    const docList = m.doc_tool_ids.length ? m.doc_tool_ids.join(', ') : '<span class="muted">—</span>';
-    cmRows.insertAdjacentHTML('beforeend', `
-      <tr>
-        <td><b>${wid}</b> ${tool['Toolbox 英文名']}<br><span class="muted" style="font-size:11px">${tool['中文译名']||''}</span></td>
-        <td>${docList}</td>
-        <td style="font-size:11.5px">${m.collapse_reason||''}</td>
-      </tr>
-    `);
-  }
   const cont = document.getElementById('layers-container');
   cont.innerHTML = '';
   for (const layer of LAYERS) {
@@ -368,19 +418,14 @@ function benchPill(name) {
 function openTool(tid) {
   const t = TOOLS.find(x => x['Tool ID'] === tid);
   if (!t) return;
+  // Aggregate sub-tool → benches data
   const subToolEntries = PROMPTS.filter(p => (p['整合工具ID']||'').trim() === tid);
-  // Group: sub_tool_text -> { benches: [{name, type}], evidence, prompt_guide }
   const subToolMap = {};
   for (const e of subToolEntries) {
     const sub = (e['细分工具'] || '').trim();
-    if (!sub) return; // skip unnamed
+    if (!sub) continue;
     if (!subToolMap[sub]) {
-      subToolMap[sub] = {
-        benches: [],
-        seen: new Set(),
-        evidence: '',
-        prompt_guide: '',
-      };
+      subToolMap[sub] = { benches: [], seen: new Set(), evidence: '', prompt_guide: '' };
     }
     const slot = subToolMap[sub];
     const bn = (e['Benchmark / Source'] || '').trim();
@@ -389,13 +434,26 @@ function openTool(tid) {
       slot.seen.add(bn);
       slot.benches.push({ name: bn, type: mt });
     }
-    // capture first non-empty evidence + prompt guide
     if (!slot.evidence) slot.evidence = (e['匹配证据'] || '').trim();
     if (!slot.prompt_guide) slot.prompt_guide = (e['改编Prompt指导'] || '').trim();
   }
-  // sort: more sources first
-  const subToolList = Object.entries(subToolMap)
-    .sort((a, b) => b[1].benches.length - a[1].benches.length);
+  const subToolList = Object.entries(subToolMap).sort((a, b) => b[1].benches.length - a[1].benches.length);
+
+  // Source attribution data (standardised vocabulary)
+  const attr = SOURCE_ATTR[tid];
+  const attrMap = {};
+  if (attr && attr.source_attribution) {
+    for (const a of attr.source_attribution) {
+      attrMap[a.source_name] = a;
+    }
+  }
+
+  const trim = (s, n) => {
+    if (!s) return '';
+    const stripped = s.replace(/匹配到[^：:]*[：:]/, '').replace(/基于[^"""]*?["""]/, '').trim();
+    if (stripped.length <= n) return stripped;
+    return stripped.slice(0, n).replace(/[，,。.；;][^，,。.；;]*$/, '') + '…';
+  };
 
   let html = `<span class="close" onclick="closeModal()">×</span>`;
   html += `<h3>${tid} · ${t['Toolbox 英文名']}
@@ -404,116 +462,103 @@ function openTool(tid) {
     <span class="meta-badge">Evidence: ${t['证据条数']}</span>
   </h3>`;
 
-  html += `<div class="section-block">${t['核心做法'] || ''}</div>`;
+  // ───────────────── 1. WHAT IT IS (always open) ─────────────────
+  html += `<div class="tm-section">
+    <h4 class="tm-h">① <span class="lang-en">Core practice &amp; what it fixes</span><span class="lang-zh">核心做法 · 解决什么问题</span></h4>
+    <div class="tm-body">${t['核心做法'] || ''}</div>
+    ${t['解决的 benchmark 问题'] ? `<div class="tm-sub"><b><span class="lang-en">Fixes:</span><span class="lang-zh">修什么 gap：</span></b> ${t['解决的 benchmark 问题']}</div>` : ''}
+    ${t['工具边界 / 与相近工具区别'] ? `<div class="tm-sub"><b><span class="lang-en">Boundary:</span><span class="lang-zh">边界：</span></b> <span class="muted">${t['工具边界 / 与相近工具区别']}</span></div>` : ''}
+  </div>`;
 
-  html += `<details class="acc">
-    <summary><span class="lang-en">What it fixes</span><span class="lang-zh">解决的 benchmark 问题</span></summary>
-    <div class="acc-body">${t['解决的 benchmark 问题'] || ''}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Boundary vs. nearby tools</span><span class="lang-zh">工具边界与相邻工具区别</span></summary>
-    <div class="acc-body">${t['工具边界 / 与相近工具区别'] || ''}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Rubrics improved + applicable scope</span><span class="lang-zh">提升的 rubric 与适用场景</span></summary>
-    <div class="acc-body"><b><span class="lang-en">Core rubrics lifted:</span><span class="lang-zh">核心提升：</span></b> ${t['核心提升rubrics（精简）'] || ''}<br><br><b><span class="lang-en">Other rubrics seen in sources:</span><span class="lang-zh">来源中出现：</span></b> <span class="muted">${t['来源中出现的相关rubrics（供核查）'] || ''}</span><br><br><b><span class="lang-en">Applicable ethical scope:</span><span class="lang-zh">适用伦理场景：</span></b> ${t['适用伦理场景'] || ''}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Adaptation prompt skeleton</span><span class="lang-zh">通用改编 Prompt 骨架</span></summary>
-    <div class="acc-body">${t['通用改编骨架（仅供二次调整）'] || ''}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Source-row prompt examples (top 2)</span><span class="lang-zh">来源行 Prompt 示例（前 2）</span></summary>
-    <div class="acc-body">${t['来源行Prompt示例（前2）'] || ''}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Polished revision examples (top 3)</span><span class="lang-zh">代表改编示例（前 3）</span></summary>
-    <div class="acc-body">${t['代表改编示例（前3）'] || ''}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Automation vs. human gating</span><span class="lang-zh">自动化与人工边界</span></summary>
-    <div class="acc-body"><b><span class="lang-en">Automatable:</span><span class="lang-zh">可自动化：</span></b> ${t['自动化可做部分'] || ''}<br><br><b><span class="lang-en">Needs human governance:</span><span class="lang-zh">需人工治理：</span></b> ${t['需人工校验/治理部分'] || ''}</div>
-  </details>`;
-  // Trim helper for sub-tool cards
-  const trim = (s, n) => {
-    if (!s) return '';
-    // grab first sentence-ish, then truncate
-    const stripped = s.replace(/匹配到[^：:]*[：:]/, '').replace(/基于[^"""]*?["""]/, '').trim();
-    if (stripped.length <= n) return stripped;
-    return stripped.slice(0, n).replace(/[，,。.；;][^，,。.；;]*$/, '') + '…';
-  };
+  // ───────────────── 2. RUBRICS LIFTED + SCOPE ─────────────────
+  html += `<div class="tm-section">
+    <h4 class="tm-h">② <span class="lang-en">Rubrics lifted &amp; scope</span><span class="lang-zh">提升的 rubric · 适用场景</span></h4>
+    <div class="tm-grid2">
+      <div><b><span class="lang-en">Core rubrics lifted:</span><span class="lang-zh">核心提升：</span></b> ${t['核心提升rubrics（精简）'] || '<span class="muted">—</span>'}</div>
+      <div><b><span class="lang-en">Applicable scope:</span><span class="lang-zh">适用场景：</span></b> ${t['适用伦理场景'] || '<span class="muted">—</span>'}</div>
+    </div>
+  </div>`;
 
-  const totalBenches = subToolList.reduce((s, [_, v]) => s + v.benches.length, 0);
-  html += `<details class="acc" open>
-    <summary>Sub-tools × benchmarks (${subToolList.length} sub-tools · ${totalBenches} benches) · click any pill → paper</summary>
-    <div class="acc-body" style="padding:8px 12px">
-      ${subToolList.map(([sub, slot]) => {
-        const benchPills = slot.benches.map(b => {
-          const cls = b.type === '主匹配' ? 'has-url' : '';
-          const tag = b.type === '主匹配' ? '' : '<span style="font-size:9px;color:#888;margin-right:2px">[次]</span>';
-          return tag + benchPill(b.name);
-        }).join(' ');
-        const ev = trim(slot.evidence, 180);
-        const pg = trim(slot.prompt_guide, 140);
-        return `<div class="subtool-card">
-          <div class="subtool-title">${sub}</div>
-          ${ev ? `<div class="subtool-evi">${ev}</div>` : ''}
-          ${pg ? `<div class="subtool-guide"><b><span class="lang-en">Adaptation:</span><span class="lang-zh">改编要点：</span></b> ${pg}</div>` : ''}
-          <div class="subtool-sources">
-            <span class="muted">来源 (${slot.benches.length}): </span>${benchPills || '<span class="muted">—</span>'}
-          </div>
-        </div>`;
-      }).join('')}
+  // ───────────────── 3. HOW TO ADAPT (collapsible) ─────────────────
+  html += `<details class="tm-section tm-collapse">
+    <summary class="tm-h">③ <span class="lang-en">How to use &amp; examples</span><span class="lang-zh">怎么用 · 改编示例</span></summary>
+    <div class="tm-collapse-body">
+      ${t['通用改编骨架（仅供二次调整）'] ? `<div class="tm-sub-block"><b><span class="lang-en">Prompt skeleton</span><span class="lang-zh">改编 Prompt 骨架</span></b><div class="tm-body">${t['通用改编骨架（仅供二次调整）']}</div></div>` : ''}
+      ${t['代表改编示例（前3）'] ? `<div class="tm-sub-block"><b><span class="lang-en">Polished examples</span><span class="lang-zh">代表改编示例</span></b><div class="tm-body">${t['代表改编示例（前3）']}</div></div>` : ''}
+      ${t['自动化可做部分'] || t['需人工校验/治理部分'] ? `<div class="tm-sub-block"><b><span class="lang-en">Auto vs. human boundary</span><span class="lang-zh">自动化 vs. 人工边界</span></b>
+        <div class="tm-body"><b><span class="lang-en">Automatable:</span><span class="lang-zh">可自动化：</span></b> ${t['自动化可做部分'] || '—'}<br><b><span class="lang-en">Needs human:</span><span class="lang-zh">需人工：</span></b> ${t['需人工校验/治理部分'] || '—'}</div></div>` : ''}
     </div>
   </details>`;
 
-  // === Source-attribution block (standardised contribution_type vocabulary) ===
-  const attr = SOURCE_ATTR[tid];
-  if (attr && attr.source_attribution && attr.source_attribution.length) {
-    const docNote = attr.consolidates_doc_tools && attr.consolidates_doc_tools.length
-      ? `<span class="muted" style="font-size:11px">· internal doc decomposition: ${attr.consolidates_doc_tools.join(', ')}</span>`
-      : '';
-    html += `<details class="acc" open>
-      <summary><span class="lang-en">Source attribution</span><span class="lang-zh">来源归属</span> <span style="font-weight:normal;font-size:11px">(${attr.source_attribution.length}) ${docNote}</span></summary>
-      <div class="acc-body" style="padding:8px 12px">
-        <p class="muted" style="font-size:11.5px;margin:0 0 8px;line-height:1.5">
-          <span class="lang-en">Each row uses the canonical contribution-type vocabulary: <code>provides mechanism</code> · <code>exemplifies</code> · <code>supports</code> · <code>motivates</code> · <code>critique-motivates</code> · <code>HEART adaptation</code> · <code>needs check</code>. The wording deliberately avoids overclaiming source-tool authorship.</span>
-          <span class="lang-zh">每条采用规范化贡献类型词汇：<code>provides mechanism</code> · <code>exemplifies</code> · <code>supports</code> · <code>motivates</code> · <code>critique-motivates</code> · <code>HEART adaptation</code> · <code>needs check</code>。表述刻意避免“某论文发明了某工具”的过度归因。</span>
-        </p>
-        ${attr.source_attribution.map(s => {
-          const ctClass = s.contribution_type.replace(/[\s\-]/g, '_');
-          return `<div class="src-attr">
-            <div class="src-attr-head">
-              <span class="src-name">${s.source_name}</span>
-              <span class="src-domain muted">· ${s.domain || ''}</span>
-              <span class="src-ct ct-${ctClass}">${s.contribution_type}</span>
-              ${s.evidence_strength ? `<span class="src-strength str-${s.evidence_strength}">${s.evidence_strength}</span>` : ''}
-            </div>
-            <div class="src-attr-body">
-              <span class="lang-en">${s.contribution_en||''}</span>
-              <span class="lang-zh">${s.contribution_zh||''}</span>
-            </div>
-          </div>`;
-        }).join('')}
-      </div>
-    </details>`;
-  } else if (attr && attr.note) {
-    html += `<details class="acc">
-      <summary><span class="lang-en">Source attribution</span><span class="lang-zh">来源归属</span></summary>
-      <div class="acc-body"><span class="muted">${attr.note}</span></div>
-    </details>`;
-  }
+  // ───────────────── 4. SUB-TOOLS × BENCHES × SOURCE ATTRIBUTION (merged) ─────────────────
+  const totalBenches = subToolList.reduce((s, [_, v]) => s + v.benches.length, 0);
+  html += `<div class="tm-section">
+    <h4 class="tm-h">④ <span class="lang-en">Sub-tools × source benches</span><span class="lang-zh">细分工具 × 来源 bench</span>
+      <span class="muted" style="font-size:11px;font-weight:normal">(${subToolList.length} sub-tools · ${totalBenches} benches)</span>
+    </h4>
+    <p class="muted" style="font-size:11px;margin:0 0 8px">
+      <span class="lang-en">Each sub-tool shows: the adaptation it offers · the source benches that provide it · the contribution type (<code>provides mechanism</code> / <code>exemplifies</code> / <code>supports</code> / <code>motivates</code> / <code>critique-motivates</code>) per source where available.</span>
+      <span class="lang-zh">每个细分工具显示：它能提供的改编 · 提供它的来源 bench · 已规范化的贡献类型（<code>provides mechanism</code> / <code>exemplifies</code> / <code>supports</code> / <code>motivates</code> / <code>critique-motivates</code>）。</span>
+    </p>
+    ${subToolList.map(([sub, slot]) => {
+      const ev = trim(slot.evidence, 160);
+      const pg = trim(slot.prompt_guide, 120);
+      const benchRows = slot.benches.map(b => {
+        const url = urlFor(b.name);
+        const cleanName = b.name.replace(/\s*\(.*\)\s*$/, '');
+        const a = attrMap[b.name] || attrMap[cleanName];
+        const matchTag = b.type === '次匹配' ? ' <span class="muted" style="font-size:9px">[次]</span>' : '';
+        const link = url ? `<a class="bench-pill has-url" target="_blank" href="${url}">${b.name}</a>` : `<span class="bench-pill">${b.name}</span>`;
+        let ctChip = '', contribLine = '';
+        if (a) {
+          const ctClass = (a.contribution_type||'').replace(/[\s\-]/g, '_');
+          ctChip = `<span class="src-ct ct-${ctClass}">${a.contribution_type}</span>`;
+          if (a.evidence_strength) ctChip += ` <span class="src-strength str-${a.evidence_strength}">${a.evidence_strength}</span>`;
+          contribLine = `<div class="bench-contrib"><span class="lang-en">${a.contribution_en||''}</span><span class="lang-zh">${a.contribution_zh||''}</span></div>`;
+        }
+        return `<div class="bench-row">${link}${matchTag} ${ctChip}${contribLine}</div>`;
+      }).join('');
+      return `<div class="subtool-card">
+        <div class="subtool-title">${sub}</div>
+        ${ev ? `<div class="subtool-evi">${ev}</div>` : ''}
+        ${pg ? `<div class="subtool-guide"><b><span class="lang-en">Adaptation:</span><span class="lang-zh">改编要点：</span></b> ${pg}</div>` : ''}
+        <div class="bench-list">${benchRows || '<span class="muted">—</span>'}</div>
+      </div>`;
+    }).join('')}
+  </div>`;
 
-  html += `<p class="muted" style="margin-top:10px"><b><span class="lang-en">Limitations:</span><span class="lang-zh">局限：</span></b> ${t['局限 / 避免过度声称'] || ''}</p>`;
+  // ───────────────── Footer: limitations ─────────────────
+  if (t['局限 / 避免过度声称']) {
+    html += `<p class="tm-footer"><b><span class="lang-en">Limitations:</span><span class="lang-zh">局限：</span></b> <span class="muted">${t['局限 / 避免过度声称']}</span></p>`;
+  }
 
   document.getElementById('modal').innerHTML = html;
   document.getElementById('modal-bg').style.display = 'flex';
+  // Update URL hash without scroll
+  if (history.replaceState) history.replaceState(null, '', '#' + tid);
 }
 
-function closeModal() { document.getElementById('modal-bg').style.display = 'none'; }
+function closeModal() {
+  document.getElementById('modal-bg').style.display = 'none';
+  // Strip the hash so it doesn't reopen on reload
+  if (history.replaceState && location.hash) history.replaceState(null, '', location.pathname + location.search);
+}
 document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
 
-window.addEventListener('DOMContentLoaded', build);
+async function bootstrap() {
+  await build();
+  // Auto-open card if URL hash matches a tool ID (e.g. tools.html#T05)
+  const hash = location.hash.replace(/^#/, '');
+  if (hash && /^T\d{2}$/.test(hash) && TOOLS.find(t => t['Tool ID'] === hash)) {
+    openTool(hash);
+  }
+}
+window.addEventListener('DOMContentLoaded', bootstrap);
+// Also react to back/forward hash changes
+window.addEventListener('hashchange', () => {
+  const hash = location.hash.replace(/^#/, '');
+  if (hash && /^T\d{2}$/.test(hash)) openTool(hash);
+});
 </script>
 </body>
 </html>

@@ -1,0 +1,217 @@
+{
+  "rows": [
+    {
+      "dimension": "Human-Centered",
+      "dimension_zh": "以人为本",
+      "total_benches": 24,
+      "cells": {
+        "Content Validity": {
+          "benches": 24,
+          "percent": 100.0,
+          "examples": [
+            "CMoralEval (2024)",
+            "CPsyExam (2024)",
+            "ETHICS (2023)",
+            "Educator-LLM (2025)",
+            "EmotionBench (2024)"
+          ]
+        },
+        "Evaluation Design": {
+          "benches": 9,
+          "percent": 37.5,
+          "examples": [
+            "CPsyExam (2024)",
+            "HeartBench (2025)",
+            "HumaniBench (2025)",
+            "MoralBench / MIC (survey-mentioned value benchmarks)",
+            "MoralChoice (2023)"
+          ]
+        },
+        "Governance Reliability": {
+          "benches": 1,
+          "percent": 4.2,
+          "examples": [
+            "SMILE (2024)"
+          ]
+        }
+      }
+    },
+    {
+      "dimension": "Fairness & Inclusiveness",
+      "dimension_zh": "普惠正直",
+      "total_benches": 28,
+      "cells": {
+        "Content Validity": {
+          "benches": 25,
+          "percent": 89.3,
+          "examples": [
+            "BBQ (2022)",
+            "BEC-pro (2020)",
+            "BOLD (2021)",
+            "BUG (2021)",
+            "BharatBBQ (2024/2025)"
+          ]
+        },
+        "Evaluation Design": {
+          "benches": 19,
+          "percent": 67.9,
+          "examples": [
+            "BBQ (2022)",
+            "BUG (2021)",
+            "CBBQ (2024)",
+            "CrowS-Pairs (2020)",
+            "Dev-WordEmbed (2020)"
+          ]
+        },
+        "Governance Reliability": {
+          "benches": 3,
+          "percent": 10.7,
+          "examples": [
+            "Dev-WordEmbed (2020)",
+            "FLEX (2025)",
+            "TrustGPT (2023)"
+          ]
+        }
+      }
+    },
+    {
+      "dimension": "Safety & Reliability",
+      "dimension_zh": "安全可靠",
+      "total_benches": 25,
+      "cells": {
+        "Content Validity": {
+          "benches": 20,
+          "percent": 80.0,
+          "examples": [
+            "AdvBench (2023)",
+            "Agent-SafetyBench (2025)",
+            "BAD / Bot-Adversarial Dialogue (2021)",
+            "C-Do-not-answer (2024)",
+            "Chinese-Safeguard (2024)"
+          ]
+        },
+        "Evaluation Design": {
+          "benches": 12,
+          "percent": 48.0,
+          "examples": [
+            "Agent-SafetyBench (2025)",
+            "Chinese-Safeguard (2024)",
+            "CyberSec.Eval (2024)",
+            "Do-not-answer (2024)",
+            "FFT (2024)"
+          ]
+        },
+        "Governance Reliability": {
+          "benches": 16,
+          "percent": 64.0,
+          "examples": [
+            "AdvBench (2023)",
+            "BAD / Bot-Adversarial Dialogue (2021)",
+            "Do-not-answer (2024)",
+            "HH-RLHF / Anthropic H&H (2022)",
+            "HarmBench (2024)"
+          ]
+        }
+      }
+    },
+    {
+      "dimension": "Trustworthiness & Controllability",
+      "dimension_zh": "可信可控",
+      "total_benches": 15,
+      "cells": {
+        "Content Validity": {
+          "benches": 14,
+          "percent": 93.3,
+          "examples": [
+            "FActScore (2023)",
+            "FEVER (2018)",
+            "FreshQA / FreshLLMs (2024)",
+            "HallusionBench (2024)",
+            "HaluEval (2023)"
+          ]
+        },
+        "Evaluation Design": {
+          "benches": 5,
+          "percent": 33.3,
+          "examples": [
+            "DecodingTrust (2023)",
+            "HaluEval (2023)",
+            "LegalBench (2023)",
+            "Sycophancy-Sharma (2025)",
+            "TruthfulQA (2022)"
+          ]
+        },
+        "Governance Reliability": {
+          "benches": 3,
+          "percent": 20.0,
+          "examples": [
+            "FreshQA / FreshLLMs (2024)",
+            "HotpotQA (2018)",
+            "TrustGPT (2023)"
+          ]
+        }
+      }
+    },
+    {
+      "dimension": "Privacy Protection",
+      "dimension_zh": "隐私保护",
+      "total_benches": 11,
+      "cells": {
+        "Content Validity": {
+          "benches": 11,
+          "percent": 100.0,
+          "examples": [
+            "Carlini Extraction / Training Data Extraction (2021)",
+            "ConfAIde (2023)",
+            "Converse (2024)",
+            "DecodingTrust-Privacy (2023)",
+            "EAI-Bench (2024)"
+          ]
+        },
+        "Evaluation Design": {
+          "benches": 3,
+          "percent": 27.3,
+          "examples": [
+            "EAI-Bench (2024)",
+            "PrivacyLens (2024)",
+            "WebArena-Privacy (2024)"
+          ]
+        },
+        "Governance Reliability": {
+          "benches": 4,
+          "percent": 36.4,
+          "examples": [
+            "Carlini Extraction / Training Data Extraction (2021)",
+            "ConfAIde (2023)",
+            "DecodingTrust-Privacy (2023)",
+            "ProPILE (2023)"
+          ]
+        }
+      }
+    }
+  ],
+  "layers": [
+    "Content Validity",
+    "Evaluation Design",
+    "Governance Reliability"
+  ],
+  "layer_zh": {
+    "Content Validity": "内容有效性",
+    "Evaluation Design": "评测设计",
+    "Governance Reliability": "治理可靠性"
+  },
+  "dimensions": [
+    "Human-Centered",
+    "Fairness & Inclusiveness",
+    "Safety & Reliability",
+    "Trustworthiness & Controllability",
+    "Privacy Protection"
+  ],
+  "dimension_zh": {
+    "Human-Centered": "以人为本",
+    "Fairness & Inclusiveness": "普惠正直",
+    "Safety & Reliability": "安全可靠",
+    "Trustworthiness & Controllability": "可信可控",
+    "Privacy Protection": "隐私保护"
+  }
+}

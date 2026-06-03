@@ -124,6 +124,19 @@
   font-size: 12.5px;
   line-height: 1.55;
 }
+.anchor-text-line { color: var(--text); }
+.anchor-simple {
+  font-size: 11px;
+  color: #5D4037;
+  background: #FFF8E1;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin: 4px 0;
+  display: inline-block;
+}
+.anchor-simple b { color: #B45309; }
+.anchor-examples { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; }
+.anchor-examples .bench-pill { font-size: 11px; padding: 1px 8px; margin: 0; }
 .ref-list {
   background: rgba(255,255,255,.65);
   padding: 8px 12px 8px 28px;
@@ -281,14 +294,16 @@ let SURVEY_REFS = {};
 let CALIB = {};
 let BOUNDARIES = null;
 let GAP_DETECT = {};
+let BENCH_URLS = {};
 
 async function init() {
-  [RUBRICS, SURVEY_REFS, CALIB, BOUNDARIES, GAP_DETECT] = await Promise.all([
+  [RUBRICS, SURVEY_REFS, CALIB, BOUNDARIES, GAP_DETECT, BENCH_URLS] = await Promise.all([
     fetch('data/rubrics_full.json').then(r=>r.json()),
     fetch('data/survey_refs.json').then(r=>r.json()),
     fetch('data/rubric_calibration.json').then(r=>r.json()),
     fetch('data/rubric_boundaries.json').then(r=>r.json()),
     fetch('data/gap_detection.json').then(r=>r.json()),
+    fetch('data/bench_urls.json').then(r=>r.json()),
   ]);
   // sort by layer then by mean asc (worst first within each layer)
   RUBRICS.sort((a,b) => {
@@ -442,13 +457,7 @@ function openRubric(rname) {
           <b><span class="lang-en">Domain-specific symptoms</span><span class="lang-zh">领域化症状</span></b>
           <div class="gd-domain-list">${domains.map(([k,v])=>`<div><span class="gd-domain-name">${escapeHtml(k)}:</span> ${escapeHtml(v)}</div>`).join('')}</div>
         </div>` : '';
-    const score = gd.scoring_simple
-      ? `<div class="gd-block">
-          <b><span class="lang-en">Simple 0–3 scoring</span><span class="lang-zh">简化 0–3 评分</span></b>
-          <div class="gd-score">
-            ${[0,1,2,3].map(n=>`<div class="gd-score-row"><span class="gd-score-num gd-sc-${n}">${n}</span><span>${escapeHtml(gd.scoring_simple[n]||gd.scoring_simple[String(n)]||'')}</span></div>`).join('')}
-          </div>
-        </div>` : '';
+    // simple 0-3 scoring is now merged into the unified calibration block below
     const mis = gd.common_misdiagnosis_en
       ? `<div class="gd-block">
           <b><span class="lang-en">Common misdiagnosis</span><span class="lang-zh">常见误判</span></b>
@@ -456,7 +465,7 @@ function openRubric(rname) {
         </div>` : '';
     html += `<div class="gd-card">
       <h4 style="margin:0 0 6px;color:#7C5306;font-size:13px"><span class="lang-en">Gap detection · how to spot this</span><span class="lang-zh">如何识别这条 gap · 问诊指南</span></h4>
-      ${symptoms}${redFlags}${evidence}${domSection}${mis}${score}${dq}
+      ${symptoms}${redFlags}${evidence}${domSection}${mis}${dq}
     </div>`;
   }
 
@@ -495,24 +504,76 @@ function openRubric(rname) {
     return `<li>${escapeHtml(key)}</li>`;
   }).join('');
 
+  // Parse the per-level bench mentions from r.calibrated_anchors (format: "0=X；2=Y/Z；3=...")
+  const benchesPerLevel = {0:[], '1-2':[], '3-4':[], 5:[]};
+  const calAnchor = r.calibrated_anchors || '';
+  // Match score=… delimited by ；or ;
+  for (const seg of calAnchor.split(/[；;]/)) {
+    const m = seg.match(/^\s*(\d)\s*=\s*(.+)$/);
+    if (!m) continue;
+    const lvl = parseInt(m[1]);
+    let txt = m[2].trim();
+    // Strip parenthetical notes
+    txt = txt.replace(/[（(].*$/g, '').trim();
+    if (!txt || txt === '暂无') continue;
+    const names = txt.split(/[\/、,]/).map(s=>s.trim()).filter(Boolean);
+    const key = lvl===0?0:(lvl<=2?'1-2':lvl<=4?'3-4':5);
+    benchesPerLevel[key].push(...names);
+  }
+  // Render bench → linked pill if found in BENCH_URLS, else plain
+  const benchPill = (rawName) => {
+    // try several lookups (exact, "X (year)", strip whitespace)
+    let url = '';
+    if (BENCH_URLS[rawName]) url = BENCH_URLS[rawName].paper || '';
+    else {
+      // try fuzzy: find a key whose prefix matches rawName ignoring case
+      const lower = rawName.toLowerCase();
+      for (const k of Object.keys(BENCH_URLS)) {
+        const stripped = k.replace(/\s*\(.*\)\s*$/, '').toLowerCase();
+        if (stripped === lower || stripped === lower.replace(/-/g,'')) {
+          url = BENCH_URLS[k].paper || '';
+          break;
+        }
+      }
+    }
+    if (url) return `<a class="bench-pill has-url" target="_blank" href="${url}">${escapeHtml(rawName)}</a>`;
+    return `<span class="bench-pill">${escapeHtml(rawName)}</span>`;
+  };
+
+  const anchorRow = (badgeClass, label, criterion_en, criterion_zh, simpleScore, levelKey) => {
+    const bns = (benchesPerLevel[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
+    const pills = bns.length ? `<div class="anchor-examples">${bns.map(benchPill).join(' ')}</div>` : '';
+    const simple = simpleScore ? `<div class="anchor-simple"><b>0–3 ⇢</b> ${escapeHtml(simpleScore)}</div>` : '';
+    return `<div class="score-badge ${badgeClass}">${label}</div>
+      <div class="anchor-compact">
+        <div class="anchor-text-line"><span class="lang-en">${escapeHtml(criterion_en)}</span><span class="lang-zh">${escapeHtml(criterion_zh)}</span></div>
+        ${simple}
+        ${pills}
+      </div>`;
+  };
+
+  const ss = (gd && gd.scoring_simple) ? gd.scoring_simple : {};
+  // Map web 0-3 simple → 4-level row by midpoint:
+  //   0 (absent)    → row 0   (worst)
+  //   1 (weak)      → row 1-2
+  //   2 (partial)   → row 3-4
+  //   3 (strong)    → row 5   (best)
+  const get3 = (n) => ss[n] || ss[String(n)] || '';
+
   html += `<div class="calib-basis">
     <h4>
-      <span class="lang-en">Calibration basis &amp; v2 anchors</span>
-      <span class="lang-zh">校准依据与 v2 锚点</span>
+      <span class="lang-en">Scoring criteria · v2 calibrated anchors + examples</span>
+      <span class="lang-zh">评分依据 · v2 校准锚点 + 举例</span>
     </h4>
     <div class="calib-narrative">
       <p class="lang-en">${escapeHtml(cal.summary_en || r.revision_notes)}</p>
       <p class="lang-zh">${escapeHtml(cal.summary_zh || r.revision_notes)}</p>
     </div>
     <div class="anchor-compact-grid">
-      <div class="score-badge score-0">0</div>
-      <div class="anchor-compact"><span class="lang-en">${escapeHtml(cal.anchor_0_compact || r.anchor_0)}</span><span class="lang-zh">${escapeHtml(cal.anchor_0_zh || r.anchor_0)}</span></div>
-      <div class="score-badge score-1-2">1–2</div>
-      <div class="anchor-compact"><span class="lang-en">${escapeHtml(cal.anchor_1_2_compact || r.anchor_1_2)}</span><span class="lang-zh">${escapeHtml(cal.anchor_1_2_zh || r.anchor_1_2)}</span></div>
-      <div class="score-badge score-3-4">3–4</div>
-      <div class="anchor-compact"><span class="lang-en">${escapeHtml(cal.anchor_3_4_compact || r.anchor_3_4)}</span><span class="lang-zh">${escapeHtml(cal.anchor_3_4_zh || r.anchor_3_4)}</span></div>
-      <div class="score-badge score-5">5</div>
-      <div class="anchor-compact"><span class="lang-en">${escapeHtml(cal.anchor_5_compact || r.anchor_5)}</span><span class="lang-zh">${escapeHtml(cal.anchor_5_zh || r.anchor_5)}</span></div>
+      ${anchorRow('score-0',  '0',   cal.anchor_0_compact   || r.anchor_0,   cal.anchor_0_zh   || r.anchor_0,   get3(0), 0)}
+      ${anchorRow('score-1-2','1–2', cal.anchor_1_2_compact || r.anchor_1_2, cal.anchor_1_2_zh || r.anchor_1_2, get3(1), '1-2')}
+      ${anchorRow('score-3-4','3–4', cal.anchor_3_4_compact || r.anchor_3_4, cal.anchor_3_4_zh || r.anchor_3_4, get3(2), '3-4')}
+      ${anchorRow('score-5',  '5',   cal.anchor_5_compact   || r.anchor_5,   cal.anchor_5_zh   || r.anchor_5,   get3(3), 5)}
     </div>
     <h5 style="margin:14px 0 6px;color:var(--primary);font-size:12.5px">
       <span class="lang-en">References</span><span class="lang-zh">参考文献</span>
