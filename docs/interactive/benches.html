@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>103 Benches Lookup — HEART</title>
+<link rel="stylesheet" href="assets/main.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+</head>
+<body>
+<header>
+  <h1>103 Benchmarks · Tool Mapping Lookup</h1>
+  <div class="subtitle">Each benchmark mapped to its primary and secondary canonical tool, with sub-tool, adaptation prompt and a paper link</div>
+</header>
+<nav>
+  <a href="index.html">概览 Overview</a>
+  <a href="rubric_matrix.html">14×14 Index</a>
+  <a href="tools.html">14 Tools</a>
+  <a href="benches.html" class="active">103 Benches</a>
+  <a href="vignettes.html">Vignettes + Mini Case</a>
+</nav>
+<main>
+<section class="card">
+  <h2>How to use</h2>
+  <p>
+    Type in the search box to filter by benchmark name, dimension, manual label, or canonical tool. Click any row to expand the full adaptation prompt + example for that benchmark.
+    <span class="bench-pill has-url" style="margin-left:8px"><a href="" style="text-decoration:none;color:inherit">↗</a></span> next to a benchmark name = the paper URL is available; clicking opens the paper in a new tab.
+  </p>
+</section>
+
+<section class="card" style="overflow-x:auto">
+  <table id="bench-table" class="dt display" style="width:100%">
+    <thead><tr>
+      <th>Dimension</th>
+      <th>Benchmark</th>
+      <th>cqj 人工标签</th>
+      <th>主整合工具</th>
+      <th>主细分工具</th>
+      <th>次整合工具</th>
+      <th>Rubrics improved</th>
+      <th>+ Detail</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+</section>
+</main>
+
+<div id="modal-bg" onclick="if(event.target.id==='modal-bg')closeModal()">
+  <div id="modal"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+<script>
+let BENCH_MAP = [], BENCH_URLS = {}, T_TOOLS = [];
+let modalBg, modal;
+async function load() {
+  modalBg = document.getElementById('modal-bg');
+  modal = document.getElementById('modal');
+  [BENCH_MAP, BENCH_URLS, T_TOOLS] = await Promise.all([
+    fetch('data/bench_map.json').then(r=>r.json()),
+    fetch('data/bench_urls.json').then(r=>r.json()),
+    fetch('data/t_tools.json').then(r=>r.json()),
+  ]);
+  buildTable();
+}
+function urlFor(name) {
+  const cleanName = name.replace(/\s*\(.*\)\s*$/, '');
+  return (BENCH_URLS[name] || BENCH_URLS[cleanName] || {}).paper || '';
+}
+function benchPill(name) {
+  const url = urlFor(name);
+  if (!name) return '';
+  if (url) return `<a class="bench-pill has-url" target="_blank" href="${url}">${name}</a>`;
+  return `<span class="bench-pill">${name}</span>`;
+}
+function buildTable() {
+  const tbody = document.querySelector('#bench-table tbody');
+  for (let i=0;i<BENCH_MAP.length;i++) {
+    const b = BENCH_MAP[i];
+    const tr = document.createElement('tr');
+    tr.dataset.idx = i;
+    tr.innerHTML = `
+      <td>${b['一级标签']||''}</td>
+      <td>${benchPill(b['Benchmark / Source'])}</td>
+      <td><span class="muted">${b['人工核对标签']||''}</span></td>
+      <td><b>${(b['主整合工具ID']||'').padEnd(3)}</b><br><span class="muted">${b['主整合工具']||''}</span></td>
+      <td style="font-size:12px">${(b['主细分工具']||'').slice(0,140)}${(b['主细分工具']||'').length>140?'…':''}</td>
+      <td><b>${b['次整合工具ID']||''}</b><br><span class="muted">${b['次整合工具']||''}</span></td>
+      <td style="font-size:12px"><span class="muted">${b['索引用rubrics（精简口径）']||''}</span></td>
+      <td><a href="#" onclick="openDetail(${i});return false;" class="bench-pill">+</a></td>
+    `;
+    tbody.appendChild(tr);
+  }
+  $('#bench-table').DataTable({
+    pageLength: 25,
+    order: [[0,'asc'],[1,'asc']],
+    autoWidth: false,
+  });
+}
+function openDetail(i) {
+  const b = BENCH_MAP[i];
+  const tool = T_TOOLS.find(t => t['Tool ID'] === b['主整合工具ID']);
+  const secTool = T_TOOLS.find(t => t['Tool ID'] === b['次整合工具ID']);
+  let html = `<span class="close" onclick="closeModal()">×</span>`;
+  html += `<h3>${benchPill(b['Benchmark / Source'])} <span class="muted">[${b['一级标签']}]</span></h3>`;
+  html += `<p class="muted"><b>cqj 人工标签：</b> ${b['人工核对标签']||'—'}<br>`;
+  html += `<b>原 representative tool：</b> ${b['原Representative tool']||'—'}<br>`;
+  html += `<b>文章特有分类/标签：</b> ${b['文章特有分类/标签结构']||'—'}</p>`;
+
+  html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
+  html += `<h4 style="color:var(--primary)">主整合工具: ${b['主整合工具ID']} · ${b['主整合工具']}</h4>`;
+  if (tool) html += `<div class="muted" style="margin-bottom:8px">${tool['工具边界 / 与相近工具区别']||''}</div>`;
+  html += `<h5 style="margin:8px 0 2px">主细分工具</h5>`;
+  html += `<div class="section-block">${b['主细分工具']||''}</div>`;
+  html += `<h5 style="margin:8px 0 2px">改编 Prompt 指导</h5>`;
+  html += `<div class="section-block">${b['改编Prompt指导']||''}</div>`;
+  html += `<h5 style="margin:8px 0 2px">改编示例</h5>`;
+  html += `<div class="section-block">${b['改编示例（微改）']||''}</div>`;
+
+  if (b['次整合工具ID']) {
+    html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
+    html += `<h4 style="color:var(--primary)">次整合工具: ${b['次整合工具ID']} · ${b['次整合工具']}</h4>`;
+    if (secTool) html += `<div class="muted" style="margin-bottom:8px">${secTool['工具边界 / 与相近工具区别']||''}</div>`;
+    html += `<h5 style="margin:8px 0 2px">次细分工具</h5>`;
+    html += `<div class="section-block">${b['次细分工具']||''}</div>`;
+    html += `<h5 style="margin:8px 0 2px">次匹配证据</h5>`;
+    html += `<div class="section-block">${b['次匹配证据']||''}</div>`;
+  }
+
+  html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
+  html += `<h5>自动化与人工边界</h5>`;
+  html += `<p><b>可自动改编：</b> <span class="muted">${b['自动化改编部分']||'—'}</span></p>`;
+  html += `<p><b>需人工校验：</b> <span class="muted">${b['需人工校验/治理部分']||'—'}</span></p>`;
+  modal.innerHTML = html;
+  modalBg.style.display = 'flex';
+}
+function closeModal() { modalBg.style.display = 'none'; }
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+window.addEventListener('DOMContentLoaded', load);
+</script>
+</body>
+</html>

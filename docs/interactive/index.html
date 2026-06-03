@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEART Interactive — Workbox & Rubric Index</title>
+<link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+<header>
+  <h1>HEART · Interactive Workbox & Rubric Index</h1>
+  <div class="subtitle">14 canonical repair tools × 14 audit rubrics × 103 benchmarks (interactive view)</div>
+</header>
+<nav>
+  <a href="index.html" class="active">概览 Overview</a>
+  <a href="rubric_matrix.html">14×14 Index</a>
+  <a href="tools.html">14 Tools</a>
+  <a href="benches.html">103 Benches</a>
+  <a href="vignettes.html">Vignettes + Mini Case</a>
+</nav>
+<main>
+<section class="card">
+  <h2>What is this</h2>
+  <p>
+    The HEART resource turns 103 AI-ethics benchmarks into a compact workbox of <b>14 canonical repair tools</b>
+    (T01–T14, grouped into 5 categories) and indexes each tool against the <b>14 audit rubrics</b>
+    that the benchmark-diagnosis sheet uses to score benchmarks. This site is the interactive companion to the
+    HEART_Excel workbook and the resource paper.
+  </p>
+  <p>
+    Click into any of the four views above. Every benchmark name in the tool cards and vignettes is a deep link
+    to the original paper; every cell in the 14×14 index opens a card showing the repair mechanism, the strongest
+    benchmark evidence, and the adaptation prompt that would be used to revise an item under that tool.
+  </p>
+</section>
+
+<section class="card">
+  <h2>The 5 tool categories</h2>
+  <table class="dt">
+    <thead><tr>
+      <th style="width:60px">Category</th>
+      <th>Tools</th>
+      <th style="width:300px">When you reach for these</th>
+    </tr></thead>
+    <tbody>
+    <tr>
+      <td><b>Construct & Normative</b></td>
+      <td>T01 Claim-Construct &amp; Protected-Interest Mapper · T02 Normative Source &amp; Decision-Boundary Ledger</td>
+      <td>The benchmark claim is too broad, the answer key is unjustified, or ethical disagreement is hidden.</td>
+    </tr>
+    <tr>
+      <td><b>Scenario & Data Construction</b></td>
+      <td>T03 Scenario-Stakeholder-Information-Flow Template · T04 Risk-Tier &amp; Hazard Taxonomy · T05 Cultural &amp; Cross-Lingual Adaptation Protocol</td>
+      <td>Items are decontextualised, single-risk, US-anchored, or miss stakeholder roles.</td>
+    </tr>
+    <tr>
+      <td><b>Task & Interaction Design</b></td>
+      <td>T06 Contrast-Set Builder · T07 Behavioral Coverage Matrix · T08 Multi-Turn &amp; Adversarial Red-Team Protocol · T09 Agent &amp; Workflow Simulation · T10 Evidence &amp; Claim Verification Pipeline</td>
+      <td>Task format can't tell prejudice from behaviour shift; multi-turn / agent / factuality coverage missing.</td>
+    </tr>
+    <tr>
+      <td><b>Metric & Evaluator</b></td>
+      <td>T11 Multi-Metric Failure-Mode Profile · T12 Rubric-Based &amp; Multi-Judge Evaluation Protocol</td>
+      <td>Single proxy metric; LLM-judge uncalibrated; failure modes not reported.</td>
+    </tr>
+    <tr>
+      <td><b>Governance & Lifecycle</b></td>
+      <td>T13 Reproducible Evaluation &amp; Benchmark Card Package · T14 Lifecycle, Hidden-Split &amp; Contamination Governance</td>
+      <td>No card, no contamination guard, no retirement policy.</td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="card">
+  <h2>Quick links</h2>
+  <ul>
+    <li><a href="rubric_matrix.html">14×14 interactive index</a> — click any cell to see how tool T<i>x</i> lifts rubric <i>y</i> (with the strongest benchmark evidence and a deep link to its detail).</li>
+    <li><a href="tools.html">14 tool cards</a> — core practice, boundary, prompt template, micro-edited example, member benches (with paper URLs).</li>
+    <li><a href="benches.html">103 benchmark lookup</a> — searchable; each row shows the primary &amp; secondary canonical tool that this benchmark maps to and an inline adaptation prompt.</li>
+    <li><a href="vignettes.html">5 vignettes + mini case</a> — baseline gap → HEART tools → revised → improved rubrics (one per policy dimension), plus the BBQ→Chinese-service mini case from the paper.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>How the data is produced</h2>
+  <p class="muted">
+    Source: <code>HEART_Excel_含原始与修订_整合压缩.xlsx</code>. The workbook was hand-curated from 103 benchmark
+    audits in <code>Tool来源分布表-cqj</code> (with manual labels) plus the workbox compression into 14 canonical
+    tools. All data on this site is loaded from JSON files under <code>data/</code>; nothing is generated at
+    runtime. To regenerate, edit the workbook and re-export via the <code>build_site.py</code> script.
+  </p>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14×14 Tool×Rubric Index — HEART</title>
+<link rel="stylesheet" href="assets/main.css">
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+<header>
+  <h1>14×14 Tool × Rubric Index</h1>
+  <div class="subtitle">Click any cell → which benchmark proves that tool repairs that rubric, with the repair-mechanism explanation and the adaptation prompt</div>
+</header>
+<nav>
+  <a href="index.html">概览 Overview</a>
+  <a href="rubric_matrix.html" class="active">14×14 Index</a>
+  <a href="tools.html">14 Tools</a>
+  <a href="benches.html">103 Benches</a>
+  <a href="vignettes.html">Vignettes + Mini Case</a>
+</nav>
+<main>
+<section class="card">
+  <h2>How to read this</h2>
+  <p>
+    Heatmap rows = the 14 audit rubrics; columns = the 14 canonical tools (T01–T14).
+    Each cell's intensity = weighted evidence count for "this tool repairs this rubric"
+    (taken from the workbook's <code>Tool×Rubric矩阵_压缩</code> sheet, scaled by precision-recall on member benches).
+  </p>
+  <div class="legend">
+    <span><span class="swatch" style="background:#F3F4F6"></span>0 — no repair</span>
+    <span><span class="swatch" style="background:#FFE082"></span>weak (≤5)</span>
+    <span><span class="swatch" style="background:#FFB74D"></span>medium (5–15)</span>
+    <span><span class="swatch" style="background:#388E3C"></span>strong (&gt;15)</span>
+  </div>
+  <p class="muted">Click any non-zero cell to open the explainable card with the repair mechanism, the strongest benchmark evidence (with paper URL), and the adaptation prompt that this benchmark would use under this tool.</p>
+</section>
+
+<section class="card">
+  <div id="heatmap" style="width:100%;height:680px;"></div>
+</section>
+</main>
+
+<div id="modal-bg" onclick="if(event.target.id==='modal-bg')closeModal()">
+  <div id="modal"></div>
+</div>
+
+<script>
+let TOOLS = [], RUBRIC_INDEX = [], MATRIX = {}, BENCH_URLS = {}, BENCH_MAP = [], PROMPTS = [];
+let modalBg = null, modal = null;
+const RUBRIC_NAMES = [
+  "Construct clarity","Normative grounding","Source provenance and evidence fitness",
+  "Context and stakeholder coverage","Real-world harm linkage","Scenario validity",
+  "Task-format fit","Ground truth and disagreement design","Metric validity",
+  "Evaluator reliability","Data and annotation QA","Robustness against gaming and contamination",
+  "Documentation and reproducibility","Maintenance and update governance"
+];
+const TOOL_IDS = ["T01","T02","T03","T04","T05","T06","T07","T08","T09","T10","T11","T12","T13","T14"];
+
+async function loadData() {
+  const [tools, rubricIdx, matrix, benchUrls, benchMap, prompts] = await Promise.all([
+    fetch('data/t_tools.json').then(r=>r.json()),
+    fetch('data/rubric_index.json').then(r=>r.json()),
+    fetch('data/matrix.json').then(r=>r.json()),
+    fetch('data/bench_urls.json').then(r=>r.json()),
+    fetch('data/bench_map.json').then(r=>r.json()),
+    fetch('data/prompts.json').then(r=>r.json()),
+  ]);
+  TOOLS = tools; RUBRIC_INDEX = rubricIdx; MATRIX = matrix; BENCH_URLS = benchUrls;
+  BENCH_MAP = benchMap; PROMPTS = prompts;
+  buildHeatmap();
+}
+
+function buildHeatmap() {
+  // matrix.rows is the 14 tool rows; each has fields { 'Tool ID', 'Toolbox 英文名', <14 rubric scores> }
+  // we want z[i][j] where i=rubric (row), j=tool (col)
+  const z = [];
+  for (const r of RUBRIC_NAMES) {
+    const row = [];
+    for (const tid of TOOL_IDS) {
+      const m = MATRIX.rows.find(x => x['Tool ID'] === tid);
+      let v = parseFloat(m ? m[r] : 0);
+      if (isNaN(v)) v = 0;
+      row.push(v);
+    }
+    z.push(row);
+  }
+  const toolLabels = TOOL_IDS.map(tid => {
+    const t = TOOLS.find(x => x['Tool ID'] === tid);
+    const en = t ? t['Toolbox 英文名'] : tid;
+    return `${tid}<br>${en.split(' ').slice(0,3).join(' ')}`;
+  });
+  const rubricLabels = RUBRIC_NAMES.map(r => r.length>30 ? r.slice(0,28)+'…' : r);
+
+  const colorscale = [
+    [0,   '#F3F4F6'],
+    [0.001,'#F3F4F6'],
+    [0.05,'#FFF3C4'],
+    [0.2, '#FFE082'],
+    [0.4, '#FFB74D'],
+    [0.7, '#66BB6A'],
+    [1,   '#1B5E20']
+  ];
+  const data = [{
+    type:'heatmap', z, x: toolLabels, y: rubricLabels,
+    colorscale, showscale:false, zmin:0, zmax:25,
+    hovertemplate: '<b>Tool</b>: %{x}<br><b>Rubric</b>: %{y}<br><b>Evidence score</b>: %{z}<extra>click cell for details</extra>',
+    xgap:2, ygap:2,
+  }];
+  const annotations = [];
+  for (let i=0;i<RUBRIC_NAMES.length;i++) {
+    for (let j=0;j<TOOL_IDS.length;j++) {
+      const v = z[i][j];
+      if (v>0) annotations.push({
+        x: toolLabels[j], y: rubricLabels[i],
+        text: v.toFixed(0),
+        showarrow:false,
+        font:{color: v>15?'white':'#222', size:11}
+      });
+    }
+  }
+  const layout = {
+    margin:{l:240, r:20, t:20, b:140},
+    xaxis:{side:'top', tickangle:-45, tickfont:{size:10}, fixedrange:true},
+    yaxis:{automargin:true, tickfont:{size:11}, fixedrange:true},
+    annotations,
+    plot_bgcolor:'#FAFBFC',
+  };
+  Plotly.newPlot('heatmap', data, layout, {displayModeBar:false, responsive:true});
+  document.getElementById('heatmap').on('plotly_click', e => {
+    const pt = e.points[0];
+    const j = TOOL_IDS.findIndex(t => pt.x.startsWith(t));
+    const i = rubricLabels.indexOf(pt.y);
+    if (i<0 || j<0) return;
+    openCell(TOOL_IDS[j], RUBRIC_NAMES[i], z[i][j]);
+  });
+}
+
+function openCell(toolId, rubric, score) {
+  const tool = TOOLS.find(t => t['Tool ID'] === toolId);
+  // find narrative from rubric_index
+  const entries = RUBRIC_INDEX.filter(r =>
+    (r['Tool ID']||'').trim() === toolId &&
+    (r['Rubric']||'').trim() === rubric
+  );
+  // collect prompt entries (subtool examples) for this tool×rubric
+  const promptEntries = PROMPTS.filter(p =>
+    (p['整合工具ID']||'').trim() === toolId &&
+    ((p['索引用rubrics（该匹配，精简）']||'').includes(rubric))
+  ).slice(0, 4);
+
+  let html = `<span class="close" onclick="closeModal()">×</span>`;
+  html += `<h3>${toolId} · ${tool ? tool['Toolbox 英文名'] : ''} <span class="muted">(${tool ? tool['中文译名'] : ''})</span></h3>`;
+  html += `<div class="muted">Rubric: <b>${rubric}</b> · Evidence weight: <b>${score.toFixed(1)}</b></div>`;
+  html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
+
+  if (entries.length === 0) {
+    html += `<p class="muted">No explainable index entry found for this cell — the evidence score above is from the precision-recall weighting of member benches but no curated narrative exists yet.</p>`;
+  } else {
+    for (const e of entries) {
+      html += `<h4 style="margin:8px 0 4px;color:var(--primary)">Repair mechanism · 修复机制</h4>`;
+      html += `<div class="section-block">${e['修复机制说明'] || ''}</div>`;
+      const benches = (e['代表来源 / 论文'] || '').split(';').map(s=>s.trim()).filter(Boolean);
+      html += `<h4 style="margin:12px 0 4px;color:var(--primary)">Strongest benchmark evidence</h4>`;
+      html += `<div>`;
+      for (const bn of benches.slice(0, 8)) {
+        const cleanName = bn.replace(/\s*\(.*\)\s*$/, '');
+        const url = (BENCH_URLS[bn] || BENCH_URLS[cleanName] || {}).paper || '';
+        if (url) html += `<a class="bench-pill has-url" target="_blank" href="${url}">${bn}</a>`;
+        else html += `<span class="bench-pill">${bn}</span>`;
+      }
+      html += `</div>`;
+      html += `<h4 style="margin:12px 0 4px;color:var(--primary)">Example sub-tool & adaptation prompt</h4>`;
+      html += `<div class="section-block">${e['代表Prompt/指导'] || ''}</div>`;
+      html += `<h4 style="margin:12px 0 4px;color:var(--primary)">Polished adaptation example</h4>`;
+      html += `<div class="section-block">${e['代表改编示例'] || ''}</div>`;
+      html += `<div class="muted" style="margin-top:6px">自动化与人工边界：${e['自动化与人工边界'] || '—'}</div>`;
+    }
+  }
+
+  if (promptEntries.length > 0) {
+    html += `<h4 style="margin:16px 0 4px;color:var(--primary)">Additional benchmark instances (${promptEntries.length})</h4>`;
+    for (const p of promptEntries) {
+      const bn = p['Benchmark / Source'];
+      const cleanName = bn.replace(/\s*\(.*\)\s*$/, '');
+      const url = (BENCH_URLS[bn] || BENCH_URLS[cleanName] || {}).paper || '';
+      const sub = p['细分工具'] || '';
+      html += `<div style="border-left:3px solid var(--primary-light);padding-left:12px;margin:8px 0;font-size:12.5px">`;
+      html += `<b>${url ? `<a href="${url}" target="_blank">${bn} ↗</a>` : bn}</b><br>`;
+      html += `<span class="muted">Sub-tool:</span> ${sub}<br>`;
+      html += `<span class="muted">Match type:</span> ${p['匹配类型'] || ''}`;
+      html += `</div>`;
+    }
+  }
+
+  modal.innerHTML = html;
+  modalBg.style.display = 'flex';
+}
+
+function closeModal() { modalBg.style.display = 'none'; }
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+
+window.addEventListener('DOMContentLoaded', () => {
+  modalBg = document.getElementById('modal-bg');
+  modal = document.getElementById('modal');
+  loadData();
+});
+</script>
+</body>
+</html>
