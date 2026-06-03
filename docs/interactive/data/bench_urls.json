@@ -10,7 +10,7 @@
     "mirror": "https://drive.google.com/drive/folders/1taIab9ExlFU4SoCpbgw3GxB1vP7pNlGr"
   },
   "SCRUPLES (2021)": {
-    "paper": "",
+    "paper": "https://ojs.aaai.org/index.php/AAAI/article/view/17589",
     "code": "https://github.com/allenai/scruples",
     "mirror": "https://drive.google.com/drive/folders/1xo7iehjQ_vozoalvAnP37FYyjEe3OvoX"
   },
@@ -20,7 +20,7 @@
     "mirror": "https://drive.google.com/drive/folders/1MwM1tAeGqHy_7uDLRZkahzlSnKcfnruM"
   },
   "MFQ-2 (2023)": {
-    "paper": "",
+    "paper": "https://doi.org/10.1037/pspp0000470",
     "code": "https://moralfoundations.org/",
     "mirror": ""
   },
@@ -35,7 +35,7 @@
     "mirror": ""
   },
   "CPsyExam (2024)": {
-    "paper": "",
+    "paper": "https://arxiv.org/abs/2405.18743",
     "code": "https://github.com/CAS-SIAT-XinHai/CPsyExam",
     "mirror": "https://drive.google.com/drive/folders/1zO7imfVcKEl_vHUahrrJHibXCVoFicA3"
   },
@@ -90,12 +90,12 @@
     "mirror": "https://drive.google.com/drive/folders/1cf8Q5-27h5vhcYWB_Zmjrbc2AK1xYb0w"
   },
   "PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)": {
-    "paper": "",
-    "code": "https://github.com/LingyueYan-NLP/PsycoLLM>; <https://github.com/Psychim/PsychoBench>; <https://github.com/GOODDASH/ValueBench",
+    "paper": "https://arxiv.org/abs/2310.01386",
+    "code": "https://github.com/LingyueYan-NLP/PsycoLLM",
     "mirror": ""
   },
   "SOCKET (2023)": {
-    "paper": "",
+    "paper": "https://aclanthology.org/2023.findings-emnlp.969/",
     "code": "https://github.com/minjechoi/SOCKET",
     "mirror": ""
   },
@@ -105,7 +105,7 @@
     "mirror": ""
   },
   "EtiCor (2023)": {
-    "paper": "",
+    "paper": "https://aclanthology.org/2023.emnlp-main.747/",
     "code": "https://github.com/Reddy-Lab-Code-Research/EtiCor",
     "mirror": ""
   },
@@ -150,7 +150,7 @@
     "mirror": "https://drive.google.com/drive/folders/1bKWlqkqlHkEFoojXETmCxJwzks6H4R2m"
   },
   "Dev-WordEmbed (2020)": {
-    "paper": "",
+    "paper": "https://aclanthology.org/2020.acl-main.487/",
     "code": "https://github.com/sunipa/On-Measuring-and-Mitigating-Biased-Inferences-of-Word-Embeddings",
     "mirror": ""
   },
@@ -160,17 +160,17 @@
     "mirror": "https://drive.google.com/drive/folders/1JQLmeM_Ogo3oSp3E3SW6pVACI2FpJ92q"
   },
   "WikiGenderBias (2020)": {
-    "paper": "",
+    "paper": "https://aclanthology.org/2020.findings-emnlp.106/",
     "code": "https://github.com/uclanlp/reducingbias",
     "mirror": "https://drive.google.com/drive/folders/14cmybbLYE2AQNdNb5raG4l5fr0BdD_zE"
   },
   "BOLD (2021)": {
-    "paper": "",
+    "paper": "https://dl.acm.org/doi/10.1145/3442188.3445924",
     "code": "https://github.com/amazon-science/bold",
     "mirror": "https://drive.google.com/drive/folders/19vZBkiKE6NDazrRpui9lnA4lfax1vpEi"
   },
   "BUG (2021)": {
-    "paper": "",
+    "paper": "https://aclanthology.org/2021.emnlp-main.211/",
     "code": "https://github.com/SLAB-NLP/BUG",
     "mirror": "https://drive.google.com/drive/folders/1WIkQXrnSSZhWDAsZUylkZTgJ2mDTIhwF"
   },
@@ -180,7 +180,7 @@
     "mirror": "https://drive.google.com/drive/folders/11fvUPnsf8X3p3TU2wQgL4ofm5baBnLjA"
   },
   "NeuTral-WinoBiasPlus (2021)": {
-    "paper": "",
+    "paper": "https://aclanthology.org/2021.eacl-main.163/",
     "code": "https://github.com/uclanlp/corefBias",
     "mirror": "https://drive.google.com/drive/folders/1jBhbTfJn1_2atfNlMZOz9StaDMfYmcY5"
   },
@@ -235,7 +235,7 @@
     "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
   },
   "FLEX (2025)": {
-    "paper": "",
+    "paper": "https://aclanthology.org/2025.findings-naacl.201/",
     "code": "https://github.com/anna-shin/FLEX",
     "mirror": ""
   },
@@ -276,11 +276,11 @@
   },
   "Chinese-Safeguard (2024)": {
     "paper": "https://aclanthology.org/2024.findings-acl.184/",
-    "code": "https://github.com/Libr-AI/do-not-answer/tree/main/cdna",
+    "code": "[https://huggingface.co/datasets/Libr-AI/do-not-answer/tree/main/files/cdna](https://github.com/Libr-AI/do-not-answer/tree/main/cdna)",
     "mirror": ""
   },
   "Do-not-answer (2024)": {
-    "paper": "",
+    "paper": "https://arxiv.org/abs/2403.01244",
     "code": "https://github.com/Libr-AI/do-not-answer",
     "mirror": "https://drive.google.com/drive/folders/130aFvSdUJ7ecgul3DnbyhthwsQlD0MRM"
   },
@@ -300,7 +300,7 @@
     "mirror": "https://drive.google.com/drive/folders/13RQ0kav6pBAOBk6c0KovCuYs1t4lC3l8"
   },
   "LifeTox (2024)": {
-    "paper": "",
+    "paper": "https://aclanthology.org/2024.naacl-short.59/",
     "code": "https://github.com/mbzuai-nlp/LifeTox",
     "mirror": "https://drive.google.com/drive/folders/1baFmEIQlSVA1VTt6jIEW3Q-oJJgcE2tQ"
   },
@@ -345,7 +345,7 @@
     "mirror": ""
   },
   "HarmEval (2025)": {
-    "paper": "",
+    "paper": "https://arxiv.org/abs/2402.15302",
     "code": "https://github.com/SomnathBanerjee/HarmEval",
     "mirror": "https://drive.google.com/drive/folders/1B4iPpDasT-Tl3pMxB7mkKMXamM1ZnXQW"
   },
@@ -360,7 +360,7 @@
     "mirror": ""
   },
   "Red-Eval (2024)": {
-    "paper": "",
+    "paper": "https://arxiv.org/abs/2308.09662",
     "code": "https://github.com/declare-lab/red-instruct",
     "mirror": ""
   },
@@ -375,7 +375,7 @@
     "mirror": ""
   },
   "C-Do-not-answer (2024)": {
-    "paper": "",
+    "paper": "https://arxiv.org/abs/2403.01244",
     "code": "https://github.com/Libr-AI/do-not-answer",
     "mirror": "https://drive.google.com/drive/folders/1Da5wlPwg3t811fcWedaJ9E0YrqJY2Lxk"
   },
@@ -410,7 +410,7 @@
     "mirror": ""
   },
   "PatentEval (2024)": {
-    "paper": "",
+    "paper": "https://aclanthology.org/2024.findings-naacl.142/",
     "code": "https://github.com/ZoeYou/PatentEval",
     "mirror": ""
   },
@@ -455,7 +455,7 @@
     "mirror": "https://drive.google.com/drive/folders/117OloShfJJfokRK08YTRSmlMJJQEc8Yr"
   },
   "EAPrivacy (ICLR 2026)": {
-    "paper": "",
+    "paper": "https://arxiv.org/abs/2510.02356",
     "code": "https://github.com/xinjie-shen/EAPrivacy",
     "mirror": "https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD"
   },
@@ -475,7 +475,7 @@
     "mirror": "https://drive.google.com/drive/folders/12EDOGC-Md8UA8RLUIKvgB76bq3F4cI1Z"
   },
   "PrivaCI-Bench (2025)": {
-    "paper": "",
+    "paper": "https://arxiv.org/abs/2503.04340",
     "code": "https://github.com/HKUST-KnowComp/PrivaCI-Bench",
     "mirror": ""
   },
@@ -508,105 +508,5 @@
     "paper": "https://arxiv.org/abs/2601.08235",
     "code": "https://github.com/shoujuw/MPCI-Bench",
     "mirror": "https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb"
-  },
-  "Is ETHICS about ethics? Evaluating ETHICS dataset": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "LLM Ethics Benchmark: A Three-Dimensional Assessment System": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Computational Machine Ethics: A Survey": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Bias and Fairness in Large Language Models: A Survey": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "A Survey on LLM-as-a-Judge": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Aligning Large Language Models with Human: A Survey": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Survey on AI Ethics: A Socio-technical Perspective": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "A Survey on Privacy Risks and Protection in Large Language Models": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "A Survey on Large Language Model (LLM) Security and Privacy: The Good, the Bad, and the Ugly": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "A Survey of Privacy Attacks in Machine Learning": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Security and Privacy Challenges of Large Language Models: A Survey": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "On Protecting the Data Privacy of Large Language Models (LLMs): A Survey": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Privacy and Security Concerns in Generative AI: A Comprehensive Survey": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "The Ethics of AI Ethics: An Evaluation of Guidelines": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Everything is Connected: Inseparable Algorithmic Bias from Algorithmic Performance": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "A Survey on Evaluation of Large Language Models": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Trust in AI: Progress, Challenges, and Future Directions": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "BetterBench: Assessing AI Benchmarks, Uncovering Issues, and Establishing Best Practices": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Worldwide AI Ethics: A Review of 200+ Guidelines and Recommendations": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
-  },
-  "Measuring Massive Multitask Language Understanding": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
   }
 }
