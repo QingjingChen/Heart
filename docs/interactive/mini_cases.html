@@ -101,6 +101,87 @@
   margin-bottom: 8px;
 }
 .adapter-label b { color: var(--primary); }
+
+/* Collapsible inner sections inside a case (Diagnosis / Tools / Why) */
+.case-fold {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: 10px 0;
+  overflow: hidden;
+  background: var(--surface);
+}
+.case-fold-diag { border-left: 4px solid #2E7D32; }
+.case-fold-tools { border-left: 4px solid var(--primary); }
+.case-fold-why { border-left: 4px solid #6A1B9A; }
+.case-fold-head {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: rgba(244,247,250,.6);
+}
+.case-fold-head::-webkit-details-marker { display: none; }
+.case-fold-head::before {
+  content: "▸";
+  font-size: 11px;
+  color: var(--text-muted);
+  transition: transform .2s;
+  flex-shrink: 0;
+}
+.case-fold[open] > .case-fold-head::before { transform: rotate(90deg); }
+.case-fold-marker {
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+.case-fold-diag .case-fold-marker { color: #1B5E20; }
+.case-fold-why .case-fold-marker { color: #4A148C; }
+.case-fold-title {
+  font-weight: 600;
+  font-size: 12.5px;
+  color: var(--text);
+  flex-shrink: 0;
+}
+.case-fold-hint {
+  flex: 1;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: normal;
+  line-height: 1.5;
+  min-width: 200px;
+}
+.case-fold-body {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.case-narr {
+  margin-top: 8px;
+  border: 0;
+}
+.case-narr > summary {
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 4px 0;
+  list-style: none;
+}
+.case-narr > summary::-webkit-details-marker { display: none; }
+.case-narr > summary::before { content: "▸ "; font-size: 10px; transition: transform .2s; display: inline-block; }
+.case-narr[open] > summary::before { transform: rotate(90deg); }
+.case-narr-body {
+  background: var(--bg);
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin-top: 4px;
+  line-height: 1.65;
+  font-size: 12.5px;
+}
 .case-source {
   padding: 10px 20px;
   background: var(--bg);
@@ -404,13 +485,6 @@
       <span class="lang-zh">这 5 个 mini case 演示 HEART 如何从 rubric 诊断走到修复操作。它们是<b>演示性</b>的——并不声称 revised items 已经被模型实验或大规模专家评审证明优于原题。目的是展示工作流，而非发布新 benchmark。</span>
     </div>
   </div>
-  <div class="toc">
-    <a href="#case1_bbq_age">Case 1 · BBQ (Fairness)</a>
-    <a href="#case2_xstest">Case 2 · XSTest (Safety)</a>
-    <a href="#case3_freshqa">Case 3 · FreshQA (Trustworthy)</a>
-    <a href="#case4_privacylens">Case 4 · PrivacyLens (Privacy)</a>
-    <a href="#case5_counselbench">Case 5 · CounselBench-Adv (Human-Centered)</a>
-  </div>
 </section>
 
 <div id="cases-container">loading…</div>
@@ -507,28 +581,31 @@ function renderCase(c, idx) {
       <td><span class="lang-en">${escapeHtml(g.why_matters_en||'')}</span><span class="lang-zh">${escapeHtml(g.why_matters_zh||'')}</span></td>
     </tr>`).join('');
 
-  const gapBlock = `<div class="improvement-box">
-    <h4>① <span class="lang-en">Diagnosis · what's the gap and why</span><span class="lang-zh">诊断 · gap 是什么、为什么</span></h4>
-    <div style="margin:4px 0">
-      <span class="lang-en"><b>One-line:</b> ${c.gaps_en}</span>
-      <span class="lang-zh"><b>一句话：</b> ${c.gaps_zh}</span>
+  // === ① Diagnosis (collapsed by default; one-line gap is the summary head) ===
+  const gapBlock = `<details class="case-fold case-fold-diag">
+    <summary class="case-fold-head">
+      <span class="case-fold-marker">①</span>
+      <span class="case-fold-title"><span class="lang-en">Diagnosis · what's the gap and why</span><span class="lang-zh">诊断 · gap 是什么、为什么</span></span>
+      <span class="case-fold-hint"><span class="lang-en">${escapeHtml(c.gaps_en||'')}</span><span class="lang-zh">${escapeHtml(c.gaps_zh||'')}</span></span>
+    </summary>
+    <div class="case-fold-body">
+      ${gapDetectionRows ? `<table class="gd-table">
+        <thead><tr>
+          <th>Rubric</th>
+          <th><span class="lang-en">Evidence</span><span class="lang-zh">证据</span></th>
+          <th><span class="lang-en">Severity</span><span class="lang-zh">严重度</span></th>
+          <th><span class="lang-en">Why it matters</span><span class="lang-zh">为何重要</span></th>
+        </tr></thead><tbody>${gapDetectionRows}</tbody>
+      </table>` : ''}
+      <details class="case-narr">
+        <summary><span class="lang-en">Full gap narrative</span><span class="lang-zh">详细叙述</span></summary>
+        <div class="case-narr-body">
+          <span class="lang-en">${escapeHtml(c.gap_reason_en||'')}</span>
+          <span class="lang-zh">${escapeHtml(c.gap_reason_zh||'')}</span>
+        </div>
+      </details>
     </div>
-    ${gapDetectionRows ? `<table class="gd-table" style="margin-top:8px">
-      <thead><tr>
-        <th>Rubric</th>
-        <th><span class="lang-en">Evidence</span><span class="lang-zh">证据</span></th>
-        <th><span class="lang-en">Severity</span><span class="lang-zh">严重度</span></th>
-        <th><span class="lang-en">Why it matters</span><span class="lang-zh">为何重要</span></th>
-      </tr></thead><tbody>${gapDetectionRows}</tbody>
-    </table>` : ''}
-    <details class="acc" style="margin-top:8px;border:0">
-      <summary style="background:transparent;color:#1B5E20;font-weight:600;padding:4px 0;font-size:12px"><span class="lang-en">Full gap-reason narrative</span><span class="lang-zh">详细 gap 叙述</span></summary>
-      <div style="background:rgba(255,255,255,.6);padding:10px 12px;border-radius:4px;margin-top:4px;line-height:1.6;font-size:12.5px">
-        <span class="lang-en">${escapeHtml(c.gap_reason_en||'')}</span>
-        <span class="lang-zh">${escapeHtml(c.gap_reason_zh||'')}</span>
-      </div>
-    </details>
-  </div>`;
+  </details>`;
 
   // === Tools block (merged: tools_applied + prescription purpose + rubrics lifted) ===
   // Build canonical tools list from c.tools_applied; merge purpose from enrichment
@@ -548,28 +625,38 @@ function renderCase(c, idx) {
     ? `<div class="adapter-label"><b><span class="lang-en">Domain adapter:</span><span class="lang-zh">领域适配器：</span></b> <span class="lang-en">${escapeHtml(e.tool_prescription.domain_adapter_label_en)}</span><span class="lang-zh">${escapeHtml(e.tool_prescription.domain_adapter_label_zh||'')}</span></div>`
     : '';
 
-  const toolsBlock = `<div class="tools-block">
-    <h4 style="margin:0 0 6px">② <span class="lang-en">Tools applied (each linked to its card)</span><span class="lang-zh">用到的工具（点击跳转到对应卡片）</span></h4>
-    ${adapterLabel}
-    <div class="tools-stack">${toolRows}</div>
-    <div style="margin-top:8px"><b style="font-size:11.5px;color:var(--primary)"><span class="lang-en">Rubrics lifted:</span><span class="lang-zh">提升的 rubric：</span></b> ${c.rubrics_lifted.map(r => `<span class="rubric-pill">${r}</span>`).join('')}</div>
-  </div>`;
-
-  // === Why-improved block ===
-  const whyBlock = `<div class="improvement-box" style="background:linear-gradient(135deg,#E3F2FD 0%, #F0F7FF 100%);border-left-color:var(--primary)">
-    <h4 style="color:var(--primary)">③ <span class="lang-en">Why the revision improves the bench</span><span class="lang-zh">改编为什么让 bench 更好</span></h4>
-    <div style="margin:4px 0">
-      <span class="lang-en"><b>One-line:</b> ${c.why_improved_en}</span>
-      <span class="lang-zh"><b>一句话：</b> ${c.why_improved_zh}</span>
+  // === ② Tools applied (collapsed by default) ===
+  const toolIdsForHint = c.tools_applied.map(t => t.id).join(' · ');
+  const toolsBlock = `<details class="case-fold case-fold-tools">
+    <summary class="case-fold-head">
+      <span class="case-fold-marker">②</span>
+      <span class="case-fold-title"><span class="lang-en">Tools applied · click any ID to jump to its card</span><span class="lang-zh">用到的工具 · 点 ID 跳转到对应卡片</span></span>
+      <span class="case-fold-hint">${toolIdsForHint}</span>
+    </summary>
+    <div class="case-fold-body">
+      ${adapterLabel}
+      <div class="tools-stack">${toolRows}</div>
+      <div style="margin-top:8px"><b style="font-size:11.5px;color:var(--primary)"><span class="lang-en">Rubrics lifted:</span><span class="lang-zh">提升的 rubric：</span></b> ${c.rubrics_lifted.map(r => `<span class="rubric-pill">${r}</span>`).join('')}</div>
     </div>
-    <details class="acc" style="margin-top:8px;border:0">
-      <summary style="background:transparent;color:var(--primary);font-weight:600;padding:4px 0;font-size:12px"><span class="lang-en">Full adaptation rationale</span><span class="lang-zh">详细改编理由</span></summary>
-      <div style="background:rgba(255,255,255,.6);padding:10px 12px;border-radius:4px;margin-top:4px;line-height:1.6;font-size:12.5px">
-        <span class="lang-en">${escapeHtml(c.adapt_reason_en||'')}</span>
-        <span class="lang-zh">${escapeHtml(c.adapt_reason_zh||'')}</span>
-      </div>
-    </details>
-  </div>`;
+  </details>`;
+
+  // === ③ Why-improved (collapsed by default) ===
+  const whyBlock = `<details class="case-fold case-fold-why">
+    <summary class="case-fold-head">
+      <span class="case-fold-marker">③</span>
+      <span class="case-fold-title"><span class="lang-en">Why the revision improves the bench</span><span class="lang-zh">改编为什么让 bench 更好</span></span>
+      <span class="case-fold-hint"><span class="lang-en">${escapeHtml(c.why_improved_en||'')}</span><span class="lang-zh">${escapeHtml(c.why_improved_zh||'')}</span></span>
+    </summary>
+    <div class="case-fold-body">
+      <details class="case-narr">
+        <summary><span class="lang-en">Full adaptation rationale</span><span class="lang-zh">详细改编理由</span></summary>
+        <div class="case-narr-body">
+          <span class="lang-en">${escapeHtml(c.adapt_reason_en||'')}</span>
+          <span class="lang-zh">${escapeHtml(c.adapt_reason_zh||'')}</span>
+        </div>
+      </details>
+    </div>
+  </details>`;
 
   // === Source attribution + limitations (kept from enrichment) ===
   const srcAttr = e.source_tool_attribution && e.source_tool_attribution.length
