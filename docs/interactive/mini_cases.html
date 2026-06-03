@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEART Mini Cases — 5 real-data adaptation examples</title>
+<link rel="stylesheet" href="assets/main.css">
+<style>
+.case-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.case-header {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  padding: 14px 20px;
+}
+.case-header .case-id {
+  font-size: 11px;
+  letter-spacing: 1px;
+  opacity: .85;
+}
+.case-header h2 {
+  margin: 4px 0;
+  font-size: 17px;
+}
+.case-header .dim-pill {
+  background: rgba(255,255,255,.18);
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 11.5px;
+}
+.case-source {
+  padding: 10px 20px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.case-source code {
+  background: white;
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  font-family: ui-monospace, monospace;
+}
+.case-body {
+  padding: 20px;
+}
+.item-block {
+  margin-bottom: 16px;
+  border-left: 3px solid var(--border);
+  padding-left: 14px;
+}
+.item-block.original { border-left-color: #C62828; }
+.item-block.revised { border-left-color: #2E7D32; }
+.item-block h4 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.item-block.original h4 { color: #C62828; }
+.item-block.revised h4 { color: #2E7D32; }
+.item-block .item-field {
+  margin: 6px 0;
+  font-size: 13px;
+}
+.item-block .item-field b {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+.item-block .options {
+  background: var(--bg);
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin: 4px 0;
+}
+.item-block .options li { margin: 2px 0; }
+.gold-field {
+  background: #FFF3C4;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 4px 0;
+}
+.fmtag {
+  display: inline-block;
+  background: #FFE0E0;
+  color: #B71C1C;
+  font-size: 10.5px;
+  padding: 1px 7px;
+  border-radius: 8px;
+  margin: 2px 4px 2px 0;
+}
+.fmtag.positive { background: #E0F2E0; color: #1B5E20; }
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 800px) { .before-after { grid-template-columns: 1fr; } }
+.tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+.tool-applied {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+}
+.tool-applied b { color: var(--primary); }
+.tool-applied .ops {
+  display: block;
+  color: var(--text-muted);
+  font-size: 11px;
+  margin-top: 2px;
+}
+.rubric-pill {
+  background: #E3F2FD;
+  color: #1565C0;
+  padding: 2px 9px;
+  border-radius: 10px;
+  font-size: 11.5px;
+  display: inline-block;
+  margin: 2px 4px 2px 0;
+}
+.improvement-box {
+  background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%);
+  border-left: 4px solid #2E7D32;
+  padding: 12px 16px;
+  margin-top: 12px;
+  border-radius: 4px;
+}
+.improvement-box h4 {
+  margin: 0 0 4px;
+  color: #1B5E20;
+  font-size: 13px;
+}
+.toc {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.toc a {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 12.5px;
+}
+.toc a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>HEART Mini Cases — 5 Real-Data Adaptation Examples</h1>
+  <div class="subtitle">每个 case 都从真实公开 benchmark 抽取一条带 ID 的样本，标注改编前/后的对照，并指明用到的 HEART tools + operations + improved rubrics</div>
+</header>
+<nav>
+  <a href="index.html">概览 Overview</a>
+  <a href="rubric_matrix.html">14×14 Index</a>
+  <a href="tools.html">14 Tools</a>
+  <a href="benches.html">103 Benches</a>
+  <a href="vignettes.html">Vignettes</a>
+  <a href="mini_cases.html" class="active">Mini Cases</a>
+</nav>
+<main>
+<section class="card">
+  <h2>How to read each case</h2>
+  <p>
+    Each card shows: <b>source dataset + entry ID</b> (so the original item is reproducible) → the <b>original item(s)</b> verbatim → the <b>HEART-revised item(s)</b>
+    → which <b>tools + operations</b> were applied (linked to the tool card) → which <b>rubrics</b> the revision lifts → a one-sentence <b>why-improved</b>.
+  </p>
+  <div class="toc">
+    <a href="#case1_bbq_age">Case 1 · BBQ (Fairness)</a>
+    <a href="#case2_xstest">Case 2 · XSTest (Safety)</a>
+    <a href="#case3_freshqa">Case 3 · FreshQA (Trustworthy)</a>
+    <a href="#case4_privacylens">Case 4 · PrivacyLens (Privacy)</a>
+    <a href="#case5_counselbench">Case 5 · CounselBench-Adv (Human-Centered)</a>
+  </div>
+</section>
+
+<div id="cases-container">loading…</div>
+
+</main>
+<script>
+async function build() {
+  const cases = await fetch('data/mini_cases.json').then(r=>r.json());
+  const cont = document.getElementById('cases-container');
+  cont.innerHTML = '';
+  for (let i=0; i<cases.length; i++) {
+    cont.insertAdjacentHTML('beforeend', renderCase(cases[i], i+1));
+  }
+}
+
+function renderItem(it) {
+  let html = '';
+  if (it.context) html += `<div class="item-field"><b>Context:</b><br>${it.context}</div>`;
+  if (it.vignette) html += `<div class="item-field"><b>Vignette:</b><br>${it.vignette}</div>`;
+  if (it.seed) {
+    html += `<div class="item-field"><b>Seed:</b><br>`;
+    for (const [k,v] of Object.entries(it.seed)) html += `<code style="background:var(--bg);padding:1px 5px;border-radius:3px;margin:0 2px">${k}=${v}</code> `;
+    html += `</div>`;
+  }
+  if (it.executable_trajectory) html += `<div class="item-field"><b>Executable trajectory:</b><br>${it.executable_trajectory}</div>`;
+  if (it.sensitive_info) html += `<div class="item-field"><b>Sensitive info:</b> ${it.sensitive_info}</div>`;
+  if (it.toolkits) html += `<div class="item-field"><b>Toolkits:</b> ${it.toolkits}</div>`;
+  if (it.question) html += `<div class="item-field"><b>Question:</b> ${it.question}</div>`;
+  if (it.evaluation_context) html += `<div class="item-field"><b>Eval context:</b> ${it.evaluation_context}</div>`;
+  if (it.prompt) html += `<div class="item-field"><b>Prompt:</b> "${it.prompt}"</div>`;
+  if (it.options) html += `<ul class="options">${it.options.map(o=>`<li>${o}</li>`).join('')}</ul>`;
+  if (it.instruction) html += `<div class="item-field"><b>Instruction:</b> ${it.instruction}</div>`;
+  if (it.gold) html += `<div class="item-field"><span class="gold-field"><b>Gold:</b> ${it.gold}</span></div>`;
+  if (it.gold_rationale) html += `<div class="item-field"><b>Gold rationale:</b> ${it.gold_rationale}</div>`;
+  if (it.answer_0) html += `<div class="item-field"><b>Answer:</b> ${it.answer_0}</div>`;
+  if (it.expected_answer) html += `<div class="item-field"><b>Expected answer:</b> ${it.expected_answer}</div>`;
+  if (it.expected_response_type) html += `<div class="item-field"><b>Expected response type:</b> ${it.expected_response_type}</div>`;
+  if (it.gold_response_principles) html += `<div class="item-field"><b>Gold response principles:</b> ${it.gold_response_principles}</div>`;
+  if (it.expected_safe_output) html += `<div class="item-field"><b>Expected safe output:</b> ${it.expected_safe_output}</div>`;
+  if (it.disallowed_output) html += `<div class="item-field"><b>Disallowed output:</b> ${it.disallowed_output}</div>`;
+  if (it.expected_safe_rewrite_example) html += `<div class="item-field"><b>Expected safe rewrite example:</b> "${it.expected_safe_rewrite_example}"</div>`;
+  if (it.required_response_features) {
+    html += `<div class="item-field"><b>Required response features:</b><ol style="margin:4px 0 4px 18px">${
+      it.required_response_features.map(f=>`<li>${f.replace(/^\d+\.\s*/,'')}</li>`).join('')
+    }</ol></div>`;
+  }
+  if (it.task_type) html += `<div class="item-field"><b>Task type:</b> ${it.task_type}</div>`;
+  if (it.core_evaluation_target) html += `<div class="item-field"><b>Core evaluation target:</b> ${it.core_evaluation_target}</div>`;
+  if (it.type && !it.task_type) html += `<div class="item-field"><b>Type:</b> ${it.type}</div>`;
+  if (it.label) html += `<div class="item-field"><b>Label:</b> ${it.label}</div>`;
+  if (it.focus) html += `<div class="item-field"><b>Focus:</b> ${it.focus}</div>`;
+  if (it.note) html += `<div class="item-field"><b>Note:</b> ${it.note}</div>`;
+  if (it.effective_year) html += `<div class="item-field"><b>Effective year:</b> ${it.effective_year}</div>`;
+  if (it.next_review) html += `<div class="item-field"><b>Next review:</b> ${it.next_review}</div>`;
+  if (it.false_premise) html += `<div class="item-field"><b>False premise:</b> ${it.false_premise}</div>`;
+  if (it.num_hops) html += `<div class="item-field"><b>Num hops:</b> ${it.num_hops}</div>`;
+  if (it.fact_type) html += `<div class="item-field"><b>Fact type:</b> ${it.fact_type}</div>`;
+  if (it.source) html += `<div class="item-field"><b>Source:</b> ${it.source}</div>`;
+  if (it.metadata) html += `<div class="item-field"><b>Metadata:</b> ${it.metadata}</div>`;
+  if (it.failure_mode_tags) {
+    html += `<div class="item-field"><b>Failure-mode tags:</b><br>`;
+    for (const tag of it.failure_mode_tags) {
+      const positive = /safe|preserving|appropriate|escalation|autonomy|aware|handling|redirection|generaliz/i.test(tag);
+      html += `<span class="fmtag${positive?' positive':''}">${tag}</span>`;
+    }
+    html += `</div>`;
+  }
+  return html;
+}
+
+function renderCase(c, idx) {
+  let html = `
+  <div class="case-card" id="${c.id}">
+    <div class="case-header">
+      <div class="case-id">Case ${idx} · ${c.dim_zh}</div>
+      <h2>${c.title_en}</h2>
+      <span class="dim-pill">${c.dimension}</span>
+    </div>
+    <div class="case-source">
+      <b>Source dataset:</b> <a target="_blank" href="${c.source_dataset_url}">${c.source_dataset} ↗</a>
+      &nbsp;·&nbsp; <b>Entry:</b> <code>${c.source_entry}</code>
+    </div>
+    <div class="case-body">
+      <div class="before-after">
+        <div>
+          <h3 style="color:#C62828">原题 Original</h3>
+          ${c.original_items.map(it => `
+            <div class="item-block original">
+              <h4>${it.type_zh} / ${it.type_en}</h4>
+              ${renderItem(it)}
+            </div>
+          `).join('')}
+        </div>
+        <div>
+          <h3 style="color:#2E7D32">改编后 HEART-revised</h3>
+          ${c.revised_items.map(it => `
+            <div class="item-block revised">
+              <h4>${it.type_zh} / ${it.type_en}</h4>
+              ${renderItem(it)}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="improvement-box">
+        <h4>Solid gaps · 诊断出的缺口</h4>
+        <p style="margin:4px 0"><b>EN:</b> ${c.gaps_en}</p>
+        <p style="margin:4px 0"><b>中：</b> ${c.gaps_zh}</p>
+      </div>
+
+      <h4 style="margin:14px 0 4px">HEART tools applied · 用到的工具</h4>
+      <div class="tools-row">
+        ${c.tools_applied.map(t => `
+          <div class="tool-applied">
+            <b><a href="tools.html#${t.id}">${t.id}</a></b> · ${t.name}
+            <span class="ops">→ ${t.operations.join(' · ')}</span>
+          </div>
+        `).join('')}
+      </div>
+
+      <h4 style="margin:14px 0 4px">Rubrics lifted · 提升的 rubric</h4>
+      <div>${c.rubrics_lifted.map(r => `<span class="rubric-pill">${r}</span>`).join('')}</div>
+
+      <div class="improvement-box" style="background:linear-gradient(135deg,#E3F2FD 0%, #F0F7FF 100%);border-left-color:var(--primary)">
+        <h4 style="color:var(--primary)">Why improved · 为何更好</h4>
+        <p style="margin:4px 0"><b>EN:</b> ${c.why_improved_en}</p>
+        <p style="margin:4px 0"><b>中：</b> ${c.why_improved_zh}</p>
+      </div>
+    </div>
+  </div>`;
+  return html;
+}
+
+window.addEventListener('DOMContentLoaded', build);
+</script>
+</body>
+</html>

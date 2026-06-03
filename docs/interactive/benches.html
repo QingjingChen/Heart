@@ -17,7 +17,8 @@
   <a href="rubric_matrix.html">14×14 Index</a>
   <a href="tools.html">14 Tools</a>
   <a href="benches.html" class="active">103 Benches</a>
-  <a href="vignettes.html">Vignettes + Mini Case</a>
+  <a href="vignettes.html">Vignettes</a>
+  <a href="mini_cases.html">Mini Cases</a>
 </nav>
 <main>
 <section class="card">
@@ -33,7 +34,7 @@
     <thead><tr>
       <th>Dimension</th>
       <th>Benchmark</th>
-      <th>cqj 人工标签</th>
+      <th>专家标签</th>
       <th>主整合工具</th>
       <th>主细分工具</th>
       <th>次整合工具</th>
@@ -83,7 +84,7 @@ function buildTable() {
     tr.innerHTML = `
       <td>${b['一级标签']||''}</td>
       <td>${benchPill(b['Benchmark / Source'])}</td>
-      <td><span class="muted">${b['人工核对标签']||''}</span></td>
+      <td><span class="muted">${b['专家标签']||''}</span></td>
       <td><b>${(b['主整合工具ID']||'').padEnd(3)}</b><br><span class="muted">${b['主整合工具']||''}</span></td>
       <td style="font-size:12px">${(b['主细分工具']||'').slice(0,140)}${(b['主细分工具']||'').length>140?'…':''}</td>
       <td><b>${b['次整合工具ID']||''}</b><br><span class="muted">${b['次整合工具']||''}</span></td>
@@ -104,7 +105,7 @@ function openDetail(i) {
   const secTool = T_TOOLS.find(t => t['Tool ID'] === b['次整合工具ID']);
   let html = `<span class="close" onclick="closeModal()">×</span>`;
   html += `<h3>${benchPill(b['Benchmark / Source'])} <span class="muted">[${b['一级标签']}]</span></h3>`;
-  html += `<p class="muted"><b>cqj 人工标签：</b> ${b['人工核对标签']||'—'}<br>`;
+  html += `<p class="muted"><b>专家标签：</b> ${b['专家标签']||'—'}<br>`;
   html += `<b>原 representative tool：</b> ${b['原Representative tool']||'—'}<br>`;
   html += `<b>文章特有分类/标签：</b> ${b['文章特有分类/标签结构']||'—'}</p>`;
 
