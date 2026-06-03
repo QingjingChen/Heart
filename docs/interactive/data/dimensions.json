@@ -1,24 +1,6 @@
 {
   "policies": [
     {
-      "source": "Industry corporate-ethics principles (anonymised)",
-      "type": "Internal governance",
-      "cells": {
-        "Human-Centered": "D1, D2",
-        "Fairness & Inclusiveness": "D1, D2",
-        "Safety & Reliability": "D1, D2",
-        "Trustworthiness & Controllability": "D1, D2",
-        "Privacy Protection": "D1, D2"
-      },
-      "support": {
-        "Human-Centered": 2,
-        "Fairness & Inclusiveness": 2,
-        "Safety & Reliability": 2,
-        "Trustworthiness & Controllability": 2,
-        "Privacy Protection": 2
-      }
-    },
-    {
       "source": "UNESCO Recommendation on AI Ethics",
       "type": "International guideline",
       "cells": {
@@ -305,24 +287,6 @@
         "Trustworthiness & Controllability": 1,
         "Privacy Protection": 1
       }
-    },
-    {
-      "source": "A Comprehensive Survey of AI Ethics Benchmarks",
-      "type": "Survey paper",
-      "cells": {
-        "Human-Centered": "S",
-        "Fairness & Inclusiveness": "S",
-        "Safety & Reliability": "S",
-        "Trustworthiness & Controllability": "S",
-        "Privacy Protection": "S"
-      },
-      "support": {
-        "Human-Centered": 1,
-        "Fairness & Inclusiveness": 1,
-        "Safety & Reliability": 1,
-        "Trustworthiness & Controllability": 1,
-        "Privacy Protection": 1
-      }
     }
   ],
   "tool_family_coverage": [
@@ -448,9 +412,7 @@
     "Google responsible AI practice": "https://ai.google/responsibility/principles/",
     "OpenAI preparedness and red-teaming": "https://openai.com/safety/preparedness",
     "Meta responsible AI / Llama Guard": "https://ai.meta.com/llama/responsible-use-guide/",
-    "AILuminate / MLCommons": "https://mlcommons.org/benchmarks/ailuminate/",
-    "A Comprehensive Survey of AI Ethics Benchmarks": "https://arxiv.org/abs/2502.06559",
-    "Industry corporate-ethics principles (anonymised)": ""
+    "AILuminate / MLCommons": "https://mlcommons.org/benchmarks/ailuminate/"
   },
   "evidence_codes": {
     "D1": {
