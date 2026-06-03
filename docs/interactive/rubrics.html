@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14 Calibrated Rubrics — HEART</title>
+<link rel="stylesheet" href="assets/main.css">
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+.layer-tag {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 10.5px;
+  font-weight: 500;
+}
+.layer-cv { background:#E3F2FD; color:#1565C0; }
+.layer-ed { background:#FFF3E0; color:#E65100; }
+.layer-gr { background:#FCE4EC; color:#AD1457; }
+
+#chart {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+.anchor-grid {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 8px;
+  margin: 6px 0;
+}
+.score-badge {
+  text-align: center;
+  font-weight: 600;
+  padding: 6px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+}
+.score-0 { background:#B2182B; }
+.score-1-2 { background:#EF6548; }
+.score-3-4 { background:#67A9CF; }
+.score-5 { background:#2166AC; }
+
+.anchor-text {
+  background: var(--bg);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  white-space: pre-wrap;
+}
+
+.calibrated-block {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFFDE7 100%);
+  border-left: 4px solid #F57C00;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+.calibrated-block h4 {
+  margin: 0 0 6px;
+  color: #E65100;
+  font-size: 12.5px;
+}
+
+.dist-mini {
+  display: flex;
+  height: 18px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 6px 0;
+  border: 1px solid var(--border);
+}
+.dist-mini span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+}
+.dist-mini span.s0 { background:#B2182B; }
+.dist-mini span.s1 { background:#EF6548; }
+.dist-mini span.s2 { background:#FDB863; color:#333; }
+.dist-mini span.s3 { background:#E5E7EB; color:#333; }
+.dist-mini span.s4 { background:#67A9CF; }
+.dist-mini span.s5 { background:#2166AC; }
+</style>
+</head>
+<body>
+<header>
+  <h1>14 Calibrated Audit Rubrics</h1>
+  <div class="subtitle">Score distribution across 103 audited benchmarks · click any rubric to see v2 calibrated anchors with benchmark examples</div>
+</header>
+<nav>
+  <a href="index.html">概览 Overview</a>
+  <a href="rubrics.html" class="active">14 Rubrics</a>
+  <a href="rubric_matrix.html">14×14 Index</a>
+  <a href="tools.html">14 Tools</a>
+  <a href="benches.html">103 Benches</a>
+  <a href="mini_cases.html">Mini Cases</a>
+</nav>
+<main>
+<section class="card">
+  <h2>How to read this</h2>
+  <p>
+    Bars show the share of the 103 audited benchmarks falling into each score bucket (<b>0 – 5</b>) for the corresponding rubric. Rubrics are grouped by the 3 layers used in the diagnostic codebook (Content Validity / Evaluation Design / Governance Reliability) and sorted by their mean score within each layer. <b>R12 (Robustness vs gaming &amp; contamination)</b> and <b>R14 (Maintenance &amp; update governance)</b> are the two layers with the worst score floor — most public benchmarks have no hidden split, no contamination guard, and no retirement policy. Click any bar to open the calibrated v2 anchor with concrete benchmark examples per score.
+  </p>
+  <div class="legend">
+    <span><span class="swatch" style="background:#B2182B"></span>0</span>
+    <span><span class="swatch" style="background:#EF6548"></span>1</span>
+    <span><span class="swatch" style="background:#FDB863"></span>2</span>
+    <span><span class="swatch" style="background:#E5E7EB"></span>3</span>
+    <span><span class="swatch" style="background:#67A9CF"></span>4</span>
+    <span><span class="swatch" style="background:#2166AC"></span>5</span>
+  </div>
+</section>
+
+<section class="card" id="chart-card">
+  <div id="chart" style="width:100%;height:640px;"></div>
+</section>
+</main>
+
+<div id="modal-bg" onclick="if(event.target.id==='modal-bg')closeModal()">
+  <div id="modal"></div>
+</div>
+
+<script>
+const SCORE_COLORS = ['#B2182B','#EF6548','#FDB863','#E5E7EB','#67A9CF','#2166AC'];
+const LAYER_ORDER = ['Content Validity', 'Evaluation Design', 'Governance Reliability'];
+const LAYER_ZH = {
+  'Content Validity': '内容有效性',
+  'Evaluation Design': '评测设计',
+  'Governance Reliability': '治理可靠性',
+};
+const LAYER_CLASS = {
+  'Content Validity':'cv', 'Evaluation Design':'ed', 'Governance Reliability':'gr',
+};
+
+let RUBRICS = [];
+
+async function init() {
+  RUBRICS = await fetch('data/rubrics_full.json').then(r=>r.json());
+  // sort by layer then by mean asc (worst first within each layer)
+  RUBRICS.sort((a,b) => {
+    const la = LAYER_ORDER.indexOf(a.layer);
+    const lb = LAYER_ORDER.indexOf(b.layer);
+    if (la !== lb) return la - lb;
+    return a.mean - b.mean;
+  });
+  buildChart();
+}
+
+function buildChart() {
+  const labels = RUBRICS.map(r => `${r.code}  ${r.name}`);
+  const traces = [];
+  for (let s=0; s<=5; s++) {
+    traces.push({
+      type:'bar',
+      orientation:'h',
+      name:`Score ${s}`,
+      x: RUBRICS.map(r => r.counts[s] / r.total * 100),
+      y: labels,
+      marker:{color: SCORE_COLORS[s], line:{color:'white', width:1.2}},
+      customdata: RUBRICS.map(r => [r.counts[s], r.total]),
+      hovertemplate:'<b>%{y}</b><br>Score '+s+': %{customdata[0]}/%{customdata[1]} (%{x:.1f}%)<extra></extra>',
+    });
+  }
+
+  // shapes: layer separators
+  const shapes = [];
+  let prev_layer = null, prev_idx = -1;
+  const annotations = [];
+  for (let i=0; i<RUBRICS.length; i++) {
+    if (RUBRICS[i].layer !== prev_layer) {
+      if (prev_layer !== null) {
+        shapes.push({
+          type:'line', xref:'paper', yref:'y',
+          x0:0, x1:1, y0:i-0.5, y1:i-0.5,
+          line:{color:'#94a3b8', width:1, dash:'dot'}
+        });
+      }
+      annotations.push({
+        x: -0.18, xref:'paper', y: i, yref:'y',
+        text: `<b>${LAYER_ZH[RUBRICS[i].layer]}<br>${RUBRICS[i].layer}</b>`,
+        showarrow:false,
+        font:{size:9.5, color:'#475569'},
+        align:'left',
+        xanchor:'left',
+      });
+      prev_layer = RUBRICS[i].layer;
+    }
+  }
+  // mean labels on the right
+  for (let i=0; i<RUBRICS.length; i++) {
+    annotations.push({
+      x: 101.5, xref:'x', y:i, yref:'y',
+      text: `mean ${RUBRICS[i].mean.toFixed(2)}`,
+      showarrow:false,
+      font:{size:9.5, color:'#475569'},
+      xanchor:'left',
+    });
+  }
+
+  const layout = {
+    barmode:'stack',
+    margin:{l:300, r:90, t:20, b:60},
+    xaxis:{range:[0,100], title:'Share of audited entries (%)', tickfont:{size:10}, gridcolor:'#E5E7EB'},
+    yaxis:{automargin:false, tickfont:{size:10.5}, autorange:'reversed'},
+    legend:{orientation:'h', y:-0.13, x:0.5, xanchor:'center', font:{size:11}},
+    annotations,
+    shapes,
+    plot_bgcolor:'white',
+    paper_bgcolor:'white',
+  };
+  Plotly.newPlot('chart', traces, layout, {displayModeBar:false, responsive:true});
+  document.getElementById('chart').on('plotly_click', e => {
+    const pt = e.points[0];
+    const rubric = pt.y.replace(/^R\d+\s+/, '');
+    openRubric(rubric);
+  });
+  document.getElementById('chart').on('plotly_legenddoubleclick', () => false);
+  // Also clicking the y-axis labels by adding click handlers manually
+  // (Plotly doesn't natively support this; users can click bars)
+}
+
+function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function openRubric(rname) {
+  const r = RUBRICS.find(x => x.name === rname);
+  if (!r) return;
+  const distPercent = [0,1,2,3,4,5].map(s => r.total ? (r.counts[s]/r.total*100) : 0);
+
+  let html = `<span class="close" onclick="closeModal()">×</span>`;
+  html += `<h3>${r.code} · ${escapeHtml(r.name)}
+    <span class="layer-tag layer-${LAYER_CLASS[r.layer]}">${LAYER_ZH[r.layer]} · ${r.layer}</span>
+  </h3>`;
+  html += `<p class="muted" style="margin:6px 0">${escapeHtml(r.name_zh)} · 对应旧指标：${escapeHtml(r.old_mapping)}</p>`;
+
+  html += `<div class="section-block" style="background:#F0F7FF;border-left:4px solid var(--primary)">
+    <b>关键问题 · Key question:</b> ${escapeHtml(r.key_question)}
+  </div>`;
+
+  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">v1 原始评分锚点</h4>`;
+  html += `<div class="anchor-grid">
+    <div class="score-badge score-0">0</div>
+    <div class="anchor-text">${escapeHtml(r.anchor_0)}</div>
+    <div class="score-badge score-1-2">1–2</div>
+    <div class="anchor-text">${escapeHtml(r.anchor_1_2)}</div>
+    <div class="score-badge score-3-4">3–4</div>
+    <div class="anchor-text">${escapeHtml(r.anchor_3_4)}</div>
+    <div class="score-badge score-5">5</div>
+    <div class="anchor-text">${escapeHtml(r.anchor_5)}</div>
+  </div>`;
+
+  html += `<div class="calibrated-block">
+    <h4>v2 校准锚点（带 benchmark 例证）· Calibrated thresholds with bench anchors</h4>
+    <div class="anchor-text">${escapeHtml(r.calibrated_anchors)}</div>
+  </div>`;
+
+  html += `<div class="calibrated-block" style="background:linear-gradient(135deg,#E8F5E9 0%,#F1F8E9 100%);border-left-color:#2E7D32">
+    <h4 style="color:#1B5E20">v2 完整评分细则（survey + bench 校准后）· Rubric v2 scoring rules</h4>
+    <div class="anchor-text">${escapeHtml(r.rubric_v2)}</div>
+  </div>`;
+
+  // distribution mini-bar
+  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">当前评分分布（${r.total} benchmarks · mean ${r.mean.toFixed(2)}）</h4>`;
+  html += `<div class="dist-mini">`;
+  for (let s=0; s<=5; s++) {
+    const pct = distPercent[s];
+    if (pct > 0) html += `<span class="s${s}" style="width:${pct}%" title="Score ${s}: ${r.counts[s]} (${pct.toFixed(1)}%)">${pct>5 ? r.counts[s] : ''}</span>`;
+  }
+  html += `</div>`;
+  html += `<div class="muted" style="font-size:11.5px">${escapeHtml(r.distribution_raw)}</div>`;
+
+  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">修订建议 · Calibration notes</h4>`;
+  html += `<div class="section-block">${escapeHtml(r.revision_notes)}</div>`;
+
+  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">Survey 文献补充：好/坏 bench 类型</h4>`;
+  html += `<div class="section-block">${escapeHtml(r.survey_good_bad)}</div>`;
+
+  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">Survey 来源</h4>`;
+  html += `<div class="muted">${escapeHtml(r.survey_sources)}</div>`;
+
+  document.getElementById('modal').innerHTML = html;
+  document.getElementById('modal-bg').style.display = 'flex';
+}
+
+function closeModal() { document.getElementById('modal-bg').style.display = 'none'; }
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+
+window.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
