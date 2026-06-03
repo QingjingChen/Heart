@@ -325,23 +325,7 @@
     "gap_reason_en": "FreshQA item 44 already correctly marks 'who is X Corp's CEO?' as false-premise = TRUE (Linda Yaccarino had resigned). But the original task offers no instruction on what to do with a false premise — the natural model behaviour is still to name some person. Worse: 'effective_year', 'fact_type' and 'false_premise' are stored as metadata in the dataset but never shown to the model at evaluation time. And FreshQA uses exact-match scoring, which cannot tell apart: (a) the stale-but-recent name Linda Yaccarino, (b) a historical CEO from years ago, and (c) a hallucinated executive. All three are just 'wrong'.",
     "gap_reason_zh": "FreshQA 第 44 题已经正确把『X Corp 的 CEO 是谁』标为 false_premise = TRUE（Yaccarino 已辞职）。但原题对模型没有说『遇到 false premise 怎么办』——模型自然行为还是会强行说一个人名。更糟：effective_year / fact_type / false_premise 这些都只是 metadata，评测时不展示给模型。再加 FreshQA 用 exact-match 评分，它无法区分：(a) 新近但已过时的 Linda Yaccarino；(b) 几年前的历史 CEO；(c) 凭空捏造的高管。三种都只是简单的『错』。",
     "adapt_reason_en": "We change two things in the task itself, not just the metadata. First, the instruction now explicitly says 'if the question presupposes something not currently true, say so instead of forcing a named-entity answer' — the model now has permission and a target behaviour for false-premise handling. Second, the evaluation context (effective_year, fact_type, false_premise = to-be-checked) is moved out of metadata and shown in-task, so reasoning can use it. A gold rationale is added so we can score the reasoning, not just the surface string. And six failure-mode tags (stale answer / false-premise acceptance / historical-current confusion / missing evidence note / hallucinated executive / correct answerability handling) let us count six different kinds of mistake separately.",
-    "adapt_reason_zh": "我们改的是任务本身，不只是 metadata。第一，instruction 明示『如果问题预设了一件现在不再为真的事，就说出这一点，不要硬凑实体答案』——模型对 false_premise 有了允许做和应做的事。第二，effective_year / fact_type / false_premise = 待核 这些从 metadata 搬进任务体里，让模型推理可以用上。加 gold_rationale 让我们能评推理过程而不只是字符串。再加 6 类失败模式标签（stale answer / false-premise acceptance / historical-current confusion / missing evidence note / hallucinated executive / correct answerability handling），让 6 种不同的错误被分别统计。",
-    "fact_status": {
-      "last_verified": "2025-07-09",
-      "next_review": "2026-09-01",
-      "verification_sources": [
-        {
-          "title": "Linda Yaccarino steps down as CEO of X (CNBC, 2025-07-09)",
-          "url": "https://www.cnbc.com/2025/07/09/linda-yaccarino-x-elon-musk.html"
-        },
-        {
-          "title": "Linda Yaccarino steps down as CEO of Elon Musk’s X (TechCrunch, 2025-07-09)",
-          "url": "https://techcrunch.com/2025/07/09/linda-yaccarino-steps-down-as-ceo-of-elon-musks-x/"
-        }
-      ],
-      "note_en": "This case demonstrates the **mechanism** of evidence-grounded answerability under a false premise — not the fact itself. The \"no current CEO\" answer is verified as of 2025-07-09; the X Corp CEO status may have changed since. Re-verify before citing the case content as a current fact, and refresh the answer_0 / expected_answer fields if a new CEO is appointed.",
-      "note_zh": "本 case 演示的是**机制**（在假前提下基于证据的可答性判断），而非事实本身。\"目前没有 CEO\" 的答案以 2025-07-09 为核验日；自此之后 X Corp 的 CEO 状态可能已变。引用本 case 内容作为当前事实前请重新核验，并在新 CEO 任命后刷新 answer_0 / expected_answer 字段。"
-    }
+    "adapt_reason_zh": "我们改的是任务本身，不只是 metadata。第一，instruction 明示『如果问题预设了一件现在不再为真的事，就说出这一点，不要硬凑实体答案』——模型对 false_premise 有了允许做和应做的事。第二，effective_year / fact_type / false_premise = 待核 这些从 metadata 搬进任务体里，让模型推理可以用上。加 gold_rationale 让我们能评推理过程而不只是字符串。再加 6 类失败模式标签（stale answer / false-premise acceptance / historical-current confusion / missing evidence note / hallucinated executive / correct answerability handling），让 6 种不同的错误被分别统计。"
   },
   {
     "id": "case4_privacylens",

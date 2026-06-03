@@ -188,6 +188,35 @@
   border-bottom: 1px solid var(--border);
   font-size: 12px;
 }
+.case-source-line { margin-bottom: 6px; }
+.src-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border);
+  font-size: 11.5px;
+}
+.src-strip-label {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.src-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text);
+}
+.src-chip b { font-weight: 600; font-size: 11.5px; }
+.src-chip:hover { border-color: var(--primary); }
+.src-chip .src-ct { font-size: 9.5px; padding: 0 6px; border-radius: 7px; }
 .case-source code {
   background: white;
   padding: 1px 6px;
@@ -444,18 +473,6 @@
 .lim-list li { margin: 3px 0; }
 
 /* Fact status (R14) */
-.fact-status {
-  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
-  border: 1px solid #F2D78E;
-  border-left: 4px solid #B45309;
-  border-radius: 4px;
-  padding: 12px 16px;
-  margin: 16px 20px;
-}
-.fact-status h4 { margin: 0 0 8px; color: #7C5306; font-size: 13px; }
-.fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; }
-.fact-grid b { color: #7C5306; }
-.fact-status a { color: #B45309; }
 </style>
 </head>
 <body>
@@ -658,26 +675,32 @@ function renderCase(c, idx) {
     </div>
   </details>`;
 
-  // === Source attribution + limitations (kept from enrichment) ===
+  // === Source attribution chip strip (sits next to the source-dataset row) ===
   const srcAttr = e.source_tool_attribution && e.source_tool_attribution.length
-    ? `<h4 class="enrich-h">④ <span class="lang-en">Source-tool attribution</span><span class="lang-zh">来源归属</span></h4>
-       <div class="src-list">
+    ? `<div class="src-strip">
+         <b class="src-strip-label"><span class="lang-en">Source attribution:</span><span class="lang-zh">来源归属：</span></b>
          ${e.source_tool_attribution.map(s => {
            const ctClass = (s.contribution_type||'').replace(/[\s\-]/g, '_');
-           return `<div class="src-row">
-             <span class="src-name"><b>${escapeHtml(s.source_name||'')}</b></span>
-             <span class="src-ct ct-${ctClass}">${escapeHtml(s.contribution_type||'')}</span>
-             <div class="src-contrib"><span class="lang-en">${escapeHtml(s.contribution_en||'')}</span><span class="lang-zh">${escapeHtml(s.contribution_zh||'')}</span></div>
-           </div>`;
+           const tooltip = (s.contribution_en||'') + (s.contribution_zh ? ' / ' + s.contribution_zh : '');
+           return `<span class="src-chip" title="${escapeHtml(tooltip)}"><b>${escapeHtml(s.source_name||'')}</b> <span class="src-ct ct-${ctClass}">${escapeHtml(s.contribution_type||'')}</span></span>`;
          }).join('')}
        </div>`
     : '';
+
+  // === ④ Remaining limitations — folded by default ===
   const lims = (e.remaining_limitations_en||[]).length
-    ? `<h4 class="enrich-h">⑤ <span class="lang-en">Remaining limitations</span><span class="lang-zh">仍存局限</span></h4>
-       <ul class="lim-list lang-en">${e.remaining_limitations_en.map(l => `<li>${escapeHtml(l)}</li>`).join('')}</ul>
-       <ul class="lim-list lang-zh">${(e.remaining_limitations_zh||[]).map(l => `<li>${escapeHtml(l)}</li>`).join('')}</ul>`
+    ? `<details class="case-fold case-fold-lim">
+         <summary class="case-fold-head">
+           <span class="case-fold-marker">④</span>
+           <span class="case-fold-title"><span class="lang-en">Remaining limitations</span><span class="lang-zh">仍存局限</span></span>
+           <span class="case-fold-hint">${e.remaining_limitations_en.length} item${e.remaining_limitations_en.length>1?'s':''}</span>
+         </summary>
+         <div class="case-fold-body">
+           <ul class="lim-list lang-en">${e.remaining_limitations_en.map(l => `<li>${escapeHtml(l)}</li>`).join('')}</ul>
+           <ul class="lim-list lang-zh">${(e.remaining_limitations_zh||[]).map(l => `<li>${escapeHtml(l)}</li>`).join('')}</ul>
+         </div>
+       </details>`
     : '';
-  const enrichBlock = (srcAttr || lims) ? `<div class="enrich-block">${srcAttr}${lims}</div>` : '';
 
   // === Wrap whole case in a <details> for collapsibility ===
   const isFirst = idx === 1;
@@ -692,8 +715,11 @@ function renderCase(c, idx) {
       <span class="case-toggle-hint"><span class="lang-en">click to expand/collapse</span><span class="lang-zh">点击展开/收起</span></span>
     </summary>
     <div class="case-source">
-      <b><span class="lang-en">Source dataset:</span><span class="lang-zh">来源数据集：</span></b> <a target="_blank" href="${c.source_dataset_url}">${c.source_dataset} ↗</a>
-      &nbsp;·&nbsp; <b><span class="lang-en">Entry:</span><span class="lang-zh">条目：</span></b> <code>${c.source_entry}</code>
+      <div class="case-source-line">
+        <b><span class="lang-en">Source dataset:</span><span class="lang-zh">来源数据集：</span></b> <a target="_blank" href="${c.source_dataset_url}">${c.source_dataset} ↗</a>
+        &nbsp;·&nbsp; <b><span class="lang-en">Entry:</span><span class="lang-zh">条目：</span></b> <code>${c.source_entry}</code>
+      </div>
+      ${srcAttr}
     </div>
     <div class="case-body">
       <div class="before-after">
@@ -719,33 +745,15 @@ function renderCase(c, idx) {
       ${gapBlock}
       ${toolsBlock}
       ${whyBlock}
-      ${enrichBlock}
-      ${renderFactStatus(c)}
+      ${lims}
     </div>
   </details>`;
 }
 
 function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
-function renderFactStatus(c) {
-  if (!c.fact_status) return '';
-  const fs = c.fact_status;
-  const sources = (fs.verification_sources||[]).map(s => `<li><a href="${s.url}" target="_blank">${s.title}</a></li>`).join('');
-  return `<div class="fact-status">
-    <h4>📅 <span class="lang-en">Fact status &amp; R14 disclosure</span><span class="lang-zh">事实状态与 R14 披露</span></h4>
-    <div class="fact-grid">
-      <div><b><span class="lang-en">Last verified:</span><span class="lang-zh">最后核验：</span></b> ${fs.last_verified||'—'}</div>
-      <div><b><span class="lang-en">Next review:</span><span class="lang-zh">下次复查：</span></b> ${fs.next_review||'—'}</div>
-    </div>
-    <p class="muted" style="font-size:11.5px;margin:8px 0 4px">
-      <span class="lang-en">${escapeHtml(fs.note_en||'')}</span>
-      <span class="lang-zh">${escapeHtml(fs.note_zh||'')}</span>
-    </p>
-    ${sources ? `<div style="margin-top:6px"><b style="font-size:11.5px;color:var(--primary)"><span class="lang-en">Verification sources:</span><span class="lang-zh">核验来源：</span></b><ul style="margin:4px 0;padding-left:20px;font-size:11.5px">${sources}</ul></div>` : ''}
-  </div>`;
-}
-
-// renderEnrichment is now inlined into renderCase as ④ source attribution + ⑤ limitations
+// Source attribution moved to a strip under the case-source row; limitations
+// folded as ④. Removed renderFactStatus per user request (FreshQA fact-status block deleted).
 
 window.addEventListener('DOMContentLoaded', build);
 </script>
