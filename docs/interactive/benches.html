@@ -10,20 +10,25 @@
 </head>
 <body>
 <header>
-  <h1>103 Benchmarks · Tool Mapping Lookup</h1>
-  <div class="subtitle">Each benchmark mapped to its primary and secondary canonical tool, with sub-tool, adaptation prompt and a paper link</div>
+  <h1><span class="lang-en">103 Audited Benchmarks · Tool Mapping</span><span class="lang-zh">103 个被审计 Benchmark · 工具映射</span></h1>
+  <div class="subtitle"><span class="lang-en">Each benchmark mapped to its primary and secondary canonical tool, with sub-tool, adaptation prompt and a paper link</span><span class="lang-zh">每个 benchmark 映射到其主/次整合工具，含细分工具、改编 prompt 和论文链接</span></div>
 </header>
 <nav>
-  <a href="index.html">概览 Overview</a>
-  <a href="rubrics.html">14 Rubrics</a>
-  <a href="rubric_matrix.html">14×14 Index</a>
-  <a href="tools.html">14 Tools</a>
-  <a href="benches.html" class="active">103 Benches</a>
-  <a href="dimensions.html">5 Dimensions</a>
-  <a href="mini_cases.html">Mini Cases</a>
+  <a href="index.html"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
+  <a href="dimensions.html" class="active"><span class="lang-en">A. Policy &amp; Corpus</span><span class="lang-zh">A. 政策与语料</span></a>
+  <a href="rubrics.html"><span class="lang-en">B. Diagnostic Rubrics</span><span class="lang-zh">B. 诊断 Rubrics</span></a>
+  <a href="tools.html"><span class="lang-en">C. Revision Toolkit</span><span class="lang-zh">C. 修复工具箱</span></a>
+  <a href="mini_cases.html"><span class="lang-en">D. Revision Examples</span><span class="lang-zh">D. 改编案例</span></a>
   <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
+
+<div class="subpage-strip">
+  <span class="strip-label"><span class="lang-en">A · Sub-pages:</span><span class="lang-zh">A 阶段子页：</span></span>
+  <a href="dimensions.html" class="strip-pill"><span class="lang-en">5 Dimensions × Policy</span><span class="lang-zh">5 维 × 政策</span></a>
+  <a href="benches.html" class="strip-pill active"><span class="lang-en">103 Audited Benchmarks</span><span class="lang-zh">103 个已审计 benchmark</span></a>
+</div>
+
 <section class="card">
   <h2>How to use</h2>
   <p>
@@ -111,33 +116,33 @@ function openDetail(i) {
   const tagHtml = b['专家标签'] ? `<span class="expert-tag">${b['专家标签']}</span>` : '—';
   const oldTag = b['专家标签_v1'] && b['专家标签_v1'] !== b['专家标签'] ? ` <span class="muted" style="font-size:11px">(v1: ${b['专家标签_v1']})</span>` : '';
   html += `<p class="muted"><b><span class="lang-en">Expert tag:</span><span class="lang-zh">专家标签：</span></b> ${tagHtml}${oldTag}<br>`;
-  html += `<b>原 representative tool：</b> ${b['原Representative tool']||'—'}<br>`;
-  html += `<b>文章特有分类/标签：</b> ${b['文章特有分类/标签结构']||'—'}</p>`;
+  html += `<b><span class="lang-en">Original representative tool:</span><span class="lang-zh">原 representative tool：</span></b> ${b['原Representative tool']||'—'}<br>`;
+  html += `<b><span class="lang-en">Paper-specific labels:</span><span class="lang-zh">文章特有分类/标签：</span></b> ${b['文章特有分类/标签结构']||'—'}</p>`;
 
   html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
-  html += `<h4 style="color:var(--primary)">主整合工具: ${b['主整合工具ID']} · ${b['主整合工具']}</h4>`;
+  html += `<h4 style="color:var(--primary)"><span class="lang-en">Primary canonical tool:</span><span class="lang-zh">主整合工具：</span> ${b['主整合工具ID']} · ${b['主整合工具']}</h4>`;
   if (tool) html += `<div class="muted" style="margin-bottom:8px">${tool['工具边界 / 与相近工具区别']||''}</div>`;
-  html += `<h5 style="margin:8px 0 2px">主细分工具</h5>`;
+  html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Primary sub-tool</span><span class="lang-zh">主细分工具</span></h5>`;
   html += `<div class="section-block">${b['主细分工具']||''}</div>`;
-  html += `<h5 style="margin:8px 0 2px">改编 Prompt 指导</h5>`;
+  html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Adaptation prompt guide</span><span class="lang-zh">改编 Prompt 指导</span></h5>`;
   html += `<div class="section-block">${b['改编Prompt指导']||''}</div>`;
-  html += `<h5 style="margin:8px 0 2px">改编示例</h5>`;
+  html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Polished revision example</span><span class="lang-zh">改编示例</span></h5>`;
   html += `<div class="section-block">${b['改编示例（微改）']||''}</div>`;
 
   if (b['次整合工具ID']) {
     html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
-    html += `<h4 style="color:var(--primary)">次整合工具: ${b['次整合工具ID']} · ${b['次整合工具']}</h4>`;
+    html += `<h4 style="color:var(--primary)"><span class="lang-en">Secondary canonical tool:</span><span class="lang-zh">次整合工具：</span> ${b['次整合工具ID']} · ${b['次整合工具']}</h4>`;
     if (secTool) html += `<div class="muted" style="margin-bottom:8px">${secTool['工具边界 / 与相近工具区别']||''}</div>`;
-    html += `<h5 style="margin:8px 0 2px">次细分工具</h5>`;
+    html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Secondary sub-tool</span><span class="lang-zh">次细分工具</span></h5>`;
     html += `<div class="section-block">${b['次细分工具']||''}</div>`;
-    html += `<h5 style="margin:8px 0 2px">次匹配证据</h5>`;
+    html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Secondary match evidence</span><span class="lang-zh">次匹配证据</span></h5>`;
     html += `<div class="section-block">${b['次匹配证据']||''}</div>`;
   }
 
   html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
-  html += `<h5>自动化与人工边界</h5>`;
-  html += `<p><b>可自动改编：</b> <span class="muted">${b['自动化改编部分']||'—'}</span></p>`;
-  html += `<p><b>需人工校验：</b> <span class="muted">${b['需人工校验/治理部分']||'—'}</span></p>`;
+  html += `<h5><span class="lang-en">Automation vs. human-review boundary</span><span class="lang-zh">自动化与人工边界</span></h5>`;
+  html += `<p><b><span class="lang-en">Can be automated:</span><span class="lang-zh">可自动改编：</span></b> <span class="muted">${b['自动化改编部分']||'—'}</span></p>`;
+  html += `<p><b><span class="lang-en">Needs human review:</span><span class="lang-zh">需人工校验：</span></b> <span class="muted">${b['需人工校验/治理部分']||'—'}</span></p>`;
   modal.innerHTML = html;
   modalBg.style.display = 'flex';
 }

@@ -102,20 +102,27 @@
   color: #1B5E20;
   font-size: 13px;
 }
-.calib-summary { display: grid; gap: 10px; }
-.calib-row {
+.calib-narrative {
+  background: rgba(255,255,255,.85);
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.calib-narrative p { margin: 0; color: var(--text); }
+.anchor-compact-grid {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 8px;
+  margin: 8px 0;
+}
+.anchor-compact {
   background: rgba(255,255,255,.7);
   padding: 8px 12px;
   border-radius: 4px;
   font-size: 12.5px;
   line-height: 1.55;
-}
-.calib-row b {
-  display: block;
-  color: #1B5E20;
-  font-size: 11.5px;
-  margin-bottom: 4px;
-  letter-spacing: .3px;
 }
 .ref-list {
   background: rgba(255,255,255,.65);
@@ -132,17 +139,15 @@
 </head>
 <body>
 <header>
-  <h1>14 Calibrated Audit Rubrics</h1>
-  <div class="subtitle">Score distribution across 103 audited benchmarks · click any rubric to see v2 calibrated anchors with benchmark examples</div>
+  <h1><span class="lang-en">14 Calibrated Audit Rubrics</span><span class="lang-zh">14 条已校准的审计 Rubric</span></h1>
+  <div class="subtitle"><span class="lang-en">Score distribution across 103 audited benchmarks · click any rubric to see v2 calibrated anchors with benchmark examples</span><span class="lang-zh">103 个被审计 benchmark 的得分分布 · 点击任意 rubric 查看 v2 校准锚点及 benchmark 示例</span></div>
 </header>
 <nav>
-  <a href="index.html">概览 Overview</a>
-  <a href="rubrics.html" class="active">14 Rubrics</a>
-  <a href="rubric_matrix.html">14×14 Index</a>
-  <a href="tools.html">14 Tools</a>
-  <a href="benches.html">103 Benches</a>
-  <a href="dimensions.html">5 Dimensions</a>
-  <a href="mini_cases.html">Mini Cases</a>
+  <a href="index.html"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
+  <a href="dimensions.html"><span class="lang-en">A. Policy &amp; Corpus</span><span class="lang-zh">A. 政策与语料</span></a>
+  <a href="rubrics.html" class="active"><span class="lang-en">B. Diagnostic Rubrics</span><span class="lang-zh">B. 诊断 Rubrics</span></a>
+  <a href="tools.html"><span class="lang-en">C. Revision Toolkit</span><span class="lang-zh">C. 修复工具箱</span></a>
+  <a href="mini_cases.html"><span class="lang-en">D. Revision Examples</span><span class="lang-zh">D. 改编案例</span></a>
   <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
@@ -206,11 +211,13 @@ const LAYER_CLASS = {
 
 let RUBRICS = [];
 let SURVEY_REFS = {};
+let CALIB = {};
 
 async function init() {
-  [RUBRICS, SURVEY_REFS] = await Promise.all([
+  [RUBRICS, SURVEY_REFS, CALIB] = await Promise.all([
     fetch('data/rubrics_full.json').then(r=>r.json()),
     fetch('data/survey_refs.json').then(r=>r.json()),
+    fetch('data/rubric_calibration.json').then(r=>r.json()),
   ]);
   // sort by layer then by mean asc (worst first within each layer)
   RUBRICS.sort((a,b) => {
@@ -311,50 +318,33 @@ function openRubric(rname) {
   const r = RUBRICS.find(x => x.name === rname);
   if (!r) return;
   const distPercent = [0,1,2,3,4,5].map(s => r.total ? (r.counts[s]/r.total*100) : 0);
+  const cal = (CALIB[r.code] || {}).data || {};
 
   let html = `<span class="close" onclick="closeModal()">×</span>`;
+  // 1. Header — no old_mapping
   html += `<h3>${r.code} · ${escapeHtml(r.name)}
     <span class="layer-tag layer-${LAYER_CLASS[r.layer]}">${LAYER_ZH[r.layer]} · ${r.layer}</span>
   </h3>`;
-  html += `<p class="muted" style="margin:6px 0">${escapeHtml(r.name_zh)} · 对应旧指标：${escapeHtml(r.old_mapping)}</p>`;
+  html += `<p class="muted" style="margin:6px 0">${escapeHtml(r.name_zh)}</p>`;
 
+  // 2. Key question
   html += `<div class="section-block" style="background:#F0F7FF;border-left:4px solid var(--primary)">
-    <b>关键问题 · Key question:</b> ${escapeHtml(r.key_question)}
+    <b><span class="lang-en">Key question:</span><span class="lang-zh">关键问题：</span></b> ${escapeHtml(r.key_question)}
   </div>`;
 
-  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">v1 原始评分锚点</h4>`;
-  html += `<div class="anchor-grid">
-    <div class="score-badge score-0">0</div>
-    <div class="anchor-text">${escapeHtml(r.anchor_0)}</div>
-    <div class="score-badge score-1-2">1–2</div>
-    <div class="anchor-text">${escapeHtml(r.anchor_1_2)}</div>
-    <div class="score-badge score-3-4">3–4</div>
-    <div class="anchor-text">${escapeHtml(r.anchor_3_4)}</div>
-    <div class="score-badge score-5">5</div>
-    <div class="anchor-text">${escapeHtml(r.anchor_5)}</div>
-  </div>`;
-
-  html += `<div class="calibrated-block">
-    <h4>v2 校准锚点（带 benchmark 例证）· Calibrated thresholds with bench anchors</h4>
-    <div class="anchor-text">${escapeHtml(r.calibrated_anchors)}</div>
-  </div>`;
-
-  html += `<div class="calibrated-block" style="background:linear-gradient(135deg,#E8F5E9 0%,#F1F8E9 100%);border-left-color:#2E7D32">
-    <h4 style="color:#1B5E20">v2 完整评分细则（survey + bench 校准后）· Rubric v2 scoring rules</h4>
-    <div class="anchor-text">${escapeHtml(r.rubric_v2)}</div>
-  </div>`;
-
-  // distribution mini-bar
-  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">当前评分分布（${r.total} benchmarks · mean ${r.mean.toFixed(2)}）</h4>`;
+  // 3. Score distribution
+  html += `<h4 style="margin:14px 0 4px;color:var(--primary)">
+    <span class="lang-en">Current score distribution (${r.total} benchmarks · mean ${r.mean.toFixed(2)})</span>
+    <span class="lang-zh">当前评分分布（${r.total} 个 benchmarks · 均值 ${r.mean.toFixed(2)}）</span>
+  </h4>`;
   html += `<div class="dist-mini">`;
   for (let s=0; s<=5; s++) {
     const pct = distPercent[s];
     if (pct > 0) html += `<span class="s${s}" style="width:${pct}%" title="Score ${s}: ${r.counts[s]} (${pct.toFixed(1)}%)">${pct>5 ? r.counts[s] : ''}</span>`;
   }
   html += `</div>`;
-  html += `<div class="muted" style="font-size:11.5px">${escapeHtml(r.distribution_raw)}</div>`;
 
-  // === Calibration basis (consolidated bottom block) ===
+  // 4. Consolidated Calibration & Anchors block
   const sourceList = (r.survey_sources || '').split(/[;；,，]/).map(s => s.trim()).filter(Boolean);
   const refHtml = sourceList.map(key => {
     const meta = SURVEY_REFS[key];
@@ -366,12 +356,22 @@ function openRubric(rname) {
 
   html += `<div class="calib-basis">
     <h4>
-      <span class="lang-en">Calibration basis · how this rubric was revised</span>
-      <span class="lang-zh">校准依据 · 这条 rubric 是怎么修订的</span>
+      <span class="lang-en">Calibration basis &amp; v2 anchors</span>
+      <span class="lang-zh">校准依据与 v2 锚点</span>
     </h4>
-    <div class="calib-summary">
-      <div class="calib-row"><b><span class="lang-en">Revision summary</span><span class="lang-zh">修订要点</span></b><div>${escapeHtml(r.revision_notes)}</div></div>
-      <div class="calib-row"><b><span class="lang-en">What surveys say is good vs. bad</span><span class="lang-zh">survey 文献中的好/坏 benchmark 类型</span></b><div>${escapeHtml(r.survey_good_bad)}</div></div>
+    <div class="calib-narrative">
+      <p class="lang-en">${escapeHtml(cal.summary_en || r.revision_notes)}</p>
+      <p class="lang-zh">${escapeHtml(cal.summary_zh || r.revision_notes)}</p>
+    </div>
+    <div class="anchor-compact-grid">
+      <div class="score-badge score-0">0</div>
+      <div class="anchor-compact"><span class="lang-en">${escapeHtml(cal.anchor_0_compact || r.anchor_0)}</span><span class="lang-zh">${escapeHtml(cal.anchor_0_zh || r.anchor_0)}</span></div>
+      <div class="score-badge score-1-2">1–2</div>
+      <div class="anchor-compact"><span class="lang-en">${escapeHtml(cal.anchor_1_2_compact || r.anchor_1_2)}</span><span class="lang-zh">${escapeHtml(cal.anchor_1_2_zh || r.anchor_1_2)}</span></div>
+      <div class="score-badge score-3-4">3–4</div>
+      <div class="anchor-compact"><span class="lang-en">${escapeHtml(cal.anchor_3_4_compact || r.anchor_3_4)}</span><span class="lang-zh">${escapeHtml(cal.anchor_3_4_zh || r.anchor_3_4)}</span></div>
+      <div class="score-badge score-5">5</div>
+      <div class="anchor-compact"><span class="lang-en">${escapeHtml(cal.anchor_5_compact || r.anchor_5)}</span><span class="lang-zh">${escapeHtml(cal.anchor_5_zh || r.anchor_5)}</span></div>
     </div>
     <h5 style="margin:14px 0 6px;color:var(--primary);font-size:12.5px">
       <span class="lang-en">References</span><span class="lang-zh">参考文献</span>

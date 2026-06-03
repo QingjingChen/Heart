@@ -80,6 +80,30 @@
   font-size: 12.5px;
   margin: 10px 0;
 }
+.hub-node {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--primary-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--primary);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.15;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+}
+.hub-node.hub-center {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  z-index: 3;
+}
+.hub-node .hub-icon { line-height: 1; margin-bottom: 2px; }
 </style>
 </head>
 <body>
@@ -88,16 +112,63 @@
   <div class="subtitle"><span class="lang-en">How HEART's 5 dimensions map back to the policy corpus (18 sources) and forward to the 5 repair-tool families</span><span class="lang-zh">HEART 五维如何上游对接 18 个政策语料、下游对接 5 大工具族</span></div>
 </header>
 <nav>
-  <a href="index.html">概览 Overview</a>
-  <a href="rubrics.html">14 Rubrics</a>
-  <a href="rubric_matrix.html">14×14 Index</a>
-  <a href="tools.html">14 Tools</a>
-  <a href="benches.html">103 Benches</a>
-  <a href="dimensions.html" class="active">5 Dimensions</a>
-  <a href="mini_cases.html">Mini Cases</a>
+  <a href="index.html"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
+  <a href="dimensions.html" class="active"><span class="lang-en">A. Policy &amp; Corpus</span><span class="lang-zh">A. 政策与语料</span></a>
+  <a href="rubrics.html"><span class="lang-en">B. Diagnostic Rubrics</span><span class="lang-zh">B. 诊断 Rubrics</span></a>
+  <a href="tools.html"><span class="lang-en">C. Revision Toolkit</span><span class="lang-zh">C. 修复工具箱</span></a>
+  <a href="mini_cases.html"><span class="lang-en">D. Revision Examples</span><span class="lang-zh">D. 改编案例</span></a>
   <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
+
+<div class="subpage-strip">
+  <span class="strip-label"><span class="lang-en">A · Sub-pages:</span><span class="lang-zh">A 阶段子页：</span></span>
+  <a href="dimensions.html" class="strip-pill active"><span class="lang-en">5 Dimensions × Policy</span><span class="lang-zh">5 维 × 政策</span></a>
+  <a href="benches.html" class="strip-pill"><span class="lang-en">103 Audited Benchmarks</span><span class="lang-zh">103 个已审计 benchmark</span></a>
+</div>
+
+<section class="card" style="background: linear-gradient(135deg, #F5F8FB 0%, #EAF1F8 100%); border: 1px solid #C2D5E8;">
+  <h2 style="text-align:center"><span class="lang-en">The 5-dimension constellation</span><span class="lang-zh">五维星座</span></h2>
+  <div style="display:flex; justify-content:center; margin: 10px 0;">
+    <div class="hero-hub" style="position:relative; width:340px; height:340px;">
+      <svg viewBox="0 0 340 340" style="position:absolute; inset:0;">
+        <line x1="170" y1="170" x2="170" y2="40" stroke="#94A3B8" stroke-width="1.8"/>
+        <line x1="170" y1="170" x2="295" y2="100" stroke="#94A3B8" stroke-width="1.8"/>
+        <line x1="170" y1="170" x2="295" y2="240" stroke="#94A3B8" stroke-width="1.8"/>
+        <line x1="170" y1="170" x2="45" y2="240" stroke="#94A3B8" stroke-width="1.8"/>
+        <line x1="170" y1="170" x2="45" y2="100" stroke="#94A3B8" stroke-width="1.8"/>
+      </svg>
+      <div class="hub-node hub-center" style="left:50%;top:50%; width:100px; height:100px;">
+        <div class="hub-icon" style="font-size:30px">👤</div>
+        <div style="font-size:11px"><span class="lang-en">Human-<br>Centered</span><span class="lang-zh">以人<br>为本</span></div>
+      </div>
+      <div class="hub-node" style="left:50%;top:12%; width:80px; height:80px;">
+        <div class="hub-icon" style="font-size:24px">🛡️</div>
+        <div><span class="lang-en">Safety</span><span class="lang-zh">安全可靠</span></div>
+      </div>
+      <div class="hub-node" style="left:87%;top:29%; width:80px; height:80px;">
+        <div class="hub-icon" style="font-size:24px">🔒</div>
+        <div><span class="lang-en">Privacy</span><span class="lang-zh">隐私保护</span></div>
+      </div>
+      <div class="hub-node" style="left:87%;top:71%; width:80px; height:80px;">
+        <div class="hub-icon" style="font-size:24px">⚙️</div>
+        <div><span class="lang-en">Trust</span><span class="lang-zh">可信可控</span></div>
+      </div>
+      <div class="hub-node" style="left:13%;top:71%; width:80px; height:80px;">
+        <div class="hub-icon" style="font-size:24px">⚖️</div>
+        <div><span class="lang-en">Fairness</span><span class="lang-zh">普惠正直</span></div>
+      </div>
+      <div class="hub-node" style="left:13%;top:29%; width:80px; height:80px;">
+        <div class="hub-icon" style="font-size:24px">📜</div>
+        <div><span class="lang-en">Policy<br>Corpus</span><span class="lang-zh">政策语料</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="muted" style="text-align:center; font-size:12.5px">
+    <span class="lang-en">Each ethical dimension connects to the central "Human-Centered" axis and to the upstream policy corpus.</span>
+    <span class="lang-zh">每个伦理维度都与中心的"以人为本"主轴相连，并向上对接政策语料。</span>
+  </p>
+</section>
 
 <section class="card">
   <h2><span class="lang-en">The 5 dimensions</span><span class="lang-zh">五大伦理维度</span></h2>

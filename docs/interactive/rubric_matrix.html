@@ -10,20 +10,25 @@
 </head>
 <body>
 <header>
-  <h1>14×14 Tool × Rubric Index</h1>
-  <div class="subtitle">Click any cell → which benchmark proves that tool repairs that rubric, with the repair-mechanism explanation and the adaptation prompt</div>
+  <h1><span class="lang-en">Audit → Tool 14×14 Index</span><span class="lang-zh">Audit → Tool 14×14 索引</span></h1>
+  <div class="subtitle"><span class="lang-en">Click any cell → which benchmark proves that tool repairs that rubric, with the repair-mechanism explanation and the adaptation prompt</span><span class="lang-zh">点击任意格子 → 该工具修复该 rubric 的最强 benchmark 证据、修复机制说明及改编 prompt</span></div>
 </header>
 <nav>
-  <a href="index.html">概览 Overview</a>
-  <a href="rubrics.html">14 Rubrics</a>
-  <a href="rubric_matrix.html" class="active">14×14 Index</a>
-  <a href="tools.html">14 Tools</a>
-  <a href="benches.html">103 Benches</a>
-  <a href="dimensions.html">5 Dimensions</a>
-  <a href="mini_cases.html">Mini Cases</a>
+  <a href="index.html"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
+  <a href="dimensions.html"><span class="lang-en">A. Policy &amp; Corpus</span><span class="lang-zh">A. 政策与语料</span></a>
+  <a href="rubrics.html"><span class="lang-en">B. Diagnostic Rubrics</span><span class="lang-zh">B. 诊断 Rubrics</span></a>
+  <a href="tools.html" class="active"><span class="lang-en">C. Revision Toolkit</span><span class="lang-zh">C. 修复工具箱</span></a>
+  <a href="mini_cases.html"><span class="lang-en">D. Revision Examples</span><span class="lang-zh">D. 改编案例</span></a>
   <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
+
+<div class="subpage-strip">
+  <span class="strip-label"><span class="lang-en">C · Sub-pages:</span><span class="lang-zh">C 阶段子页：</span></span>
+  <a href="tools.html" class="strip-pill"><span class="lang-en">14 Repair Tools</span><span class="lang-zh">14 件修复工具</span></a>
+  <a href="rubric_matrix.html" class="strip-pill active"><span class="lang-en">Audit → Tool 14×14 Index</span><span class="lang-zh">Audit → Tool 14×14 索引</span></a>
+</div>
+
 <section class="card">
   <h2>How to read this</h2>
   <p>
@@ -163,10 +168,10 @@ function openCell(toolId, rubric, score) {
     html += `<p class="muted">No explainable index entry found for this cell — the evidence score above is from the precision-recall weighting of member benches but no curated narrative exists yet.</p>`;
   } else {
     for (const e of entries) {
-      html += `<h4 style="margin:8px 0 4px;color:var(--primary)">Repair mechanism · 修复机制</h4>`;
+      html += `<h4 style="margin:8px 0 4px;color:var(--primary)"><span class="lang-en">Repair mechanism</span><span class="lang-zh">修复机制</span></h4>`;
       html += `<div class="section-block">${e['修复机制说明'] || ''}</div>`;
       const benches = (e['代表来源 / 论文'] || '').split(';').map(s=>s.trim()).filter(Boolean);
-      html += `<h4 style="margin:12px 0 4px;color:var(--primary)">Strongest benchmark evidence</h4>`;
+      html += `<h4 style="margin:12px 0 4px;color:var(--primary)"><span class="lang-en">Strongest benchmark evidence</span><span class="lang-zh">最强 benchmark 证据</span></h4>`;
       html += `<div>`;
       for (const bn of benches.slice(0, 8)) {
         const cleanName = bn.replace(/\s*\(.*\)\s*$/, '');
@@ -175,16 +180,16 @@ function openCell(toolId, rubric, score) {
         else html += `<span class="bench-pill">${bn}</span>`;
       }
       html += `</div>`;
-      html += `<h4 style="margin:12px 0 4px;color:var(--primary)">Example sub-tool & adaptation prompt</h4>`;
+      html += `<h4 style="margin:12px 0 4px;color:var(--primary)"><span class="lang-en">Example sub-tool &amp; adaptation prompt</span><span class="lang-zh">示例细分工具与改编 Prompt</span></h4>`;
       html += `<div class="section-block">${e['代表Prompt/指导'] || ''}</div>`;
-      html += `<h4 style="margin:12px 0 4px;color:var(--primary)">Polished adaptation example</h4>`;
+      html += `<h4 style="margin:12px 0 4px;color:var(--primary)"><span class="lang-en">Polished adaptation example</span><span class="lang-zh">润色后的改编示例</span></h4>`;
       html += `<div class="section-block">${e['代表改编示例'] || ''}</div>`;
-      html += `<div class="muted" style="margin-top:6px">自动化与人工边界：${e['自动化与人工边界'] || '—'}</div>`;
+      html += `<div class="muted" style="margin-top:6px"><span class="lang-en">Automation vs. human boundary:</span><span class="lang-zh">自动化与人工边界：</span> ${e['自动化与人工边界'] || '—'}</div>`;
     }
   }
 
   if (promptEntries.length > 0) {
-    html += `<h4 style="margin:16px 0 4px;color:var(--primary)">Additional benchmark instances (${promptEntries.length})</h4>`;
+    html += `<h4 style="margin:16px 0 4px;color:var(--primary)"><span class="lang-en">Additional benchmark instances</span><span class="lang-zh">其他 benchmark 实例</span> (${promptEntries.length})</h4>`;
     for (const p of promptEntries) {
       const bn = p['Benchmark / Source'];
       const cleanName = bn.replace(/\s*\(.*\)\s*$/, '');
@@ -192,8 +197,8 @@ function openCell(toolId, rubric, score) {
       const sub = p['细分工具'] || '';
       html += `<div style="border-left:3px solid var(--primary-light);padding-left:12px;margin:8px 0;font-size:12.5px">`;
       html += `<b>${url ? `<a href="${url}" target="_blank">${bn} ↗</a>` : bn}</b><br>`;
-      html += `<span class="muted">Sub-tool:</span> ${sub}<br>`;
-      html += `<span class="muted">Match type:</span> ${p['匹配类型'] || ''}`;
+      html += `<span class="muted"><span class="lang-en">Sub-tool:</span><span class="lang-zh">细分工具：</span></span> ${sub}<br>`;
+      html += `<span class="muted"><span class="lang-en">Match type:</span><span class="lang-zh">匹配类型：</span></span> ${p['匹配类型'] || ''}`;
       html += `</div>`;
     }
   }

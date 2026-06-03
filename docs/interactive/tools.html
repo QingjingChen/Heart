@@ -159,25 +159,30 @@
 </head>
 <body>
 <header>
-  <h1>14 HEART Workbox Tools — Toolbox</h1>
-  <div class="subtitle">Grouped by the 3 rubric layers (Content Validity · Evaluation Design · Governance Reliability). Click any card to expand.</div>
+  <h1>14 <span class="lang-en">HEART Workbox Tools</span><span class="lang-zh">HEART 工具箱</span></h1>
+  <div class="subtitle"><span class="lang-en">Grouped by the 3 rubric layers. Click any card to expand.</span><span class="lang-zh">按 3 大 rubric 层级分组，点击卡片可展开完整内容。</span></div>
 </header>
 <nav>
-  <a href="index.html">概览 Overview</a>
-  <a href="rubrics.html">14 Rubrics</a>
-  <a href="rubric_matrix.html">14×14 Index</a>
-  <a href="tools.html" class="active">14 Tools</a>
-  <a href="benches.html">103 Benches</a>
-  <a href="dimensions.html">5 Dimensions</a>
-  <a href="mini_cases.html">Mini Cases</a>
+  <a href="index.html"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
+  <a href="dimensions.html"><span class="lang-en">A. Policy &amp; Corpus</span><span class="lang-zh">A. 政策与语料</span></a>
+  <a href="rubrics.html"><span class="lang-en">B. Diagnostic Rubrics</span><span class="lang-zh">B. 诊断 Rubrics</span></a>
+  <a href="tools.html" class="active"><span class="lang-en">C. Revision Toolkit</span><span class="lang-zh">C. 修复工具箱</span></a>
+  <a href="mini_cases.html"><span class="lang-en">D. Revision Examples</span><span class="lang-zh">D. 改编案例</span></a>
   <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
+
+<div class="subpage-strip">
+  <span class="strip-label"><span class="lang-en">C · Sub-pages:</span><span class="lang-zh">C 阶段子页：</span></span>
+  <a href="tools.html" class="strip-pill active"><span class="lang-en">14 Repair Tools</span><span class="lang-zh">14 件修复工具</span></a>
+  <a href="rubric_matrix.html" class="strip-pill"><span class="lang-en">Audit → Tool 14×14 Index</span><span class="lang-zh">Audit → Tool 14×14 索引</span></a>
+</div>
+
 <section class="card">
-  <h2>How to read</h2>
+  <h2><span class="lang-en">How to read</span><span class="lang-zh">如何阅读</span></h2>
   <p>
-    The 14 audit rubrics live in 3 layers (<b>内容有效性 / 评测设计 / 治理可靠性</b>). Each repair tool below is sorted into the layer matching its primary rubric.
-    Click any tool card to open the full detail: core practice, boundary vs nearby tools, adaptation prompt skeleton, polished examples, auto-vs-human gating, member benches (with paper URLs).
+    <span class="lang-en">The 14 audit rubrics live in 3 layers (Content Validity / Evaluation Design / Governance Reliability). Each repair tool below is sorted into the layer matching its primary rubric. Click any tool card to open the full detail: core practice, boundary vs nearby tools, adaptation prompt skeleton, polished examples, auto-vs-human gating, and member benchmarks (with paper URLs).</span>
+    <span class="lang-zh">14 条审计 rubric 分布在 3 层（内容有效性 / 评测设计 / 治理可靠性）。每件修复工具按其主提升的 rubric 归层。点击工具卡片可展开完整内容：核心做法、与相邻工具的边界、改编 prompt 骨架、润色后的示例、自动化 vs 人工边界，以及成员 benchmark（带论文链接）。</span>
   </p>
 </section>
 
@@ -311,32 +316,32 @@ function openTool(tid) {
   html += `<div class="section-block">${t['核心做法'] || ''}</div>`;
 
   html += `<details class="acc">
-    <summary>解决的 benchmark 问题 · What it fixes</summary>
+    <summary><span class="lang-en">What it fixes</span><span class="lang-zh">解决的 benchmark 问题</span></summary>
     <div class="acc-body">${t['解决的 benchmark 问题'] || ''}</div>
   </details>`;
   html += `<details class="acc">
-    <summary>工具边界 · Boundary vs nearby tools</summary>
+    <summary><span class="lang-en">Boundary vs. nearby tools</span><span class="lang-zh">工具边界与相邻工具区别</span></summary>
     <div class="acc-body">${t['工具边界 / 与相近工具区别'] || ''}</div>
   </details>`;
   html += `<details class="acc">
-    <summary>提升的 rubrics + 适用场景 · Rubrics improved + scope</summary>
-    <div class="acc-body"><b>核心提升：</b> ${t['核心提升rubrics（精简）'] || ''}<br><br><b>来源中出现：</b> <span class="muted">${t['来源中出现的相关rubrics（供核查）'] || ''}</span><br><br><b>适用伦理场景：</b> ${t['适用伦理场景'] || ''}</div>
+    <summary><span class="lang-en">Rubrics improved + applicable scope</span><span class="lang-zh">提升的 rubric 与适用场景</span></summary>
+    <div class="acc-body"><b><span class="lang-en">Core rubrics lifted:</span><span class="lang-zh">核心提升：</span></b> ${t['核心提升rubrics（精简）'] || ''}<br><br><b><span class="lang-en">Other rubrics seen in sources:</span><span class="lang-zh">来源中出现：</span></b> <span class="muted">${t['来源中出现的相关rubrics（供核查）'] || ''}</span><br><br><b><span class="lang-en">Applicable ethical scope:</span><span class="lang-zh">适用伦理场景：</span></b> ${t['适用伦理场景'] || ''}</div>
   </details>`;
   html += `<details class="acc">
-    <summary>通用改编 Prompt 骨架 · Adaptation skeleton</summary>
+    <summary><span class="lang-en">Adaptation prompt skeleton</span><span class="lang-zh">通用改编 Prompt 骨架</span></summary>
     <div class="acc-body">${t['通用改编骨架（仅供二次调整）'] || ''}</div>
   </details>`;
   html += `<details class="acc">
-    <summary>来源行 Prompt 示例（前 2）· Source-row examples</summary>
+    <summary><span class="lang-en">Source-row prompt examples (top 2)</span><span class="lang-zh">来源行 Prompt 示例（前 2）</span></summary>
     <div class="acc-body">${t['来源行Prompt示例（前2）'] || ''}</div>
   </details>`;
   html += `<details class="acc">
-    <summary>代表改编示例（前 3）· Polished examples</summary>
+    <summary><span class="lang-en">Polished revision examples (top 3)</span><span class="lang-zh">代表改编示例（前 3）</span></summary>
     <div class="acc-body">${t['代表改编示例（前3）'] || ''}</div>
   </details>`;
   html += `<details class="acc">
-    <summary>自动化 vs 人工边界 · Auto vs human gating</summary>
-    <div class="acc-body"><b>可自动化：</b> ${t['自动化可做部分'] || ''}<br><br><b>需人工治理：</b> ${t['需人工校验/治理部分'] || ''}</div>
+    <summary><span class="lang-en">Automation vs. human gating</span><span class="lang-zh">自动化与人工边界</span></summary>
+    <div class="acc-body"><b><span class="lang-en">Automatable:</span><span class="lang-zh">可自动化：</span></b> ${t['自动化可做部分'] || ''}<br><br><b><span class="lang-en">Needs human governance:</span><span class="lang-zh">需人工治理：</span></b> ${t['需人工校验/治理部分'] || ''}</div>
   </details>`;
   // Trim helper for sub-tool cards
   const trim = (s, n) => {
@@ -362,7 +367,7 @@ function openTool(tid) {
         return `<div class="subtool-card">
           <div class="subtool-title">${sub}</div>
           ${ev ? `<div class="subtool-evi">${ev}</div>` : ''}
-          ${pg ? `<div class="subtool-guide"><b>改编要点 · Adaptation:</b> ${pg}</div>` : ''}
+          ${pg ? `<div class="subtool-guide"><b><span class="lang-en">Adaptation:</span><span class="lang-zh">改编要点：</span></b> ${pg}</div>` : ''}
           <div class="subtool-sources">
             <span class="muted">来源 (${slot.benches.length}): </span>${benchPills || '<span class="muted">—</span>'}
           </div>
@@ -371,7 +376,7 @@ function openTool(tid) {
     </div>
   </details>`;
 
-  html += `<p class="muted" style="margin-top:10px"><b>局限：</b> ${t['局限 / 避免过度声称'] || ''}</p>`;
+  html += `<p class="muted" style="margin-top:10px"><b><span class="lang-en">Limitations:</span><span class="lang-zh">局限：</span></b> ${t['局限 / 避免过度声称'] || ''}</p>`;
 
   document.getElementById('modal').innerHTML = html;
   document.getElementById('modal-bg').style.display = 'flex';

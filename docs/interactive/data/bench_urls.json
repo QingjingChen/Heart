@@ -1,612 +1,612 @@
 {
- "MoralMachine (2018)": {
-  "paper": "https://doi.org/10.1038/s41586-018-0637-6",
-  "code": "https://www.moralmachine.net/",
-  "mirror": ""
- },
- "MoralStories (2021)": {
-  "paper": "https://aclanthology.org/2021.emnlp-main.54/",
-  "code": "https://github.com/demelin/moral_stories",
-  "mirror": "https://drive.google.com/drive/folders/1taIab9ExlFU4SoCpbgw3GxB1vP7pNlGr"
- },
- "SCRUPLES (2021)": {
-  "paper": "https://ojs.aaai.org/index.php/AAAI/article/view/17589",
-  "code": "https://github.com/allenai/scruples",
-  "mirror": "https://drive.google.com/drive/folders/1xo7iehjQ_vozoalvAnP37FYyjEe3OvoX"
- },
- "ETHICS (2023)": {
-  "paper": "https://arxiv.org/abs/2008.02275",
-  "code": "https://github.com/hendrycks/ethics",
-  "mirror": "https://drive.google.com/drive/folders/1MwM1tAeGqHy_7uDLRZkahzlSnKcfnruM"
- },
- "MFQ-2 (2023)": {
-  "paper": "https://doi.org/10.1037/pspp0000470",
-  "code": "https://moralfoundations.org/",
-  "mirror": ""
- },
- "MoralChoice (2023)": {
-  "paper": "https://arxiv.org/abs/2307.14324",
-  "code": "https://github.com/ninodimontalcino/moralchoice",
-  "mirror": "https://drive.google.com/drive/folders/1fPqsa3njy9cGTGpC1KQls0rBw4lVxTAr"
- },
- "CMoralEval (2024)": {
-  "paper": "https://arxiv.org/abs/2408.09819",
-  "code": "https://github.com/tjunlp-lab/CMoralEval",
-  "mirror": ""
- },
- "CPsyExam (2024)": {
-  "paper": "https://arxiv.org/abs/2405.18743",
-  "code": "https://github.com/CAS-SIAT-XinHai/CPsyExam",
-  "mirror": "https://drive.google.com/drive/folders/1zO7imfVcKEl_vHUahrrJHibXCVoFicA3"
- },
- "EmotionBench (2024)": {
-  "paper": "https://arxiv.org/abs/2308.03656",
-  "code": "https://github.com/CUHK-ARISE/EmotionBench",
-  "mirror": "https://drive.google.com/drive/folders/1-V-pSA6dlRd86yw9u0uoVPRj_6NE0fSm"
- },
- "SMILE (2024)": {
-  "paper": "https://arxiv.org/abs/2305.00450",
-  "code": "https://github.com/qiuhuachuan/smile",
-  "mirror": "https://drive.google.com/drive/folders/1COAYS-qrA3nmZ1LUCQcZw-Te17yb8y6N"
- },
- "Educator-LLM (2025)": {
-  "paper": "https://arxiv.org/abs/2508.15250",
-  "code": "https://github.com/Yifan-EDU/Educator-LLM",
-  "mirror": ""
- },
- "HeartBench (2025)": {
-  "paper": "https://arxiv.org/abs/2512.21849",
-  "code": "https://github.com/HeartBench/HeartBench",
-  "mirror": "https://drive.google.com/drive/folders/19i6t4bNkTZr1SjNRYwJ4q7N8rBIANu8q"
- },
- "HumaniBench (2025)": {
-  "paper": "https://arxiv.org/abs/2505.11454",
-  "code": "https://huggingface.co/datasets/aiana94/HumaniBench",
-  "mirror": "https://drive.google.com/drive/folders/1auLDZ7ZrNTPRtE4oYx8i0HbpyaDkJ2rE"
- },
- "MoReBench (2025)": {
-  "paper": "https://arxiv.org/abs/2510.16380",
-  "code": "https://github.com/yuzhaouoe/MoReBench",
-  "mirror": "https://drive.google.com/drive/folders/1CCGm51Wyqwlpb5p-o2q2kyAmu_Yv4E3I"
- },
- "NaVAB (2025)": {
-  "paper": "https://arxiv.org/abs/2504.12911",
-  "code": "https://github.com/Stmoonshine/NaVAB",
-  "mirror": "https://drive.google.com/drive/folders/1k-GWLK5ylDqjAIFtIOawgFtq7lKOeTiQ"
- },
- "VITAL (2025)": {
-  "paper": "https://arxiv.org/abs/2502.13775",
-  "code": "https://github.com/anudeex/VITAL",
-  "mirror": "https://drive.google.com/drive/folders/1rs59eN1gQRkJlHSWZus5rVICuNSLTQW0"
- },
- "TrustMH-Bench (2026)": {
-  "paper": "https://arxiv.org/abs/2603.03047",
-  "code": "https://github.com/Qiyuan0130/TrustMH_Bench",
-  "mirror": ""
- },
- "WVS / World Values Survey (2012)": {
-  "paper": "https://www.worldvaluessurvey.org/",
-  "code": "https://www.worldvaluessurvey.org/",
-  "mirror": "https://drive.google.com/drive/folders/1cf8Q5-27h5vhcYWB_Zmjrbc2AK1xYb0w"
- },
- "PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)": {
-  "paper": "https://arxiv.org/abs/2310.01386>; <https://arxiv.org/abs/2406.04214",
-  "code": "https://github.com/LingyueYan-NLP/PsycoLLM>; <https://github.com/Psychim/PsychoBench>; <https://github.com/GOODDASH/ValueBench",
-  "mirror": ""
- },
- "SOCKET (2023)": {
-  "paper": "https://aclanthology.org/2023.findings-emnlp.969/",
-  "code": "https://github.com/minjechoi/SOCKET",
-  "mirror": ""
- },
- "SOCIAL-CHEM-101 (2020)": {
-  "paper": "https://aclanthology.org/2020.emnlp-main.48/",
-  "code": "https://maxwellforbes.com/social-chemistry/",
-  "mirror": ""
- },
- "EtiCor (2023)": {
-  "paper": "https://aclanthology.org/2023.emnlp-main.747/",
-  "code": "https://github.com/Reddy-Lab-Code-Research/EtiCor",
-  "mirror": ""
- },
- "MoralBench / MIC (survey-mentioned value benchmarks)": {
-  "paper": "https://arxiv.org/abs/2406.04428",
-  "code": "https://github.com/agiresearch/MoralBench",
-  "mirror": ""
- },
- "MFTCXplain (survey-mentioned)": {
-  "paper": "https://arxiv.org/abs/2506.19073",
-  "code": "https://github.com/MeMoLab-NLP/MFTCXplain",
-  "mirror": ""
- },
- "Kleinberg-FairTradeoffs (2016)": {
-  "paper": "https://arxiv.org/abs/1609.05807",
-  "code": "https://arxiv.org/abs/1609.05807",
-  "mirror": ""
- },
- "GAP (2018)": {
-  "paper": "https://aclanthology.org/Q18-1042/",
-  "code": "https://github.com/google-research-datasets/gap-coreference",
-  "mirror": "https://drive.google.com/drive/folders/1UJcXHuSXGGojsCh0XHxftCXN5rIVQq07"
- },
- "WinoBias (2018)": {
-  "paper": "https://aclanthology.org/N18-2003/",
-  "code": "https://github.com/uclanlp/corefBias",
-  "mirror": "https://drive.google.com/drive/folders/1jBhbTfJn1_2atfNlMZOz9StaDMfYmcY5"
- },
- "Winogender (2018)": {
-  "paper": "https://aclanthology.org/N18-2002/",
-  "code": "https://github.com/rudinger/winogender-schemas",
-  "mirror": "https://drive.google.com/drive/folders/1qWqt7QoYxxOVYPsY4jFFukWwpj4SBPgY"
- },
- "BEC-pro (2020)": {
-  "paper": "https://aclanthology.org/2020.gebnlp-1.1/",
-  "code": "https://github.com/marionbartl/gender-bias-BERT",
-  "mirror": "https://drive.google.com/drive/folders/1yNOouQOLjoF83E9HFaKTy7sENvKuBObp"
- },
- "CrowS-Pairs (2020)": {
-  "paper": "https://aclanthology.org/2020.emnlp-main.154/",
-  "code": "https://github.com/nyu-mll/crows-pairs",
-  "mirror": "https://drive.google.com/drive/folders/1bKWlqkqlHkEFoojXETmCxJwzks6H4R2m"
- },
- "Dev-WordEmbed (2020)": {
-  "paper": "https://aclanthology.org/2020.acl-main.487/",
-  "code": "https://github.com/sunipa/On-Measuring-and-Mitigating-Biased-Inferences-of-Word-Embeddings",
-  "mirror": ""
- },
- "UnQover (2020)": {
-  "paper": "https://aclanthology.org/2020.findings-emnlp.311/",
-  "code": "https://github.com/allenai/unqover",
-  "mirror": "https://drive.google.com/drive/folders/1JQLmeM_Ogo3oSp3E3SW6pVACI2FpJ92q"
- },
- "WikiGenderBias (2020)": {
-  "paper": "https://aclanthology.org/2020.findings-emnlp.106/",
-  "code": "https://github.com/uclanlp/reducingbias",
-  "mirror": "https://drive.google.com/drive/folders/14cmybbLYE2AQNdNb5raG4l5fr0BdD_zE"
- },
- "BOLD (2021)": {
-  "paper": "https://dl.acm.org/doi/10.1145/3442188.3445924",
-  "code": "https://github.com/amazon-science/bold",
-  "mirror": "https://drive.google.com/drive/folders/19vZBkiKE6NDazrRpui9lnA4lfax1vpEi"
- },
- "BUG (2021)": {
-  "paper": "https://aclanthology.org/2021.emnlp-main.211/",
-  "code": "https://github.com/SLAB-NLP/BUG",
-  "mirror": "https://drive.google.com/drive/folders/1WIkQXrnSSZhWDAsZUylkZTgJ2mDTIhwF"
- },
- "HONEST (2021)": {
-  "paper": "https://aclanthology.org/2021.naacl-main.191/",
-  "code": "https://github.com/MilaNLProc/honest",
-  "mirror": "https://drive.google.com/drive/folders/11fvUPnsf8X3p3TU2wQgL4ofm5baBnLjA"
- },
- "NeuTral-WinoBiasPlus (2021)": {
-  "paper": "https://aclanthology.org/2021.eacl-main.163/",
-  "code": "https://github.com/uclanlp/corefBias",
-  "mirror": "https://drive.google.com/drive/folders/1jBhbTfJn1_2atfNlMZOz9StaDMfYmcY5"
- },
- "RedditBias (2021)": {
-  "paper": "https://aclanthology.org/2021.acl-long.151/",
-  "code": "https://github.com/umanlp/RedditBias",
-  "mirror": "https://drive.google.com/drive/folders/1Ml2a87IqvTit8HCUvZ_NUino8M1n7m7Y"
- },
- "StereoSet (2021)": {
-  "paper": "https://aclanthology.org/2021.acl-long.416/",
-  "code": "https://github.com/moinnadeem/StereoSet",
-  "mirror": "https://drive.google.com/drive/folders/1KlLJOuYzWq-6UNiLDC6gw6bHYy9aKJ4s"
- },
- "BBQ (2022)": {
-  "paper": "https://aclanthology.org/2022.findings-acl.165/",
-  "code": "https://github.com/nyu-mll/BBQ",
-  "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
- },
- "HolisticBias (2022)": {
-  "paper": "https://aclanthology.org/2022.emnlp-main.625/",
-  "code": "https://github.com/facebookresearch/ResponsibleNLP",
-  "mirror": "https://drive.google.com/drive/folders/1rNaTZB-GI4KQYIes7CDk5xpkQICw6aJk"
- },
- "Panda (2022)": {
-  "paper": "https://arxiv.org/abs/2205.12586",
-  "code": "https://github.com/facebookresearch/ResponsibleNLP/tree/main/PANDA",
-  "mirror": "https://drive.google.com/drive/folders/1U8nND1y63TpUFZK7QW7BXLbrsfX0mJ7c"
- },
- "Grep-BiasIR (2023)": {
-  "paper": "https://arxiv.org/abs/2201.07754",
-  "code": "https://github.com/KlaraKrieg/GrepBiasIR",
-  "mirror": "https://drive.google.com/drive/folders/1oUFe-Nm-1Q_P4xkzGFbj8CRpWepWlKfo"
- },
- "TrustGPT (2023)": {
-  "paper": "https://arxiv.org/abs/2306.11507",
-  "code": "https://github.com/HowieHwong/TrustGPT",
-  "mirror": "https://drive.google.com/drive/folders/1W-5-49BkspcyXJjvgDxs6U_kjKRPPPH6"
- },
- "WinoQueer (2023)": {
-  "paper": "https://aclanthology.org/2023.acl-long.507/",
-  "code": "https://github.com/katyfelkner/winoqueer",
-  "mirror": "https://drive.google.com/drive/folders/19HRqUE5EzHd0xyWaXytVux54byOD8b1U"
- },
- "CBBQ (2024)": {
-  "paper": "https://arxiv.org/abs/2306.16244",
-  "code": "https://github.com/YFHuangxxxx/CBBQ",
-  "mirror": "https://drive.google.com/drive/folders/11SidpflggcB1CBTE4GhCiIFhSMxS0eIO"
- },
- "KoBBQ (2024)": {
-  "paper": "https://aclanthology.org/2024.tacl-1.28/",
-  "code": "https://github.com/naver-ai/KoBBQ",
-  "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
- },
- "FLEX (2025)": {
-  "paper": "https://aclanthology.org/2025.findings-naacl.201/",
-  "code": "https://github.com/anna-shin/FLEX",
-  "mirror": ""
- },
- "Phare (2025)": {
-  "paper": "https://arxiv.org/abs/2505.11365",
-  "code": "https://github.com/Giskard-AI/phare",
-  "mirror": ""
- },
- "BharatBBQ (2024/2025)": {
-  "paper": "https://arxiv.org/abs/2508.07090",
-  "code": "https://github.com/nyu-mll/BBQ",
-  "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
- },
- "JBBQ (2024/2025)": {
-  "paper": "https://arxiv.org/abs/2506.12327",
-  "code": "https://github.com/nyu-mll/BBQ",
-  "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
- },
- "RealToxicityPrompts (2020)": {
-  "paper": "https://aclanthology.org/2020.findings-emnlp.301/",
-  "code": "https://github.com/allenai/real-toxicity-prompts",
-  "mirror": "https://drive.google.com/drive/folders/1ww3kW4ZjzU9j6KX8j8fIZfvbB-4rGTj6"
- },
- "HateCheck (2021)": {
-  "paper": "https://aclanthology.org/2021.acl-long.4/",
-  "code": "https://github.com/paul-rottger/hatecheck-data",
-  "mirror": "https://drive.google.com/drive/folders/1tef9nBTgdbuzoVh9C7DaqYhVdQ8dlu81"
- },
- "ToxiGen (2022)": {
-  "paper": "https://aclanthology.org/2022.acl-long.234/",
-  "code": "https://github.com/microsoft/ToxiGen",
-  "mirror": "https://drive.google.com/drive/folders/1UmE-AqjuTRaPwLkX3UgC5EVd8Jy3i8qU"
- },
- "ToxicChat (2023)": {
-  "paper": "https://arxiv.org/abs/2310.17389",
-  "code": "https://huggingface.co/datasets/lmsys/toxic-chat",
-  "mirror": "https://drive.google.com/drive/folders/1Nnp5CcnTpGZHXz-qM8SWfWRDY0t0gq3r"
- },
- "Chinese-Safeguard (2024)": {
-  "paper": "https://aclanthology.org/2024.findings-acl.184/",
-  "code": "https://github.com/Libr-AI/do-not-answer/tree/main/cdna",
-  "mirror": ""
- },
- "Do-not-answer (2024)": {
-  "paper": "https://arxiv.org/abs/2403.01244",
-  "code": "https://github.com/Libr-AI/do-not-answer",
-  "mirror": "https://drive.google.com/drive/folders/130aFvSdUJ7ecgul3DnbyhthwsQlD0MRM"
- },
- "FFT (2024)": {
-  "paper": "https://arxiv.org/abs/2311.18580",
-  "code": "https://github.com/cuishiyao96/FFT",
-  "mirror": "https://drive.google.com/drive/folders/1mfWAfiBjhCqwoIgxFcFdNCT7HWrRsYfv"
- },
- "HarmBench (2024)": {
-  "paper": "https://arxiv.org/abs/2402.04249",
-  "code": "https://github.com/centerforaisafety/HarmBench",
-  "mirror": "https://drive.google.com/drive/folders/1qV4Apl2VxNYcnGYbuy0n4S__6pNFxq4N"
- },
- "JailBreakV (2024)": {
-  "paper": "https://arxiv.org/abs/2404.03027",
-  "code": "https://github.com/EddyLuo1232/JailBreakV_28K",
-  "mirror": "https://drive.google.com/drive/folders/13RQ0kav6pBAOBk6c0KovCuYs1t4lC3l8"
- },
- "LifeTox (2024)": {
-  "paper": "https://aclanthology.org/2024.naacl-short.59/",
-  "code": "https://github.com/mbzuai-nlp/LifeTox",
-  "mirror": "https://drive.google.com/drive/folders/1baFmEIQlSVA1VTt6jIEW3Q-oJJgcE2tQ"
- },
- "MM-SafetyBench (2024)": {
-  "paper": "https://arxiv.org/abs/2311.17600",
-  "code": "https://github.com/thu-coai/SafetyBench",
-  "mirror": "https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM"
- },
- "SALAD-bench (2024)": {
-  "paper": "https://aclanthology.org/2024.findings-acl.235/",
-  "code": "https://github.com/OpenSafetyLab/SALAD-BENCH",
-  "mirror": "https://drive.google.com/drive/folders/1qrYJ5ooiUAaI6pNf0M7VnVshA4I5t6yJ"
- },
- "SafetyBench (2024)": {
-  "paper": "https://arxiv.org/abs/2311.17600",
-  "code": "https://github.com/thu-coai/SafetyBench",
-  "mirror": "https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM"
- },
- "XSTest (2024)": {
-  "paper": "https://aclanthology.org/2024.naacl-long.301/",
-  "code": "https://github.com/paul-rottger/exaggerated-safety",
-  "mirror": "https://drive.google.com/drive/folders/1C5Zipc6iQGDHHoUVD0z4lAyt9Z0C6fU2"
- },
- "Agent-SafetyBench (2025)": {
-  "paper": "https://arxiv.org/abs/2412.14470",
-  "code": "https://github.com/thu-coai/SafetyBench",
-  "mirror": "https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM"
- },
- "SafeInfer (2025)": {
-  "paper": "https://arxiv.org/abs/2406.12274",
-  "code": "https://github.com/SomnathBanerjee/SafeInfer",
-  "mirror": ""
- },
- "SaFeRDialogues (2022)": {
-  "paper": "https://aclanthology.org/2022.acl-long.447/",
-  "code": "https://parl.ai/projects/saferdialogues/",
-  "mirror": "https://drive.google.com/drive/folders/1VM4j5N9oxLIVP0aV4s1Ec7xjD7vI2l5T"
- },
- "BAD / Bot-Adversarial Dialogue (2021)": {
-  "paper": "https://aclanthology.org/2021.naacl-main.235/",
-  "code": "https://parl.ai/projects/safety_recipes/",
-  "mirror": ""
- },
- "HarmEval (2025)": {
-  "paper": "https://arxiv.org/abs/2402.15302",
-  "code": "https://github.com/SomnathBanerjee/HarmEval",
-  "mirror": "https://drive.google.com/drive/folders/1B4iPpDasT-Tl3pMxB7mkKMXamM1ZnXQW"
- },
- "HH-RLHF / Anthropic H&H (2022)": {
-  "paper": "https://arxiv.org/abs/2204.05862",
-  "code": "https://github.com/anthropics/hh-rlhf",
-  "mirror": "https://drive.google.com/drive/folders/1nSWsGjxw-nAO16t7fqsR9d-IxBqzU4f3"
- },
- "AdvBench (2023)": {
-  "paper": "https://arxiv.org/abs/2307.15043",
-  "code": "https://github.com/llm-attacks/llm-attacks",
-  "mirror": ""
- },
- "Red-Eval (2024)": {
-  "paper": "https://arxiv.org/abs/2308.09662",
-  "code": "https://github.com/declare-lab/red-instruct",
-  "mirror": ""
- },
- "LatentJailbreak (2024)": {
-  "paper": "https://arxiv.org/abs/2307.08487",
-  "code": "https://github.com/qiuhuachuan/latent-jailbreak",
-  "mirror": ""
- },
- "CyberSec.Eval (2024)": {
-  "paper": "https://arxiv.org/abs/2312.04724",
-  "code": "https://github.com/meta-llama/PurpleLlama",
-  "mirror": ""
- },
- "C-Do-not-answer (2024)": {
-  "paper": "https://arxiv.org/abs/2403.01244",
-  "code": "https://github.com/Libr-AI/do-not-answer",
-  "mirror": "https://drive.google.com/drive/folders/1Da5wlPwg3t811fcWedaJ9E0YrqJY2Lxk"
- },
- "FEVER (2018)": {
-  "paper": "https://aclanthology.org/N18-1074/",
-  "code": "https://github.com/awslabs/fever",
-  "mirror": ""
- },
- "HotpotQA (2018)": {
-  "paper": "https://aclanthology.org/D18-1259/",
-  "code": "https://hotpotqa.github.io/",
-  "mirror": ""
- },
- "TruthfulQA (2022)": {
-  "paper": "https://aclanthology.org/2022.acl-long.229/",
-  "code": "https://github.com/sylinrl/TruthfulQA",
-  "mirror": "https://drive.google.com/drive/folders/1hs4RwS_DXsN4B2umx3zzpu5B0LIRdVyo"
- },
- "LegalBench (2023)": {
-  "paper": "https://arxiv.org/abs/2308.11462",
-  "code": "https://github.com/HazyResearch/legalbench",
-  "mirror": ""
- },
- "HallusionBench (2024)": {
-  "paper": "https://arxiv.org/abs/2310.14566",
-  "code": "https://github.com/tianyi-lab/HallusionBench",
-  "mirror": ""
- },
- "LawBench (2024)": {
-  "paper": "https://arxiv.org/abs/2309.16289",
-  "code": "https://github.com/open-compass/LawBench",
-  "mirror": ""
- },
- "PatentEval (2024)": {
-  "paper": "https://aclanthology.org/2024.findings-naacl.142/",
-  "code": "https://github.com/ZoeYou/PatentEval",
-  "mirror": ""
- },
- "TrustLLM (2024)": {
-  "paper": "https://arxiv.org/abs/2401.05561",
-  "code": "https://github.com/HowieHwong/TrustLLM",
-  "mirror": "https://drive.google.com/drive/folders/1f9xq6WWgThKm4_Jf3OXGanZX7Ysg5l5J"
- },
- "Sycophancy-Sharma (2025)": {
-  "paper": "https://arxiv.org/abs/2310.13548",
-  "code": "https://github.com/meg-tong/sycophancy-eval",
-  "mirror": ""
- },
- "HaluEval (2023)": {
-  "paper": "https://aclanthology.org/2023.emnlp-main.397/",
-  "code": "https://github.com/RUCAIBox/HaluEval",
-  "mirror": "https://drive.google.com/drive/folders/1ZB8S82cty7l_CJC9NeAgRfbOAUaWk0K9"
- },
- "FActScore (2023)": {
-  "paper": "https://aclanthology.org/2023.emnlp-main.741/",
-  "code": "https://github.com/shmsw25/FActScore",
-  "mirror": ""
- },
- "FreshQA / FreshLLMs (2024)": {
-  "paper": "https://arxiv.org/abs/2310.03214",
-  "code": "https://github.com/freshllms/freshqa",
-  "mirror": ""
- },
- "SycophancyBench / Model-Written Evaluations (2022)": {
-  "paper": "https://arxiv.org/abs/2212.09251",
-  "code": "https://github.com/anthropics/evals",
-  "mirror": ""
- },
- "DecodingTrust (2023)": {
-  "paper": "https://arxiv.org/abs/2306.11698",
-  "code": "https://github.com/AI-secure/DecodingTrust",
-  "mirror": "https://drive.google.com/drive/folders/16c6hPtRXdl7UxWoyOIO_36jR3i7QfWgP"
- },
- "ConVerse (Findings of EACL 2026)": {
-  "paper": "https://arxiv.org/abs/2511.05359",
-  "code": "https://github.com/amrgomaaelhady/ConVerse",
-  "mirror": "https://drive.google.com/drive/folders/117OloShfJJfokRK08YTRSmlMJJQEc8Yr"
- },
- "EAPrivacy (ICLR 2026)": {
-  "paper": "https://arxiv.org/abs/2510.02356",
-  "code": "https://github.com/xinjie-shen/EAPrivacy",
-  "mirror": "https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD"
- },
- "GoldCoin (2024)": {
-  "paper": "https://arxiv.org/abs/2406.11149",
-  "code": "https://github.com/HKUST-KnowComp/GoldCoin",
-  "mirror": "https://drive.google.com/drive/folders/1wfHwJnFsOqSG7WsOKf9AZrxISgOOj9Ff"
- },
- "PrivacyLens (2024)": {
-  "paper": "https://arxiv.org/abs/2409.00138",
-  "code": "https://github.com/SALT-NLP/PrivacyLens",
-  "mirror": "https://drive.google.com/drive/folders/140TkRL08Dv6D0oPiQcW5ElYGn9e-EvhW"
- },
- "AgentDAM (2025)": {
-  "paper": "https://arxiv.org/abs/2503.09780",
-  "code": "https://github.com/facebookresearch/ai-agent-privacy",
-  "mirror": "https://drive.google.com/drive/folders/12EDOGC-Md8UA8RLUIKvgB76bq3F4cI1Z"
- },
- "PrivaCI-Bench (2025)": {
-  "paper": "https://arxiv.org/abs/2503.04340",
-  "code": "https://github.com/HKUST-KnowComp/PrivaCI-Bench",
-  "mirror": ""
- },
- "Carlini Extraction / Training Data Extraction (2021)": {
-  "paper": "https://arxiv.org/abs/2012.07805",
-  "code": "https://github.com/ftramer/LM_Memorization",
-  "mirror": ""
- },
- "DecodingTrust-Privacy (2023)": {
-  "paper": "https://arxiv.org/abs/2306.11698",
-  "code": "https://github.com/AI-secure/DecodingTrust",
-  "mirror": "https://drive.google.com/drive/folders/16c6hPtRXdl7UxWoyOIO_36jR3i7QfWgP"
- },
- "ProPILE (2023)": {
-  "paper": "https://arxiv.org/abs/2307.01881",
-  "code": "https://github.com/SongHwangbo/ProPILE",
-  "mirror": ""
- },
- "ConfAIde (2023)": {
-  "paper": "https://arxiv.org/abs/2310.17884",
-  "code": "https://github.com/skywalker023/confAIde",
-  "mirror": ""
- },
- "LLM-PBE (2024)": {
-  "paper": "https://arxiv.org/abs/2408.12787",
-  "code": "https://github.com/QinbinLi/LLM-PBE",
-  "mirror": ""
- },
- "MPCI-Bench (2026)": {
-  "paper": "https://arxiv.org/abs/2601.08235",
-  "code": "https://github.com/shoujuw/MPCI-Bench",
-  "mirror": "https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb"
- },
- "Is ETHICS about ethics? Evaluating ETHICS dataset": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "LLM Ethics Benchmark: A Three-Dimensional Assessment System": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Computational Machine Ethics: A Survey": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Bias and Fairness in Large Language Models: A Survey": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "A Survey on LLM-as-a-Judge": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Aligning Large Language Models with Human: A Survey": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Survey on AI Ethics: A Socio-technical Perspective": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "A Survey on Privacy Risks and Protection in Large Language Models": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "A Survey on Large Language Model (LLM) Security and Privacy: The Good, the Bad, and the Ugly": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "A Survey of Privacy Attacks in Machine Learning": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Security and Privacy Challenges of Large Language Models: A Survey": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "On Protecting the Data Privacy of Large Language Models (LLMs): A Survey": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Privacy and Security Concerns in Generative AI: A Comprehensive Survey": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "The Ethics of AI Ethics: An Evaluation of Guidelines": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Everything is Connected: Inseparable Algorithmic Bias from Algorithmic Performance": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "A Survey on Evaluation of Large Language Models": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Trust in AI: Progress, Challenges, and Future Directions": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "BetterBench: Assessing AI Benchmarks, Uncovering Issues, and Establishing Best Practices": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Worldwide AI Ethics: A Review of 200+ Guidelines and Recommendations": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- },
- "Measuring Massive Multitask Language Understanding": {
-  "paper": "",
-  "code": "",
-  "mirror": ""
- }
+  "MoralMachine (2018)": {
+    "paper": "https://doi.org/10.1038/s41586-018-0637-6",
+    "code": "https://www.moralmachine.net/",
+    "mirror": ""
+  },
+  "MoralStories (2021)": {
+    "paper": "https://aclanthology.org/2021.emnlp-main.54/",
+    "code": "https://github.com/demelin/moral_stories",
+    "mirror": "https://drive.google.com/drive/folders/1taIab9ExlFU4SoCpbgw3GxB1vP7pNlGr"
+  },
+  "SCRUPLES (2021)": {
+    "paper": "",
+    "code": "https://github.com/allenai/scruples",
+    "mirror": "https://drive.google.com/drive/folders/1xo7iehjQ_vozoalvAnP37FYyjEe3OvoX"
+  },
+  "ETHICS (2023)": {
+    "paper": "https://arxiv.org/abs/2008.02275",
+    "code": "https://github.com/hendrycks/ethics",
+    "mirror": "https://drive.google.com/drive/folders/1MwM1tAeGqHy_7uDLRZkahzlSnKcfnruM"
+  },
+  "MFQ-2 (2023)": {
+    "paper": "",
+    "code": "https://moralfoundations.org/",
+    "mirror": ""
+  },
+  "MoralChoice (2023)": {
+    "paper": "https://arxiv.org/abs/2307.14324",
+    "code": "https://github.com/ninodimontalcino/moralchoice",
+    "mirror": "https://drive.google.com/drive/folders/1fPqsa3njy9cGTGpC1KQls0rBw4lVxTAr"
+  },
+  "CMoralEval (2024)": {
+    "paper": "https://arxiv.org/abs/2408.09819",
+    "code": "https://github.com/tjunlp-lab/CMoralEval",
+    "mirror": ""
+  },
+  "CPsyExam (2024)": {
+    "paper": "",
+    "code": "https://github.com/CAS-SIAT-XinHai/CPsyExam",
+    "mirror": "https://drive.google.com/drive/folders/1zO7imfVcKEl_vHUahrrJHibXCVoFicA3"
+  },
+  "EmotionBench (2024)": {
+    "paper": "https://arxiv.org/abs/2308.03656",
+    "code": "https://github.com/CUHK-ARISE/EmotionBench",
+    "mirror": "https://drive.google.com/drive/folders/1-V-pSA6dlRd86yw9u0uoVPRj_6NE0fSm"
+  },
+  "SMILE (2024)": {
+    "paper": "https://arxiv.org/abs/2305.00450",
+    "code": "https://github.com/qiuhuachuan/smile",
+    "mirror": "https://drive.google.com/drive/folders/1COAYS-qrA3nmZ1LUCQcZw-Te17yb8y6N"
+  },
+  "Educator-LLM (2025)": {
+    "paper": "https://arxiv.org/abs/2508.15250",
+    "code": "https://github.com/Yifan-EDU/Educator-LLM",
+    "mirror": ""
+  },
+  "HeartBench (2025)": {
+    "paper": "https://arxiv.org/abs/2512.21849",
+    "code": "https://github.com/HeartBench/HeartBench",
+    "mirror": "https://drive.google.com/drive/folders/19i6t4bNkTZr1SjNRYwJ4q7N8rBIANu8q"
+  },
+  "HumaniBench (2025)": {
+    "paper": "https://arxiv.org/abs/2505.11454",
+    "code": "https://huggingface.co/datasets/aiana94/HumaniBench",
+    "mirror": "https://drive.google.com/drive/folders/1auLDZ7ZrNTPRtE4oYx8i0HbpyaDkJ2rE"
+  },
+  "MoReBench (2025)": {
+    "paper": "https://arxiv.org/abs/2510.16380",
+    "code": "https://github.com/yuzhaouoe/MoReBench",
+    "mirror": "https://drive.google.com/drive/folders/1CCGm51Wyqwlpb5p-o2q2kyAmu_Yv4E3I"
+  },
+  "NaVAB (2025)": {
+    "paper": "https://arxiv.org/abs/2504.12911",
+    "code": "https://github.com/Stmoonshine/NaVAB",
+    "mirror": "https://drive.google.com/drive/folders/1k-GWLK5ylDqjAIFtIOawgFtq7lKOeTiQ"
+  },
+  "VITAL (2025)": {
+    "paper": "https://arxiv.org/abs/2502.13775",
+    "code": "https://github.com/anudeex/VITAL",
+    "mirror": "https://drive.google.com/drive/folders/1rs59eN1gQRkJlHSWZus5rVICuNSLTQW0"
+  },
+  "TrustMH-Bench (2026)": {
+    "paper": "https://arxiv.org/abs/2603.03047",
+    "code": "https://github.com/Qiyuan0130/TrustMH_Bench",
+    "mirror": ""
+  },
+  "WVS / World Values Survey (2012)": {
+    "paper": "https://www.worldvaluessurvey.org/",
+    "code": "https://www.worldvaluessurvey.org/",
+    "mirror": "https://drive.google.com/drive/folders/1cf8Q5-27h5vhcYWB_Zmjrbc2AK1xYb0w"
+  },
+  "PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)": {
+    "paper": "",
+    "code": "https://github.com/LingyueYan-NLP/PsycoLLM>; <https://github.com/Psychim/PsychoBench>; <https://github.com/GOODDASH/ValueBench",
+    "mirror": ""
+  },
+  "SOCKET (2023)": {
+    "paper": "",
+    "code": "https://github.com/minjechoi/SOCKET",
+    "mirror": ""
+  },
+  "SOCIAL-CHEM-101 (2020)": {
+    "paper": "https://aclanthology.org/2020.emnlp-main.48/",
+    "code": "https://maxwellforbes.com/social-chemistry/",
+    "mirror": ""
+  },
+  "EtiCor (2023)": {
+    "paper": "",
+    "code": "https://github.com/Reddy-Lab-Code-Research/EtiCor",
+    "mirror": ""
+  },
+  "MoralBench / MIC (survey-mentioned value benchmarks)": {
+    "paper": "https://arxiv.org/abs/2406.04428",
+    "code": "https://github.com/agiresearch/MoralBench",
+    "mirror": ""
+  },
+  "MFTCXplain (survey-mentioned)": {
+    "paper": "https://arxiv.org/abs/2506.19073",
+    "code": "https://github.com/MeMoLab-NLP/MFTCXplain",
+    "mirror": ""
+  },
+  "Kleinberg-FairTradeoffs (2016)": {
+    "paper": "https://arxiv.org/abs/1609.05807",
+    "code": "https://arxiv.org/abs/1609.05807",
+    "mirror": ""
+  },
+  "GAP (2018)": {
+    "paper": "https://aclanthology.org/Q18-1042/",
+    "code": "https://github.com/google-research-datasets/gap-coreference",
+    "mirror": "https://drive.google.com/drive/folders/1UJcXHuSXGGojsCh0XHxftCXN5rIVQq07"
+  },
+  "WinoBias (2018)": {
+    "paper": "https://aclanthology.org/N18-2003/",
+    "code": "https://github.com/uclanlp/corefBias",
+    "mirror": "https://drive.google.com/drive/folders/1jBhbTfJn1_2atfNlMZOz9StaDMfYmcY5"
+  },
+  "Winogender (2018)": {
+    "paper": "https://aclanthology.org/N18-2002/",
+    "code": "https://github.com/rudinger/winogender-schemas",
+    "mirror": "https://drive.google.com/drive/folders/1qWqt7QoYxxOVYPsY4jFFukWwpj4SBPgY"
+  },
+  "BEC-pro (2020)": {
+    "paper": "https://aclanthology.org/2020.gebnlp-1.1/",
+    "code": "https://github.com/marionbartl/gender-bias-BERT",
+    "mirror": "https://drive.google.com/drive/folders/1yNOouQOLjoF83E9HFaKTy7sENvKuBObp"
+  },
+  "CrowS-Pairs (2020)": {
+    "paper": "https://aclanthology.org/2020.emnlp-main.154/",
+    "code": "https://github.com/nyu-mll/crows-pairs",
+    "mirror": "https://drive.google.com/drive/folders/1bKWlqkqlHkEFoojXETmCxJwzks6H4R2m"
+  },
+  "Dev-WordEmbed (2020)": {
+    "paper": "",
+    "code": "https://github.com/sunipa/On-Measuring-and-Mitigating-Biased-Inferences-of-Word-Embeddings",
+    "mirror": ""
+  },
+  "UnQover (2020)": {
+    "paper": "https://aclanthology.org/2020.findings-emnlp.311/",
+    "code": "https://github.com/allenai/unqover",
+    "mirror": "https://drive.google.com/drive/folders/1JQLmeM_Ogo3oSp3E3SW6pVACI2FpJ92q"
+  },
+  "WikiGenderBias (2020)": {
+    "paper": "",
+    "code": "https://github.com/uclanlp/reducingbias",
+    "mirror": "https://drive.google.com/drive/folders/14cmybbLYE2AQNdNb5raG4l5fr0BdD_zE"
+  },
+  "BOLD (2021)": {
+    "paper": "",
+    "code": "https://github.com/amazon-science/bold",
+    "mirror": "https://drive.google.com/drive/folders/19vZBkiKE6NDazrRpui9lnA4lfax1vpEi"
+  },
+  "BUG (2021)": {
+    "paper": "",
+    "code": "https://github.com/SLAB-NLP/BUG",
+    "mirror": "https://drive.google.com/drive/folders/1WIkQXrnSSZhWDAsZUylkZTgJ2mDTIhwF"
+  },
+  "HONEST (2021)": {
+    "paper": "https://aclanthology.org/2021.naacl-main.191/",
+    "code": "https://github.com/MilaNLProc/honest",
+    "mirror": "https://drive.google.com/drive/folders/11fvUPnsf8X3p3TU2wQgL4ofm5baBnLjA"
+  },
+  "NeuTral-WinoBiasPlus (2021)": {
+    "paper": "",
+    "code": "https://github.com/uclanlp/corefBias",
+    "mirror": "https://drive.google.com/drive/folders/1jBhbTfJn1_2atfNlMZOz9StaDMfYmcY5"
+  },
+  "RedditBias (2021)": {
+    "paper": "https://aclanthology.org/2021.acl-long.151/",
+    "code": "https://github.com/umanlp/RedditBias",
+    "mirror": "https://drive.google.com/drive/folders/1Ml2a87IqvTit8HCUvZ_NUino8M1n7m7Y"
+  },
+  "StereoSet (2021)": {
+    "paper": "https://aclanthology.org/2021.acl-long.416/",
+    "code": "https://github.com/moinnadeem/StereoSet",
+    "mirror": "https://drive.google.com/drive/folders/1KlLJOuYzWq-6UNiLDC6gw6bHYy9aKJ4s"
+  },
+  "BBQ (2022)": {
+    "paper": "https://aclanthology.org/2022.findings-acl.165/",
+    "code": "https://github.com/nyu-mll/BBQ",
+    "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
+  },
+  "HolisticBias (2022)": {
+    "paper": "https://aclanthology.org/2022.emnlp-main.625/",
+    "code": "https://github.com/facebookresearch/ResponsibleNLP",
+    "mirror": "https://drive.google.com/drive/folders/1rNaTZB-GI4KQYIes7CDk5xpkQICw6aJk"
+  },
+  "Panda (2022)": {
+    "paper": "https://arxiv.org/abs/2205.12586",
+    "code": "https://github.com/facebookresearch/ResponsibleNLP/tree/main/PANDA",
+    "mirror": "https://drive.google.com/drive/folders/1U8nND1y63TpUFZK7QW7BXLbrsfX0mJ7c"
+  },
+  "Grep-BiasIR (2023)": {
+    "paper": "https://arxiv.org/abs/2201.07754",
+    "code": "https://github.com/KlaraKrieg/GrepBiasIR",
+    "mirror": "https://drive.google.com/drive/folders/1oUFe-Nm-1Q_P4xkzGFbj8CRpWepWlKfo"
+  },
+  "TrustGPT (2023)": {
+    "paper": "https://arxiv.org/abs/2306.11507",
+    "code": "https://github.com/HowieHwong/TrustGPT",
+    "mirror": "https://drive.google.com/drive/folders/1W-5-49BkspcyXJjvgDxs6U_kjKRPPPH6"
+  },
+  "WinoQueer (2023)": {
+    "paper": "https://aclanthology.org/2023.acl-long.507/",
+    "code": "https://github.com/katyfelkner/winoqueer",
+    "mirror": "https://drive.google.com/drive/folders/19HRqUE5EzHd0xyWaXytVux54byOD8b1U"
+  },
+  "CBBQ (2024)": {
+    "paper": "https://arxiv.org/abs/2306.16244",
+    "code": "https://github.com/YFHuangxxxx/CBBQ",
+    "mirror": "https://drive.google.com/drive/folders/11SidpflggcB1CBTE4GhCiIFhSMxS0eIO"
+  },
+  "KoBBQ (2024)": {
+    "paper": "https://aclanthology.org/2024.tacl-1.28/",
+    "code": "https://github.com/naver-ai/KoBBQ",
+    "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
+  },
+  "FLEX (2025)": {
+    "paper": "",
+    "code": "https://github.com/anna-shin/FLEX",
+    "mirror": ""
+  },
+  "Phare (2025)": {
+    "paper": "https://arxiv.org/abs/2505.11365",
+    "code": "https://github.com/Giskard-AI/phare",
+    "mirror": ""
+  },
+  "BharatBBQ (2024/2025)": {
+    "paper": "https://arxiv.org/abs/2508.07090",
+    "code": "https://github.com/nyu-mll/BBQ",
+    "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
+  },
+  "JBBQ (2024/2025)": {
+    "paper": "https://arxiv.org/abs/2506.12327",
+    "code": "https://github.com/nyu-mll/BBQ",
+    "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
+  },
+  "RealToxicityPrompts (2020)": {
+    "paper": "https://aclanthology.org/2020.findings-emnlp.301/",
+    "code": "https://github.com/allenai/real-toxicity-prompts",
+    "mirror": "https://drive.google.com/drive/folders/1ww3kW4ZjzU9j6KX8j8fIZfvbB-4rGTj6"
+  },
+  "HateCheck (2021)": {
+    "paper": "https://aclanthology.org/2021.acl-long.4/",
+    "code": "https://github.com/paul-rottger/hatecheck-data",
+    "mirror": "https://drive.google.com/drive/folders/1tef9nBTgdbuzoVh9C7DaqYhVdQ8dlu81"
+  },
+  "ToxiGen (2022)": {
+    "paper": "https://aclanthology.org/2022.acl-long.234/",
+    "code": "https://github.com/microsoft/ToxiGen",
+    "mirror": "https://drive.google.com/drive/folders/1UmE-AqjuTRaPwLkX3UgC5EVd8Jy3i8qU"
+  },
+  "ToxicChat (2023)": {
+    "paper": "https://arxiv.org/abs/2310.17389",
+    "code": "https://huggingface.co/datasets/lmsys/toxic-chat",
+    "mirror": "https://drive.google.com/drive/folders/1Nnp5CcnTpGZHXz-qM8SWfWRDY0t0gq3r"
+  },
+  "Chinese-Safeguard (2024)": {
+    "paper": "https://aclanthology.org/2024.findings-acl.184/",
+    "code": "https://github.com/Libr-AI/do-not-answer/tree/main/cdna",
+    "mirror": ""
+  },
+  "Do-not-answer (2024)": {
+    "paper": "",
+    "code": "https://github.com/Libr-AI/do-not-answer",
+    "mirror": "https://drive.google.com/drive/folders/130aFvSdUJ7ecgul3DnbyhthwsQlD0MRM"
+  },
+  "FFT (2024)": {
+    "paper": "https://arxiv.org/abs/2311.18580",
+    "code": "https://github.com/cuishiyao96/FFT",
+    "mirror": "https://drive.google.com/drive/folders/1mfWAfiBjhCqwoIgxFcFdNCT7HWrRsYfv"
+  },
+  "HarmBench (2024)": {
+    "paper": "https://arxiv.org/abs/2402.04249",
+    "code": "https://github.com/centerforaisafety/HarmBench",
+    "mirror": "https://drive.google.com/drive/folders/1qV4Apl2VxNYcnGYbuy0n4S__6pNFxq4N"
+  },
+  "JailBreakV (2024)": {
+    "paper": "https://arxiv.org/abs/2404.03027",
+    "code": "https://github.com/EddyLuo1232/JailBreakV_28K",
+    "mirror": "https://drive.google.com/drive/folders/13RQ0kav6pBAOBk6c0KovCuYs1t4lC3l8"
+  },
+  "LifeTox (2024)": {
+    "paper": "",
+    "code": "https://github.com/mbzuai-nlp/LifeTox",
+    "mirror": "https://drive.google.com/drive/folders/1baFmEIQlSVA1VTt6jIEW3Q-oJJgcE2tQ"
+  },
+  "MM-SafetyBench (2024)": {
+    "paper": "https://arxiv.org/abs/2311.17600",
+    "code": "https://github.com/thu-coai/SafetyBench",
+    "mirror": "https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM"
+  },
+  "SALAD-bench (2024)": {
+    "paper": "https://aclanthology.org/2024.findings-acl.235/",
+    "code": "https://github.com/OpenSafetyLab/SALAD-BENCH",
+    "mirror": "https://drive.google.com/drive/folders/1qrYJ5ooiUAaI6pNf0M7VnVshA4I5t6yJ"
+  },
+  "SafetyBench (2024)": {
+    "paper": "https://arxiv.org/abs/2311.17600",
+    "code": "https://github.com/thu-coai/SafetyBench",
+    "mirror": "https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM"
+  },
+  "XSTest (2024)": {
+    "paper": "https://aclanthology.org/2024.naacl-long.301/",
+    "code": "https://github.com/paul-rottger/exaggerated-safety",
+    "mirror": "https://drive.google.com/drive/folders/1C5Zipc6iQGDHHoUVD0z4lAyt9Z0C6fU2"
+  },
+  "Agent-SafetyBench (2025)": {
+    "paper": "https://arxiv.org/abs/2412.14470",
+    "code": "https://github.com/thu-coai/SafetyBench",
+    "mirror": "https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM"
+  },
+  "SafeInfer (2025)": {
+    "paper": "https://arxiv.org/abs/2406.12274",
+    "code": "https://github.com/SomnathBanerjee/SafeInfer",
+    "mirror": ""
+  },
+  "SaFeRDialogues (2022)": {
+    "paper": "https://aclanthology.org/2022.acl-long.447/",
+    "code": "https://parl.ai/projects/saferdialogues/",
+    "mirror": "https://drive.google.com/drive/folders/1VM4j5N9oxLIVP0aV4s1Ec7xjD7vI2l5T"
+  },
+  "BAD / Bot-Adversarial Dialogue (2021)": {
+    "paper": "https://aclanthology.org/2021.naacl-main.235/",
+    "code": "https://parl.ai/projects/safety_recipes/",
+    "mirror": ""
+  },
+  "HarmEval (2025)": {
+    "paper": "",
+    "code": "https://github.com/SomnathBanerjee/HarmEval",
+    "mirror": "https://drive.google.com/drive/folders/1B4iPpDasT-Tl3pMxB7mkKMXamM1ZnXQW"
+  },
+  "HH-RLHF / Anthropic H&H (2022)": {
+    "paper": "https://arxiv.org/abs/2204.05862",
+    "code": "https://github.com/anthropics/hh-rlhf",
+    "mirror": "https://drive.google.com/drive/folders/1nSWsGjxw-nAO16t7fqsR9d-IxBqzU4f3"
+  },
+  "AdvBench (2023)": {
+    "paper": "https://arxiv.org/abs/2307.15043",
+    "code": "https://github.com/llm-attacks/llm-attacks",
+    "mirror": ""
+  },
+  "Red-Eval (2024)": {
+    "paper": "",
+    "code": "https://github.com/declare-lab/red-instruct",
+    "mirror": ""
+  },
+  "LatentJailbreak (2024)": {
+    "paper": "https://arxiv.org/abs/2307.08487",
+    "code": "https://github.com/qiuhuachuan/latent-jailbreak",
+    "mirror": ""
+  },
+  "CyberSec.Eval (2024)": {
+    "paper": "https://arxiv.org/abs/2312.04724",
+    "code": "https://github.com/meta-llama/PurpleLlama",
+    "mirror": ""
+  },
+  "C-Do-not-answer (2024)": {
+    "paper": "",
+    "code": "https://github.com/Libr-AI/do-not-answer",
+    "mirror": "https://drive.google.com/drive/folders/1Da5wlPwg3t811fcWedaJ9E0YrqJY2Lxk"
+  },
+  "FEVER (2018)": {
+    "paper": "https://aclanthology.org/N18-1074/",
+    "code": "https://github.com/awslabs/fever",
+    "mirror": ""
+  },
+  "HotpotQA (2018)": {
+    "paper": "https://aclanthology.org/D18-1259/",
+    "code": "https://hotpotqa.github.io/",
+    "mirror": ""
+  },
+  "TruthfulQA (2022)": {
+    "paper": "https://aclanthology.org/2022.acl-long.229/",
+    "code": "https://github.com/sylinrl/TruthfulQA",
+    "mirror": "https://drive.google.com/drive/folders/1hs4RwS_DXsN4B2umx3zzpu5B0LIRdVyo"
+  },
+  "LegalBench (2023)": {
+    "paper": "https://arxiv.org/abs/2308.11462",
+    "code": "https://github.com/HazyResearch/legalbench",
+    "mirror": ""
+  },
+  "HallusionBench (2024)": {
+    "paper": "https://arxiv.org/abs/2310.14566",
+    "code": "https://github.com/tianyi-lab/HallusionBench",
+    "mirror": ""
+  },
+  "LawBench (2024)": {
+    "paper": "https://arxiv.org/abs/2309.16289",
+    "code": "https://github.com/open-compass/LawBench",
+    "mirror": ""
+  },
+  "PatentEval (2024)": {
+    "paper": "",
+    "code": "https://github.com/ZoeYou/PatentEval",
+    "mirror": ""
+  },
+  "TrustLLM (2024)": {
+    "paper": "https://arxiv.org/abs/2401.05561",
+    "code": "https://github.com/HowieHwong/TrustLLM",
+    "mirror": "https://drive.google.com/drive/folders/1f9xq6WWgThKm4_Jf3OXGanZX7Ysg5l5J"
+  },
+  "Sycophancy-Sharma (2025)": {
+    "paper": "https://arxiv.org/abs/2310.13548",
+    "code": "https://github.com/meg-tong/sycophancy-eval",
+    "mirror": ""
+  },
+  "HaluEval (2023)": {
+    "paper": "https://aclanthology.org/2023.emnlp-main.397/",
+    "code": "https://github.com/RUCAIBox/HaluEval",
+    "mirror": "https://drive.google.com/drive/folders/1ZB8S82cty7l_CJC9NeAgRfbOAUaWk0K9"
+  },
+  "FActScore (2023)": {
+    "paper": "https://aclanthology.org/2023.emnlp-main.741/",
+    "code": "https://github.com/shmsw25/FActScore",
+    "mirror": ""
+  },
+  "FreshQA / FreshLLMs (2024)": {
+    "paper": "https://arxiv.org/abs/2310.03214",
+    "code": "https://github.com/freshllms/freshqa",
+    "mirror": ""
+  },
+  "SycophancyBench / Model-Written Evaluations (2022)": {
+    "paper": "https://arxiv.org/abs/2212.09251",
+    "code": "https://github.com/anthropics/evals",
+    "mirror": ""
+  },
+  "DecodingTrust (2023)": {
+    "paper": "https://arxiv.org/abs/2306.11698",
+    "code": "https://github.com/AI-secure/DecodingTrust",
+    "mirror": "https://drive.google.com/drive/folders/16c6hPtRXdl7UxWoyOIO_36jR3i7QfWgP"
+  },
+  "ConVerse (Findings of EACL 2026)": {
+    "paper": "https://arxiv.org/abs/2511.05359",
+    "code": "https://github.com/amrgomaaelhady/ConVerse",
+    "mirror": "https://drive.google.com/drive/folders/117OloShfJJfokRK08YTRSmlMJJQEc8Yr"
+  },
+  "EAPrivacy (ICLR 2026)": {
+    "paper": "",
+    "code": "https://github.com/xinjie-shen/EAPrivacy",
+    "mirror": "https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD"
+  },
+  "GoldCoin (2024)": {
+    "paper": "https://arxiv.org/abs/2406.11149",
+    "code": "https://github.com/HKUST-KnowComp/GoldCoin",
+    "mirror": "https://drive.google.com/drive/folders/1wfHwJnFsOqSG7WsOKf9AZrxISgOOj9Ff"
+  },
+  "PrivacyLens (2024)": {
+    "paper": "https://arxiv.org/abs/2409.00138",
+    "code": "https://github.com/SALT-NLP/PrivacyLens",
+    "mirror": "https://drive.google.com/drive/folders/140TkRL08Dv6D0oPiQcW5ElYGn9e-EvhW"
+  },
+  "AgentDAM (2025)": {
+    "paper": "https://arxiv.org/abs/2503.09780",
+    "code": "https://github.com/facebookresearch/ai-agent-privacy",
+    "mirror": "https://drive.google.com/drive/folders/12EDOGC-Md8UA8RLUIKvgB76bq3F4cI1Z"
+  },
+  "PrivaCI-Bench (2025)": {
+    "paper": "",
+    "code": "https://github.com/HKUST-KnowComp/PrivaCI-Bench",
+    "mirror": ""
+  },
+  "Carlini Extraction / Training Data Extraction (2021)": {
+    "paper": "https://arxiv.org/abs/2012.07805",
+    "code": "https://github.com/ftramer/LM_Memorization",
+    "mirror": ""
+  },
+  "DecodingTrust-Privacy (2023)": {
+    "paper": "https://arxiv.org/abs/2306.11698",
+    "code": "https://github.com/AI-secure/DecodingTrust",
+    "mirror": "https://drive.google.com/drive/folders/16c6hPtRXdl7UxWoyOIO_36jR3i7QfWgP"
+  },
+  "ProPILE (2023)": {
+    "paper": "https://arxiv.org/abs/2307.01881",
+    "code": "https://github.com/SongHwangbo/ProPILE",
+    "mirror": ""
+  },
+  "ConfAIde (2023)": {
+    "paper": "https://arxiv.org/abs/2310.17884",
+    "code": "https://github.com/skywalker023/confAIde",
+    "mirror": ""
+  },
+  "LLM-PBE (2024)": {
+    "paper": "https://arxiv.org/abs/2408.12787",
+    "code": "https://github.com/QinbinLi/LLM-PBE",
+    "mirror": ""
+  },
+  "MPCI-Bench (2026)": {
+    "paper": "https://arxiv.org/abs/2601.08235",
+    "code": "https://github.com/shoujuw/MPCI-Bench",
+    "mirror": "https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb"
+  },
+  "Is ETHICS about ethics? Evaluating ETHICS dataset": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "LLM Ethics Benchmark: A Three-Dimensional Assessment System": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Computational Machine Ethics: A Survey": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Bias and Fairness in Large Language Models: A Survey": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "A Survey on LLM-as-a-Judge": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Aligning Large Language Models with Human: A Survey": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Survey on AI Ethics: A Socio-technical Perspective": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "A Survey on Privacy Risks and Protection in Large Language Models": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "A Survey on Large Language Model (LLM) Security and Privacy: The Good, the Bad, and the Ugly": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "A Survey of Privacy Attacks in Machine Learning": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Security and Privacy Challenges of Large Language Models: A Survey": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "On Protecting the Data Privacy of Large Language Models (LLMs): A Survey": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Privacy and Security Concerns in Generative AI: A Comprehensive Survey": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "The Ethics of AI Ethics: An Evaluation of Guidelines": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Everything is Connected: Inseparable Algorithmic Bias from Algorithmic Performance": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "A Survey on Evaluation of Large Language Models": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Trust in AI: Progress, Challenges, and Future Directions": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "BetterBench: Assessing AI Benchmarks, Uncovering Issues, and Establishing Best Practices": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Worldwide AI Ethics: A Review of 200+ Guidelines and Recommendations": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  },
+  "Measuring Massive Multitask Language Understanding": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
+  }
 }
