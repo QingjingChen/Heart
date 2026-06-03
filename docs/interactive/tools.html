@@ -155,6 +155,56 @@
 .subtool-guide b { color: var(--primary); font-size: 11px; }
 .subtool-sources { font-size: 11px; margin-top: 6px; }
 .subtool-sources .bench-pill { font-size: 10.5px; padding: 1px 8px; margin: 1px 2px; }
+
+/* Source attribution rows */
+.src-attr {
+  background: rgba(255,255,255,.7);
+  border-left: 3px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin: 6px 0;
+  white-space: normal;
+}
+.src-attr-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+.src-attr-head .src-name { font-weight: 600; color: var(--text); }
+.src-attr-head .src-domain { font-size: 11px; }
+.src-attr-body { font-size: 11.5px; color: var(--text); line-height: 1.5; }
+.src-ct {
+  font-size: 10px;
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+.src-ct.ct_provides_mechanism { background:#E8F5E9; color:#1B5E20; }
+.src-ct.ct_exemplifies { background:#E3F2FD; color:#0D47A1; }
+.src-ct.ct_supports { background:#F3E5F5; color:#4A148C; }
+.src-ct.ct_motivates { background:#FFF3E0; color:#E65100; }
+.src-ct.ct_critique_motivates { background:#FFE0E0; color:#B71C1C; }
+.src-ct.ct_HEART_adaptation { background:#FFF9C4; color:#5D4037; }
+.src-ct.ct_needs_check { background:#ECEFF1; color:#37474F; }
+.src-strength {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background:#ECEFF1;
+  color:#455A64;
+  font-weight: 500;
+}
+.src-strength.str-strong { background:#C8E6C9; color:#2E7D32; }
+.src-strength.str-medium { background:#FFE0B2; color:#E65100; }
+.src-strength.str-weak { background:#FFCDD2; color:#C62828; }
+.collapse-note summary { list-style: none; }
+.collapse-note summary::-webkit-details-marker { display: none; }
+.collapse-note summary::before { content: "▸ "; transition: transform .2s; display: inline-block; }
+.collapse-note[open] summary::before { content: "▾ "; }
 </style>
 </head>
 <body>
@@ -185,6 +235,27 @@
     <span class="lang-zh">14 条审计 rubric 分布在 3 层（内容有效性 / 评测设计 / 治理可靠性）。每件修复工具按其主提升的 rubric 归层。点击工具卡片可展开完整内容：核心做法、与相邻工具的边界、改编 prompt 骨架、润色后的示例、自动化 vs 人工边界，以及成员 benchmark（带论文链接）。</span>
   </p>
 </section>
+
+<details class="card collapse-note" style="background: #FFFBEB; border-color: #F2D78E;">
+  <summary style="cursor:pointer; font-weight:600; color:#7C5306; padding: 4px 0;">
+    <span class="lang-en">📐 Public 14-tool view vs. internal 16-tool decomposition</span>
+    <span class="lang-zh">📐 公开 14-tool 视图 vs. 内部 16-tool 拆分</span>
+  </summary>
+  <div style="margin-top: 10px; font-size: 12.5px; line-height: 1.55;">
+    <p>
+      <span class="lang-en">The public web canonical is <b>14 tools</b> (T01–T14). The internal HEART working docs (Docs 02 &amp; 04) preserve a finer <b>16-tool</b> decomposition (T1–T16, with subtypes like T5a/T5b, T9a/T9b/T9c, T16a–T16d) for source-attribution and gap-to-tool prescription bookkeeping. The doc 16-tool form is <i>not</i> the future replacement of the web's 14 — the two are <b>different abstraction levels</b> of the same toolkit.</span>
+      <span class="lang-zh">网页公开版本采用 <b>14 个工具</b>（T01–T14）。HEART 内部工作文档（Doc 02 &amp; 04）保留 <b>16 个工具</b>的更细拆分（T1–T16，含 T5a/T5b、T9a/T9b/T9c、T16a–T16d 等 subtype），方便 source-attribution 与 gap-to-tool 处方记账。文档 16-tool 不是网页 14-tool 的替代版，两者是同一工具集的<b>不同抽象层级</b>。</span>
+    </p>
+    <table class="dt" style="font-size: 11.5px; margin-top: 8px;">
+      <thead><tr>
+        <th style="width: 32%"><span class="lang-en">Web 14-tool ID + name</span><span class="lang-zh">网页 14-tool ID + 名称</span></th>
+        <th style="width: 22%"><span class="lang-en">Consolidates doc tools</span><span class="lang-zh">合并自文档</span></th>
+        <th><span class="lang-en">Collapse reason</span><span class="lang-zh">合并理由</span></th>
+      </tr></thead>
+      <tbody id="collapse-map-rows"></tbody>
+    </table>
+  </div>
+</details>
 
 <div id="layers-container">loading…</div>
 </main>
@@ -217,12 +288,32 @@ const LAYERS = [
 
 let TOOLS = [], BENCH_URLS = {}, PROMPTS = [];
 
+let TOOL_MAPPING = null, SOURCE_ATTR = null;
+
 async function build() {
-  [TOOLS, BENCH_URLS, PROMPTS] = await Promise.all([
+  [TOOLS, BENCH_URLS, PROMPTS, TOOL_MAPPING, SOURCE_ATTR] = await Promise.all([
     fetch('data/t_tools.json').then(r=>r.json()),
     fetch('data/bench_urls.json').then(r=>r.json()),
     fetch('data/prompts.json').then(r=>r.json()),
+    fetch('data/tool_mapping_doc_to_web.json').then(r=>r.json()),
+    fetch('data/tool_source_attribution.json').then(r=>r.json()),
   ]);
+  // Populate the 16→14 collapse map
+  const cmRows = document.getElementById('collapse-map-rows');
+  const orderedIds = ['T01','T02','T03','T04','T05','T06','T07','T08','T09','T10','T11','T12','T13','T14'];
+  for (const wid of orderedIds) {
+    const tool = TOOLS.find(t => t['Tool ID'] === wid);
+    const m = TOOL_MAPPING.web_to_doc[wid];
+    if (!tool || !m) continue;
+    const docList = m.doc_tool_ids.length ? m.doc_tool_ids.join(', ') : '<span class="muted">—</span>';
+    cmRows.insertAdjacentHTML('beforeend', `
+      <tr>
+        <td><b>${wid}</b> ${tool['Toolbox 英文名']}<br><span class="muted" style="font-size:11px">${tool['中文译名']||''}</span></td>
+        <td>${docList}</td>
+        <td style="font-size:11.5px">${m.collapse_reason||''}</td>
+      </tr>
+    `);
+  }
   const cont = document.getElementById('layers-container');
   cont.innerHTML = '';
   for (const layer of LAYERS) {
@@ -375,6 +466,43 @@ function openTool(tid) {
       }).join('')}
     </div>
   </details>`;
+
+  // === Source-attribution block (standardised contribution_type vocabulary) ===
+  const attr = SOURCE_ATTR[tid];
+  if (attr && attr.source_attribution && attr.source_attribution.length) {
+    const docNote = attr.consolidates_doc_tools && attr.consolidates_doc_tools.length
+      ? `<span class="muted" style="font-size:11px">· internal doc decomposition: ${attr.consolidates_doc_tools.join(', ')}</span>`
+      : '';
+    html += `<details class="acc" open>
+      <summary><span class="lang-en">Source attribution</span><span class="lang-zh">来源归属</span> <span style="font-weight:normal;font-size:11px">(${attr.source_attribution.length}) ${docNote}</span></summary>
+      <div class="acc-body" style="padding:8px 12px">
+        <p class="muted" style="font-size:11.5px;margin:0 0 8px;line-height:1.5">
+          <span class="lang-en">Each row uses the canonical contribution-type vocabulary: <code>provides mechanism</code> · <code>exemplifies</code> · <code>supports</code> · <code>motivates</code> · <code>critique-motivates</code> · <code>HEART adaptation</code> · <code>needs check</code>. The wording deliberately avoids overclaiming source-tool authorship.</span>
+          <span class="lang-zh">每条采用规范化贡献类型词汇：<code>provides mechanism</code> · <code>exemplifies</code> · <code>supports</code> · <code>motivates</code> · <code>critique-motivates</code> · <code>HEART adaptation</code> · <code>needs check</code>。表述刻意避免“某论文发明了某工具”的过度归因。</span>
+        </p>
+        ${attr.source_attribution.map(s => {
+          const ctClass = s.contribution_type.replace(/[\s\-]/g, '_');
+          return `<div class="src-attr">
+            <div class="src-attr-head">
+              <span class="src-name">${s.source_name}</span>
+              <span class="src-domain muted">· ${s.domain || ''}</span>
+              <span class="src-ct ct-${ctClass}">${s.contribution_type}</span>
+              ${s.evidence_strength ? `<span class="src-strength str-${s.evidence_strength}">${s.evidence_strength}</span>` : ''}
+            </div>
+            <div class="src-attr-body">
+              <span class="lang-en">${s.contribution_en||''}</span>
+              <span class="lang-zh">${s.contribution_zh||''}</span>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+    </details>`;
+  } else if (attr && attr.note) {
+    html += `<details class="acc">
+      <summary><span class="lang-en">Source attribution</span><span class="lang-zh">来源归属</span></summary>
+      <div class="acc-body"><span class="muted">${attr.note}</span></div>
+    </details>`;
+  }
 
   html += `<p class="muted" style="margin-top:10px"><b><span class="lang-en">Limitations:</span><span class="lang-zh">局限：</span></b> ${t['局限 / 避免过度声称'] || ''}</p>`;
 

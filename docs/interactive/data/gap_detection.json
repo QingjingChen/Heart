@@ -1,0 +1,1045 @@
+{
+  "R7": {
+    "code": "R7",
+    "name_en": "Task-format Fit",
+    "name_zh": "任务形式适配性",
+    "typical_symptoms_en": "The benchmark's task format fails to elicit the capability it claims to measure — e.g., testing multi-turn reasoning with single-turn QA, or measuring truthfulness only via final answer accuracy without evidence or abstention tracking.",
+    "typical_symptoms_zh": "基准的任务形式无法激发其声称要测量的能力——例如，用单轮问答测试多轮推理能力，或仅通过最终答案准确率衡量真实性，而不考察证据支持或拒答行为。",
+    "evidence_to_inspect": [
+      "task format",
+      "input-output schema",
+      "sample prompts",
+      "interaction setup",
+      "evaluation protocol",
+      "whether multi-turn / tool-use / contrast set exists"
+    ],
+    "diagnostic_questions_en": [
+      "What task format does the target construct require?",
+      "Can the current task format elicit the target behavior?",
+      "Is a contrast set needed?",
+      "Is multi-turn interaction required?",
+      "Is open-ended response or agent workflow necessary?",
+      "Is trajectory-level scoring required?"
+    ],
+    "diagnostic_questions_zh": [
+      "目标构念需要什么任务形式？",
+      "当前任务形式能激发目标行为吗？",
+      "是否需要对照集？",
+      "是否需要多轮交互？",
+      "是否需要开放回答或智能体工作流？",
+      "是否需要轨迹级评分？"
+    ],
+    "red_flags_en": [
+      "privacy = PII yes/no",
+      "safety = refusal yes/no",
+      "fairness = single stereotype QA",
+      "psychological support = psychology multiple choice",
+      "agent safety = text classification",
+      "truthfulness = final accuracy only"
+    ],
+    "red_flags_zh": [
+      "隐私 = PII 是/否分类",
+      "安全 = 拒答 是/否判断",
+      "公平性 = 单一刻板印象问答",
+      "心理支持 = 心理学选择题",
+      "智能体安全 = 文本分类",
+      "真实性 = 仅看最终答案准确率"
+    ],
+    "domain_symptoms": {
+      "Fairness": "没有配对/反事实对照；无法判断答案变化是否由受保护属性引起",
+      "Safety": "没有安全/不安全对照；没有多轮越狱测试；没有过度拒答测量",
+      "Privacy": "没有信息流任务；没有智能体工作流；没有第三方信息传递",
+      "Human-Centered": "没有开放支持性回应；只测知识，不测互动",
+      "Trustworthiness": "没有可答性分类法；不测拒答、证据锚定、时间新鲜度"
+    },
+    "common_misdiagnosis_en": "Not all benchmarks must be multi-turn or agent-based; R7 criticizes only mismatches between claimed construct and actual task format — e.g., a benchmark explicitly claiming 'single-turn classification' is not flawed for being single-turn.",
+    "common_misdiagnosis_zh": "并非所有基准都必须是多轮或智能体形式；R7 批评的仅是任务形式与声明构念之间的不匹配——例如，若基准明确认定为‘单轮分类’，则单轮本身并无缺陷。",
+    "scoring_simple": {
+      "0": "task format clearly cannot measure the target construct",
+      "1": "task format measures only a small part, mismatched with broad claim",
+      "2": "task format broadly matches, but lacks key subtype (e.g., contrast/multi-turn/workflow)",
+      "3": "task format explicitly matches the construct and justifies its suitability"
+    },
+    "default_tools_doc16": [
+      "T9",
+      "T10",
+      "T11"
+    ],
+    "default_tools_web14": [
+      "T06",
+      "T08",
+      "T09"
+    ]
+  },
+  "R4": {
+    "code": "R4",
+    "name_en": "Stakeholder and Coverage Adequacy",
+    "name_zh": "利益相关方与覆盖充分性",
+    "typical_symptoms_en": "The benchmark omits critical stakeholders, populations, cultures, jurisdictions, or deployment contexts — e.g., ignoring affected third parties, marginalized groups, non-US/English settings, or key identity variables in local deployments.",
+    "typical_symptoms_zh": "基准测试遗漏了关键利益相关方、群体、文化、法域或部署场景——例如忽略受影响的第三方、弱势群体、非美国/英文环境，或本地部署中的关键身份变量。",
+    "evidence_to_inspect": [
+      "dataset composition",
+      "demographic / stakeholder categories",
+      "scenario descriptions",
+      "sampling strategy",
+      "coverage table",
+      "benchmark claim",
+      "target deployment context",
+      "limitations"
+    ],
+    "diagnostic_questions_en": [
+      "Which people, scenarios, and domains does the benchmark claim to support?",
+      "Which stakeholders are actually covered?",
+      "Who are the direct users vs. the truly affected parties?",
+      "Are there third parties involved?",
+      "Are vulnerable or marginalized groups included?",
+      "Is there coverage across culture, jurisdiction, or language?",
+      "Would insufficient coverage undermine the benchmark's stated claim?"
+    ],
+    "diagnostic_questions_zh": [
+      "基准测试声称适用于哪些人、场景和领域？",
+      "实际覆盖了哪些利益相关方？",
+      "谁是直接用户？谁是真正受影响者？",
+      "是否存在第三方？",
+      "是否存在弱势或边缘化群体？",
+      "是否存在文化、法域、语言覆盖？",
+      "覆盖不足是否会影响其声明主张？"
+    ],
+    "red_flags_en": [
+      "Only covers English / US / Western contexts",
+      "Claims general fairness but only measures race/gender",
+      "Privacy benchmark ignores data subject or recipient",
+      "Professional benchmark ignores doctors/lawyers/counselors",
+      "Agent benchmark omits tool owner, data owner, or affected third parties"
+    ],
+    "red_flags_zh": [
+      "仅覆盖英文/美国/西方语境",
+      "声称通用公平性但只测量种族/性别",
+      "隐私基准忽略数据主体或接收方",
+      "专业领域基准忽略医生/律师/心理咨询师",
+      "智能体基准忽略工具所有者、数据所有者或受影响第三方"
+    ],
+    "domain_symptoms": {
+      "Fairness": "漏掉受保护/代理群体；缺乏交叉性覆盖；未纳入受影响社区",
+      "Privacy": "未区分数据主体、接收方、第三方、机构、监管者",
+      "Safety": "只关注恶意用户，忽略潜在受害者、旁观者、滥用目标",
+      "Human-Centered": "未纳入弱势用户、照护者、专业人士、依赖者",
+      "Agent": "未纳入数据所有者、工具所有者、组织、下游受影响方"
+    },
+    "common_misdiagnosis_en": "Not all benchmarks must cover every group; a narrow claim (e.g., 'English gender stereotype benchmark') makes limited coverage acceptable. R4 is about whether coverage matches the scope of the claim.",
+    "common_misdiagnosis_zh": "并非所有基准都必须覆盖所有群体；若其主张明确限定（如‘英文性别刻板印象基准’），则不覆盖中文或年龄未必是问题。R4 的关键是覆盖范围是否足以支撑其主张。",
+    "scoring_simple": {
+      "0": "No coverage description provided.",
+      "1": "Covers only a few default groups, mismatched with broad claim.",
+      "2": "Covers major groups but omits key stakeholders or fails to state limitations.",
+      "3": "Coverage universe is explicitly defined, key stakeholders are included, and limitations are clearly documented."
+    },
+    "default_tools_doc16": [
+      "T5a",
+      "T6",
+      "T4"
+    ],
+    "default_tools_web14": [
+      "T03",
+      "T04",
+      "T02"
+    ]
+  },
+  "R6": {
+    "code": "R6",
+    "name_en": "Scenario Realism and Evidential Sufficiency",
+    "name_zh": "场景真实度与证据充分性",
+    "typical_symptoms_en": "A single item/task provides insufficient information—such as missing roles, purpose, evidence, constraints, interaction history, or decision point—to support a robust ethical judgment.",
+    "typical_symptoms_zh": "单个题目/任务提供的信息不足——如缺少角色、目的、证据、约束、互动历史或决策点——无法支撑可靠的伦理判断。",
+    "evidence_to_inspect": [
+      "sample items",
+      "prompt templates",
+      "scenario descriptions",
+      "input fields",
+      "label rationale",
+      "few-shot examples",
+      "task instruction"
+    ],
+    "diagnostic_questions_en": [
+      "Is the information provided sufficient to make the required ethical judgment?",
+      "What facts must the model infer or 'fill in' to answer?",
+      "Are roles, relationships, purpose, evidence, constraints, and interaction history present?",
+      "Is there a clear decision point with meaningful alternatives?",
+      "Would the answer remain valid if group identity were removed?",
+      "Is there demonstrably insufficient evidence for the judgment requested?"
+    ],
+    "diagnostic_questions_zh": [
+      "题目所给信息是否足以支持所需的伦理判断？",
+      "模型需要脑补哪些事实才能作答？",
+      "是否存在角色、关系、目的、证据、约束和互动历史？",
+      "是否存在清晰的决策点及有意义的选项？",
+      "如果去掉群体身份，答案是否依然成立？",
+      "是否存在明确的证据不足情况？"
+    ],
+    "red_flags_en": [
+      "\"Who is more unreasonable?\" without behavioral evidence",
+      "\"Does this violate privacy?\" without sender/recipient/purpose",
+      "\"Should the model refuse?\" without user intent or risk level",
+      "\"Who is better suited for the role?\" without job-relevant evidence",
+      "\"How should the model respond to a mental health crisis?\" without user risk status"
+    ],
+    "red_flags_zh": [
+      "“谁更不合理？”但没有具体行为证据",
+      "“是否侵犯隐私？”但没有发送方/接收方/目的",
+      "“是否应该拒绝？”但没有用户意图和风险等级",
+      "“谁更适合岗位？”但没有岗位相关能力证据",
+      "“模型应该如何回应心理危机？”但没有用户风险状态"
+    ],
+    "domain_symptoms": {
+      "Fairness": "No job-relevant evidence yet judgment of candidate suitability; forced choice without equitable basis",
+      "Privacy": "Missing sender, subject, recipient, purpose, or authorization for data handling",
+      "Safety": "Missing operationality, intent, proximity, or explicit risk tier for harm assessment",
+      "Human-Centered": "Missing user state, risk level, professional boundaries, or available support resources",
+      "Agent": "Missing tool permissions, environment context, accessible files, or action consequences"
+    },
+    "common_misdiagnosis_en": "Short prompts are not automatically R6-low; isolated stereotype association tasks may legitimately require brevity. R6 arises only when complex ethical judgment is demanded without adequate contextual grounding.",
+    "common_misdiagnosis_zh": "简短题目不一定 R6 低；若目标是测量孤立的刻板印象关联，短题可接受。R6 的问题在于：要求进行复杂的伦理判断，却未提供足够的上下文支撑。",
+    "scoring_simple": {
+      "0": "Scenario almost absent — no thematic anchor or decision context.",
+      "1": "Basic theme present, but missing critical elements: roles, evidence, or decision point.",
+      "2": "Partial scenario exists (e.g., roles or purpose), but substantial inference ('brain-filling') still required.",
+      "3": "All key elements clearly specified: roles, purpose, evidence, constraints, decision point, and acknowledged uncertainty."
+    },
+    "default_tools_doc16": [
+      "T5b",
+      "T7",
+      "T8",
+      "T11"
+    ],
+    "default_tools_web14": [
+      "T03",
+      "T04",
+      "T03",
+      "T09"
+    ]
+  },
+  "R3": {
+    "code": "R3",
+    "name_en": "Evidence Provenance and Fitness",
+    "name_zh": "证据来源可追溯与适配性",
+    "typical_symptoms_en": "The benchmark's source data, papers, cases, or annotations are unclear or insufficient to support its claims — e.g., 'expert-annotated' without expert credentials, 'real-world data' without provenance, or using US-only data to claim global validity.",
+    "typical_symptoms_zh": "基准测试所依赖的源数据、论文、案例或标注信息不明确，或无法支撑其主张——例如声称‘专家标注’却未说明专家身份与资质，‘真实世界数据’却无来源说明，或仅用美国数据就宣称具有全球适用性。",
+    "evidence_to_inspect": [
+      "data collection section",
+      "dataset sources",
+      "annotation protocol",
+      "source references",
+      "limitations section",
+      "benchmark card / dataset card",
+      "README",
+      "source-to-tool mapping",
+      "paper citations"
+    ],
+    "diagnostic_questions_en": [
+      "Where does the data come from?",
+      "Is the source traceable?",
+      "Is the source fit for the claimed purpose?",
+      "Does the source’s cultural/jurisdictional/professional context match the claim?",
+      "Is there over-attribution to the source?",
+      "What is the source’s contribution type: provides mechanism, exemplifies, supports, motivates, or critique-motivates?",
+      "Does the benchmark document source limitations?"
+    ],
+    "diagnostic_questions_zh": [
+      "数据从哪里来？",
+      "来源是否可追溯？",
+      "该来源是否适配当前主张？",
+      "来源的文化/法域/专业背景是否与主张匹配？",
+      "是否存在对来源的过度归因？",
+      "该来源的贡献类型是：提供机制、举例说明、支撑主张、激发设计，还是批判性启发？",
+      "基准测试是否说明了来源的局限性？"
+    ],
+    "red_flags_en": [
+      "'collected from the web' but no detailed source",
+      "'expert labels' but no expert background",
+      "'based on real cases' but no case source",
+      "'global benchmark' but only English data",
+      "'clinical support benchmark' but data from non-clinical forums",
+      "'this paper proposes our tool' but original only shows similar practice"
+    ],
+    "red_flags_zh": [
+      "‘从网络收集’但无具体来源",
+      "‘专家标注’但无专家背景说明",
+      "‘基于真实案例’但无案例来源",
+      "‘全球基准’却仅有英文数据",
+      "‘临床支持基准’但数据来自非临床论坛",
+      "‘本文提出我们的工具’但原文仅展示类似实践"
+    ],
+    "domain_symptoms": {
+      "Privacy": "隐私规范来源不清；数据来自某法域，却声称适用于所有法域。",
+      "Fairness": "identity categories 直接搬用，不说明来源和本地适配性。",
+      "Trustworthiness": "事实题没有 evidence source、时间戳、更新机制。",
+      "Professional domains": "医疗/心理/法律 source 不来自专业规范或专家审核。"
+    },
+    "common_misdiagnosis_en": "Do not confuse 'imperfect source' with R3 failure. The issue is mismatch between claim and source — e.g., Reddit data can validly support 'online help-seeking expression', but not 'clinical crisis intervention'.",
+    "common_misdiagnosis_zh": "不要将‘来源不完美’等同于 R3 低分。关键在于主张与来源是否匹配——例如 Reddit 数据可有效支撑‘在线求助表达’，但不能支撑‘临床危机干预’。",
+    "scoring_simple": {
+      "0": "Source is untraceable.",
+      "1": "Source is partially traceable, but claim is clearly oversized or fitness is ambiguous.",
+      "2": "Source and claim are broadly aligned, but limitation or contribution type is unclear.",
+      "3": "Source, claim, contribution type, and limitations are all explicitly and accurately documented."
+    },
+    "default_tools_doc16": [
+      "T3",
+      "T6",
+      "T16c"
+    ],
+    "default_tools_web14": [
+      "T10",
+      "T05",
+      "T13"
+    ]
+  },
+  "R5": {
+    "code": "R5",
+    "name_en": "Real-world harm linkage",
+    "name_zh": "现实伤害路径连接",
+    "typical_symptoms_en": "The benchmark labels outputs as harmful, unsafe, or unfair without explaining how model errors translate into concrete real-world consequences, affected parties, protected interests, severity, or deployment context.",
+    "typical_symptoms_zh": "评测将模型输出标记为有害、不安全或不公平，但未说明模型错误如何转化为具体的现实后果、受影响方、受保护利益、伤害严重性或部署场景。",
+    "evidence_to_inspect": [
+      "task rationale",
+      "risk description",
+      "harm taxonomy",
+      "label rationale",
+      "failure analysis",
+      "limitations",
+      "scenario description",
+      "deployment context"
+    ],
+    "diagnostic_questions_en": [
+      "Who would use the model's erroneous output?",
+      "Who would be affected by it?",
+      "Which protected interest is harmed (e.g., autonomy, privacy, safety)?",
+      "What is the causal pathway from model failure to real-world harm?",
+      "How severe is the harm, and is it reversible?",
+      "Are mitigation strategies or safe alternatives identified?"
+    ],
+    "diagnostic_questions_zh": [
+      "谁会使用模型的错误输出？",
+      "谁会因此受到影响？",
+      "伤害了哪些受保护利益（如自主权、隐私、安全）？",
+      "从模型失效到现实伤害的因果路径是什么？",
+      "伤害严重程度如何？是否可逆？",
+      "是否提出了缓解措施或安全替代方案？"
+    ],
+    "red_flags_en": [
+      "\"harmful\" but no harm to whom",
+      "\"privacy violation\" but no info-flow-to-harm chain",
+      "\"unsafe\" but no operational feasibility or consequence",
+      "\"bias\" but no opportunity denial, representation harm, or resource impact",
+      "\"toxic\" but no deployment consequences specified"
+    ],
+    "red_flags_zh": [
+      "标称‘有害’但未说明伤害对象",
+      "称‘侵犯隐私’但未说明信息流如何致害",
+      "称‘不安全’但未说明可操作性或实际后果",
+      "称‘偏见’但未说明机会剥夺、表征伤害或资源分配影响",
+      "称‘有毒’但未说明部署后的现实后果"
+    ],
+    "domain_symptoms": {
+      "Privacy": "未说明信息泄露如何导致歧视、骚扰、身份盗用或自主权受损",
+      "Safety": "未说明请求是否可操作，或是否可能造成身体/网络/公共安全伤害",
+      "Fairness": "未说明偏见如何导致机会剥夺、服务降级或资源分配不公",
+      "Human-Centered": "未说明错误回应如何影响用户心理安全、自主权或专业求助行为",
+      "Trustworthiness": "未说明幻觉如何导致错误决策、财产损失或医疗/法律风险"
+    },
+    "common_misdiagnosis_en": "Not all benchmarks require full deployment simulation; R5 is lenient for narrow tasks like language toxicity detection, but strict when claiming high-stakes ethical risk.",
+    "common_misdiagnosis_zh": "并非所有评测都必须具备完整部署模拟；若仅声称用于语言毒性检测等窄域任务，R5 可适当放宽；但若声称涉及高风险伦理影响，则R5必须严格。",
+    "scoring_simple": {
+      "0": "No harm linkage articulated — only label without any causal or contextual grounding.",
+      "1": "Uses generic harm language (e.g., 'unsafe', 'biased') without specificity on parties, interests, or pathways.",
+      "2": "Identifies at least one element (e.g., affected party OR protected interest) but lacks full causal chain (e.g., missing severity, reversibility, or deployment link).",
+      "3": "Explicitly maps: model output/action → user action → affected party → protected interest → harm severity & reversibility."
+    },
+    "default_tools_doc16": [
+      "T4",
+      "T7",
+      "T15",
+      "T5b"
+    ],
+    "default_tools_web14": [
+      "T01",
+      "T04",
+      "T11",
+      "T03"
+    ]
+  },
+  "R1": {
+    "code": "R1",
+    "name_en": "Construct Clarity",
+    "name_zh": "构念边界清晰度",
+    "typical_symptoms_en": "The benchmark uses broad ethical terms (e.g., 'fairness', 'safety') without defining them operationally or linking them to specific, measurable tasks and metrics.",
+    "typical_symptoms_zh": "基准测试使用宽泛的伦理术语（如“公平性”“安全性”），但未对其进行可操作化定义，也未将其与具体、可测的任务和指标建立明确联系。",
+    "evidence_to_inspect": [
+      "paper title",
+      "paper abstract",
+      "introduction",
+      "benchmark claim",
+      "README overview",
+      "task description",
+      "metric description",
+      "conclusion / leaderboard description"
+    ],
+    "diagnostic_questions_en": [
+      "What construct does the benchmark claim to measure?",
+      "Is there an operational definition of that construct?",
+      "Does the construct have specified sub-dimensions?",
+      "Which part of the construct is actually measured by the task?",
+      "What claim is *actually* supported by the metric?",
+      "Does the paper explicitly state unsupported or out-of-scope claims?",
+      "If you replace the broad term (e.g., 'ethics') in the title with the concrete behavior tested, what remains?"
+    ],
+    "diagnostic_questions_zh": [
+      "该基准测试声称测量什么构念？",
+      "该构念是否有可操作化定义？",
+      "该构念是否划分了子维度？",
+      "任务实际测量了该构念的哪一部分？",
+      "指标实际支持何种主张？",
+      "论文是否明确说明了不支持或超出范围的主张？",
+      "若将标题中的宽泛术语（如‘伦理’）替换为实际测试的具体行为，还剩下什么？"
+    ],
+    "red_flags_en": [
+      "we evaluate model ethics but do not define ethics",
+      "we measure safety but only use refusal rate",
+      "we measure fairness but only test stereotype association",
+      "we measure trustworthiness but only use fact QA",
+      "overall ethical ability score without construct decomposition"
+    ],
+    "red_flags_zh": [
+      "我们评估模型伦理性，但未定义伦理",
+      "我们测量安全性，但仅用拒绝率",
+      "我们测量公平性，但仅测刻板印象关联",
+      "我们测量可信度，但仅用事实问答",
+      "整体伦理能力得分，无构念分解"
+    ],
+    "domain_symptoms": {
+      "Fairness": "只测职业填空中的性别刻板印象关联，却声称测公平性",
+      "Safety": "只测有害请求拒绝，未测过度拒绝、安全续写或多轮鲁棒性",
+      "Privacy": "只测PII泄露，未测信息流、授权、接收方或用途推理",
+      "Trustworthiness": "只测事实问答准确性，未测证据溯源、主动拒答、时效性或引文有效性",
+      "Human-Centered": "只测帮助性或心理学知识题，却声称测尊严、自主性或心理支持"
+    },
+    "common_misdiagnosis_en": "Do not penalize R1 for narrow scope alone — a benchmark that explicitly states 'This only measures stereotype associations in English occupation descriptions' may score highly on R1. R1 targets overclaiming, not narrowness.",
+    "common_misdiagnosis_zh": "不要仅因任务范围窄就扣R1分——若基准明确声明‘本测试仅测量英文职业描述中的刻板印象关联’，R1反而可能得高分。R1批评的是主张超出任务支撑范围，而非任务本身窄。",
+    "scoring_simple": {
+      "0": "No construct definition; only broad label used (e.g., 'ethics')",
+      "1": "Construct name mentioned, but no clear link between construct, task, and metric",
+      "2": "Construct and some sub-dimensions defined, but supported/unsupported claims incompletely specified",
+      "3": "Construct, sub-dimensions, task, metric, supported claims, and explicit out-of-scope statements all clearly provided"
+    },
+    "default_tools_doc16": [
+      "T1",
+      "T15",
+      "T3"
+    ],
+    "default_tools_web14": [
+      "T01",
+      "T11",
+      "T10"
+    ]
+  },
+  "R2": {
+    "code": "R2",
+    "name_en": "Normative Grounding",
+    "name_zh": "规范依据清晰度",
+    "typical_symptoms_en": "The benchmark assigns ethical labels (e.g., 'ethical'/'unethical') without specifying the underlying normative authority—such as law, professional ethics, ethical theory, expert judgment, or community evidence—and treats crowd preferences or platform policies as universal moral truths.",
+    "typical_symptoms_zh": "基准测试赋予伦理标签（如‘符合伦理’/‘违背伦理’），但未说明其背后的规范依据（如法律、职业伦理、伦理理论、专家判断或受影响群体证据），并将众包偏好或平台政策误当作普适道德真理。",
+    "evidence_to_inspect": [
+      "annotation guideline",
+      "label definitions",
+      "gold answer rationale",
+      "normative references",
+      "paper methodology",
+      "dataset card",
+      "benchmark card",
+      "appendix labeling protocol"
+    ],
+    "diagnostic_questions_en": [
+      "Why does this label hold? What justifies it?",
+      "Where does this justification originate?",
+      "Is the source law, policy, professional ethics, expert judgment, community evidence, ethical theory, or descriptive preference?",
+      "Does the source specify its cultural, jurisdictional, or professional domain of applicability?",
+      "Does the benchmark distinguish red-line prohibitions, consensus norms, contested claims, or insufficient evidence?",
+      "Is descriptive preference (e.g., crowd vote) conflated with normative truth?"
+    ],
+    "diagnostic_questions_zh": [
+      "该标签为何成立？依据是什么？",
+      "这一依据来自何处？",
+      "该来源是法律、政策、职业伦理、专家判断、受影响群体证据、伦理理论，还是描述性偏好？",
+      "该来源是否明确其适用的文化、法域或专业领域？",
+      "基准是否区分了红线禁令、共识规范、争议主张或证据不足的情形？",
+      "是否将描述性偏好（如众包投票）等同于规范性真理？"
+    ],
+    "red_flags_en": [
+      "we use majority vote as ground truth for ethical controversy",
+      "unsafe / harmful without harm taxonomy",
+      "privacy violation without consent, purpose, or recipient",
+      "professional advice without scope-of-practice boundary",
+      "moral correctness without ethical theory or expert basis",
+      "global ethical values based on single-culture data"
+    ],
+    "red_flags_zh": [
+      "用多数投票作为伦理争议题的真值",
+      "标‘不安全/有害’但无危害分类体系",
+      "标‘侵犯隐私’但未说明授权、目的或接收方",
+      "标‘专业建议’但无执业边界界定",
+      "标‘道德正确’却无伦理理论或专家依据",
+      "声称‘全球伦理价值’但数据仅来自单一文化群体"
+    ],
+    "domain_symptoms": {
+      "Fairness": "No anti-discrimination norms or affected-community evidence; no basis for protected/proxy attributes",
+      "Safety": "No explanation of why specific behaviors constitute misuse; unsafe labeling based only on keywords",
+      "Privacy": "Missing consent, authorization, purpose limitation, minimum necessary, recipient role, or legal basis",
+      "Trustworthiness": "",
+      "Human-Centered": "No engagement with affected-community evidence or participatory norm-setting for community harms"
+    },
+    "common_misdiagnosis_en": "R2 is not about requiring legal citations in all cases. It is about transparency of normative source type and scope—not whether a source is 'strong', but whether it is named, bounded, and appropriately qualified.",
+    "common_misdiagnosis_zh": "R2 并非要求数所有基准都引用法律。其核心是规范来源类型与适用范围的透明性——不在于来源是否‘强有力’，而在于是否被明确命名、划界并恰当标注不确定性。",
+    "scoring_simple": {
+      "0": "No normative source stated; labels appear without any justification or provenance.",
+      "1": "Vague ethical terms (e.g., 'fair', 'safe') or platform policy cited, but source type and jurisdiction/domain unspecified.",
+      "2": "Some normative sources identified (e.g., 'GDPR', 'medical ethics'), but no distinction among red-line rules, consensus norms, contested claims, or exceptions.",
+      "3": "Explicit source type (law/expert/community/etc.), jurisdiction/domain scope, normative strength (binding vs. aspirational), exception handling, and uncertainty acknowledgment."
+    },
+    "default_tools_doc16": [
+      "T2",
+      "T12",
+      "T8",
+      "T4"
+    ],
+    "default_tools_web14": [
+      "T02",
+      "T12",
+      "T04",
+      "T03"
+    ]
+  },
+  "R11": {
+    "code": "R11",
+    "name_en": "Dataset construction and annotation QA",
+    "name_zh": "数据构建与标注质保",
+    "typical_symptoms_en": "It is unclear how data and labels were produced, or there is no quality assurance process in place for annotation.",
+    "typical_symptoms_zh": "数据和标签的生产过程不清晰，或缺乏标注质量保障机制。",
+    "evidence_to_inspect": [
+      "dataset construction section",
+      "annotation guideline",
+      "annotator qualification",
+      "quality control process",
+      "agreement statistics",
+      "expert review",
+      "data filtering / deduplication",
+      "dataset card",
+      "appendix"
+    ],
+    "diagnostic_questions_en": [
+      "How was the data collected?",
+      "Was data cleaned and deduplicated?",
+      "Who performed the annotation?",
+      "Were annotators trained?",
+      "Does the task require domain expertise?",
+      "How were labeling disagreements resolved?",
+      "Was there expert review of labels?",
+      "Was inter-annotator agreement reported?"
+    ],
+    "diagnostic_questions_zh": [
+      "数据是如何收集的？",
+      "是否进行了数据清洗和去重？",
+      "由谁执行标注？",
+      "标注员是否接受过培训？",
+      "该任务是否需要领域专业知识？",
+      "标注分歧如何解决？",
+      "是否有专家对标签进行复核？",
+      "是否报告了标注者间一致性（IAA）？"
+    ],
+    "red_flags_en": [
+      "crowd labels for high-risk professional tasks",
+      "no annotation guideline",
+      "no IAA / agreement",
+      "AI-generated items without human review",
+      "no conflict resolution",
+      "no label quality audit"
+    ],
+    "red_flags_zh": [
+      "高风险专业任务使用众包标注",
+      "无标注指南",
+      "无标注者间一致性（IAA）/一致性统计",
+      "AI生成样本未经人工审核",
+      "无分歧解决机制",
+      "无标签质量审计"
+    ],
+    "domain_symptoms": {
+      "Fairness": "标注者群体不透明；没有受影响社群审查",
+      "Safety": "harm类别标注缺乏专家/红队审核",
+      "Privacy": "信息流判断缺乏法务/隐私专家或规范依据",
+      "Truthfulness": "事实类标签缺乏证据验证"
+    },
+    "common_misdiagnosis_en": "Lack of expert annotation is not inherently problematic for simple language classification tasks; crowd annotation can be appropriate. However, it becomes a gap when high-stakes professional judgment is required.",
+    "common_misdiagnosis_zh": "缺少专家标注本身不一定有问题——普通语言分类任务中众包标注可接受；但当任务涉及高风险专业判断时，仅靠众包即构成缺陷。",
+    "scoring_simple": {
+      "0": "Data/annotation process is completely undocumented or opaque.",
+      "1": "A rough process is described, but no QA measures or annotation guideline provided.",
+      "2": "Annotation guideline and partial QA exist (e.g., training or basic agreement check), but lacks domain expertise or robust disagreement resolution.",
+      "3": "Full pipeline documented: data collection, cleaning, deduplication, annotator training, annotation guideline, expert review, disagreement resolution protocol, and label quality audit."
+    },
+    "default_tools_doc16": [
+      "T16a"
+    ],
+    "default_tools_web14": [
+      "T13"
+    ]
+  },
+  "R8": {
+    "code": "R8",
+    "name_en": "Label structure and disagreement design",
+    "name_zh": "标签结构与分歧设计",
+    "typical_symptoms_en": "Complex ethical questions are forced into a single gold label, ignoring moral ambiguity, insufficient evidence, expert dependency, or cultural relativity.",
+    "typical_symptoms_zh": "复杂的伦理问题被强行压缩为单一黄金标签，忽视道德模糊性、证据不足、专家依赖性或文化相对性。",
+    "evidence_to_inspect": [
+      "label schema",
+      "answer key",
+      "annotation guideline",
+      "gold rationale",
+      "disagreement resolution",
+      "label distribution",
+      "expert review notes"
+    ],
+    "diagnostic_questions_en": [
+      "Does this task truly have a single correct answer?",
+      "Which cases are red-line (non-negotiable prohibitions)?",
+      "Which cases reflect consensus vs. reasonable disagreement?",
+      "Which cases lack sufficient evidence to justify any label?",
+      "Which cases require expert escalation due to domain complexity?"
+    ],
+    "diagnostic_questions_zh": [
+      "该任务是否真的有唯一正确答案？",
+      "哪些案例属于红线（不可协商的禁止行为）？",
+      "哪些案例反映共识，哪些属于合理分歧？",
+      "哪些案例因证据不足而无法支持任何标签？",
+      "哪些案例因领域复杂性需专家升级处理？"
+    ],
+    "red_flags_en": [
+      "Moral dilemma labeled yes/no",
+      "Political/cultural value question with single gold label",
+      "No expert escalation in psychological/medical/legal scenarios",
+      "No 'insufficient evidence' option for ambiguous items",
+      "Privacy decision limited to 'allow/refuse' without consent/redact/clarify options"
+    ],
+    "red_flags_zh": [
+      "道德困境仅标是/否",
+      "政治/文化价值题使用单一黄金标签",
+      "心理/医疗/法律场景无专家升级机制",
+      "模糊题目缺少‘证据不足’选项",
+      "隐私决策仅限‘允许/拒绝’，无‘征得同意/脱敏/请求澄清’等选项"
+    ],
+    "domain_symptoms": {
+      "Fairness": "缺少模糊vs明确标签；证据不足时不允许‘不足以判断’",
+      "Safety": "缺少教育性/防御性/虚构性/操作性有害的区分",
+      "Privacy": "缺少 allow / refuse / ask consent / redact / minimize / insufficient authorization",
+      "Professional advice": "缺少 expert escalation、boundary maintenance、insufficient information",
+      "Moral dilemmas": "缺少 acceptable disagreement"
+    },
+    "common_misdiagnosis_en": "Not all ethics benchmarks must allow disagreement; some red-line cases legitimately demand firm labels. R8 is about structural alignment between label design and question type—not diversity for its own sake.",
+    "common_misdiagnosis_zh": "并非所有伦理基准都必须允许多元分歧；某些红线案例本就应有确定标签。R8 关注的是标签结构是否匹配问题类型，而非为多元而多元。",
+    "scoring_simple": {
+      "0": "所有案例强制赋予单一标签，无例外处理",
+      "1": "存在少量理由说明，但未系统处理分歧或不确定性",
+      "2": "部分区分红线/争议/证据不足案例，但未覆盖全部维度",
+      "3": "标签结构系统化区分红线、共识、争议、证据不足、专家升级五类"
+    },
+    "default_tools_doc16": [
+      "T12",
+      "T2",
+      "T13"
+    ],
+    "default_tools_web14": [
+      "T12",
+      "T02",
+      "T11"
+    ]
+  },
+  "R13": {
+    "code": "R13",
+    "name_en": "Documentation and Reproducibility",
+    "name_zh": "文档完整性与可复现性",
+    "typical_symptoms_en": "Others cannot understand, run, reproduce, or audit the benchmark after obtaining it.",
+    "typical_symptoms_zh": "他人获取 benchmark 后无法理解、运行、复现或审计。",
+    "evidence_to_inspect": [
+      "GitHub repository",
+      "README",
+      "requirements file",
+      "scripts",
+      "dataset card",
+      "benchmark card",
+      "license",
+      "schema",
+      "prompt files",
+      "evaluation code",
+      "release notes",
+      "paper appendix"
+    ],
+    "diagnostic_questions_en": [
+      "Can others download the data?",
+      "Can others run the evaluation scripts?",
+      "Are prompts and scoring rules publicly available?",
+      "Is the metric clearly defined?",
+      "Is the license clearly stated?",
+      "Are intended use and out-of-scope use explicitly documented?",
+      "Are the paper, README, and data files consistent?"
+    ],
+    "diagnostic_questions_zh": [
+      "别人能下载数据吗？",
+      "能运行 evaluation scripts 吗？",
+      "prompt / scoring rule 是否公开？",
+      "metric 是否定义清楚？",
+      "license 是否清楚？",
+      "intended use 和 out-of-scope use 是否写明？",
+      "paper、README、data file 是否一致？"
+    ],
+    "red_flags_en": [
+      "paper exists but code/data missing",
+      "README and paper list different tool/rubric counts",
+      "metric mentioned only once in main text",
+      "prompt missing",
+      "license missing",
+      "no quick-start guide",
+      "results cannot be replicated"
+    ],
+    "red_flags_zh": [
+      "paper 有，code/data 没有",
+      "README 和 paper 用不同 tool/rubric 数量",
+      "metric 只在正文一句话提到",
+      "prompt 缺失",
+      "license 缺失",
+      "no quick-start guide",
+      "results cannot be replicated"
+    ],
+    "domain_symptoms": {
+      "Fairness": "",
+      "Safety": "缺少有害内容警告、访问控制",
+      "Privacy": "缺少数据处理/敏感数据政策",
+      "Trustworthiness": "缺少事实来源、时间戳、检索设置",
+      "Human-Centered": "缺少环境配置、工具权限、轨迹日志"
+    },
+    "common_misdiagnosis_en": "Data restriction for safety reasons is not inherently an R13 gap — but requires clear justification, access mechanism, public metadata, and alternative reproducibility support.",
+    "common_misdiagnosis_zh": "因安全原因限制数据公开不必然导致 R13 低分，但需明确说明限制原因、访问方式、公开的元数据，以及无完整发布时的可复现性支持措施。",
+    "scoring_simple": {
+      "0": "基本不可复现。",
+      "1": "有论文/部分数据，但缺关键脚本、schema、prompt 或 license。",
+      "2": "大部分资源可用，但 documentation 不完整或版本不一致。",
+      "3": "数据、代码、prompt、metric、license、limitations、intended/out-of-scope use 全部清楚。"
+    },
+    "default_tools_doc16": [
+      "T16c"
+    ],
+    "default_tools_web14": [
+      "T13"
+    ]
+  },
+  "R12": {
+    "code": "R12",
+    "name_en": "Anti-gaming and contamination control",
+    "name_zh": "防刷榜与防污染控制",
+    "typical_symptoms_en": "The benchmark is a static, fully public dataset with no safeguards against training data contamination, memorization, leaderboard gaming, or prompt overfitting.",
+    "typical_symptoms_zh": "基准测试是一个静态、完全公开的数据集，缺乏防止训练数据污染、死记硬背、排行榜刷分或提示词过拟合的机制。",
+    "evidence_to_inspect": [
+      "data release policy",
+      "leaderboard rules",
+      "test split documentation",
+      "hidden set policy",
+      "contamination check",
+      "submission limits",
+      "version history",
+      "evaluation protocol"
+    ],
+    "diagnostic_questions_en": [
+      "Is the test set fully public?",
+      "Could the model have seen test items during training?",
+      "Is there a hidden or refreshed subset?",
+      "Are canary items embedded in the test set?",
+      "Is contamination detection performed (e.g., via overlap analysis)?",
+      "Can submissions be made repeatedly to optimize for leaderboard ranking?",
+      "Is there a public practice set and a private test set?"
+    ],
+    "diagnostic_questions_zh": [
+      "测试集是否完全公开？",
+      "模型在训练中是否可能见过测试样本？",
+      "是否存在隐藏集或刷新子集？",
+      "测试集中是否嵌入了金丝雀（canary）样本？",
+      "是否执行污染检测（例如通过重叠分析）？",
+      "排行榜是否允许反复提交以调参刷榜？",
+      "是否存在公开练习集和私有测试集？"
+    ],
+    "red_flags_en": [
+      "static public benchmark + high-profile leaderboard",
+      "no contamination check",
+      "no hidden/private split",
+      "no versioning",
+      "no canary",
+      "test items widely circulated online",
+      "models repeatedly optimized for same benchmark"
+    ],
+    "red_flags_zh": [
+      "静态公开基准 + 高关注度排行榜",
+      "无污染检测",
+      "无隐藏/私有划分",
+      "无版本管理",
+      "无金丝雀样本",
+      "测试题广泛在线流传",
+      "模型反复针对同一基准优化"
+    ],
+    "domain_symptoms": {
+      "Safety": "公开有害提示被模型训练成模板拒答",
+      "Truthfulness": "事实题被训练记忆，不能反映时效性",
+      "Fairness": "模型见过刻板配对样本，学会题型套路",
+      "Privacy": "工作流测试样本公开后，模型可能专门学习‘标准安全动作’"
+    },
+    "common_misdiagnosis_en": "Not all benchmarks require hidden sets — if used solely for teaching or analysis, full transparency is appropriate. R12 applies only when the benchmark serves as a high-stakes evaluation or capability claim.",
+    "common_misdiagnosis_zh": "并非所有基准都必须隐藏测试集——若仅用于教学或分析目的，完全公开是合理的；R12仅适用于该基准被用作高风险评估或强能力主张时。",
+    "scoring_simple": {
+      "0": "Fully public static benchmark; zero anti-gaming or contamination controls.",
+      "1": "Has basic train/test split but lacks contamination check, hidden set, or submission governance.",
+      "2": "Implements partial protections (e.g., hidden subset OR contamination check OR versioning), but at least one major gap remains.",
+      "3": "Comprehensive protection: public/private split, hidden/refreshed subset, canaries, contamination detection, and submission governance."
+    },
+    "default_tools_doc16": [
+      "T16b"
+    ],
+    "default_tools_web14": [
+      "T14"
+    ]
+  },
+  "R10": {
+    "code": "R10",
+    "name_en": "Rater / Judge Reliability",
+    "name_zh": "评分者与评估器可靠性",
+    "typical_symptoms_en": "The benchmark uses uncalibrated, unverified, or opaque evaluators—e.g., a single LLM judge with no disclosed prompt/version, no human spot-checks, no multi-rater agreement, and no bias analysis for open-ended outputs.",
+    "typical_symptoms_zh": "基准测试使用未经校准、未经验证或不透明的评估者——例如，仅用一个未公开prompt/版本的LLM judge，无人工抽检、无多评分者一致性检验、无针对开放性输出的偏差分析。",
+    "evidence_to_inspect": [
+      "evaluator protocol",
+      "judge prompt",
+      "rater instructions",
+      "human annotation details",
+      "inter-rater agreement",
+      "expert review notes",
+      "judge model/version",
+      "calibration examples",
+      "meta-evaluation"
+    ],
+    "diagnostic_questions_en": [
+      "Who is doing the scoring?",
+      "Do raters have a clear, shared rubric?",
+      "Are there multiple independent raters or judges?",
+      "Is there expert spot-checking or calibration?",
+      "Is inter-rater disagreement reported and analyzed?",
+      "If using an LLM judge, is its prompt and model version fully disclosed?",
+      "Has position bias, length bias, or style bias been tested?"
+    ],
+    "diagnostic_questions_zh": [
+      "谁在执行评分？",
+      "评分者是否有明确、共享的评分标准？",
+      "是否存在多个独立评分者或评估器？",
+      "是否有专家抽检或校准？",
+      "是否报告并分析评分者间分歧？",
+      "若使用LLM评估器，其prompt和模型版本是否完全公开？",
+      "是否检验过位置偏差、长度偏差或风格偏差？"
+    ],
+    "red_flags_en": [
+      "we use GPT-4 as judge but no prompt",
+      "human evaluators scored answers but no training or agreement report",
+      "only one holistic score for open-ended outputs",
+      "no expert calibration for high-stakes professional questions",
+      "agent trajectory evaluated only on final output"
+    ],
+    "red_flags_zh": [
+      "我们用GPT-4作judge但未提供prompt",
+      "人类评估者打分但无培训或一致性报告",
+      "开放回答仅给一个整体分",
+      "高风险专业问题无专家校准",
+      "仅凭最终输出评估agent轨迹"
+    ],
+    "domain_symptoms": {
+      "Fairness": "Judge holds cultural/identity biases affecting fairness assessment",
+      "Safety": "Judge prefers strong refusals, misclassifying over-refusal as safe",
+      "Privacy": "",
+      "Trustworthiness": "",
+      "Human-Centered": "Psychological support judge favors warm/long responses while ignoring professional boundaries"
+    },
+    "common_misdiagnosis_en": "Using an LLM judge does not automatically indicate low R10; the issue is whether it is calibrated, transparent, verified, and bias-aware—not whether it is an LLM.",
+    "common_misdiagnosis_zh": "使用LLM作为评估器本身并不等于R10得分低；关键在于它是否经过校准、是否公开透明、是否有人工复核、是否了解其偏差，而非是否为LLM。",
+    "scoring_simple": {
+      "0": "Evaluator undefined or completely uncalibrated (e.g., unnamed 'experts', no protocol, no version, no checks)",
+      "1": "Evaluator named but prompt/rubric/model version unclear or missing",
+      "2": "Has rubric or multiple raters, but lacks bias analysis, expert spot-check, or disagreement reporting",
+      "3": "Has explicit rubric, documented model/version, calibration examples, multi-rater/expert cross-check, and reported disagreement with root-cause analysis"
+    },
+    "default_tools_doc16": [
+      "T14",
+      "T13",
+      "T16c"
+    ],
+    "default_tools_web14": [
+      "T14",
+      "T13",
+      "T13"
+    ]
+  },
+  "R9": {
+    "code": "R9",
+    "name_en": "Metric Validity",
+    "name_zh": "指标有效性",
+    "typical_symptoms_en": "The benchmark uses a single proxy metric (e.g., accuracy, refusal rate) to support a broad ethical claim (e.g., 'the model is safe' or 'fair'), without justification, coverage of failure modes, or acknowledgment of limitations.",
+    "typical_symptoms_zh": "基准测试使用单一代理指标（如准确率、拒答率）支撑宽泛的伦理主张（例如‘模型是安全的’或‘公平的’），缺乏论证、失败模式覆盖或对局限性的说明。",
+    "evidence_to_inspect": [
+      "metric section",
+      "leaderboard score",
+      "result tables",
+      "failure analysis",
+      "subgroup analysis",
+      "confidence / uncertainty reporting",
+      "metric rationale",
+      "claim interpretation"
+    ],
+    "diagnostic_questions_en": [
+      "What construct does this metric directly measure?",
+      "Which critical failure modes does it miss?",
+      "Are trade-offs (e.g., safety vs. helpfulness) masked by this metric?",
+      "Is only the average score reported—no subgroup, scenario, or uncertainty breakdown?",
+      "Does optimizing for this metric risk Goodhart’s law (gaming the metric instead of the construct)?",
+      "Would a multi-metric profile be necessary to reflect the claimed construct?"
+    ],
+    "diagnostic_questions_zh": [
+      "该指标直接测量的是哪个构念？",
+      "它遗漏了哪些关键失败模式？",
+      "是否存在被该指标掩盖的权衡（如安全性 vs. 有用性）？",
+      "是否仅报告平均分，而无子组、场景类型或不确定性分解？",
+      "优化该指标是否会引发古德哈特定律风险（即操纵指标而非真实构念）？",
+      "是否需要多指标画像才能反映所声称的构念？"
+    ],
+    "red_flags_en": [
+      "Safety = refusal rate",
+      "Privacy = PII leakage rate",
+      "Fairness = average accuracy",
+      "Trustworthiness = fact QA accuracy",
+      "Ethics = overall score",
+      "No reporting of over-refusal, safe completions, or subgroup disparity"
+    ],
+    "red_flags_zh": [
+      "模型安全性 = 拒答率",
+      "隐私能力 = PII 泄露率",
+      "公平性 = 平均 accuracy",
+      "可信度 = fact QA accuracy",
+      "伦理能力 = overall score",
+      "没有 over-refusal / safe completion / subgroup disparity"
+    ],
+    "domain_symptoms": {
+      "Fairness": "平均 accuracy 高但 subgroup disparity 大",
+      "Safety": "ASR 低但 over-refusal 高；拒答率高但安全帮助差",
+      "Privacy": "PII leakage 低但 contextual privacy 失败；模型仍然错误转发敏感信息",
+      "Trustworthiness": "accuracy 高但引用不实；不测 abstention 和 freshness",
+      "Human-Centered": "helpfulness 高但越权诊断、忽视危机、损害自主"
+    },
+    "common_misdiagnosis_en": "A simple metric is not inherently flawed; R9 targets cases where the metric is *interpreted* as evidence for claims far beyond its actual measurement scope.",
+    "common_misdiagnosis_zh": "简单指标本身未必错误；R9 批评的是将指标*解释为*超出其实际测量范围的宽泛主张的证据。",
+    "scoring_simple": {
+      "0": "Metric and claim are clearly mismatched (e.g., toxicity score used to claim fairness).",
+      "1": "Metric measures only a narrow proxy, but claim is broad and unqualified (e.g., refusal rate → 'safe').",
+      "2": "Metric is broadly relevant but omits critical dimensions: failure modes, subgroups, or uncertainty.",
+      "3": "Multi-metric profile aligns with the target construct; rationale explicitly states supported and unsupported claims."
+    },
+    "default_tools_doc16": [
+      "T15",
+      "T13",
+      "T9",
+      "T7"
+    ],
+    "default_tools_web14": [
+      "T11",
+      "T09",
+      "T03",
+      "T04"
+    ]
+  },
+  "R14": {
+    "code": "R14",
+    "name_en": "Lifecycle maintenance and update governance",
+    "name_zh": "生命周期维护与更新治理",
+    "typical_symptoms_en": "The benchmark is released once and never maintained, updated, or retired — no version history, no feedback mechanism, no designated maintainer, and no response to evolving model capabilities, new risks, or regulatory changes.",
+    "typical_symptoms_zh": "基准一次性发布后即停止维护、更新或退役——无版本日志、无反馈渠道、无指定维护者，且不响应模型能力演进、新型风险或法规变化。",
+    "evidence_to_inspect": [
+      "release notes",
+      "version history",
+      "GitHub issues",
+      "maintainer information",
+      "contact channel",
+      "update policy",
+      "retirement policy",
+      "dataset changelog",
+      "leaderboard status"
+    ],
+    "diagnostic_questions_en": [
+      "Does the benchmark have a version number?",
+      "When was the last update?",
+      "Is there a public feedback channel (e.g., issue tracker or email)?",
+      "Who is the designated maintainer or contact person?",
+      "What is the stated update cadence or trigger?",
+      "What is the retirement condition or timeline?",
+      "How is benchmark saturation addressed?",
+      "How are newly emerging risks (e.g., agent misuse, multimodal privacy) incorporated?"
+    ],
+    "diagnostic_questions_zh": [
+      "该 benchmark 是否有版本号？",
+      "上次更新是什么时候？",
+      "是否有公开反馈渠道（如 issue tracker 或邮箱）？",
+      "是否有指定维护者或联系人？",
+      "是否声明了更新频率或触发条件？",
+      "退役条件或时间线是什么？",
+      "如何应对 benchmark 饱和？",
+      "如何纳入新出现的风险（如 agent 滥用、多模态隐私）？"
+    ],
+    "red_flags_en": [
+      "no maintainer",
+      "no issue tracker",
+      "no update log",
+      "no retirement plan",
+      "benchmark still used despite outdated risk setting",
+      "static single-turn benchmark used for agent-era claim",
+      "no response to contamination or saturation"
+    ],
+    "red_flags_zh": [
+      "无维护者",
+      "无 issue tracker",
+      "无更新日志",
+      "无退役计划",
+      "benchmark 仍在使用但风险设定已过时",
+      "静态单轮 benchmark 用于 agent 时代主张",
+      "对污染或饱和无响应"
+    ],
+    "domain_symptoms": {
+      "Safety": "新型 jailbreak / agent misuse 出现，但 benchmark 不更新",
+      "Privacy": "从 PII 泄露发展到 memory / agent / multimodal privacy，但 benchmark 仍旧只测字符串",
+      "Trustworthiness": "事实过时，缺 temporal refresh",
+      "Law/policy": "法规变化，benchmark 仍用旧规则",
+      "Agent": "模型行动能力变化，但任务仍是 chat-only"
+    },
+    "common_misdiagnosis_en": "Research-grade static datasets do not inherently require long-term maintenance — unless they are positioned as active benchmarks, leaderboard references, policy evidence, or safety claims.",
+    "common_misdiagnosis_zh": "研究型静态数据集本身不一定需要长期维护——除非它被用作活跃 benchmark、排行榜依据、政策证据或安全主张支撑。",
+    "scoring_simple": {
+      "0": "No maintenance, no updates, no feedback mechanism.",
+      "1": "Has release date/version but no ongoing governance (e.g., no maintainer, no update policy).",
+      "2": "Has partial governance (e.g., versioned release or feedback channel) but lacks defined update/retirement triggers.",
+      "3": "Has version log, public feedback channel, named maintainer, documented update cadence, and explicit retirement trigger."
+    },
+    "default_tools_doc16": [
+      "T16d"
+    ],
+    "default_tools_web14": [
+      "T13",
+      "T04",
+      "T09"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "note": "Boundary disambiguation between rubrics that readers commonly confuse. Sourced from doc 01 (Rubric Codebook Internal).",
+  "pairs": [
+    {
+      "left": "R4",
+      "left_name": "Context and stakeholder coverage",
+      "right": "R6",
+      "right_name": "Scenario validity",
+      "core_difference_en": "R4 checks WHO is covered (and who is missing) across the benchmark; R6 checks whether ONE item carries enough information to judge.",
+      "core_difference_zh": "R4 看的是“覆盖了谁、漏掉了谁”（整体覆盖度）；R6 看的是“这一道题的信息够不够判断”（单题信息密度）。",
+      "example_en": "A fairness bench that omits LGBTQ+ stakeholders fails R4. A bias item phrased as \"Who is unreasonable?\" with no context fails R6.",
+      "example_zh": "公平性 benchmark 漏掉 LGBTQ+ 群体是 R4 问题；一道偏见题“谁更不合理？”缺上下文是 R6 问题。"
+    },
+    {
+      "left": "R2",
+      "left_name": "Normative grounding",
+      "right": "R8",
+      "right_name": "Ground truth and disagreement design",
+      "core_difference_en": "R2 asks WHERE the ethical judgement comes from (law, policy, professional ethics, etc.); R8 asks HOW the label structure handles red lines, consensus, contested cases and insufficient evidence.",
+      "core_difference_zh": "R2 问的是“伦理判断的依据从哪儿来”（法律、政策、职业伦理、社区证据……）；R8 问的是“标签结构如何处理红线、共识、争议、信息不足”。",
+      "example_en": "Calling \"leak patient records to advertisers\" wrong needs R2 sourcing (privacy law + medical ethics). Forcing the trolley problem into a single gold label fails R8.",
+      "example_zh": "“把病历泄露给广告商是错的”需要 R2 标明来源（隐私法 + 医疗职业伦理）；把电车困境压成单选题就是 R8 失败。"
+    },
+    {
+      "left": "R3",
+      "left_name": "Source provenance and evidence fitness",
+      "right": "R11",
+      "right_name": "Data and annotation QA",
+      "core_difference_en": "R3 asks whether SOURCES (data, paper citations, tool attributions) are traceable and fit the claim; R11 asks whether the production process (collection, deduplication, annotator training, conflict resolution) is quality-controlled.",
+      "core_difference_zh": "R3 问的是“来源是否可追溯、能否支撑当前 claim”；R11 问的是“数据和标注的生产过程有没有质检”。",
+      "example_en": "Citing CBBQ as inventing a tool it merely exemplifies is an R3 issue. No annotator disagreement protocol is an R11 issue.",
+      "example_zh": "把 CBBQ 写成“提出了某工具”而它只是 exemplifies，是 R3 过度归因问题；没有 annotator 分歧解决流程是 R11 问题。"
+    },
+    {
+      "left": "R9",
+      "left_name": "Metric validity",
+      "right": "R10",
+      "right_name": "Evaluator reliability",
+      "core_difference_en": "R9 asks whether the RULER measures the right thing (does this metric actually map back to the construct?); R10 asks whether the PERSON / SYSTEM holding the ruler is stable (judge consistency, position bias, calibration).",
+      "core_difference_zh": "R9 问的是“尺子量的东西对不对”（指标和 construct 匹配吗？）；R10 问的是“拿尺子的人/系统稳不稳”（judge 一致性、位置偏差、是否校准）。",
+      "example_en": "Reporting ASR alone for safety without subgroup/over-refusal is R9 failure. LLM-judge preferring longer answers over correct ones is R10 failure.",
+      "example_zh": "安全 benchmark 只报 ASR 不拆 over-refusal 是 R9 失败；LLM judge 偏好长答案而非正确答案是 R10 失败。"
+    },
+    {
+      "left": "R13",
+      "left_name": "Documentation and reproducibility",
+      "right": "R14",
+      "right_name": "Maintenance and update governance",
+      "core_difference_en": "R13 asks whether the benchmark CAN BE REPRODUCED RIGHT NOW (docs, schemas, eval scripts, prompt versions); R14 asks whether the benchmark WILL BE MAINTAINED OVER TIME (version log, update cadence, retirement triggers).",
+      "core_difference_zh": "R13 问的是“当前能不能复现”（文档、schema、评估脚本、prompt 版本）；R14 问的是“未来会不会维护、更新、退役”。",
+      "example_en": "Missing benchmark card / prompt version pinning is R13. No version log, no retirement trigger for stale items is R14.",
+      "example_zh": "没有 benchmark card / 没固定 prompt 版本是 R13 问题；没有 version log、没有 stale item 退役机制是 R14 问题。"
+    }
+  ]
+}

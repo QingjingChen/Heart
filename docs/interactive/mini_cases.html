@@ -180,6 +180,134 @@
   display: inline-block;
 }
 .acc[open] summary::before { transform: rotate(90deg); }
+
+/* Disclaimer banner */
+.disclaimer-banner {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 1px solid #F2D78E;
+  border-left: 4px solid #B45309;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin: 12px 0;
+  font-size: 12.5px;
+}
+.disclaimer-banner b { color: #7C5306; }
+
+/* Enrichment block */
+.enrich-block {
+  background: linear-gradient(135deg, #F8FAFB 0%, #EEF3F8 100%);
+  border-top: 1px dashed var(--border);
+  padding: 16px 20px;
+  margin-top: 4px;
+}
+.enrich-h {
+  margin: 14px 0 6px;
+  color: var(--primary);
+  font-size: 13px;
+}
+.enrich-h:first-child { margin-top: 0; }
+
+/* Gap detection table */
+.gd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+  margin-top: 4px;
+}
+.gd-table th {
+  background: var(--bg);
+  padding: 6px 8px;
+  font-size: 11px;
+  text-align: left;
+  color: var(--primary);
+  border-bottom: 2px solid var(--border);
+}
+.gd-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.sev {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+}
+.sev-Low { background:#E0F2E0; color:#1B5E20; }
+.sev-Low_Medium { background:#FFF3E0; color:#E65100; }
+.sev-Medium { background:#FFE0B2; color:#E65100; }
+.sev-Medium_High { background:#FFD0A0; color:#BF360C; }
+.sev-High { background:#FFCDD2; color:#B71C1C; }
+
+/* Tool prescription */
+.tp-group { margin-top: 6px; }
+.tp-group b { display: block; font-size: 11.5px; color: var(--primary); margin-bottom: 4px; }
+.tp-list { display: flex; flex-direction: column; gap: 6px; }
+.tp-pill {
+  background: rgba(255,255,255,.85);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 11.5px;
+}
+.tp-pill a { color: var(--primary); text-decoration: none; }
+.tp-pill a:hover { text-decoration: underline; }
+.tp-purpose { margin-top: 3px; color: var(--text); line-height: 1.45; }
+.tp-adapter {
+  background: #E8F0F8;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: var(--primary);
+}
+.tp-adapter b { color: var(--primary); }
+
+/* Source list (used inside enrich-block) */
+.src-list { display: grid; gap: 5px; }
+.src-row {
+  background: rgba(255,255,255,.7);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 11.5px;
+  border-left: 2px solid var(--border);
+}
+.src-row .src-name { margin-right: 6px; }
+.src-contrib { margin-top: 2px; color: var(--text); line-height: 1.45; }
+.src-ct {
+  font-size: 10px;
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+}
+.src-ct.ct-provides_mechanism { background:#E8F5E9; color:#1B5E20; }
+.src-ct.ct-exemplifies { background:#E3F2FD; color:#0D47A1; }
+.src-ct.ct-supports { background:#F3E5F5; color:#4A148C; }
+.src-ct.ct-motivates { background:#FFF3E0; color:#E65100; }
+.src-ct.ct-critique_motivates { background:#FFE0E0; color:#B71C1C; }
+.src-ct.ct-HEART_adaptation { background:#FFF9C4; color:#5D4037; }
+.src-ct.ct-needs_check { background:#ECEFF1; color:#37474F; }
+
+/* Limitations list */
+.lim-list { margin: 4px 0; padding-left: 22px; font-size: 12px; line-height: 1.55; }
+.lim-list li { margin: 3px 0; }
+
+/* Fact status (R14) */
+.fact-status {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 1px solid #F2D78E;
+  border-left: 4px solid #B45309;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 16px 20px;
+}
+.fact-status h4 { margin: 0 0 8px; color: #7C5306; font-size: 13px; }
+.fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; }
+.fact-grid b { color: #7C5306; }
+.fact-status a { color: #B45309; }
 </style>
 </head>
 <body>
@@ -197,11 +325,18 @@
 </nav>
 <main>
 <section class="card">
-  <h2>How to read each case</h2>
+  <h2><span class="lang-en">How to read each case</span><span class="lang-zh">如何阅读每个 case</span></h2>
   <p>
-    Each card shows: <b>source dataset + entry ID</b> (so the original item is reproducible) → the <b>original item(s)</b> verbatim → the <b>HEART-revised item(s)</b>
-    → which <b>tools + operations</b> were applied (linked to the tool card) → which <b>rubrics</b> the revision lifts → a one-sentence <b>why-improved</b>.
+    <span class="lang-en">Each card shows: <b>source dataset + entry ID</b> → <b>original item</b> verbatim → <b>HEART-revised item</b> → <b>gap detection</b> table → <b>tool prescription</b> (web 14-tool IDs) → per-tool <b>repair execution</b> → <b>source-tool attribution</b> (standardised vocabulary) → <b>remaining limitations</b>.</span>
+    <span class="lang-zh">每个 case 包含：<b>来源数据集 + 条目 ID</b> → 原题逐字 → HEART 改编后 → <b>gap detection</b> 表 → <b>tool prescription</b>（用网页 14-tool ID）→ 逐工具 <b>repair execution</b> → <b>source-tool attribution</b>（规范化措辞）→ <b>remaining limitations</b>。</span>
   </p>
+  <div class="disclaimer-banner">
+    <b>⚠️ <span class="lang-en">Worked examples, not empirical validation</span><span class="lang-zh">演示性 worked example，非实证验证</span></b>
+    <div>
+      <span class="lang-en">These 5 mini cases demonstrate how HEART moves from rubric diagnosis to repair operations. They are <b>illustrative</b> — they do not claim that the revised items have been empirically proven superior to the originals via model experiments or large-scale expert review. The intent is to show the workflow, not to publish a new benchmark.</span>
+      <span class="lang-zh">这 5 个 mini case 演示 HEART 如何从 rubric 诊断走到修复操作。它们是<b>演示性</b>的——并不声称 revised items 已经被模型实验或大规模专家评审证明优于原题。目的是展示工作流，而非发布新 benchmark。</span>
+    </div>
+  </div>
   <div class="toc">
     <a href="#case1_bbq_age">Case 1 · BBQ (Fairness)</a>
     <a href="#case2_xstest">Case 2 · XSTest (Safety)</a>
@@ -215,8 +350,13 @@
 
 </main>
 <script>
+let ENRICH = {};
 async function build() {
-  const cases = await fetch('data/mini_cases.json').then(r=>r.json());
+  const [cases, enrich] = await Promise.all([
+    fetch('data/mini_cases.json').then(r=>r.json()),
+    fetch('data/mini_case_enrichment.json').then(r=>r.json()),
+  ]);
+  ENRICH = enrich;
   const cont = document.getElementById('cases-container');
   cont.innerHTML = '';
   for (let i=0; i<cases.length; i++) {
@@ -351,8 +491,90 @@ function renderCase(c, idx) {
           </div>
         </details>
       </div>
+
+      ${renderEnrichment(c)}
+      ${renderFactStatus(c)}
     </div>
   </div>`;
+  return html;
+}
+
+function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function renderFactStatus(c) {
+  if (!c.fact_status) return '';
+  const fs = c.fact_status;
+  const sources = (fs.verification_sources||[]).map(s => `<li><a href="${s.url}" target="_blank">${s.title}</a></li>`).join('');
+  return `<div class="fact-status">
+    <h4>📅 <span class="lang-en">Fact status &amp; R14 disclosure</span><span class="lang-zh">事实状态与 R14 披露</span></h4>
+    <div class="fact-grid">
+      <div><b><span class="lang-en">Last verified:</span><span class="lang-zh">最后核验：</span></b> ${fs.last_verified||'—'}</div>
+      <div><b><span class="lang-en">Next review:</span><span class="lang-zh">下次复查：</span></b> ${fs.next_review||'—'}</div>
+    </div>
+    <p class="muted" style="font-size:11.5px;margin:8px 0 4px">
+      <span class="lang-en">${escapeHtml(fs.note_en||'')}</span>
+      <span class="lang-zh">${escapeHtml(fs.note_zh||'')}</span>
+    </p>
+    ${sources ? `<div style="margin-top:6px"><b style="font-size:11.5px;color:var(--primary)"><span class="lang-en">Verification sources:</span><span class="lang-zh">核验来源：</span></b><ul style="margin:4px 0;padding-left:20px;font-size:11.5px">${sources}</ul></div>` : ''}
+  </div>`;
+}
+
+function renderEnrichment(c) {
+  const e = ENRICH[c.id];
+  if (!e || e.error) return '';
+  let html = '<div class="enrich-block">';
+
+  // Gap detection table
+  if (e.gap_detection && e.gap_detection.length) {
+    html += `<h4 class="enrich-h"><span class="lang-en">⑤ Gap detection — diagnosis table</span><span class="lang-zh">⑤ Gap detection · 诊断表</span></h4>
+      <table class="gd-table"><thead><tr>
+        <th>Rubric</th>
+        <th><span class="lang-en">Evidence</span><span class="lang-zh">证据</span></th>
+        <th><span class="lang-en">Severity</span><span class="lang-zh">严重度</span></th>
+        <th><span class="lang-en">Why it matters</span><span class="lang-zh">为何重要</span></th>
+      </tr></thead><tbody>
+        ${e.gap_detection.map(g => `<tr>
+          <td><b>${g.rubric}</b></td>
+          <td><span class="lang-en">${escapeHtml(g.gap_evidence_en||'')}</span><span class="lang-zh">${escapeHtml(g.gap_evidence_zh||'')}</span></td>
+          <td><span class="sev sev-${(g.severity||'').replace(/[\/\s]/g,'_')}">${escapeHtml(g.severity||'')}</span></td>
+          <td><span class="lang-en">${escapeHtml(g.why_matters_en||'')}</span><span class="lang-zh">${escapeHtml(g.why_matters_zh||'')}</span></td>
+        </tr>`).join('')}
+      </tbody></table>`;
+  }
+
+  // Tool prescription
+  if (e.tool_prescription) {
+    const tp = e.tool_prescription;
+    const toolPill = (t) => `<div class="tp-pill"><a href="tools.html#${t.web_id}"><b>${t.web_id}</b></a> <span class="muted" style="font-size:10px">[doc: ${(t.doc_ids||[]).join(', ')}]</span><div class="tp-purpose"><span class="lang-en">${escapeHtml(t.purpose_en||'')}</span><span class="lang-zh">${escapeHtml(t.purpose_zh||'')}</span></div></div>`;
+    html += `<h4 class="enrich-h"><span class="lang-en">⑥ Tool prescription</span><span class="lang-zh">⑥ Tool prescription · 工具处方</span></h4>
+      <div class="tp-group"><b><span class="lang-en">Primary tools</span><span class="lang-zh">主工具</span></b><div class="tp-list">${(tp.primary_tools||[]).map(toolPill).join('')}</div></div>
+      ${(tp.secondary_tools||[]).length ? `<div class="tp-group"><b><span class="lang-en">Secondary tools</span><span class="lang-zh">辅助工具</span></b><div class="tp-list">${tp.secondary_tools.map(toolPill).join('')}</div></div>` : ''}
+      ${tp.domain_adapter_label_en ? `<div class="tp-adapter"><b><span class="lang-en">Domain adapter:</span><span class="lang-zh">领域适配器：</span></b> <span class="lang-en">${escapeHtml(tp.domain_adapter_label_en)}</span><span class="lang-zh">${escapeHtml(tp.domain_adapter_label_zh||'')}</span></div>` : ''}`;
+  }
+
+  // Source-tool attribution
+  if (e.source_tool_attribution && e.source_tool_attribution.length) {
+    html += `<h4 class="enrich-h"><span class="lang-en">⑦ Source-tool attribution</span><span class="lang-zh">⑦ Source-tool attribution · 来源归属</span></h4>
+      <div class="src-list">
+        ${e.source_tool_attribution.map(s => {
+          const ctClass = (s.contribution_type||'').replace(/[\s\-]/g, '_');
+          return `<div class="src-row">
+            <span class="src-name"><b>${escapeHtml(s.source_name||'')}</b></span>
+            <span class="src-ct ct-${ctClass}">${escapeHtml(s.contribution_type||'')}</span>
+            <div class="src-contrib"><span class="lang-en">${escapeHtml(s.contribution_en||'')}</span><span class="lang-zh">${escapeHtml(s.contribution_zh||'')}</span></div>
+          </div>`;
+        }).join('')}
+      </div>`;
+  }
+
+  // Remaining limitations
+  if ((e.remaining_limitations_en||[]).length) {
+    html += `<h4 class="enrich-h"><span class="lang-en">⑧ Remaining limitations</span><span class="lang-zh">⑧ Remaining limitations · 仍存局限</span></h4>
+      <ul class="lim-list lang-en">${e.remaining_limitations_en.map(l => `<li>${escapeHtml(l)}</li>`).join('')}</ul>
+      <ul class="lim-list lang-zh">${(e.remaining_limitations_zh||[]).map(l => `<li>${escapeHtml(l)}</li>`).join('')}</ul>`;
+  }
+
+  html += '</div>';
   return html;
 }
 
