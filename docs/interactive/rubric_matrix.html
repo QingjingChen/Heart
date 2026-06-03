@@ -49,6 +49,70 @@
 .prescription-status.prim { background: rgba(46,125,50,.1); color: #1B5E20; }
 .prescription-status.sec  { background: rgba(245,124,0,.1); color: #E65100; }
 .prescription-status.oth  { background: rgba(0,0,0,.05); color: var(--text-muted); }
+
+/* Cell modal content blocks */
+.rm-h {
+  margin: 16px 0 6px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+.rm-block {
+  background: var(--bg);
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+.rm-example {
+  display: grid;
+  gap: 8px;
+}
+.rm-eg-block {
+  background: linear-gradient(135deg, #F5F8FB 0%, #EAF1F8 100%);
+  border-left: 3px solid var(--primary-light);
+  padding: 10px 14px;
+  border-radius: 4px;
+}
+.rm-eg-label {
+  font-size: 11px;
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: .3px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.rm-eg-text {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.rm-bench-list {
+  display: grid;
+  gap: 5px;
+}
+.rm-bench-row {
+  background: var(--bg);
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.rm-bench-row .bench-pill { margin: 0; font-size: 11.5px; }
+.rm-bench-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  flex: 1;
+  min-width: 200px;
+}
 </style>
 </head>
 <body>
@@ -238,41 +302,68 @@ function openCell(toolId, rubric, score) {
   }
   html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
 
-  if (entries.length === 0) {
-    html += `<p class="muted">No explainable index entry found for this cell — the evidence score above is from the precision-recall weighting of member benches but no curated narrative exists yet.</p>`;
+  if (entries.length === 0 && promptEntries.length === 0) {
+    html += `<p class="muted"><span class="lang-en">No curated narrative for this cell yet. The evidence score above comes from member benches that touch this tool × rubric combo.</span><span class="lang-zh">本格暂无人工撰写的修复说明。证据分数来自命中该工具×rubric 的成员 bench。</span></p>`;
   } else {
-    for (const e of entries) {
-      html += `<h4 style="margin:8px 0 4px;color:var(--primary)"><span class="lang-en">Repair mechanism</span><span class="lang-zh">修复机制</span></h4>`;
-      html += `<div class="section-block">${e['修复机制说明'] || ''}</div>`;
-      const benches = (e['代表来源 / 论文'] || '').split(';').map(s=>s.trim()).filter(Boolean);
-      html += `<h4 style="margin:12px 0 4px;color:var(--primary)"><span class="lang-en">Strongest benchmark evidence</span><span class="lang-zh">最强 benchmark 证据</span></h4>`;
-      html += `<div>`;
-      for (const bn of benches.slice(0, 8)) {
+    // === 1. Repair mechanism (one short paragraph) ===
+    if (entries.length) {
+      const e = entries[0];
+      html += `<h4 class="rm-h"><span class="lang-en">How this tool fixes this rubric</span><span class="lang-zh">这件工具如何修这条 rubric</span></h4>`;
+      html += `<div class="rm-block">${e['修复机制说明'] || '—'}</div>`;
+    }
+
+    // === 2. Sub-tools example with plain-language framing ===
+    //    Merge "Example sub-tool / adaptation prompt" and "Polished adaptation example"
+    //    into one clean block.
+    if (entries.length) {
+      const e = entries[0];
+      const guide = (e['代表Prompt/指导'] || '').trim();
+      const polished = (e['代表改编示例'] || '').trim();
+      if (guide || polished) {
+        html += `<h4 class="rm-h"><span class="lang-en">Concrete example · how to adapt a real item</span><span class="lang-zh">具体例子 · 怎么把一道原题改写</span></h4>`;
+        html += `<div class="rm-example">`;
+        if (guide) html += `<div class="rm-eg-block"><div class="rm-eg-label"><span class="lang-en">What the prompt asks you to do</span><span class="lang-zh">改编 prompt 让你做什么</span></div><div class="rm-eg-text">${guide}</div></div>`;
+        if (polished) html += `<div class="rm-eg-block"><div class="rm-eg-label"><span class="lang-en">A polished revised item</span><span class="lang-zh">润色后的改编示例</span></div><div class="rm-eg-text">${polished}</div></div>`;
+        html += `</div>`;
+        if (e['自动化与人工边界']) {
+          html += `<p class="muted" style="font-size:11.5px;margin:6px 0 0"><b><span class="lang-en">Auto vs. human:</span><span class="lang-zh">自动化与人工边界：</span></b> ${e['自动化与人工边界']}</p>`;
+        }
+      }
+    }
+
+    // === 3. Benches that exemplify this fix (merged: strongest + other instances) ===
+    //    Collect names from both `代表来源 / 论文` and prompt entries; dedupe; preserve order.
+    const allBenches = [];
+    const seen = new Set();
+    if (entries.length) {
+      for (const e of entries) {
+        for (const bn of (e['代表来源 / 论文'] || '').split(';').map(s=>s.trim()).filter(Boolean)) {
+          if (!seen.has(bn)) { seen.add(bn); allBenches.push({ name: bn, sub: '' }); }
+        }
+      }
+    }
+    for (const p of promptEntries) {
+      const bn = (p['Benchmark / Source']||'').trim();
+      if (!bn || seen.has(bn)) continue;
+      seen.add(bn);
+      allBenches.push({ name: bn, sub: (p['细分工具']||'').trim() });
+    }
+    if (allBenches.length) {
+      html += `<h4 class="rm-h"><span class="lang-en">Benches that show this fix in action</span><span class="lang-zh">展示这种修复的 bench</span> <span class="muted" style="font-weight:normal;font-size:11px">(${allBenches.length})</span></h4>`;
+      html += `<p class="muted" style="font-size:11px;margin:0 0 6px"><span class="lang-en">Each bench below has at least one sub-tool that exemplifies this tool × rubric repair. Click any pill for the paper.</span><span class="lang-zh">下列每个 bench 至少含一个体现这种修复的细分工具。点击 pill 跳论文。</span></p>`;
+      html += `<div class="rm-bench-list">`;
+      for (const item of allBenches) {
+        const bn = item.name;
         const cleanName = bn.replace(/\s*\(.*\)\s*$/, '');
         const url = (BENCH_URLS[bn] || BENCH_URLS[cleanName] || {}).paper || '';
-        if (url) html += `<a class="bench-pill has-url" target="_blank" href="${url}">${bn}</a>`;
-        else html += `<span class="bench-pill">${bn}</span>`;
+        const pill = url
+          ? `<a class="bench-pill has-url" target="_blank" href="${url}">${bn}</a>`
+          : `<span class="bench-pill">${bn}</span>`;
+        const subLine = item.sub
+          ? `<div class="rm-bench-sub">${item.sub}</div>`
+          : '';
+        html += `<div class="rm-bench-row">${pill}${subLine}</div>`;
       }
-      html += `</div>`;
-      html += `<h4 style="margin:12px 0 4px;color:var(--primary)"><span class="lang-en">Example sub-tool &amp; adaptation prompt</span><span class="lang-zh">示例细分工具与改编 Prompt</span></h4>`;
-      html += `<div class="section-block">${e['代表Prompt/指导'] || ''}</div>`;
-      html += `<h4 style="margin:12px 0 4px;color:var(--primary)"><span class="lang-en">Polished adaptation example</span><span class="lang-zh">润色后的改编示例</span></h4>`;
-      html += `<div class="section-block">${e['代表改编示例'] || ''}</div>`;
-      html += `<div class="muted" style="margin-top:6px"><span class="lang-en">Automation vs. human boundary:</span><span class="lang-zh">自动化与人工边界：</span> ${e['自动化与人工边界'] || '—'}</div>`;
-    }
-  }
-
-  if (promptEntries.length > 0) {
-    html += `<h4 style="margin:16px 0 4px;color:var(--primary)"><span class="lang-en">Additional benchmark instances</span><span class="lang-zh">其他 benchmark 实例</span> (${promptEntries.length})</h4>`;
-    for (const p of promptEntries) {
-      const bn = p['Benchmark / Source'];
-      const cleanName = bn.replace(/\s*\(.*\)\s*$/, '');
-      const url = (BENCH_URLS[bn] || BENCH_URLS[cleanName] || {}).paper || '';
-      const sub = p['细分工具'] || '';
-      html += `<div style="border-left:3px solid var(--primary-light);padding-left:12px;margin:8px 0;font-size:12.5px">`;
-      html += `<b>${url ? `<a href="${url}" target="_blank">${bn} ↗</a>` : bn}</b><br>`;
-      html += `<span class="muted"><span class="lang-en">Sub-tool:</span><span class="lang-zh">细分工具：</span></span> ${sub}<br>`;
-      html += `<span class="muted"><span class="lang-en">Match type:</span><span class="lang-zh">匹配类型：</span></span> ${p['匹配类型'] || ''}`;
       html += `</div>`;
     }
   }
