@@ -137,30 +137,102 @@
   line-height: 1.45;
   margin-bottom: 6px;
 }
-.subtool-evi {
-  font-size: 12.5px;
-  color: var(--text);
-  line-height: 1.65;
-  margin: 4px 0 10px;
+.subtool-evi, .subtool-guide, .subtool-example, .subtool-sources {
+  margin: 8px 0;
   padding: 8px 10px;
-  background: var(--bg);
-  border-radius: 3px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+.subtool-evi { background: var(--bg); }
+.subtool-guide { background: #FFFBEB; border-left: 3px solid #B45309; }
+.subtool-example { background: #E8F5E9; border-left: 3px solid #2E7D32; }
+.subtool-sources { background: rgba(238, 243, 249, .6); }
+.st-label {
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: .4px;
+  margin-bottom: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.subtool-guide .st-label { color: #7C5306; }
+.subtool-example .st-label { color: #1B5E20; }
+.subtool-sources .st-label { color: var(--primary); }
+.st-text {
+  color: var(--text);
   white-space: pre-wrap;
   word-break: break-word;
 }
-.subtool-guide {
+/* polished-prompt bullets */
+.pg-ctx {
   font-size: 12.5px;
   color: var(--text);
-  line-height: 1.65;
-  margin: 4px 0 10px;
-  padding: 8px 10px;
-  background: #FFFBEB;
-  border-left: 3px solid #B45309;
+  margin-bottom: 8px;
+  background: rgba(255,255,255,.65);
+  padding: 6px 10px;
   border-radius: 3px;
+  border-left: 2px solid #B45309;
+}
+.pg-block { margin: 6px 0; }
+.pg-block > b {
+  display: block;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  color: #7C5306;
+  letter-spacing: .3px;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+.pg-block ul {
+  margin: 2px 0 0;
+  padding-left: 18px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text);
+}
+.pg-block li { margin: 1px 0; }
+.pg-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+@media (max-width: 640px) { .pg-cols { grid-template-columns: 1fr; } }
+.pg-col {
+  background: rgba(255,255,255,.7);
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+.pg-col.pg-auto  { border-left: 2px solid #2E7D32; }
+.pg-col.pg-human { border-left: 2px solid #C62828; }
+.pg-col > b {
+  display: block;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+.pg-col.pg-auto > b  { color: #1B5E20; }
+.pg-col.pg-human > b { color: #B71C1C; }
+.pg-col ul { margin: 2px 0 0; padding-left: 18px; font-size: 11.5px; line-height: 1.55; color: var(--text); }
+.pg-col li { margin: 1px 0; }
+.pg-example {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text);
   white-space: pre-wrap;
   word-break: break-word;
 }
-.subtool-guide b { color: #7C5306; font-size: 11.5px; display: block; margin-bottom: 4px; }
+.pg-fallback {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
 .subtool-sources { font-size: 11px; margin-top: 6px; }
 .subtool-sources .bench-pill { font-size: 10.5px; padding: 1px 8px; margin: 1px 2px; }
 
@@ -336,13 +408,15 @@ const LAYERS = [
 let TOOLS = [], BENCH_URLS = {}, PROMPTS = [];
 
 let SOURCE_ATTR = null;
+let PROMPTS_PLAIN = {};
 
 async function build() {
-  [TOOLS, BENCH_URLS, PROMPTS, SOURCE_ATTR] = await Promise.all([
+  [TOOLS, BENCH_URLS, PROMPTS, SOURCE_ATTR, PROMPTS_PLAIN] = await Promise.all([
     fetch('data/t_tools.json').then(r=>r.json()),
     fetch('data/bench_urls.json').then(r=>r.json()),
     fetch('data/prompts.json').then(r=>r.json()),
     fetch('data/tool_source_attribution.json').then(r=>r.json()),
+    fetch('data/prompts_plain.json').then(r=>r.ok ? r.json() : ({})).catch(() => ({})),
   ]);
   const cont = document.getElementById('layers-container');
   cont.innerHTML = '';
@@ -398,14 +472,17 @@ function benchPill(name) {
 function openTool(tid) {
   const t = TOOLS.find(x => x['Tool ID'] === tid);
   if (!t) return;
-  // Aggregate sub-tool → benches data
-  const subToolEntries = PROMPTS.filter(p => (p['整合工具ID']||'').trim() === tid);
+  // Aggregate sub-tool → benches data (track the source prompts.json index of
+  // the first entry per sub-tool so we can look up the Qwen-polished plain
+  // version in PROMPTS_PLAIN).
   const subToolMap = {};
-  for (const e of subToolEntries) {
+  for (let i = 0; i < PROMPTS.length; i++) {
+    const e = PROMPTS[i];
+    if ((e['整合工具ID']||'').trim() !== tid) continue;
     const sub = (e['细分工具'] || '').trim();
     if (!sub) continue;
     if (!subToolMap[sub]) {
-      subToolMap[sub] = { benches: [], seen: new Set(), evidence: '', prompt_guide: '' };
+      subToolMap[sub] = { benches: [], seen: new Set(), evidence: '', prompt_guide: '', polished_idx: null, example: '' };
     }
     const slot = subToolMap[sub];
     const bn = (e['Benchmark / Source'] || '').trim();
@@ -415,7 +492,11 @@ function openTool(tid) {
       slot.benches.push({ name: bn, type: mt });
     }
     if (!slot.evidence) slot.evidence = (e['匹配证据'] || '').trim();
-    if (!slot.prompt_guide) slot.prompt_guide = (e['改编Prompt指导'] || '').trim();
+    if (!slot.prompt_guide) {
+      slot.prompt_guide = (e['改编Prompt指导'] || '').trim();
+      slot.polished_idx = i;
+      slot.example = (e['改编示例（微改）'] || '').trim();
+    }
   }
   const subToolList = Object.entries(subToolMap).sort((a, b) => b[1].benches.length - a[1].benches.length);
 
@@ -428,9 +509,47 @@ function openTool(tid) {
     }
   }
 
-  // No truncation: each sub-tool is collapsed by default, so when opened the
-  // user expects the full explanation.
-  const clean = (s) => (s || '').trim();
+  // Strip the "匹配到 <tool name>：" prefix and the standalone "原始工具：…" / "改编要点 ·" wrappers.
+  const cleanEvidence = (s) => {
+    if (!s) return '';
+    let txt = s.trim();
+    // strip "匹配到 ... ："
+    txt = txt.replace(/^匹配到[^：]*：\s*/, '');
+    // strip a leading "原始工具：xxx" line if it exists
+    txt = txt.replace(/^原始工具[^\n。；;]*[\n。；;]\s*/, '');
+    return txt.trim();
+  };
+  // Polished prompt-guide → bullet structure if available; otherwise show
+  // the raw prose but stripped of the noisiest boilerplate.
+  const renderPlainGuide = (polishedIdx, rawGuide) => {
+    const polished = polishedIdx != null ? PROMPTS_PLAIN[String(polishedIdx)] : null;
+    if (polished && !polished.error) {
+      const sections = [];
+      const li = (arr) => (arr || []).filter(Boolean).map(s => `<li>${s}</li>`).join('');
+      const ctx = polished.context_zh || polished.context_en;
+      if (ctx) sections.push(`<div class="pg-ctx">${ctx}</div>`);
+      if (polished.keep_from_original_zh && polished.keep_from_original_zh.length) sections.push(`<div class="pg-block"><b><span class="lang-en">Keep from original item</span><span class="lang-zh">从原题保留</span></b><ul>${li(polished.keep_from_original_zh)}</ul></div>`);
+      if (polished.primary_tool_steps_zh && polished.primary_tool_steps_zh.length) sections.push(`<div class="pg-block"><b><span class="lang-en">Main steps</span><span class="lang-zh">主要步骤</span></b><ul>${li(polished.primary_tool_steps_zh)}</ul></div>`);
+      if (polished.secondary_tool_steps_zh && polished.secondary_tool_steps_zh.length) sections.push(`<div class="pg-block"><b><span class="lang-en">Backup steps</span><span class="lang-zh">补充步骤</span></b><ul>${li(polished.secondary_tool_steps_zh)}</ul></div>`);
+      if (polished.outputs_zh && polished.outputs_zh.length) sections.push(`<div class="pg-block"><b><span class="lang-en">What to produce</span><span class="lang-zh">要产出什么</span></b><ul>${li(polished.outputs_zh)}</ul></div>`);
+      const cols = [];
+      if (polished.automatable_zh && polished.automatable_zh.length) cols.push(`<div class="pg-col pg-auto"><b><span class="lang-en">Can automate</span><span class="lang-zh">可自动</span></b><ul>${li(polished.automatable_zh)}</ul></div>`);
+      if (polished.needs_human_zh && polished.needs_human_zh.length) cols.push(`<div class="pg-col pg-human"><b><span class="lang-en">Needs human</span><span class="lang-zh">需人工</span></b><ul>${li(polished.needs_human_zh)}</ul></div>`);
+      if (cols.length) sections.push(`<div class="pg-cols">${cols.join('')}</div>`);
+      return sections.join('');
+    }
+    // Fallback to raw prose, with the verbose framing trimmed
+    let txt = (rawGuide || '').trim();
+    txt = txt.replace(/^基于[^"""""]*?[""""]\s*[""""\s。]*改编到[^：。]*[：。]\s*/, '');
+    return `<div class="pg-fallback">${txt}</div>`;
+  };
+  const renderPlainExample = (rawExample) => {
+    if (!rawExample) return '';
+    let txt = rawExample.trim();
+    // Strip leading "与Prompt对齐的示例：" / "保留/迁移原分类或槽位（…）；"
+    txt = txt.replace(/^与\s*Prompt\s*对齐的示例[：:]?\s*/, '');
+    return `<div class="pg-example">${txt}</div>`;
+  };
 
   let html = `<span class="close" onclick="closeModal()">×</span>`;
   html += `<h3>${tid} · ${t['Toolbox 英文名']}
@@ -472,13 +591,14 @@ function openTool(tid) {
     <summary><span class="lang-en">Sub-tools × source benches</span><span class="lang-zh">细分工具与来源 bench</span> <span class="muted" style="font-size:11px;font-weight:normal">(${subToolList.length} sub-tools · ${totalBenches} benches)</span></summary>
     <div class="acc-body" style="padding:8px 12px">
       ${subToolList.map(([sub, slot]) => {
-        const ev = clean(slot.evidence);
-        const pg = clean(slot.prompt_guide);
+        const ev = cleanEvidence(slot.evidence);
+        const guideHtml = renderPlainGuide(slot.polished_idx, slot.prompt_guide);
+        const exampleHtml = renderPlainExample(slot.example);
         const benchRows = slot.benches.map(b => {
-          const url = urlFor(b.name);
           const cleanName = b.name.replace(/\s*\(.*\)\s*$/, '');
           const a = attrMap[b.name] || attrMap[cleanName];
-          const link = url ? `<a class="bench-pill has-url" target="_blank" href="${url}">${b.name}</a>` : `<span class="bench-pill">${b.name}</span>`;
+          // Internal link → benches.html#BenchName so user lands on the bench's detail card
+          const link = `<a class="bench-pill has-url" href="benches.html#${encodeURIComponent(b.name)}">${b.name}</a>`;
           let ctChip = '';
           let contribLine = '';
           if (a) {
@@ -494,9 +614,10 @@ function openTool(tid) {
             <span class="sub-acc-count">${slot.benches.length} bench${slot.benches.length>1?'es':''}</span>
           </summary>
           <div class="sub-acc-body">
-            ${ev ? `<div class="subtool-evi">${ev}</div>` : ''}
-            ${pg ? `<div class="subtool-guide"><b><span class="lang-en">Adaptation:</span><span class="lang-zh">改编要点：</span></b> ${pg}</div>` : ''}
-            <div class="bench-list">${benchRows || '<span class="muted">—</span>'}</div>
+            ${ev ? `<div class="subtool-evi"><b class="st-label"><span class="lang-en">What this sub-tool is</span><span class="lang-zh">这个细分工具做什么</span></b><div class="st-text">${ev}</div></div>` : ''}
+            ${guideHtml ? `<div class="subtool-guide"><b class="st-label"><span class="lang-en">How to adapt — step-by-step</span><span class="lang-zh">怎么用 — 一步步说</span></b>${guideHtml}</div>` : ''}
+            ${exampleHtml ? `<div class="subtool-example"><b class="st-label"><span class="lang-en">A concrete adapted example</span><span class="lang-zh">一个具体改编后的例子</span></b>${exampleHtml}</div>` : ''}
+            <div class="subtool-sources"><b class="st-label"><span class="lang-en">Benches that exemplify it</span><span class="lang-zh">展示它的 bench（点击跳到 bench 卡片）</span></b><div class="bench-list">${benchRows || '<span class="muted">—</span>'}</div></div>
           </div>
         </details>`;
       }).join('')}
