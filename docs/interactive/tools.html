@@ -129,10 +129,10 @@
 </header>
 <nav>
   <a href="index.html">概览 Overview</a>
+  <a href="rubrics.html">14 Rubrics</a>
   <a href="rubric_matrix.html">14×14 Index</a>
   <a href="tools.html" class="active">14 Tools</a>
   <a href="benches.html">103 Benches</a>
-  <a href="vignettes.html">Vignettes</a>
   <a href="mini_cases.html">Mini Cases</a>
 </nav>
 <main>
@@ -237,7 +237,16 @@ function openTool(tid) {
   if (!t) return;
   const benchNames = (t['代表来源 / 论文（前10）'] || '').split(';').map(s=>s.trim()).filter(Boolean);
   const subToolEntries = PROMPTS.filter(p => (p['整合工具ID']||'').trim() === tid);
-  const uniqueSubTools = [...new Set(subToolEntries.map(p => p['细分工具']))].slice(0, 12);
+  // Group: sub_tool_text -> set of source benches
+  const subToolMap = {};
+  for (const e of subToolEntries) {
+    const sub = (e['细分工具'] || '').trim();
+    const bn = (e['Benchmark / Source'] || '').trim();
+    if (!sub) continue;
+    if (!subToolMap[sub]) subToolMap[sub] = new Set();
+    if (bn) subToolMap[sub].add(bn);
+  }
+  const subToolList = Object.entries(subToolMap).slice(0, 16);
 
   let html = `<span class="close" onclick="closeModal()">×</span>`;
   html += `<h3>${tid} · ${t['Toolbox 英文名']}
@@ -281,8 +290,15 @@ function openTool(tid) {
     <div class="acc-body">${benchNames.map(benchPill).join(' ')}</div>
   </details>`;
   html += `<details class="acc">
-    <summary>Sub-tools represented (${uniqueSubTools.length})</summary>
-    <div class="acc-body"><ul style="margin:0;padding-left:18px">${uniqueSubTools.map(s => `<li style="margin:4px 0">${s}</li>`).join('')}</ul></div>
+    <summary>Sub-tools represented (${subToolList.length}) · 每条带源 benchmark 链接</summary>
+    <div class="acc-body">${subToolList.map(([sub, bnSet]) => {
+      const benches = [...bnSet];
+      const pills = benches.map(bn => benchPill(bn)).join(' ');
+      return `<div style="margin:8px 0;padding:8px 10px;border-left:2px solid var(--primary-light);background:var(--bg);border-radius:3px">
+        <div style="font-size:12.5px;margin-bottom:4px">${sub}</div>
+        <div style="font-size:11px"><span class="muted">来源: </span>${pills || '<span class="muted">—</span>'}</div>
+      </div>`;
+    }).join('')}</div>
   </details>`;
 
   html += `<p class="muted" style="margin-top:10px"><b>局限：</b> ${t['局限 / 避免过度声称'] || ''}</p>`;

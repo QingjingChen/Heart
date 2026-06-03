@@ -164,6 +164,21 @@
   border-color: var(--primary);
   color: var(--primary);
 }
+.acc summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary::before {
+  content: "▸";
+  transition: transform .2s;
+  font-size: 11px;
+  display: inline-block;
+}
+.acc[open] summary::before { transform: rotate(90deg); }
 </style>
 </head>
 <body>
@@ -173,10 +188,10 @@
 </header>
 <nav>
   <a href="index.html">概览 Overview</a>
+  <a href="rubrics.html">14 Rubrics</a>
   <a href="rubric_matrix.html">14×14 Index</a>
   <a href="tools.html">14 Tools</a>
   <a href="benches.html">103 Benches</a>
-  <a href="vignettes.html">Vignettes</a>
   <a href="mini_cases.html" class="active">Mini Cases</a>
 </nav>
 <main>
@@ -298,12 +313,19 @@ function renderCase(c, idx) {
       </div>
 
       <div class="improvement-box">
-        <h4>Solid gaps · 诊断出的缺口</h4>
+        <h4>① 诊断出的 gap · Diagnosed gap (1-line summary)</h4>
         <p style="margin:4px 0"><b>EN:</b> ${c.gaps_en}</p>
         <p style="margin:4px 0"><b>中：</b> ${c.gaps_zh}</p>
+        <details class="acc" style="margin-top:10px;border:0">
+          <summary style="background:transparent;color:#1B5E20;font-weight:600;padding:6px 0">为什么这是个 gap？详细解释 · Why is this a gap? (full explanation)</summary>
+          <div class="acc-body" style="background:rgba(255,255,255,.6);padding:12px;border-radius:4px;margin-top:4px;line-height:1.65">
+            <p style="margin:6px 0"><b style="color:#1B5E20">EN:</b> ${c.gap_reason_en || ''}</p>
+            <p style="margin:6px 0"><b style="color:#1B5E20">中：</b> ${c.gap_reason_zh || ''}</p>
+          </div>
+        </details>
       </div>
 
-      <h4 style="margin:14px 0 4px">HEART tools applied · 用到的工具</h4>
+      <h4 style="margin:14px 0 4px">② HEART tools applied · 用到的工具</h4>
       <div class="tools-row">
         ${c.tools_applied.map(t => `
           <div class="tool-applied">
@@ -313,13 +335,20 @@ function renderCase(c, idx) {
         `).join('')}
       </div>
 
-      <h4 style="margin:14px 0 4px">Rubrics lifted · 提升的 rubric</h4>
+      <h4 style="margin:14px 0 4px">③ Rubrics lifted · 提升的 rubric</h4>
       <div>${c.rubrics_lifted.map(r => `<span class="rubric-pill">${r}</span>`).join('')}</div>
 
       <div class="improvement-box" style="background:linear-gradient(135deg,#E3F2FD 0%, #F0F7FF 100%);border-left-color:var(--primary)">
-        <h4 style="color:var(--primary)">Why improved · 为何更好</h4>
+        <h4 style="color:var(--primary)">④ Why improved · 改编理由 (1-line summary)</h4>
         <p style="margin:4px 0"><b>EN:</b> ${c.why_improved_en}</p>
         <p style="margin:4px 0"><b>中：</b> ${c.why_improved_zh}</p>
+        <details class="acc" style="margin-top:10px;border:0">
+          <summary style="background:transparent;color:var(--primary);font-weight:600;padding:6px 0">具体怎么改的、为什么这样改？详细解释 · How and why (full explanation)</summary>
+          <div class="acc-body" style="background:rgba(255,255,255,.6);padding:12px;border-radius:4px;margin-top:4px;line-height:1.65">
+            <p style="margin:6px 0"><b style="color:var(--primary)">EN:</b> ${c.adapt_reason_en || ''}</p>
+            <p style="margin:6px 0"><b style="color:var(--primary)">中：</b> ${c.adapt_reason_zh || ''}</p>
+          </div>
+        </details>
       </div>
     </div>
   </div>`;
