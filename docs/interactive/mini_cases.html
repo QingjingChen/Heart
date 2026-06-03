@@ -188,13 +188,11 @@
   <div class="subtitle">每个 case 都从真实公开 benchmark 抽取一条带 ID 的样本，标注改编前/后的对照，并指明用到的 HEART tools + operations + improved rubrics</div>
 </header>
 <nav>
-  <a href="index.html">概览 Overview</a>
-  <a href="rubrics.html">14 Rubrics</a>
-  <a href="rubric_matrix.html">14×14 Index</a>
-  <a href="tools.html">14 Tools</a>
-  <a href="benches.html">103 Benches</a>
-  <a href="dimensions.html">5 Dimensions</a>
-  <a href="mini_cases.html" class="active">Mini Cases</a>
+  <a href="index.html"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
+  <a href="dimensions.html"><span class="lang-en">A. Policy &amp; Corpus</span><span class="lang-zh">A. 政策与语料</span></a>
+  <a href="rubrics.html"><span class="lang-en">B. Diagnostic Rubrics</span><span class="lang-zh">B. 诊断 Rubrics</span></a>
+  <a href="tools.html"><span class="lang-en">C. Revision Toolkit</span><span class="lang-zh">C. 修复工具箱</span></a>
+  <a href="mini_cases.html" class="active"><span class="lang-en">D. Revision Examples</span><span class="lang-zh">D. 改编案例</span></a>
   <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
@@ -296,7 +294,7 @@ function renderCase(c, idx) {
     <div class="case-body">
       <div class="before-after">
         <div>
-          <h3 style="color:#C62828">原题 Original</h3>
+          <h3 style="color:#C62828"><span class="lang-en">Original item</span><span class="lang-zh">原题</span></h3>
           ${c.original_items.map(it => `
             <div class="item-block original">
               <h4>${it.type_zh} / ${it.type_en}</h4>
@@ -305,7 +303,7 @@ function renderCase(c, idx) {
           `).join('')}
         </div>
         <div>
-          <h3 style="color:#2E7D32">改编后 HEART-revised</h3>
+          <h3 style="color:#2E7D32"><span class="lang-en">HEART-revised item</span><span class="lang-zh">改编后</span></h3>
           ${c.revised_items.map(it => `
             <div class="item-block revised">
               <h4>${it.type_zh} / ${it.type_en}</h4>
@@ -316,11 +314,11 @@ function renderCase(c, idx) {
       </div>
 
       <div class="improvement-box">
-        <h4>① 诊断出的 gap · Diagnosed gap (1-line summary)</h4>
+        <h4>① <span class="lang-en">Diagnosed gap (1-line summary)</span><span class="lang-zh">诊断出的 gap（一句话概括）</span></h4>
         <span class="lang-en"><p style="margin:4px 0"><b>EN:</b> ${c.gaps_en}</p></span>
         <span class="lang-zh"><p style="margin:4px 0"><b>中：</b> ${c.gaps_zh}</p></span>
         <details class="acc" style="margin-top:10px;border:0">
-          <summary style="background:transparent;color:#1B5E20;font-weight:600;padding:6px 0">为什么这是个 gap？详细解释 · Why is this a gap? (full explanation)</summary>
+          <summary style="background:transparent;color:#1B5E20;font-weight:600;padding:6px 0"><span class="lang-en">Why is this a gap? (full explanation)</span><span class="lang-zh">为什么这是个 gap？（详细解释）</span></summary>
           <div class="acc-body" style="background:rgba(255,255,255,.6);padding:12px;border-radius:4px;margin-top:4px;line-height:1.65">
             <span class="lang-en"><p style="margin:6px 0"><b style="color:#1B5E20">EN:</b> ${c.gap_reason_en || ''}</p></span>
             <span class="lang-zh"><p style="margin:6px 0"><b style="color:#1B5E20">中：</b> ${c.gap_reason_zh || ''}</p></span>
@@ -328,7 +326,7 @@ function renderCase(c, idx) {
         </details>
       </div>
 
-      <h4 style="margin:14px 0 4px">② HEART tools applied · 用到的工具</h4>
+      <h4 style="margin:14px 0 4px">② <span class="lang-en">HEART tools applied</span><span class="lang-zh">用到的工具</span></h4>
       <div class="tools-row">
         ${c.tools_applied.map(t => `
           <div class="tool-applied">
@@ -338,15 +336,15 @@ function renderCase(c, idx) {
         `).join('')}
       </div>
 
-      <h4 style="margin:14px 0 4px">③ Rubrics lifted · 提升的 rubric</h4>
+      <h4 style="margin:14px 0 4px">③ <span class="lang-en">Rubrics lifted</span><span class="lang-zh">提升的 rubric</span></h4>
       <div>${c.rubrics_lifted.map(r => `<span class="rubric-pill">${r}</span>`).join('')}</div>
 
       <div class="improvement-box" style="background:linear-gradient(135deg,#E3F2FD 0%, #F0F7FF 100%);border-left-color:var(--primary)">
-        <h4 style="color:var(--primary)">④ Why improved · 改编理由 (1-line summary)</h4>
+        <h4 style="color:var(--primary)">④ <span class="lang-en">Why improved (1-line summary)</span><span class="lang-zh">改编理由（一句话概括）</span></h4>
         <span class="lang-en"><p style="margin:4px 0"><b>EN:</b> ${c.why_improved_en}</p></span>
         <span class="lang-zh"><p style="margin:4px 0"><b>中：</b> ${c.why_improved_zh}</p></span>
         <details class="acc" style="margin-top:10px;border:0">
-          <summary style="background:transparent;color:var(--primary);font-weight:600;padding:6px 0">具体怎么改的、为什么这样改？详细解释 · How and why (full explanation)</summary>
+          <summary style="background:transparent;color:var(--primary);font-weight:600;padding:6px 0"><span class="lang-en">How and why we revised it (full explanation)</span><span class="lang-zh">具体怎么改的、为什么这样改？（详细解释）</span></summary>
           <div class="acc-body" style="background:rgba(255,255,255,.6);padding:12px;border-radius:4px;margin-top:4px;line-height:1.65">
             <span class="lang-en"><p style="margin:6px 0"><b style="color:var(--primary)">EN:</b> ${c.adapt_reason_en || ''}</p></span>
             <span class="lang-zh"><p style="margin:6px 0"><b style="color:var(--primary)">中：</b> ${c.adapt_reason_zh || ''}</p></span>

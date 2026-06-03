@@ -3,111 +3,222 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEART Interactive — Workbox & Rubric Index</title>
+<title>HEART · Workbox & Rubric Index</title>
 <link rel="stylesheet" href="assets/main.css">
 <script src="assets/lang.js"></script>
 <style>
-/* === Architecture diagram === */
-.arch-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin: 14px 0 4px;
-  position: relative;
+.hero {
+  background: linear-gradient(135deg, #F1F5FA 0%, #E8F0F7 50%, #DCE9F4 100%);
+  border: 1px solid #C2D5E8;
+  border-radius: var(--radius);
+  padding: 22px 26px;
+  margin-bottom: 18px;
 }
-.arch-box {
-  position: relative;
+.hero h2 {
+  color: var(--primary);
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+.hero p { margin: 0; font-size: 13.5px; max-width: 900px; }
+
+/* === Architecture pipeline === */
+.arch-pipeline {
+  display: grid;
+  grid-template-columns: 1fr 24px 1fr 24px 1fr 24px 1fr;
+  gap: 0;
+  align-items: stretch;
+  margin: 18px 0 4px;
+}
+.arch-block {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-top: 4px solid var(--primary);
   border-radius: var(--radius);
-  padding: 16px 18px;
+  padding: 18px 18px 14px;
   text-decoration: none;
   color: var(--text);
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  position: relative;
+  min-height: 320px;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
-.arch-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(44,82,130,.12);
-  border-color: var(--primary);
+.arch-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 22px rgba(44,82,130,.16);
 }
-.arch-box .arch-code {
-  font-size: 11px;
-  letter-spacing: .8px;
+.arch-A { border-top: 4px solid #2C5282; }
+.arch-A:hover { border-color: #2C5282; }
+.arch-B { border-top: 4px solid #2E7D32; }
+.arch-B:hover { border-color: #2E7D32; }
+.arch-C { border-top: 4px solid #E65100; }
+.arch-C:hover { border-color: #E65100; }
+.arch-D { border-top: 4px solid #6A1B9A; }
+.arch-D:hover { border-color: #6A1B9A; }
+
+.arch-block .arch-stage {
+  font-size: 10.5px;
+  letter-spacing: 1.2px;
   color: var(--text-muted);
   font-weight: 700;
 }
-.arch-box .arch-title {
-  font-size: 14.5px;
+.arch-block .arch-title {
+  font-size: 15px;
   font-weight: 600;
   color: var(--primary);
+  margin: 4px 0 2px;
   line-height: 1.3;
 }
-.arch-box .arch-zh {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-.arch-box ul {
-  margin: 6px 0 0;
-  padding-left: 16px;
+.arch-block .arch-sub {
   font-size: 11.5px;
-  color: var(--text);
-  line-height: 1.55;
+  color: var(--text-muted);
+  margin-bottom: 10px;
 }
-.arch-box ul li { margin: 2px 0; }
-.arch-box .links {
+.arch-block .arch-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+}
+.arch-block .arch-footer {
   margin-top: auto;
-  padding-top: 8px;
+  padding-top: 10px;
   border-top: 1px dashed var(--border);
   font-size: 11px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-.arch-box .links a {
-  background: #EEF3F9;
   color: var(--primary);
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arch-block .arch-footer .gotos {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.arch-block .arch-footer .goto-pill {
+  background: #EEF3F9;
   padding: 2px 8px;
   border-radius: 10px;
-  text-decoration: none;
+  font-size: 10.5px;
+  color: var(--primary);
 }
-.arch-box .links a:hover { background: var(--primary); color: white; }
-.arch-a { border-top-color: #2C5282; }
-.arch-b { border-top-color: #2E7D32; }
-.arch-c { border-top-color: #C62828; }
-.arch-d { border-top-color: #6A1B9A; }
-.arch-flow {
+.arch-arrow {
+  align-self: center;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94A3B8;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Block A: Hub-and-spoke dimensions */
+.dim-hub {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 4px auto;
+}
+.dim-hub .hub-svg { position: absolute; inset: 0; }
+.dim-hub .hub-node {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--primary-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 9.5px;
+  color: var(--primary);
+  font-weight: 600;
   text-align: center;
-  font-family: ui-monospace, monospace;
+  line-height: 1.1;
+  transform: translate(-50%,-50%);
+}
+.dim-hub .hub-node.hub-center {
+  width: 64px; height: 64px;
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  font-size: 10px;
+  z-index: 2;
+}
+.hub-node .hub-icon { font-size: 18px; line-height: 1; margin-bottom: 1px; }
+
+/* Block B: 3 layer cards */
+.layer-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  max-width: 230px;
+  margin: auto;
+}
+.layer-card {
+  background: linear-gradient(90deg, #FFE0B2 0%, #FFCC80 100%);
+  border-radius: 4px;
+  padding: 8px 12px;
+  border-left: 3px solid #E65100;
   font-size: 11.5px;
-  color: var(--text-muted);
-  margin: 8px 0 2px;
-  letter-spacing: .5px;
 }
-.arch-flow b { color: var(--primary); }
-@media (max-width: 900px) {
-  .arch-grid { grid-template-columns: 1fr 1fr; }
+.layer-card b { display: block; color: #5D2E0C; font-size: 11.5px; }
+.layer-card .layer-r { color: #8E4310; font-size: 10.5px; font-family: ui-monospace, monospace; }
+
+/* Block C: tool grid 14 chips */
+.tool-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
 }
-@media (max-width: 600px) {
-  .arch-grid { grid-template-columns: 1fr; }
+.tool-chip {
+  background: #F3E5F5;
+  color: #4A148C;
+  font-size: 10px;
+  padding: 5px 4px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+  border: 1px solid #CE93D8;
 }
+
+/* Block D: Example card */
+.example-mini {
+  background: var(--bg);
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 11px;
+  width: 100%;
+  line-height: 1.45;
+}
+.example-mini .ex-line { margin: 4px 0; }
+.example-mini .ex-orig { color: #B71C1C; text-decoration: line-through; }
+.example-mini .ex-rev { color: #1B5E20; background: #E8F5E9; padding: 2px 4px; border-radius: 2px; }
+.example-mini .ex-source { font-size: 10px; color: var(--text-muted); margin-bottom: 4px; font-family: ui-monospace, monospace; }
 
 /* Stats strip */
 .stat-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
-  margin: 14px 0 6px;
+  margin: 12px 0 18px;
 }
 .stat-box {
-  background: linear-gradient(135deg, #EFF6FB 0%, #E3EEF8 100%);
-  border: 1px solid #B8D4E8;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 12px 14px;
+  padding: 10px 12px;
   text-align: center;
+  border-top: 3px solid var(--primary);
 }
 .stat-box .stat-num {
   font-size: 22px;
@@ -116,163 +227,199 @@
   line-height: 1.1;
 }
 .stat-box .stat-label {
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--text-muted);
   margin-top: 4px;
+}
+
+.flow-tagline {
+  text-align: center;
+  font-family: ui-monospace, monospace;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin: 14px 0 4px;
+  letter-spacing: .5px;
+}
+.flow-tagline b { color: var(--primary); }
+
+@media (max-width: 1100px) {
+  .arch-pipeline {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .arch-arrow { display: none; }
+  .stat-strip { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+}
+@media (max-width: 600px) {
+  .arch-pipeline { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 <header>
-  <h1><span class="lang-en">HEART · Interactive Workbox &amp; Rubric Index</span><span class="lang-zh">HEART · 互动版工具箱与 rubric 索引</span></h1>
-  <div class="subtitle"><span class="lang-en">14 canonical repair tools (in 3 rubric layers) × 14 audit rubrics × 5 ethical dimensions × 103 benchmarks</span><span class="lang-zh">14 个规范化修复工具（3 层）× 14 条审计 rubric × 5 个伦理维度 × 103 个 benchmark</span></div>
+  <h1>HEART · <span class="lang-en">Workbox &amp; Rubric Index</span><span class="lang-zh">工具箱与 rubric 索引</span></h1>
+  <div class="subtitle"><span class="lang-en">Policy corpus → 14 diagnostic rubrics → 14 repair tools → real revision examples</span><span class="lang-zh">政策语料 → 14 条诊断 rubric → 14 件修复工具 → 真实改编案例</span></div>
 </header>
 <nav>
-  <a href="index.html" class="active">概览 Overview</a>
-  <a href="rubrics.html">14 Rubrics</a>
-  <a href="rubric_matrix.html">14×14 Index</a>
-  <a href="tools.html">14 Tools</a>
-  <a href="benches.html">103 Benches</a>
-  <a href="dimensions.html">5 Dimensions</a>
-  <a href="mini_cases.html">Mini Cases</a>
+  <a href="index.html" class="active"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
+  <a href="dimensions.html"><span class="lang-en">A. Policy &amp; Corpus</span><span class="lang-zh">A. 政策与语料</span></a>
+  <a href="rubrics.html"><span class="lang-en">B. Diagnostic Rubrics</span><span class="lang-zh">B. 诊断 Rubrics</span></a>
+  <a href="tools.html"><span class="lang-en">C. Revision Toolkit</span><span class="lang-zh">C. 修复工具箱</span></a>
+  <a href="mini_cases.html"><span class="lang-en">D. Revision Examples</span><span class="lang-zh">D. 改编案例</span></a>
   <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
 </nav>
 <main>
 
-<section class="card">
-  <h2><span class="lang-en">HEART Architecture</span><span class="lang-zh">HEART 系统架构</span></h2>
+<section class="hero">
+  <h2><span class="lang-en">What is HEART?</span><span class="lang-zh">什么是 HEART？</span></h2>
   <p>
-    <span class="lang-en">HEART (Human-centric Ethical Assessment &amp; Revision Toolkit) is a 4-stage pipeline that turns the policy corpus into a workbox of repair tools. Each block is interactive — click through to the corresponding section.</span>
-    <span class="lang-zh">HEART（以人为本的伦理评测与修订工具箱）是一个 4 阶段流水线，把政策语料转化为可操作的修复工具集。每个模块可点击进入对应页面。</span>
+    <span class="lang-en">HEART (<b>H</b>uman-centric <b>E</b>thical <b>A</b>ssessment &amp; <b>R</b>evision <b>T</b>oolkit) is a 4-stage pipeline that turns an AI-ethics policy corpus into actionable repair tools for evaluation benchmarks. The stages below are linked — click any block to enter that stage.</span>
+    <span class="lang-zh">HEART（<b>H</b>uman-centric <b>E</b>thical <b>A</b>ssessment &amp; <b>R</b>evision <b>T</b>oolkit）是一个 4 阶段流水线，把 AI 伦理政策语料转化为面向评测 benchmark 的可操作修复工具。下方各阶段相互衔接，点击任意板块即可进入对应页面。</span>
   </p>
-
-  <div class="stat-strip">
-    <div class="stat-box"><div class="stat-num">103</div><div class="stat-label"><span class="lang-en">benchmarks audited</span><span class="lang-zh">已审计 benchmark</span></div></div>
-    <div class="stat-box"><div class="stat-num">14</div><div class="stat-label"><span class="lang-en">audit rubrics</span><span class="lang-zh">审计 rubric</span></div></div>
-    <div class="stat-box"><div class="stat-num">14</div><div class="stat-label"><span class="lang-en">repair tools</span><span class="lang-zh">修复工具</span></div></div>
-    <div class="stat-box"><div class="stat-num">5</div><div class="stat-label"><span class="lang-en">ethical dimensions</span><span class="lang-zh">伦理维度</span></div></div>
-    <div class="stat-box"><div class="stat-num">18</div><div class="stat-label"><span class="lang-en">policy sources</span><span class="lang-zh">政策来源</span></div></div>
-  </div>
-
-  <div class="arch-grid">
-
-    <a class="arch-box arch-a" href="dimensions.html">
-      <div class="arch-code">A · INPUTS</div>
-      <div class="arch-title"><span class="lang-en">Policy &amp; Corpus</span><span class="lang-zh">政策语料</span></div>
-      <div class="arch-zh"><span class="lang-en">5 ethical dimensions × 18 policy sources</span><span class="lang-zh">5 伦理维度 × 18 政策来源</span></div>
-      <ul>
-        <li><span class="lang-en">UNESCO, OECD, EU AI Act, GDPR, NIST RMF</span><span class="lang-zh">UNESCO、OECD、EU AI Act、GDPR、NIST RMF</span></li>
-        <li><span class="lang-en">PIPL, AI Bill of Rights, ISO 42001</span><span class="lang-zh">PIPL、AI 权利法案、ISO 42001</span></li>
-        <li><span class="lang-en">Corporate &amp; industry practice</span><span class="lang-zh">集团及行业实践</span></li>
-      </ul>
-      <div class="links">
-        <a href="dimensions.html">5 Dimensions →</a>
-      </div>
-    </a>
-
-    <a class="arch-box arch-b" href="rubrics.html">
-      <div class="arch-code">B · AUDIT</div>
-      <div class="arch-title"><span class="lang-en">Expert Audit</span><span class="lang-zh">专家审计</span></div>
-      <div class="arch-zh"><span class="lang-en">14 calibrated rubrics in 3 layers</span><span class="lang-zh">14 条已校准 rubric × 3 大层级</span></div>
-      <ul>
-        <li><span class="lang-en">Content Validity (R1–R5)</span><span class="lang-zh">内容有效性 (R1–R5)</span></li>
-        <li><span class="lang-en">Evaluation Design (R6–R10)</span><span class="lang-zh">评测设计 (R6–R10)</span></li>
-        <li><span class="lang-en">Governance Reliability (R11–R14)</span><span class="lang-zh">治理可靠性 (R11–R14)</span></li>
-      </ul>
-      <div class="links">
-        <a href="rubrics.html">14 Rubrics →</a>
-        <a href="benches.html">103 Benches →</a>
-      </div>
-    </a>
-
-    <a class="arch-box arch-c" href="rubric_matrix.html">
-      <div class="arch-code">C · SYNTHESIS</div>
-      <div class="arch-title"><span class="lang-en">Gap → Tool Index</span><span class="lang-zh">缺口 → 工具索引</span></div>
-      <div class="arch-zh"><span class="lang-en">14 × 14 evidence-weighted matrix</span><span class="lang-zh">14×14 证据权重矩阵</span></div>
-      <ul>
-        <li><span class="lang-en">Each cell: tool × rubric repair evidence</span><span class="lang-zh">每格：工具 × rubric 的修复证据</span></li>
-        <li><span class="lang-en">Click → strongest benchmark + paper</span><span class="lang-zh">点击 → 最强 benchmark 证据 + 论文</span></li>
-        <li><span class="lang-en">Identifies low-coverage rubrics</span><span class="lang-zh">识别覆盖率最低的 rubric</span></li>
-      </ul>
-      <div class="links">
-        <a href="rubric_matrix.html">14×14 Index →</a>
-      </div>
-    </a>
-
-    <a class="arch-box arch-d" href="tools.html">
-      <div class="arch-code">D · OUTPUTS</div>
-      <div class="arch-title"><span class="lang-en">HEART Workbox</span><span class="lang-zh">HEART 工具箱</span></div>
-      <div class="arch-zh"><span class="lang-en">14 repair tools + adaptation prompts</span><span class="lang-zh">14 修复工具 + 改编 prompt</span></div>
-      <ul>
-        <li><span class="lang-en">Tool cards w/ sub-tools 1-1 to source papers</span><span class="lang-zh">工具卡片，子工具与论文 1-1 对应</span></li>
-        <li><span class="lang-en">Auto-vs-human gating per tool</span><span class="lang-zh">每个工具的自动化 / 人工边界</span></li>
-        <li><span class="lang-en">Mini cases: real revision examples</span><span class="lang-zh">Mini cases：真实改编案例</span></li>
-      </ul>
-      <div class="links">
-        <a href="tools.html">14 Tools →</a>
-        <a href="mini_cases.html">Mini Cases →</a>
-      </div>
-    </a>
-
-  </div>
-
-  <div class="arch-flow">
-    <b>ethical claim</b> &nbsp;→&nbsp; <b>construct</b> &nbsp;→&nbsp; <b>task</b> &nbsp;→&nbsp; <b>metric</b> &nbsp;→&nbsp; <b>governance evidence</b>
-  </div>
 </section>
 
-<section class="card">
-  <h2><span class="lang-en">The 3 rubric layers and their tools</span><span class="lang-zh">三大 rubric 层级与对应工具</span></h2>
-  <table class="dt">
-    <thead><tr>
-      <th style="width:140px"><span class="lang-en">Layer</span><span class="lang-zh">层级</span></th>
-      <th style="width:300px"><span class="lang-en">Rubrics</span><span class="lang-zh">Rubrics</span></th>
-      <th><span class="lang-en">Tools</span><span class="lang-zh">工具</span></th>
-    </tr></thead>
-    <tbody>
-    <tr>
-      <td><b><span class="lang-en">Content Validity</span><span class="lang-zh">内容有效性</span></b><br><span class="muted" style="font-size:11px"><span class="lang-en">what the benchmark claims to measure</span><span class="lang-zh">benchmark 声称在测的是什么</span></span></td>
-      <td><span class="muted" style="font-size:12px">R1 Construct clarity · R2 Normative grounding · R3 Source provenance &amp; evidence fitness · R4 Context &amp; stakeholder coverage · R5 Real-world harm linkage</span></td>
-      <td>
-        <a class="bench-pill" href="tools.html#T01"><b>T01</b> Claim-Construct &amp; Protected-Interest Mapper</a>
-        <a class="bench-pill" href="tools.html#T02"><b>T02</b> Normative Source &amp; Decision-Boundary Ledger</a>
-        <a class="bench-pill" href="tools.html#T03"><b>T03</b> Scenario-Stakeholder-Information-Flow Template</a>
-        <a class="bench-pill" href="tools.html#T05"><b>T05</b> Cultural &amp; Cross-Lingual Adaptation Protocol</a>
-        <a class="bench-pill" href="tools.html#T10"><b>T10</b> Evidence &amp; Claim Verification Pipeline</a>
-      </td>
-    </tr>
-    <tr>
-      <td><b><span class="lang-en">Evaluation Design</span><span class="lang-zh">评测设计</span></b><br><span class="muted" style="font-size:11px"><span class="lang-en">how claims become items + scores</span><span class="lang-zh">声称如何变成题目和分数</span></span></td>
-      <td><span class="muted" style="font-size:12px">R6 Scenario validity · R7 Task-format fit · R8 Ground truth &amp; disagreement design · R9 Metric validity · R10 Evaluator reliability</span></td>
-      <td>
-        <a class="bench-pill" href="tools.html#T04"><b>T04</b> Risk-Tier &amp; Hazard Taxonomy</a>
-        <a class="bench-pill" href="tools.html#T06"><b>T06</b> Contrast-Set Builder</a>
-        <a class="bench-pill" href="tools.html#T07"><b>T07</b> Behavioral Coverage Matrix</a>
-        <a class="bench-pill" href="tools.html#T09"><b>T09</b> Agent &amp; Workflow Simulation</a>
-        <a class="bench-pill" href="tools.html#T11"><b>T11</b> Multi-Metric Failure-Mode Profile</a>
-        <a class="bench-pill" href="tools.html#T12"><b>T12</b> Rubric-Based &amp; Multi-Judge Evaluation</a>
-      </td>
-    </tr>
-    <tr>
-      <td><b><span class="lang-en">Governance Reliability</span><span class="lang-zh">治理可靠性</span></b><br><span class="muted" style="font-size:11px"><span class="lang-en">how the benchmark stays auditable and current</span><span class="lang-zh">如何保持可审计和长期有效</span></span></td>
-      <td><span class="muted" style="font-size:12px">R11 Data &amp; annotation QA · R12 Robustness against gaming &amp; contamination · R13 Documentation &amp; reproducibility · R14 Maintenance &amp; update governance</span></td>
-      <td>
-        <a class="bench-pill" href="tools.html#T08"><b>T08</b> Multi-Turn &amp; Adversarial Red-Team Protocol</a>
-        <a class="bench-pill" href="tools.html#T13"><b>T13</b> Reproducible Evaluation &amp; Benchmark Card Package</a>
-        <a class="bench-pill" href="tools.html#T14"><b>T14</b> Lifecycle, Hidden-Split &amp; Contamination Governance</a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</section>
+<div class="stat-strip">
+  <div class="stat-box"><div class="stat-num">18</div><div class="stat-label"><span class="lang-en">policy sources</span><span class="lang-zh">政策来源</span></div></div>
+  <div class="stat-box"><div class="stat-num">103</div><div class="stat-label"><span class="lang-en">benchmarks audited</span><span class="lang-zh">已审计 benchmark</span></div></div>
+  <div class="stat-box"><div class="stat-num">14</div><div class="stat-label"><span class="lang-en">audit rubrics</span><span class="lang-zh">审计 rubric</span></div></div>
+  <div class="stat-box"><div class="stat-num">14</div><div class="stat-label"><span class="lang-en">repair tools</span><span class="lang-zh">修复工具</span></div></div>
+  <div class="stat-box"><div class="stat-num">5</div><div class="stat-label"><span class="lang-en">revision examples</span><span class="lang-zh">改编案例</span></div></div>
+</div>
 
-<section class="card">
+<div class="arch-pipeline">
+
+  <a class="arch-block arch-A" href="dimensions.html">
+    <div class="arch-stage">A · INPUTS</div>
+    <div class="arch-title"><span class="lang-en">Policy &amp; Corpus</span><span class="lang-zh">政策与语料</span></div>
+    <div class="arch-sub"><span class="lang-en">5 ethical dimensions × 18 policy sources</span><span class="lang-zh">5 伦理维度 × 18 政策来源</span></div>
+    <div class="arch-content">
+      <div class="dim-hub">
+        <svg class="hub-svg" viewBox="0 0 200 200">
+          <line x1="100" y1="100" x2="100" y2="22" stroke="#94A3B8" stroke-width="1.4"/>
+          <line x1="100" y1="100" x2="174" y2="60" stroke="#94A3B8" stroke-width="1.4"/>
+          <line x1="100" y1="100" x2="174" y2="140" stroke="#94A3B8" stroke-width="1.4"/>
+          <line x1="100" y1="100" x2="26" y2="140" stroke="#94A3B8" stroke-width="1.4"/>
+          <line x1="100" y1="100" x2="26" y2="60" stroke="#94A3B8" stroke-width="1.4"/>
+        </svg>
+        <div class="hub-node hub-center" style="left:50%;top:50%">
+          <div class="hub-icon">👤</div>
+          <div><span class="lang-en">Human-<br>Centered</span><span class="lang-zh">以人<br>为本</span></div>
+        </div>
+        <div class="hub-node" style="left:50%;top:11%"><div class="hub-icon">🛡️</div><div><span class="lang-en">Safety</span><span class="lang-zh">安全</span></div></div>
+        <div class="hub-node" style="left:87%;top:30%"><div class="hub-icon">🔒</div><div><span class="lang-en">Privacy</span><span class="lang-zh">隐私</span></div></div>
+        <div class="hub-node" style="left:87%;top:70%"><div class="hub-icon">⚙️</div><div><span class="lang-en">Trust</span><span class="lang-zh">可信</span></div></div>
+        <div class="hub-node" style="left:13%;top:70%"><div class="hub-icon">⚖️</div><div><span class="lang-en">Fair</span><span class="lang-zh">普惠</span></div></div>
+        <div class="hub-node" style="left:13%;top:30%"><div class="hub-icon">📜</div><div><span class="lang-en">Policy</span><span class="lang-zh">政策</span></div></div>
+      </div>
+    </div>
+    <div class="arch-footer">
+      <span><span class="lang-en">Explore →</span><span class="lang-zh">进入 →</span></span>
+      <span class="gotos">
+        <span class="goto-pill">Dimensions</span>
+        <span class="goto-pill">Benches</span>
+      </span>
+    </div>
+  </a>
+
+  <div class="arch-arrow">→</div>
+
+  <a class="arch-block arch-B" href="rubrics.html">
+    <div class="arch-stage">B · AUDIT</div>
+    <div class="arch-title"><span class="lang-en">Diagnostic Rubrics</span><span class="lang-zh">诊断 Rubrics</span></div>
+    <div class="arch-sub"><span class="lang-en">14 calibrated rubrics in 3 layers</span><span class="lang-zh">14 条已校准 rubric × 3 大层级</span></div>
+    <div class="arch-content">
+      <div class="layer-stack">
+        <div class="layer-card">
+          <b><span class="lang-en">Content Validity</span><span class="lang-zh">内容有效性</span></b>
+          <span class="layer-r">R1 · R2 · R3 · R4 · R5</span>
+        </div>
+        <div class="layer-card">
+          <b><span class="lang-en">Evaluation Design</span><span class="lang-zh">评测设计</span></b>
+          <span class="layer-r">R6 · R7 · R8 · R9 · R10</span>
+        </div>
+        <div class="layer-card">
+          <b><span class="lang-en">Governance Reliability</span><span class="lang-zh">治理可靠性</span></b>
+          <span class="layer-r">R11 · R12 · R13 · R14</span>
+        </div>
+      </div>
+    </div>
+    <div class="arch-footer">
+      <span><span class="lang-en">Explore →</span><span class="lang-zh">进入 →</span></span>
+      <span class="gotos">
+        <span class="goto-pill">14 Rubrics</span>
+      </span>
+    </div>
+  </a>
+
+  <div class="arch-arrow">→</div>
+
+  <a class="arch-block arch-C" href="tools.html">
+    <div class="arch-stage">C · REPAIR</div>
+    <div class="arch-title"><span class="lang-en">Revision Toolkit</span><span class="lang-zh">修复工具箱</span></div>
+    <div class="arch-sub"><span class="lang-en">14 repair tools + Audit→Tool gap index</span><span class="lang-zh">14 件修复工具 + Audit→Tool 缺口矩阵</span></div>
+    <div class="arch-content">
+      <div class="tool-mini-grid">
+        <div class="tool-chip">T01</div>
+        <div class="tool-chip">T02</div>
+        <div class="tool-chip">T03</div>
+        <div class="tool-chip">T04</div>
+        <div class="tool-chip">T05</div>
+        <div class="tool-chip">T06</div>
+        <div class="tool-chip">T07</div>
+        <div class="tool-chip">T08</div>
+        <div class="tool-chip">T09</div>
+        <div class="tool-chip">T10</div>
+        <div class="tool-chip">T11</div>
+        <div class="tool-chip">T12</div>
+        <div class="tool-chip">T13</div>
+        <div class="tool-chip">T14</div>
+      </div>
+    </div>
+    <div class="arch-footer">
+      <span><span class="lang-en">Explore →</span><span class="lang-zh">进入 →</span></span>
+      <span class="gotos">
+        <span class="goto-pill">14 Tools</span>
+        <span class="goto-pill">14×14 Index</span>
+      </span>
+    </div>
+  </a>
+
+  <div class="arch-arrow">→</div>
+
+  <a class="arch-block arch-D" href="mini_cases.html">
+    <div class="arch-stage">D · APPLY</div>
+    <div class="arch-title"><span class="lang-en">Revision Examples</span><span class="lang-zh">改编案例</span></div>
+    <div class="arch-sub"><span class="lang-en">5 real before/after benchmark items</span><span class="lang-zh">5 个真实改编前后的 benchmark 题目</span></div>
+    <div class="arch-content">
+      <div class="example-mini">
+        <div class="ex-source">BBQ 2022 / age stereotype</div>
+        <div class="ex-line"><b>Original Q:</b> <span class="ex-orig"><span class="lang-en">"Who can't use a phone properly?"</span><span class="lang-zh">"谁用手机不熟练？"</span></span></div>
+        <div class="ex-line"><b>Revised:</b> <span class="ex-rev"><span class="lang-en">+ ambiguous/disambig pair; gold rationale; lexical contrast</span><span class="lang-zh">+ 模糊/消歧对照 · 标准依据 · 词形对照</span></span></div>
+        <div class="ex-line" style="margin-top:6px"><span class="muted"><span class="lang-en">Tools applied: T06 Contrast-Set + T01 Construct Mapper · Rubrics lifted: R1, R7, R8</span><span class="lang-zh">用到的工具: T06 + T01 · 提升的 rubric: R1, R7, R8</span></span></div>
+      </div>
+    </div>
+    <div class="arch-footer">
+      <span><span class="lang-en">Explore →</span><span class="lang-zh">进入 →</span></span>
+      <span class="gotos">
+        <span class="goto-pill">5 Mini Cases</span>
+      </span>
+    </div>
+  </a>
+
+</div>
+
+<div class="flow-tagline">
+  <b>ethical claim</b> &nbsp;→&nbsp; <b>construct</b> &nbsp;→&nbsp; <b>task</b> &nbsp;→&nbsp; <b>metric</b> &nbsp;→&nbsp; <b>governance evidence</b>
+</div>
+
+<section class="card" style="margin-top:18px">
   <h2><span class="lang-en">Data sources</span><span class="lang-zh">数据来源</span></h2>
   <p class="muted">
-    <span class="lang-en">Source workbook: <code>HEART_Excel_含原始与修订_整合压缩.xlsx</code>. All data on this site is loaded from JSON files under <code>data/</code>; nothing is generated at runtime. Expert labels for each benchmark are LLM-polished into 6-12 字 noun-phrase tags and rendered as chips on the 103-bench page.</span>
-    <span class="lang-zh">源 workbook：<code>HEART_Excel_含原始与修订_整合压缩.xlsx</code>。本站所有数据均由 <code>data/</code> 下的 JSON 文件加载，无运行时生成。各 benchmark 的"专家标签"由 LLM 统一润色成 6-12 字名词短语，并以 chip 形式渲染在 103-bench 页。</span>
+    <span class="lang-en">All data is loaded from JSON files under <code>data/</code>; nothing is generated at runtime. Expert labels are LLM-polished into 6–12 字 noun-phrase tags. Paper URLs have been audited (Stage 1: HTTP title fetch; Stage 2: Qwen-Plus verification) — 20 of 102 hallucinated/unresolvable URLs were cleared. The audit report lives at <code>data/url_audit_report.json</code>.</span>
+    <span class="lang-zh">本站所有数据均从 <code>data/</code> 下的 JSON 文件加载，无运行时生成。专家标签由 LLM 润色成 6–12 字的中文名词短语。论文 URL 经过两阶段审计（HTTP 抓取标题 + Qwen-Plus 判别），102 个非空链接中清空了 20 个幻觉/无法解析的条目，审计报告见 <code>data/url_audit_report.json</code>。</span>
   </p>
 </section>
+
 </main>
 </body>
 </html>
