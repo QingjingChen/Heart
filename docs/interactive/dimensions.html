@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Ethical Dimensions × Policy Mapping — HEART</title>
+<link rel="stylesheet" href="assets/main.css">
+<script src="assets/lang.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+.dim-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.dim-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  border-top: 4px solid var(--primary);
+}
+.dim-card .dim-code {
+  font-size: 11px;
+  letter-spacing: .5px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.dim-card h3 {
+  margin: 4px 0 6px;
+  font-size: 14px;
+  color: var(--primary);
+}
+.dim-card .dim-desc {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.dim-card .dim-zh {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.dim-d1 { border-top-color: #2C5282; }
+.dim-d2 { border-top-color: #2E7D32; }
+.dim-d3 { border-top-color: #F57C00; }
+.dim-d4 { border-top-color: #6A1B9A; }
+.dim-d5 { border-top-color: #C62828; }
+.code-pill {
+  display: inline-block;
+  font-size: 10.5px;
+  padding: 1px 7px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  margin: 0 2px;
+}
+.code-pill.D1 { background: #2C5282; }
+.code-pill.D2 { background: #4A75A8; }
+.code-pill.D3 { background: #87B0D8; color: #1A2733; }
+.code-pill.S  { background: #F57C00; }
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.policy-table th { background: var(--bg); padding: 6px 8px; font-weight: 600; color: var(--primary); border-bottom: 2px solid var(--border); text-align: left; font-size: 11px; }
+.policy-table td { padding: 6px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.policy-table tr:hover td { background: #FAFBFC; }
+.policy-table .policy-name a { color: var(--primary); text-decoration: none; font-weight: 500; }
+.policy-table .policy-name a:hover { text-decoration: underline; }
+.policy-table .policy-type { color: var(--text-muted); font-size: 11px; }
+.note-banner {
+  background: #FFF8E1;
+  border-left: 4px solid #F57C00;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  margin: 10px 0;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1><span class="lang-en">5 Ethical Dimensions × Policy / Tool Mapping</span><span class="lang-zh">五大伦理维度 · 政策与工具映射</span></h1>
+  <div class="subtitle"><span class="lang-en">How HEART's 5 dimensions map back to the policy corpus (18 sources) and forward to the 5 repair-tool families</span><span class="lang-zh">HEART 五维如何上游对接 18 个政策语料、下游对接 5 大工具族</span></div>
+</header>
+<nav>
+  <a href="index.html">概览 Overview</a>
+  <a href="rubrics.html">14 Rubrics</a>
+  <a href="rubric_matrix.html">14×14 Index</a>
+  <a href="tools.html">14 Tools</a>
+  <a href="benches.html">103 Benches</a>
+  <a href="dimensions.html" class="active">5 Dimensions</a>
+  <a href="mini_cases.html">Mini Cases</a>
+  <span class="lang-toggle"><button data-lang="en">EN</button><button data-lang="zh">中</button></span>
+</nav>
+<main>
+
+<section class="card">
+  <h2><span class="lang-en">The 5 dimensions</span><span class="lang-zh">五大伦理维度</span></h2>
+  <p>
+    <span class="lang-en">HEART codes every benchmark against 5 ethical dimensions distilled from a corpus of 18 policy + governance sources (international guidelines, hard law, industry practice, surveys). The 5 dimensions trace back to a corporate-ethics framework that decomposes the same construct space; an internal "Open Co-Governance" 6th pillar is captured at the governance layer (T13/T14) rather than as a per-item label because it is structural.</span>
+    <span class="lang-zh">HEART 把每个 benchmark 按 5 大伦理维度打标。这 5 维由 18 份政策与治理文献蒸馏而来（国际指南、硬法律、行业实践、综述）。维度框架对应一套企业科技伦理准则；其中"开放共治"作为结构性治理维度由治理层工具 (T13/T14) 承接，未纳入逐条 benchmark 的标签。</span>
+  </p>
+  <div class="dim-grid" id="dim-grid"></div>
+</section>
+
+<section class="card">
+  <h2><span class="lang-en">Policy ⇄ Dimension Source Support</span><span class="lang-zh">政策 ⇄ 维度 来源支持矩阵</span></h2>
+  <p class="muted">
+    <span class="lang-en">For each of 18 policy/governance sources we record the evidence type per dimension: <span class="code-pill D1">D1</span> direct primary citation · <span class="code-pill D2">D2</span> indirect (framing) · <span class="code-pill D3">D3</span> tertiary (practice) · <span class="code-pill S">S</span> survey/meta. Hover a cell for code; click for source link.</span>
+    <span class="lang-zh">18 个政策/治理来源中，每条针对 5 维度记录支持类型：<span class="code-pill D1">D1</span> 直接一手引用 · <span class="code-pill D2">D2</span> 间接（动机/框架）· <span class="code-pill D3">D3</span> 三次（行业实践）· <span class="code-pill S">S</span> 综述/元评论。悬停查看代码，点击跳转源链接。</span>
+  </p>
+  <div id="policy-matrix" style="width:100%;height:680px;"></div>
+</section>
+
+<section class="card">
+  <h2><span class="lang-en">Dimension ⇄ Tool Family Coverage</span><span class="lang-zh">维度 ⇄ 工具族 覆盖矩阵</span></h2>
+  <p class="muted">
+    <span class="lang-en">How many of the canonical repair tools fall under each tool family × dimension cell. Tool families: <b>A</b> Content &amp; Normative · <b>B</b> Scenario &amp; Data · <b>C</b> Task &amp; Interaction · <b>D</b> Metric &amp; Evaluator · <b>E</b> Governance &amp; Lifecycle. Click a cell to drill down.</span>
+    <span class="lang-zh">每个 工具族 × 维度 的格子里有多少条规范化修复工具。工具族：<b>A</b> 内容与规范 · <b>B</b> 场景与数据 · <b>C</b> 任务与交互 · <b>D</b> 指标与评测 · <b>E</b> 治理与生命周期。点击格子可深入。</span>
+  </p>
+  <div id="tool-coverage" style="width:100%;height:420px;"></div>
+</section>
+
+<section class="card">
+  <h2><span class="lang-en">Policy corpus (18 sources)</span><span class="lang-zh">政策语料表（18 个来源）</span></h2>
+  <table class="policy-table">
+    <thead><tr>
+      <th style="width:34%"><span class="lang-en">Source</span><span class="lang-zh">来源</span></th>
+      <th style="width:22%"><span class="lang-en">Type</span><span class="lang-zh">类别</span></th>
+      <th>Human-Centered</th>
+      <th>Fairness</th>
+      <th>Safety</th>
+      <th>Trust</th>
+      <th>Privacy</th>
+    </tr></thead>
+    <tbody id="policy-rows"></tbody>
+  </table>
+  <div class="note-banner">
+    <b><span class="lang-en">Cross-check note:</span><span class="lang-zh">交叉核对注：</span></b>
+    <span class="lang-en">The 5-dimension scheme corresponds to a corporate-ethics framework with the constructs <i>Human-Centered / Fairness &amp; Inclusiveness / Safety &amp; Reliability / Trustworthiness &amp; Controllability / Privacy Protection</i>. A 6th principle <b>Open Co-Governance</b> is captured at the governance layer (T13/T14) rather than as an item-level label, because it concerns benchmark-suite practices (open-source, external advisors), not per-item content.</span>
+    <span class="lang-zh">5 维框架对应一套企业科技伦理准则的构念：<i>以人为本 / 普惠正直 / 安全可靠 / 可信可控 / 隐私保护</i>。第 6 准则 <b>开放共治</b> 由治理层工具 (T13/T14) 承接，不作为 benchmark 条目级别的标签，因为它涉及评测套件层面的实践（开源、外部顾问审阅），而非单题内容。</span>
+  </div>
+</section>
+
+</main>
+
+<div id="modal-bg" onclick="if(event.target.id==='modal-bg')closeModal()">
+  <div id="modal"></div>
+</div>
+
+<script>
+let DATA = null;
+
+async function init() {
+  DATA = await fetch('data/dimensions.json').then(r=>r.json());
+  renderDimCards();
+  renderPolicyMatrix();
+  renderToolCoverage();
+  renderPolicyTable();
+}
+
+function renderDimCards() {
+  const grid = document.getElementById('dim-grid');
+  DATA.dimensions.forEach((d, i) => {
+    grid.insertAdjacentHTML('beforeend', `
+      <div class="dim-card dim-d${i+1}">
+        <div class="dim-code">D${i+1}</div>
+        <h3>${d.en}</h3>
+        <div class="dim-zh">${d.zh}</div>
+        <div class="dim-desc lang-en">${d.desc_en}</div>
+        <div class="dim-desc lang-zh">${d.desc_zh}</div>
+      </div>
+    `);
+  });
+}
+
+function renderPolicyMatrix() {
+  const DIM_COLS = ['Human-Centered','Fairness & Inclusiveness','Safety & Reliability','Trustworthiness & Controllability','Privacy Protection'];
+  const xLabels = ['Human-<br>Centered','Fairness &<br>Inclusiveness','Safety &<br>Reliability','Trust &<br>Controllability','Privacy<br>Protection'];
+  const policies = DATA.policies;
+  const z = policies.map(p => DIM_COLS.map(d => p.support[d] || 0));
+  const text = policies.map(p => DIM_COLS.map(d => p.cells[d] || ''));
+  const yLabels = policies.map(p => p.source.length > 38 ? p.source.slice(0,36)+'…' : p.source);
+
+  const colorscale = [
+    [0, '#FFFFFF'],
+    [0.3, '#DCEBFA'],
+    [0.7, '#7FACD7'],
+    [1, '#2C5282'],
+  ];
+
+  const data = [{
+    type:'heatmap',
+    z, x:xLabels, y:yLabels, text,
+    texttemplate:'%{text}', textfont:{size:11, color:'#1A2733', family:'ui-monospace'},
+    colorscale, showscale:true, zmin:0, zmax:2,
+    hovertemplate:'<b>%{y}</b><br>Dimension: %{x}<br>Code: %{text}<br>Support: %{z}<extra></extra>',
+    xgap:2, ygap:2,
+    colorbar:{title:{text:'Local evidence files', font:{size:10}}, len:0.7, x:1.02, tickfont:{size:10}},
+  }];
+
+  const layout = {
+    margin:{l:280, r:140, t:140, b:30},
+    xaxis:{side:'top', tickangle:0, tickfont:{size:11}, fixedrange:true, automargin:true},
+    yaxis:{tickfont:{size:11}, fixedrange:true, automargin:true, autorange:'reversed'},
+    plot_bgcolor:'#FAFBFC',
+  };
+  Plotly.newPlot('policy-matrix', data, layout, {displayModeBar:false, responsive:true});
+  document.getElementById('policy-matrix').on('plotly_click', e => {
+    const pt = e.points[0];
+    const policy = policies[pt.pointIndex[0]];
+    const dim = DIM_COLS[pt.pointIndex[1]];
+    openPolicyDetail(policy, dim);
+  });
+}
+
+function renderToolCoverage() {
+  const FAMS = ['A','B','C','D','E'];
+  const famNames = DATA.tool_families;
+  const dims = DATA.tool_family_coverage;
+  const xLabels = famNames.map(f => `<b>${f.id}</b><br>${f.en}`);
+  const yLabels = dims.map(d => d.dimension);
+  const z = dims.map(d => FAMS.map(f => d[f] || 0));
+  const text = z.map(row => row.map(v => v ? v.toString() : ''));
+  const totals = dims.map(d => FAMS.reduce((s,f) => s + (d[f]||0), 0));
+
+  const colorscale = [
+    [0,   '#FFFFFF'],
+    [0.3, '#DFF3DF'],
+    [0.7, '#7BC47F'],
+    [1,   '#2E7D32'],
+  ];
+
+  const data = [{
+    type:'heatmap', z, x:xLabels, y:yLabels, text,
+    texttemplate:'%{text}', textfont:{size:14, color:'#1A2733'},
+    colorscale, showscale:true, zmin:0, zmax:6,
+    hovertemplate:'<b>%{y}</b><br>Family: %{x}<br>Mapped tools: %{z}<extra></extra>',
+    xgap:3, ygap:3,
+    colorbar:{title:{text:'Mapped tools', font:{size:10}}, len:0.7, x:1.02, tickfont:{size:10}},
+  }];
+
+  const annotations = totals.map((t, i) => ({
+    x: 1.08, xref:'paper', y: i, yref:'y',
+    text: `total ${t}`, showarrow:false, font:{size:10, color:'#475569'},
+    xanchor:'left',
+  }));
+
+  const layout = {
+    margin:{l:200, r:170, t:120, b:30},
+    xaxis:{side:'top', tickfont:{size:11}, fixedrange:true, automargin:true},
+    yaxis:{tickfont:{size:11}, fixedrange:true, automargin:true, autorange:'reversed'},
+    annotations,
+    plot_bgcolor:'#FAFBFC',
+  };
+  Plotly.newPlot('tool-coverage', data, layout, {displayModeBar:false, responsive:true});
+}
+
+function renderPolicyTable() {
+  const tbody = document.getElementById('policy-rows');
+  const DIM_COLS = ['Human-Centered','Fairness & Inclusiveness','Safety & Reliability','Trustworthiness & Controllability','Privacy Protection'];
+  for (const p of DATA.policies) {
+    const url = DATA.policy_links[p.source] || '';
+    const nameCell = url ? `<a href="${url}" target="_blank">${p.source}</a>` : p.source;
+    const cells = DIM_COLS.map(d => {
+      const code = p.cells[d];
+      if (!code) return '<td>—</td>';
+      // split codes like "D1, D2"
+      const parts = code.split(/[,\s]+/).filter(Boolean);
+      return `<td>${parts.map(c => `<span class="code-pill ${c}">${c}</span>`).join(' ')}</td>`;
+    });
+    tbody.insertAdjacentHTML('beforeend', `
+      <tr>
+        <td class="policy-name">${nameCell}</td>
+        <td class="policy-type">${p.type}</td>
+        ${cells.join('')}
+      </tr>
+    `);
+  }
+}
+
+function openPolicyDetail(policy, dimension) {
+  const code = policy.cells[dimension] || '—';
+  const url = DATA.policy_links[policy.source] || '';
+  let html = `<span class="close" onclick="closeModal()">×</span>`;
+  html += `<h3>${policy.source}</h3>`;
+  html += `<div class="muted">${policy.type}${url ? ` · <a href="${url}" target="_blank">source link ↗</a>` : ''}</div>`;
+  html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
+  html += `<p><b>Dimension:</b> ${dimension}<br><b>Evidence code:</b> ${code.split(/[,\s]+/).filter(Boolean).map(c => `<span class="code-pill ${c}">${c}</span>`).join(' ')}</p>`;
+  html += `<h4 style="margin:12px 0 6px;color:var(--primary)">Cells across all dimensions</h4>`;
+  const DIM_COLS = ['Human-Centered','Fairness & Inclusiveness','Safety & Reliability','Trustworthiness & Controllability','Privacy Protection'];
+  html += `<table class="policy-table"><thead><tr><th>Dimension</th><th>Code</th></tr></thead><tbody>`;
+  for (const d of DIM_COLS) {
+    const c = policy.cells[d];
+    const parts = c ? c.split(/[,\s]+/).filter(Boolean) : [];
+    html += `<tr><td>${d}</td><td>${parts.map(p => `<span class="code-pill ${p}">${p}</span>`).join(' ') || '—'}</td></tr>`;
+  }
+  html += `</tbody></table>`;
+  document.getElementById('modal').innerHTML = html;
+  document.getElementById('modal-bg').style.display = 'flex';
+}
+
+function closeModal() { document.getElementById('modal-bg').style.display = 'none'; }
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+
+window.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

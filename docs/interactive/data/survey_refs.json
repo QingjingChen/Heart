@@ -1,0 +1,72 @@
+{
+  "BetterBench 2024": {
+    "title": "BetterBench: Assessing AI Benchmarks, Uncovering Issues, and Establishing Best Practices",
+    "url": "https://arxiv.org/abs/2411.12990",
+    "venue": "NeurIPS D&B 2024"
+  },
+  "Corrêa et al. 2023": {
+    "title": "Worldwide AI ethics: a review of 200 guidelines and recommendations for AI governance",
+    "url": "https://arxiv.org/abs/2206.11922",
+    "venue": "Patterns 2023"
+  },
+  "Eriksson et al. 2025": {
+    "title": "Can We Trust AI Benchmarks? An Interdisciplinary Review of Current Issues in AI Evaluation",
+    "url": "https://arxiv.org/abs/2502.06559",
+    "venue": "arXiv 2025"
+  },
+  "Gallegos et al. 2024": {
+    "title": "Bias and Fairness in Large Language Models: A Survey",
+    "url": "https://arxiv.org/abs/2309.00770",
+    "venue": "Computational Linguistics 2024"
+  },
+  "Gu et al. 2025": {
+    "title": "A Survey on LLM-as-a-Judge",
+    "url": "https://arxiv.org/abs/2411.15594",
+    "venue": "arXiv 2025"
+  },
+  "Hagendorff 2020": {
+    "title": "The Ethics of AI Ethics: An Evaluation of Guidelines",
+    "url": "https://arxiv.org/abs/1903.03425",
+    "venue": "Minds & Machines 2020"
+  },
+  "Hancox-Li & Blili-Hamelin 2024": {
+    "title": "Making Intelligence: Ethical Values in IQ and ML Benchmarks",
+    "url": "https://arxiv.org/abs/2209.00692",
+    "venue": "FAccT 2024"
+  },
+  "Jiao et al. 2025": {
+    "title": "Navigating LLM Ethics: Advancements, Challenges, and Future Directions",
+    "url": "https://arxiv.org/abs/2406.18841",
+    "venue": "arXiv 2025"
+  },
+  "Lyu & Du 2025": {
+    "title": "A Comprehensive Survey of Safety Evaluation Benchmarks for Large Language Models",
+    "url": "https://arxiv.org/abs/2506.05988",
+    "venue": "arXiv 2025"
+  },
+  "Mbiazi et al. 2025": {
+    "title": "A Survey on Privacy-Preserving Benchmarks for Large Language Models",
+    "url": "https://arxiv.org/abs/2502.08915",
+    "venue": "arXiv 2025"
+  },
+  "Raji et al. 2021": {
+    "title": "AI and the Everything in the Whole Wide World Benchmark",
+    "url": "https://arxiv.org/abs/2111.15366",
+    "venue": "NeurIPS D&B 2021"
+  },
+  "White et al. 2025": {
+    "title": "Benchmarking and Evaluating Large Language Models: Methodologies and Pitfalls",
+    "url": "https://arxiv.org/abs/2411.03350",
+    "venue": "arXiv 2025"
+  },
+  "Xu et al. 2025": {
+    "title": "AI Alignment: A Comprehensive Survey",
+    "url": "https://arxiv.org/abs/2310.19852",
+    "venue": "arXiv 2025"
+  },
+  "Zhong et al. 2025": {
+    "title": "Evaluation of LLMs: Trustworthiness, Faithfulness, and Robustness — A Survey",
+    "url": "https://arxiv.org/abs/2502.16191",
+    "venue": "arXiv 2025"
+  }
+}
