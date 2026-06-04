@@ -8,9 +8,9 @@
 
 每条 rubric 的选项：
 
-> **版本 A 更好 · 版本 B 更好 · 差不多 · 不适用**
+> **版本 A 更好 · 版本 B 更好 · 此 rubric 上没有提升**
 
-后面紧跟一个**选填**的「[Rx] 理由（选填）」文本框。
+紧贴选项下方是一个**选填**的「理由（选填）」文本框。
 
 ---
 
@@ -49,8 +49,8 @@
 
 ### 首页学习指引
 
-首页直接贴 [`https://qingjingchen.github.io/Heart/interactive/`](https://qingjingchen.github.io/Heart/interactive/)，并
-**明确写**请专家先看 A / B / C 三个 tab（5 维度 · 14 rubric · 14 工具），
+首页直接贴 [`https://qingjingchen.github.io/Heart/interactive/`](https://qingjingchen.github.io/Heart/interactive/)，
+**明确写**请专家重点看 **B 诊断 Rubrics** 和 **C 修复工具箱** 两个 tab，
 **不要看 D 改编案例**——后者会暴露本问卷里哪个版本是改编后。
 
 ### 题量与时长
@@ -86,7 +86,7 @@
 - **Per-case A 偏好率**（综合 14 rubric）。
 - 用 `BLIND_KEY` 把 A/B 还原到 「原题 / HEART 改编后」，统计 **HEART 改编后
   的胜率**。
-- **Per-rubric inter-rater agreement**：Krippendorff's α（4 类）或两两 κ。
+- **Per-rubric inter-rater agreement**：Krippendorff's α（3 类）或两两 κ。
 - 文字理由可做 thematic coding，对照 14 rubric 看专家关注点。
 
 ---
