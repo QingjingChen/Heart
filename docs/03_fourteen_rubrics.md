@@ -65,7 +65,7 @@ borrowing-and-repair stance — not the leaderboard stance — is the right one.
 ## How the rubrics interact with the workbox
 
 A **missing or weak** rubric is what triggers a specific repair tool in the
-[`HEART Workbox`](04_workbox_six_tools.md):
+[`HEART Workbox`](04_workbox_fourteen_tools.md):
 
 | If this rubric is weak | Use this tool |
 |---|---|

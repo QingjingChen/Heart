@@ -50,5 +50,5 @@ not propose a universal gold standard. Instead:
   adapting, and limiting claims.
 
 The next document — [`02_five_dimensions.md`](02_five_dimensions.md) —
-explains how we organise this borrowing across policy-grounded ethical
+explains how we organise this borrowing across ethical
 dimensions, rather than benchmark families.

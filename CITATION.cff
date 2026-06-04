@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "HEART: A Policy-Grounded Workbox for Revising AI Ethics Benchmarks"
+title: "HEART: Human-centric Ethical Audit & Revision Toolkit for Benchmarks"
 message: "Author and citation metadata will be added at release time."
 type: dataset
 authors:
@@ -7,21 +7,21 @@ authors:
 repository-code: "https://github.com/QingjingChen/Heart"
 url: "https://github.com/QingjingChen/Heart"
 abstract: >
-  HEART is a benchmark-revision resource for AI ethics evaluation. It treats
-  existing benchmarks as bundles of reusable tools (dataset patterns, task
-  formats, metrics, evaluator protocols, governance practices) rather than
-  competing leaderboards. The resource bundles together: (a) a meta-review of
-  104 survey and benchmark papers along 5 policy-grounded ethical dimensions;
-  (b) a 14-rubric diagnostic workbook with 0-5 anchors, cross-validated by
-  at least four experts across all 104 papers; (c) a 48-entry tool-indexed
-  workbox of repair operations; (d) an index of ~72 source datasets organised
-  by the 5 dimensions; and (e) a Web Demo that walks a user through
-  diagnosis, tool selection, and revision planning.
+  HEART is an interactive audit-and-repair toolkit for existing AI-ethics
+  benchmarks. It treats each benchmark as a bundle of reusable tools
+  (dataset patterns, task formats, metrics, evaluator protocols, governance
+  practices). The resource bundles together: (a) a meta-review of 103
+  benchmarks across 5 ethical dimensions cross-walked to 18
+  policy/governance sources; (b) a 14-rubric diagnostic codebook with
+  v2 calibrated anchors, expert-validated across all 103 benchmarks; (c) a
+  two-layer workbox of 14 generic repair tools plus 103 specific repair
+  sub-tools (one per audited bench); (d) a 4-step
+  audit-diagnosis-prescription-revision guidebook; and (e) an interactive
+  site that walks through the full workflow in the browser.
 keywords:
   - AI ethics
   - benchmark revision
   - evaluation validity
-  - policy alignment
   - fairness
   - safety
   - privacy
