@@ -32,7 +32,7 @@ that the rubrics treat as a process condition rather than a model behaviour.
 
 ## Benchmarkable scope per dimension
 
-The mapping is operationalised in the workbook by tagging each of the 103
+The mapping is operationalised in the codebook by tagging each of the 103
 reviewed papers with one primary dimension. The benchmarkable scope for each
 dimension is:
 

@@ -12,7 +12,7 @@
 
 [🌐 Live site](https://qingjingchen.github.io/Heart/interactive/) ·
 [📖 Docs](#-documentation-stack) ·
-[📊 Workbook](workbook/) ·
+[📊 Codebook](codebook/) ·
 [📚 Bench corpus](datasets/sources.md) ·
 [🤝 Contribute](.github/ISSUE_TEMPLATE/)
 
@@ -50,7 +50,7 @@ that can be picked apart and re-applied. It bundles together:
 |:---|:---|
 | 🌐 Click through the audit workflow in your browser | [Live interactive site](https://qingjingchen.github.io/Heart/interactive/) |
 | 🩺 Audit one benchmark by hand | [`docs/05_guidebook_workflow.md`](docs/05_guidebook_workflow.md) (4-step workflow) |
-| 📊 Get the raw data | [`workbook/exports/benchmarks_103_tool_distribution.csv`](workbook/exports/) |
+| 📊 Get the raw data | [`codebook/benchmarks.csv`](codebook/) |
 | 🔗 Look up a benchmark's paper / code / dataset mirror | [`datasets/sources.md`](datasets/sources.md) |
 | 📚 Cite HEART | [`CITATION.cff`](CITATION.cff) (placeholder; DOI at release) |
 
@@ -58,7 +58,7 @@ that can be picked apart and re-applied. It bundles together:
 
 ## 📖 Documentation stack
 
-Each doc mirrors one tab (or stage) of the interactive site, so the workbook
+Each doc mirrors one tab (or stage) of the interactive site, so the codebook
 and the site stay in lock-step.
 
 | 📄 Doc | 🌐 Site tab | What it covers |
@@ -109,7 +109,7 @@ Each audited benchmark is treated as a **specific repair sub-tool** bound to one
 .
 ├── README.md                            ← you are here
 ├── CITATION.cff                         ← citation metadata
-├── LICENSE                              ← CC-BY-4.0 (docs + workbook + rubrics)
+├── LICENSE                              ← CC-BY-4.0 (docs + codebook + rubrics)
 ├── LICENSE-code                         ← MIT (scripts, exporters)
 │
 ├── docs/                                📖 documentation stack
@@ -121,9 +121,11 @@ Each audited benchmark is treated as a **specific repair sub-tool** bound to one
 │   ├── 06_resource_availability.md      ← release statement
 │   └── interactive/                     🌐 GitHub-Pages-served interactive site
 │
-├── workbook/                            📊 master workbook (7 sheets)
-│   ├── heart_toolkit.xlsx
-│   └── exports/                         ← CSV / JSON exports
+├── codebook/                            📊 site-derived codebook (8 CSVs + xlsx bundle)
+│   ├── heart_codebook.xlsx              ← multi-sheet bundle of all CSVs
+│   ├── benchmarks.csv · tools.csv · sub_tools.csv · rubrics.csv
+│   ├── policies.csv · mini_cases.csv · rubric_tool_matrix.csv · gap_detection.csv
+│   └── build_codebook.py                ← regenerates everything from docs/interactive/data/
 │
 ├── datasets/                            📚 bench corpus  (↔ site tab A sub-page)
 │   ├── README.md                        ← catalogue of 103 benches by dimension
@@ -137,7 +139,7 @@ Each audited benchmark is treated as a **specific repair sub-tool** bound to one
 ## 📜 License
 
 - 📐 **Code** (scripts, exporters, interactive-site JS/CSS): [MIT](LICENSE-code)
-- 📖 **Workbook, documentation, dataset index, rubric anchors, interactive-site copy**: [CC-BY-4.0](LICENSE)
+- 📖 **Codebook, documentation, dataset index, rubric anchors, interactive-site copy**: [CC-BY-4.0](LICENSE)
 
 Source datasets indexed in [`datasets/`](datasets/) are governed by their original
 licenses — see each upstream repository / paper.
@@ -152,6 +154,6 @@ Open a GitHub issue for questions, corrections, or new benchmark suggestions. Se
 
 <div align="center">
 
-Made with ❤️ — pre-release; expect minor breakage as the workbook stabilises.
+Made with ❤️ — pre-release; expect minor breakage as the codebook stabilises.
 
 </div>

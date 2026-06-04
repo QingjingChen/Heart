@@ -1,6 +1,6 @@
 ---
 name: Add a benchmark to the meta-review
-about: Propose a new benchmark for inclusion in the HEART workbook
+about: Propose a new benchmark for inclusion in the HEART codebook
 title: "[ADD] <benchmark name>"
 labels: benchmark-addition
 assignees: ''
@@ -40,7 +40,7 @@ does not already cover?
 ## Review checklist (for maintainers)
 
 - [ ] Cross-checked by ≥ 1 external rubric-trained reviewer
-- [ ] Added to `workbook/heart_toolkit.xlsx` (`Tool来源分布表` sheet)
-- [ ] CSV exports regenerated
-- [ ] Score distribution in `rubrics_14_anchors.csv` updated
+- [ ] Added a row to `docs/interactive/data/bench_map.json`
+- [ ] Ran `python3 codebook/build_codebook.py` to refresh `codebook/benchmarks.csv` + `codebook/heart_codebook.xlsx`
+- [ ] Score distribution in `codebook/rubrics.csv` updated (re-derive from the new bench's rubric scores)
 - [ ] Added to `datasets/README.md` under the right dimension

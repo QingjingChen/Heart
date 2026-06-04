@@ -10,10 +10,10 @@ users.
 
 | Component | Primary location | Mirror / DOI |
 |---|---|---|
-| Master workbook (xlsx) | [`workbook/heart_toolkit.xlsx`](../workbook/heart_toolkit.xlsx) | Zenodo (TBD, at release) |
-| Workbook CSV exports | [`workbook/exports/`](../workbook/exports/) | Zenodo (TBD) |
-| 14-rubric definitions & anchors | [`docs/03_fourteen_rubrics.md`](03_fourteen_rubrics.md) + [`workbook/exports/rubrics_14_anchors.csv`](../workbook/exports/rubrics_14_anchors.csv) | Zenodo (TBD) |
-| Workbox (14 generic tools + 103 specific sub-tools) | [`docs/04_workbox_fourteen_tools.md`](04_workbox_fourteen_tools.md) + [`workbook/exports/toolbox_master.csv`](../workbook/exports/toolbox_master.csv) | Zenodo (TBD) |
+| Master codebook (xlsx) | [`codebook/heart_codebook.xlsx`](../codebook/heart_codebook.xlsx) | Zenodo (TBD, at release) |
+| Codebook CSV exports | [`codebook/`](../codebook/) | Zenodo (TBD) |
+| 14-rubric definitions & anchors | [`docs/03_fourteen_rubrics.md`](03_fourteen_rubrics.md) + [`codebook/rubrics.csv`](../codebook/rubrics.csv) | Zenodo (TBD) |
+| Workbox (14 generic tools + 103 specific sub-tools) | [`docs/04_workbox_fourteen_tools.md`](04_workbox_fourteen_tools.md) + [`codebook/tools.csv`](../codebook/tools.csv) | Zenodo (TBD) |
 | Full benchmark catalogue (103 entries) | [`datasets/README.md`](../datasets/README.md) | Zenodo (TBD) |
 | Per-benchmark paper / code / Drive URL index | [`datasets/sources.md`](../datasets/sources.md) + Google Drive | Zenodo (TBD) |
 | Interactive site | [`docs/interactive/`](interactive/) (live at [qingjingchen.github.io/Heart/interactive/](https://qingjingchen.github.io/Heart/interactive/)) | GitHub Pages |
@@ -39,7 +39,7 @@ into this table.
 ### Accessible
 
 - All documentation is plain markdown; no proprietary viewer required.
-- The workbook is provided both as **xlsx** (with formatting and notes) and
+- The codebook is provided both as **xlsx** (with formatting and notes) and
   as **5 CSV exports** (tool-agnostic).
 - No login or registration required. The Google Drive folder linked from
   [`datasets/README.md`](../datasets/README.md) is set to public read access.
@@ -56,14 +56,14 @@ into this table.
 ### Reusable
 
 - Two licenses, both standard:
-  - **CC-BY-4.0** for the workbook, documentation, rubric anchors, and
+  - **CC-BY-4.0** for the codebook, documentation, rubric anchors, and
     dataset index. See [`LICENSE`](../LICENSE).
   - **MIT** for any code (exporter scripts, demo backend). See
     [`LICENSE-code`](../LICENSE-code).
 - Upstream dataset licenses are **not overridden** by this repository — each
   upstream dataset remains under its original license; this repository only
   publishes an index and rubric annotations.
-- Every workbook row records its source (`Source file/path` column) so
+- Every codebook row records its source (`Source file/path` column) so
   provenance is traceable.
 
 ---
@@ -71,7 +71,7 @@ into this table.
 ## How to verify the resource
 
 1. **Clone or download** this repository.
-2. Open [`workbook/heart_toolkit.xlsx`](../workbook/heart_toolkit.xlsx) — it
+2. Open [`codebook/heart_codebook.xlsx`](../codebook/heart_codebook.xlsx) — it
    should contain seven sheets: `Tool来源分布表`, `Toolbox整合说明`,
    `Benchmark诊断`, `诊断rubrics说明`, `引用核验`, plus two legacy
    "评价体系（旧）" sheets retained for reproducibility of the rubric
@@ -89,7 +89,7 @@ into this table.
 - A `CHANGELOG.md` is appended on every release.
 - The current snapshot corresponds to **v1.0.0**.
 - Bug-fix and rubric-clarification updates go to `1.0.x`. New benchmark
-  additions to the workbook trigger a `1.x.0` release.
+  additions to the codebook trigger a `1.x.0` release.
 
 ---
 

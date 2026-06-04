@@ -16,9 +16,9 @@ author-acknowledged limits for every entry.
 > datasets. Each upstream dataset remains under its original license;
 > consult the upstream publication / repository before redistribution.
 
-Cells below are extracted verbatim from `workbook/heart_toolkit.xlsx`,
+Cells below are extracted verbatim from `codebook/heart_codebook.xlsx`,
 the `Tool Source Distribution` sheet; the full 27-column rubric annotations live in
-[`../workbook/exports/benchmarks_103_tool_distribution.csv`](../workbook/exports/benchmarks_103_tool_distribution.csv).
+[`../codebook/benchmarks.csv`](../codebook/benchmarks.csv).
 
 ### Human-Centered (24 benchmarks)
 
@@ -155,7 +155,7 @@ In addition to the 103 individual benchmark papers catalogued above, the
 meta-review draws on the following surveys for the benchmark inventory,
 rubric calibration, normative grounding, and cross-comparison of evidence.
 These surveys appear in the `External views (Survey 原文)` column of the
-workbook's `Tool Source Distribution` sheet and in `workbook/exports/
+codebook's `Tool Source Distribution` sheet and in `codebook/
 citation_verification.csv`.
 
 | # | Survey | Year | Role in the HEART meta-review |

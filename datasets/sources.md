@@ -148,7 +148,7 @@ The meta-review draws on the following surveys for the benchmark inventory,
 rubric calibration, normative grounding, and cross-comparison of evidence
 across bias / safety / privacy / trustworthiness / human-centered dimensions.
 All entries are also recorded in the citation-verification sheet of
-[`workbook/heart_toolkit.xlsx`](../workbook/heart_toolkit.xlsx).
+[`codebook/heart_codebook.xlsx`](../codebook/heart_codebook.xlsx).
 
 | # | Survey | Authors | Year | Venue | URL |
 |---|---|---|---|---|---|

@@ -181,7 +181,7 @@
       }
     },
     {
-      "source": "Korea AI Basic Act / privacy law",
+      "source": "Korea AI Framework Act (2024)",
       "type": "National policy",
       "cells": {
         "Human-Centered": "D1",
@@ -407,12 +407,12 @@
     "ISO/IEC 42001 and 27551": "https://www.iso.org/standard/81230.html",
     "UK AI regulatory principles / playbook": "https://www.gov.uk/government/publications/ai-regulation-a-pro-innovation-approach",
     "Japan AI Strategy / APPI": "https://www.cas.go.jp/jp/seisaku/jinkochino/index.html",
-    "Korea AI Basic Act / privacy law": "https://www.korea.kr/news/policyNewsView.do?newsId=148939237",
     "AI Guidelines for Business Ver. 1.0": "https://www.meti.go.jp/english/press/2024/0419_004.html",
     "Google responsible AI practice": "https://ai.google/responsibility/principles/",
     "OpenAI preparedness and red-teaming": "https://openai.com/safety/preparedness",
     "Meta responsible AI / Llama Guard": "https://ai.meta.com/llama/responsible-use-guide/",
-    "AILuminate / MLCommons": "https://mlcommons.org/benchmarks/ailuminate/"
+    "AILuminate / MLCommons": "https://mlcommons.org/benchmarks/ailuminate/",
+    "Korea AI Framework Act (2024)": "https://www.korea.kr/news/policyNewsView.do?newsId=148939237"
   },
   "evidence_codes": {
     "D1": {
