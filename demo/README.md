@@ -1,54 +1,45 @@
-# Web Demo
+# HEART Demo
 
-The HEART **Benchmark Auditor Web Demo** is a separate public repository:
+The interactive HEART demo now lives **inside this repository** as a static
+GitHub-Pages site — no separate backend or repo needed.
 
-> **Source code:** <https://github.com/QingjingChen/heart_web_demo_pub>
+## 🌐 Try it
 
-It is a compact package that runs the full HEART workflow as an interactive
-web application:
+**Live**: [https://qingjingchen.github.io/Heart/interactive/](https://qingjingchen.github.io/Heart/interactive/)
 
-- a **static HTML/JS front-end** (`index.html`),
-- a **FastAPI backend** (`heart_backend.py`) that scores rubrics, matches
-  workbox tools, and drafts revision plans,
-- the HEART workbook (mirrored from this repository),
-- maintenance scripts and API documentation.
-
-A live deployment URL will be added here at release time.
-
-## What the demo does
-
-The demo automates the 4-step guidebook flow described in
-[`../docs/05_guidebook_workflow.md`](../docs/05_guidebook_workflow.md):
-
-1. The user uploads / describes a benchmark and selects a target ethical
-   dimension from the 5 in [`../docs/02_five_dimensions.md`](../docs/02_five_dimensions.md).
-2. The user answers the 14 rubric questions (anchors loaded from
-   [`../workbook/exports/rubrics_14_anchors.csv`](../workbook/exports/rubrics_14_anchors.csv)).
-3. The backend recommends workbox tools from
-   [`../workbook/exports/toolbox_48_tools.csv`](../workbook/exports/toolbox_48_tools.csv)
-   and **explains why each tool was selected**.
-4. The backend drafts a **revision plan**: construct rewrite, missing
-   metadata fields, scenario expansions, metric additions, disagreement-label
-   options, and lifecycle controls.
-
-> The demo is **not** an automatic benchmark grader. It is a structured
-> assistant for adapting benchmark-as-tool components under the same
-> policy-grounded rubric system used in the meta-review.
-
-## Running the demo locally
+**Source**: [`docs/interactive/`](../docs/interactive/) — vanilla HTML + JS + JSON,
+no build step. To run locally:
 
 ```bash
-git clone https://github.com/QingjingChen/heart_web_demo_pub.git
-cd heart_web_demo_pub
-python -m venv .venv
-source .venv/bin/activate         # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn heart_backend:app --host 127.0.0.1 --port 8765
+cd docs/interactive
+python3 -m http.server 8000
+# then visit http://localhost:8000
 ```
 
-Open <http://127.0.0.1:8765/> in a browser.
+## 🗺 What you get
 
-## License
+The site walks you through HEART end to end:
 
-The demo source is published under **MIT** (matching [`../LICENSE-code`](../LICENSE-code)).
-The workbook mirrored inside the demo remains **CC-BY-4.0**.
+| Stage | Page | What it shows |
+|:---|:---|:---|
+| **Overview** | `index.html` | Architecture: bench corpus → diagnosis → repair → examples |
+| **A · Scope** | `dimensions.html` | 5 ethical dimensions × 18 policy sources; coverage matrix |
+| **B · Diagnose** | `rubrics.html` | 14 calibrated rubrics with v2 anchors + bench examples per score |
+| **C · Repair** | `tools.html` / `benches.html` / `rubric_matrix.html` | 14 generic tools, 103 specific sub-tools, Gap → Tool workflow |
+| **D · Apply** | `mini_cases.html` | 5 worked before/after revision examples |
+
+## 📦 Where the data comes from
+
+All data on the site is loaded from JSON files under `docs/interactive/data/`,
+themselves derived from the master workbook `workbook/heart_toolkit.xlsx`.
+Nothing is generated at runtime.
+
+| Workbook source | Site JSON |
+|:---|:---|
+| `workbook/exports/benchmarks_103_tool_distribution.csv` | `data/bench_map.json` |
+| `workbook/exports/rubrics_14_anchors.csv` | `data/rubrics_full.json` |
+| `workbook/exports/toolbox_master.csv` | `data/t_tools.json` |
+| `datasets/sources.md` | `data/bench_urls.json` (paper / code / mirror links) |
+
+If you change the workbook, regenerate the JSONs and commit both — the site
+is intentionally static.

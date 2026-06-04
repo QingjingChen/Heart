@@ -1,6 +1,6 @@
 # Source Datasets — Full Benchmark Catalogue
 
-HEART's meta-review covers **104 benchmark and survey papers** organised by
+HEART's meta-review covers **103 benchmark and survey papers** organised by
 five policy-grounded dimensions (see [`../docs/02_five_dimensions.md`](../docs/02_five_dimensions.md)).
 This page is the **complete catalogue** with the borrowable innovation, the
 why-it-improves rationale, a concrete adaptation example, and the
@@ -18,7 +18,7 @@ author-acknowledged limits for every entry.
 
 Cells below are extracted verbatim from `workbook/heart_toolkit.xlsx`,
 the `Tool Source Distribution` sheet; the full 27-column rubric annotations live in
-[`../workbook/exports/benchmarks_104_tool_distribution.csv`](../workbook/exports/benchmarks_104_tool_distribution.csv).
+[`../workbook/exports/benchmarks_103_tool_distribution.csv`](../workbook/exports/benchmarks_103_tool_distribution.csv).
 
 ### Human-Centered (24 benchmarks)
 
@@ -151,7 +151,7 @@ the `Tool Source Distribution` sheet; the full 27-column rubric annotations live
 
 ## Survey papers consulted
 
-In addition to the 104 individual benchmark papers catalogued above, the
+In addition to the 103 individual benchmark papers catalogued above, the
 meta-review draws on the following surveys for the benchmark inventory,
 rubric calibration, normative grounding, and cross-comparison of evidence.
 These surveys appear in the `External views (Survey 原文)` column of the
