@@ -3,11 +3,15 @@
   const KEY = 'heart_lang';
   const root = document.documentElement;
   function set(lang) {
+    const prev = root.getAttribute('data-lang');
     root.setAttribute('data-lang', lang);
     try { localStorage.setItem(KEY, lang); } catch(e) {}
     document.querySelectorAll('.lang-toggle button').forEach(b => {
       b.classList.toggle('active', b.dataset.lang === lang);
     });
+    if (prev !== lang) {
+      window.dispatchEvent(new CustomEvent('heart-lang-change', { detail: { lang } }));
+    }
   }
   // Apply saved (default EN) before paint
   const saved = (() => { try { return localStorage.getItem(KEY); } catch(e) { return null; } })();

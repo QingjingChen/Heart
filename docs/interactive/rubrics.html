@@ -317,18 +317,21 @@ async function init() {
 }
 
 function buildChart() {
-  const labels = RUBRICS.map(r => `${r.code}  ${r.name}`);
+  const lang = (window.HEART_LANG && window.HEART_LANG.get()) || 'en';
+  const labels = RUBRICS.map(r => `${r.code}  ${lang==='zh' ? (r.name_zh||r.name) : r.name}`);
   const traces = [];
   for (let s=0; s<=5; s++) {
     traces.push({
       type:'bar',
       orientation:'h',
-      name:`Score ${s}`,
+      name: lang==='zh' ? `${s} 分` : `Score ${s}`,
       x: RUBRICS.map(r => r.counts[s] / r.total * 100),
       y: labels,
       marker:{color: SCORE_COLORS[s], line:{color:'white', width:1.2}},
       customdata: RUBRICS.map(r => [r.counts[s], r.total]),
-      hovertemplate:'<b>%{y}</b><br>Score '+s+': %{customdata[0]}/%{customdata[1]} (%{x:.1f}%)<extra></extra>',
+      hovertemplate: lang==='zh'
+        ? '<b>%{y}</b><br>'+s+' 分：%{customdata[0]}/%{customdata[1]} (%{x:.1f}%)<extra></extra>'
+        : '<b>%{y}</b><br>Score '+s+': %{customdata[0]}/%{customdata[1]} (%{x:.1f}%)<extra></extra>',
     });
   }
 
@@ -370,7 +373,7 @@ function buildChart() {
   for (let i=0; i<RUBRICS.length; i++) {
     annotations.push({
       x: 101.5, xref:'x', y:i, yref:'y',
-      text: `mean ${RUBRICS[i].mean.toFixed(2)}`,
+      text: lang==='zh' ? `均值 ${RUBRICS[i].mean.toFixed(2)}` : `mean ${RUBRICS[i].mean.toFixed(2)}`,
       showarrow:false,
       font:{size:9.5, color:'#475569'},
       xanchor:'left',
@@ -380,7 +383,7 @@ function buildChart() {
   const layout = {
     barmode:'stack',
     margin:{l:220, r:90, t:20, b:60},
-    xaxis:{range:[0,100], title:'Share of audited entries (%)', tickfont:{size:10}, gridcolor:'#E5E7EB'},
+    xaxis:{range:[0,100], title: lang==='zh' ? '审计条目分布（%）' : 'Share of audited entries (%)', tickfont:{size:10}, gridcolor:'#E5E7EB'},
     yaxis:{automargin:true, tickfont:{size:10.5}, autorange:'reversed'},
     legend:{orientation:'h', y:-0.13, x:0.5, xanchor:'center', font:{size:11}},
     annotations,
@@ -391,13 +394,14 @@ function buildChart() {
   Plotly.newPlot('chart', traces, layout, {displayModeBar:false, responsive:true});
   document.getElementById('chart').on('plotly_click', e => {
     const pt = e.points[0];
-    const rubric = pt.y.replace(/^R\d+\s+/, '');
-    openRubric(rubric);
+    // Clean ZH or EN prefix off the label to recover the canonical EN rubric name
+    let label = pt.y.replace(/^R\d+\s+/, '');
+    const r = RUBRICS.find(x => x.name === label || x.name_zh === label);
+    openRubric(r ? r.name : label);
   });
   document.getElementById('chart').on('plotly_legenddoubleclick', () => false);
-  // Also clicking the y-axis labels by adding click handlers manually
-  // (Plotly doesn't natively support this; users can click bars)
 }
+window.addEventListener('heart-lang-change', () => { if (RUBRICS.length) buildChart(); });
 
 function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 

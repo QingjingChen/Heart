@@ -688,13 +688,15 @@ function openTool(tid) {
     <summary><span class="lang-en">Sub-tools × source benches</span><span class="lang-zh">细分工具与来源 bench</span> <span class="muted" style="font-size:11px;font-weight:normal">(${subToolList.length} sub-tools · ${totalBenches} benches)</span></summary>
     <div class="acc-body" style="padding:8px 12px">
       ${subToolList.map(([sub, slot]) => {
-        // Look up the EN translation of the sub-tool name from bench_map (best effort)
-        let subEn = '';
+        // Look up EN + ZH siblings of the sub-tool name from bench_map (best effort)
+        let subEn = '', subZh = '';
         for (const b of BENCH_MAP) {
-          if ((b['主细分工具']||'').trim() === sub && b['主细分工具_en']) { subEn = b['主细分工具_en']; break; }
-          if ((b['次细分工具']||'').trim() === sub && b['次细分工具_en']) { subEn = b['次细分工具_en']; break; }
+          if ((b['主细分工具']||'').trim() === sub) { subEn = b['主细分工具_en'] || sub; subZh = b['主细分工具_zh'] || sub; break; }
+          if ((b['次细分工具']||'').trim() === sub) { subEn = b['次细分工具_en'] || sub; subZh = b['次细分工具_zh'] || sub; break; }
         }
-        const subTitle = subEn ? `<span class="lang-en">${subEn}</span><span class="lang-zh">${sub}</span>` : sub;
+        if (!subEn) subEn = sub;
+        if (!subZh) subZh = sub;
+        const subTitle = `<span class="lang-en">${subEn}</span><span class="lang-zh">${subZh}</span>`;
         const ev = cleanEvidence(slot.evidence);
         const guideHtml = renderPlainGuide(slot.polished_idx, slot.prompt_guide);
         const polEx = slot.polished_idx != null ? EXAMPLES_PLAIN[String(slot.polished_idx)] : null;
