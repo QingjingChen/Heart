@@ -125,16 +125,17 @@
   line-height: 1.55;
 }
 .anchor-text-line { color: var(--text); }
-.anchor-simple {
-  font-size: 11px;
-  color: #5D4037;
-  background: #FFF8E1;
-  padding: 2px 6px;
-  border-radius: 3px;
+.anchor-reason {
   margin: 4px 0;
-  display: inline-block;
+  padding: 5px 8px;
+  background: #F1F8F5;
+  border-left: 2px solid #2E7D32;
+  border-radius: 3px;
+  font-size: 11.5px;
+  color: var(--text);
+  line-height: 1.5;
 }
-.anchor-simple b { color: #B45309; }
+.anchor-reason b { color: #1B5E20; font-size: 11px; margin-right: 4px; }
 .anchor-examples { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; }
 .anchor-examples .bench-pill { font-size: 11px; padding: 1px 8px; margin: 0; }
 .ref-list {
@@ -400,6 +401,21 @@ function buildChart() {
 
 function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
+// Convert in-text "——如 BenchA、BenchB" → clickable pills linking to benches.html#Name,
+// stripping the "——如" prefix per user feedback. Preserves other text safely.
+function linkBenchesInText(text) {
+  if (!text) return '';
+  let s = escapeHtml(text);
+  s = s.replace(/(?:——|—|–|--)\s*如\s*([A-Za-z][A-Za-z0-9\-\.\/]*(?:\s*[\(（][^\)）]+[\)）])?(?:\s*[、,，]\s*[A-Za-z][A-Za-z0-9\-\.\/]*(?:\s*[\(（][^\)）]+[\)）])?)*)/g,
+    (match, list) => {
+      const names = list.split(/[、,，]\s*/).map(x => x.trim()).filter(Boolean);
+      if (!names.length) return match;
+      const pills = names.map(n => `<a class="bench-pill has-url" href="benches.html#${encodeURIComponent(n)}">${n}</a>`).join(' ');
+      return ' ' + pills;
+    });
+  return s;
+}
+
 function openRubric(rname) {
   const r = RUBRICS.find(x => x.name === rname);
   if (!r) return;
@@ -504,21 +520,26 @@ function openRubric(rname) {
     return `<li>${escapeHtml(key)}</li>`;
   }).join('');
 
-  // Parse the per-level bench mentions from r.calibrated_anchors (format: "0=X；2=Y/Z；3=...")
+  // Parse the per-level bench mentions AND the parenthetical reasoning per level.
+  // Format example: "0=Kleinberg（理论）；2=StereoSet/CrowS-Pairs/Winogender（构念过窄或被 Blodgett 等系统否证）；…"
   const benchesPerLevel = {0:[], '1-2':[], '3-4':[], 5:[]};
+  const reasonPerLevel  = {0:[], '1-2':[], '3-4':[], 5:[]};
   const calAnchor = r.calibrated_anchors || '';
-  // Match score=… delimited by ；or ;
   for (const seg of calAnchor.split(/[；;]/)) {
     const m = seg.match(/^\s*(\d)\s*=\s*(.+)$/);
     if (!m) continue;
     const lvl = parseInt(m[1]);
     let txt = m[2].trim();
-    // Strip parenthetical notes
-    txt = txt.replace(/[（(].*$/g, '').trim();
-    if (!txt || txt === '暂无') continue;
-    const names = txt.split(/[\/、,]/).map(s=>s.trim()).filter(Boolean);
+    // Separate the bench-name list from the trailing reason note (in 全角/半角 parens)
+    const reasonMatch = txt.match(/[（(]([^）)]+)[）)]/);
+    const reason = reasonMatch ? reasonMatch[1].trim() : '';
+    const namesPart = txt.replace(/[（(].*$/g, '').trim();
     const key = lvl===0?0:(lvl<=2?'1-2':lvl<=4?'3-4':5);
-    benchesPerLevel[key].push(...names);
+    if (namesPart && namesPart !== '暂无') {
+      const names = namesPart.split(/[\/、,]/).map(s=>s.trim()).filter(Boolean);
+      benchesPerLevel[key].push(...names);
+    }
+    if (reason) reasonPerLevel[key].push(reason);
   }
   // Render bench → linked pill if found in BENCH_URLS, else plain
   const benchPill = (rawName) => {
@@ -540,15 +561,18 @@ function openRubric(rname) {
     return `<span class="bench-pill">${escapeHtml(rawName)}</span>`;
   };
 
-  const anchorRow = (badgeClass, label, criterion_en, criterion_zh, simpleScore, levelKey) => {
+  const anchorRow = (badgeClass, label, criterion_en, criterion_zh, _unused, levelKey) => {
     const bns = (benchesPerLevel[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
     const pills = bns.length ? `<div class="anchor-examples">${bns.map(benchPill).join(' ')}</div>` : '';
-    const simple = simpleScore ? `<div class="anchor-simple"><b>0–3 ⇢</b> ${escapeHtml(simpleScore)}</div>` : '';
+    const reasons = (reasonPerLevel[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
+    const reasonHtml = reasons.length
+      ? `<div class="anchor-reason"><b><span class="lang-en">Calibration reason:</span><span class="lang-zh">校准理由：</span></b> ${linkBenchesInText(reasons.join('；'))}</div>`
+      : '';
     return `<div class="score-badge ${badgeClass}">${label}</div>
       <div class="anchor-compact">
-        <div class="anchor-text-line"><span class="lang-en">${escapeHtml(criterion_en)}</span><span class="lang-zh">${escapeHtml(criterion_zh)}</span></div>
-        ${simple}
+        <div class="anchor-text-line"><span class="lang-en">${linkBenchesInText(criterion_en)}</span><span class="lang-zh">${linkBenchesInText(criterion_zh)}</span></div>
         ${pills}
+        ${reasonHtml}
       </div>`;
   };
 
@@ -566,8 +590,8 @@ function openRubric(rname) {
       <span class="lang-zh">评分依据 · v2 校准锚点 + 举例</span>
     </h4>
     <div class="calib-narrative">
-      <p class="lang-en">${escapeHtml(cal.summary_en || r.revision_notes)}</p>
-      <p class="lang-zh">${escapeHtml(cal.summary_zh || r.revision_notes)}</p>
+      <p class="lang-en">${linkBenchesInText(cal.summary_en || r.revision_notes)}</p>
+      <p class="lang-zh">${linkBenchesInText(cal.summary_zh || r.revision_notes)}</p>
     </div>
     <div class="anchor-compact-grid">
       ${anchorRow('score-0',  '0',   cal.anchor_0_compact   || r.anchor_0,   cal.anchor_0_zh   || r.anchor_0,   get3(0), 0)}

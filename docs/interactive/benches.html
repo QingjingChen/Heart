@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>103 Benches Lookup — HEART</title>
+<title>Specific Repair Sub-tools · 细分修复子工具 — HEART</title>
 <link rel="stylesheet" href="assets/main.css">
 <script src="assets/lang.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
 </head>
 <body>
 <header>
-  <h1><span class="lang-en">103 Audited Benchmarks · Tool Mapping</span><span class="lang-zh">103 个被审计 Benchmark · 工具映射</span></h1>
-  <div class="subtitle"><span class="lang-en">Each benchmark mapped to its primary and secondary canonical tool, with sub-tool, adaptation prompt and a paper link</span><span class="lang-zh">每个 benchmark 映射到其主/次整合工具，含细分工具、改编 prompt 和论文链接</span></div>
+  <h1><span class="lang-en">Specific Repair Sub-tools</span><span class="lang-zh">细分修复子工具</span></h1>
+  <div class="subtitle"><span class="lang-en">Each row = one audited benchmark, treated as a specific repair sub-tool. Click any row for the bench-specific adaptation guide and example.</span><span class="lang-zh">每一行 = 一个被审计 benchmark，按"细分修复子工具"组织。点击行查看该 bench 专属的改编指引与例子。</span></div>
 </header>
 <nav>
   <a href="index.html"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
@@ -24,16 +24,17 @@
 <main>
 
 <div class="subpage-strip">
-  <span class="strip-label"><span class="lang-en">A · Sub-pages:</span><span class="lang-zh">A 阶段子页：</span></span>
-  <a href="dimensions.html" class="strip-pill"><span class="lang-en">5 Dimensions × Policy</span><span class="lang-zh">5 维 × 政策</span></a>
-  <a href="benches.html" class="strip-pill active"><span class="lang-en">103 Audited Benchmarks</span><span class="lang-zh">103 个已审计 benchmark</span></a>
+  <span class="strip-label"><span class="lang-en">C · Sub-pages:</span><span class="lang-zh">C 阶段子页：</span></span>
+  <a href="tools.html" class="strip-pill"><span class="lang-en">Generic Repair Tools</span><span class="lang-zh">通用修复工具</span></a>
+  <a href="benches.html" class="strip-pill active"><span class="lang-en">Specific Repair Sub-tools</span><span class="lang-zh">细分修复子工具</span></a>
+  <a href="rubric_matrix.html" class="strip-pill"><span class="lang-en">Gap → Tool Workflow</span><span class="lang-zh">Gap → Tool 修复工作流</span></a>
 </div>
 
 <section class="card">
-  <h2>How to use</h2>
+  <h2><span class="lang-en">How to read</span><span class="lang-zh">如何阅读</span></h2>
   <p>
-    Type in the search box to filter by benchmark name, dimension, manual label, or canonical tool. Click any row to expand the full adaptation prompt + example for that benchmark.
-    <span class="bench-pill has-url" style="margin-left:8px"><a href="" style="text-decoration:none;color:inherit">↗</a></span> next to a benchmark name = the paper URL is available; clicking opens the paper in a new tab.
+    <span class="lang-en">Each row is one benchmark, treated as a <b>specific repair sub-tool</b> bound to its primary canonical tool. Search by name / dimension / tool ID, or click any row's <b>+</b> for that bench's adaptation guide (6-section plain-language bullets) and a concrete example.</span>
+    <span class="lang-zh">每一行都是一个被审计的 benchmark，作为一个绑到主整合工具的<b>细分修复子工具</b>。可按名字 / 维度 / 工具 ID 搜索，点击行的 <b>+</b> 看该 bench 专属的改编指引（6 段大白话清单）和具体例子。</span>
   </p>
 </section>
 
@@ -62,16 +63,60 @@
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 <script>
 let BENCH_MAP = [], BENCH_URLS = {}, T_TOOLS = [];
+let PROMPTS = [], PROMPTS_PLAIN = {};
 let modalBg, modal;
 async function load() {
   modalBg = document.getElementById('modal-bg');
   modal = document.getElementById('modal');
-  [BENCH_MAP, BENCH_URLS, T_TOOLS] = await Promise.all([
+  [BENCH_MAP, BENCH_URLS, T_TOOLS, PROMPTS, PROMPTS_PLAIN] = await Promise.all([
     fetch('data/bench_map.json').then(r=>r.json()),
     fetch('data/bench_urls.json').then(r=>r.json()),
     fetch('data/t_tools.json').then(r=>r.json()),
+    fetch('data/prompts.json').then(r=>r.json()),
+    fetch('data/prompts_plain.json').then(r=>r.ok ? r.json() : ({})).catch(() => ({})),
   ]);
   buildTable();
+}
+
+// Render the 6-section bullet card given a polished entry from prompts_plain.json
+function renderBulletCard(polished, fallbackGuide, fallbackExample) {
+  if (polished && !polished.error) {
+    const li = (arr) => (arr || []).filter(Boolean).map(s => `<li>${s}</li>`).join('');
+    const cols = [];
+    if (polished.automatable_zh && polished.automatable_zh.length) cols.push(`<div class="pg-col pg-auto"><b><span class="lang-en">Can automate</span><span class="lang-zh">可自动</span></b><ul>${li(polished.automatable_zh)}</ul></div>`);
+    if (polished.needs_human_zh && polished.needs_human_zh.length) cols.push(`<div class="pg-col pg-human"><b><span class="lang-en">Needs human</span><span class="lang-zh">需人工</span></b><ul>${li(polished.needs_human_zh)}</ul></div>`);
+    return `<div class="bench-guide-card">
+      ${polished.context_zh ? `<div class="pg-ctx">${polished.context_zh}</div>` : ''}
+      ${polished.keep_from_original_zh && polished.keep_from_original_zh.length ? `<div class="pg-block"><b><span class="lang-en">Keep from original</span><span class="lang-zh">从原题保留</span></b><ul>${li(polished.keep_from_original_zh)}</ul></div>` : ''}
+      ${polished.primary_tool_steps_zh && polished.primary_tool_steps_zh.length ? `<div class="pg-block"><b><span class="lang-en">Main steps</span><span class="lang-zh">主要步骤</span></b><ul>${li(polished.primary_tool_steps_zh)}</ul></div>` : ''}
+      ${polished.secondary_tool_steps_zh && polished.secondary_tool_steps_zh.length ? `<div class="pg-block"><b><span class="lang-en">Backup steps</span><span class="lang-zh">补充步骤</span></b><ul>${li(polished.secondary_tool_steps_zh)}</ul></div>` : ''}
+      ${polished.outputs_zh && polished.outputs_zh.length ? `<div class="pg-block"><b><span class="lang-en">What to produce</span><span class="lang-zh">要产出什么</span></b><ul>${li(polished.outputs_zh)}</ul></div>` : ''}
+      ${cols.length ? `<div class="pg-cols">${cols.join('')}</div>` : ''}
+    </div>`;
+  }
+  let txt = (fallbackGuide || '').trim();
+  txt = txt.replace(/^基于[^"""""]*?[""""]\s*[""""\s。]*改编到[^：。]*[：。]\s*/, '');
+  return `<div class="section-block">${txt}</div>` + (fallbackExample ? `<div class="section-block" style="background:#E8F5E9;border-left:3px solid #2E7D32;margin-top:6px">${fallbackExample}</div>` : '');
+}
+
+// Find the prompts.json index whose (整合工具ID, Benchmark, 细分工具) matches this bench's primary
+function findPolishedIdx(b) {
+  const tid = (b['主整合工具ID'] || '').trim();
+  const bn = (b['Benchmark / Source'] || '').trim();
+  const sub = (b['主细分工具'] || '').trim();
+  for (let i = 0; i < PROMPTS.length; i++) {
+    const p = PROMPTS[i];
+    if ((p['整合工具ID']||'').trim() !== tid) continue;
+    if ((p['Benchmark / Source']||'').trim() !== bn) continue;
+    if (sub && (p['细分工具']||'').trim() !== sub) continue;
+    return i;
+  }
+  // Looser fallback: match by tool + bench only
+  for (let i = 0; i < PROMPTS.length; i++) {
+    const p = PROMPTS[i];
+    if ((p['整合工具ID']||'').trim() === tid && (p['Benchmark / Source']||'').trim() === bn) return i;
+  }
+  return null;
 }
 function urlFor(name) {
   const cleanName = name.replace(/\s*\(.*\)\s*$/, '');
@@ -120,29 +165,30 @@ function openDetail(i) {
   html += `<b><span class="lang-en">Paper-specific labels:</span><span class="lang-zh">文章特有分类/标签：</span></b> ${b['文章特有分类/标签结构']||'—'}</p>`;
 
   html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
-  html += `<h4 style="color:var(--primary)"><span class="lang-en">Primary canonical tool:</span><span class="lang-zh">主整合工具：</span> ${b['主整合工具ID']} · ${b['主整合工具']}</h4>`;
+
+  // Primary tool block — render adaptation guide + example as 6-section bullets
+  html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['主整合工具ID']}"><span class="lang-en">Primary canonical tool:</span><span class="lang-zh">主整合工具：</span> ${b['主整合工具ID']} · ${b['主整合工具']}</a></h4>`;
   if (tool) html += `<div class="muted" style="margin-bottom:8px">${tool['工具边界 / 与相近工具区别']||''}</div>`;
-  html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Primary sub-tool</span><span class="lang-zh">主细分工具</span></h5>`;
+  html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Sub-tool name</span><span class="lang-zh">细分工具</span></h5>`;
   html += `<div class="section-block">${b['主细分工具']||''}</div>`;
-  html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Adaptation prompt guide</span><span class="lang-zh">改编 Prompt 指导</span></h5>`;
-  html += `<div class="section-block">${b['改编Prompt指导']||''}</div>`;
-  html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Polished revision example</span><span class="lang-zh">改编示例</span></h5>`;
-  html += `<div class="section-block">${b['改编示例（微改）']||''}</div>`;
+  const polishedIdx = findPolishedIdx(b);
+  const polished = polishedIdx != null ? PROMPTS_PLAIN[String(polishedIdx)] : null;
+  html += `<h5 style="margin:10px 0 4px"><span class="lang-en">Adaptation guide · plain-language bullets</span><span class="lang-zh">改编指引 · 大白话清单</span></h5>`;
+  html += renderBulletCard(polished, b['改编Prompt指导'], b['改编示例（微改）']);
+  if (b['改编示例（微改）']) {
+    html += `<h5 style="margin:12px 0 4px"><span class="lang-en">A concrete adapted example</span><span class="lang-zh">一个具体改编后的例子</span></h5>`;
+    html += `<div class="section-block" style="background:#E8F5E9;border-left:3px solid #2E7D32">${b['改编示例（微改）']}</div>`;
+  }
 
   if (b['次整合工具ID']) {
     html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
-    html += `<h4 style="color:var(--primary)"><span class="lang-en">Secondary canonical tool:</span><span class="lang-zh">次整合工具：</span> ${b['次整合工具ID']} · ${b['次整合工具']}</h4>`;
+    html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['次整合工具ID']}"><span class="lang-en">Secondary canonical tool:</span><span class="lang-zh">次整合工具：</span> ${b['次整合工具ID']} · ${b['次整合工具']}</a></h4>`;
     if (secTool) html += `<div class="muted" style="margin-bottom:8px">${secTool['工具边界 / 与相近工具区别']||''}</div>`;
-    html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Secondary sub-tool</span><span class="lang-zh">次细分工具</span></h5>`;
+    html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Sub-tool name</span><span class="lang-zh">细分工具</span></h5>`;
     html += `<div class="section-block">${b['次细分工具']||''}</div>`;
-    html += `<h5 style="margin:8px 0 2px"><span class="lang-en">Secondary match evidence</span><span class="lang-zh">次匹配证据</span></h5>`;
-    html += `<div class="section-block">${b['次匹配证据']||''}</div>`;
+    html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Match evidence</span><span class="lang-zh">匹配证据</span></h5>`;
+    html += `<div class="section-block">${(b['次匹配证据']||'').replace(/^匹配到[^：]*：\s*/,'')}</div>`;
   }
-
-  html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
-  html += `<h5><span class="lang-en">Automation vs. human-review boundary</span><span class="lang-zh">自动化与人工边界</span></h5>`;
-  html += `<p><b><span class="lang-en">Can be automated:</span><span class="lang-zh">可自动改编：</span></b> <span class="muted">${b['自动化改编部分']||'—'}</span></p>`;
-  html += `<p><b><span class="lang-en">Needs human review:</span><span class="lang-zh">需人工校验：</span></b> <span class="muted">${b['需人工校验/治理部分']||'—'}</span></p>`;
   modal.innerHTML = html;
   modalBg.style.display = 'flex';
 }
