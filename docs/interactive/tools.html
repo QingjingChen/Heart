@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Generic Repair Tools · 通用修复工具 — HEART</title>
+<title>Generic Repair Tools — HEART</title>
 <link rel="stylesheet" href="assets/main.css">
 <script src="assets/lang.js"></script>
 <style>
@@ -409,18 +409,21 @@ const LAYERS = [
     id: 'Content Validity',
     zh: '内容有效性',
     desc: 'What the benchmark claims to measure',
+    zh_desc: 'benchmark 声称在测的是什么',
     rubrics: 'R1 Construct clarity · R2 Normative grounding · R3 Source provenance · R4 Context/stakeholder · R5 Real-world harm',
   },
   {
     id: 'Evaluation Design',
     zh: '评测设计',
     desc: 'How the benchmark turns claims into items + scores',
+    zh_desc: '声称如何变成题目和分数',
     rubrics: 'R6 Scenario validity · R7 Task-format fit · R8 Ground-truth/disagreement · R9 Metric validity · R10 Evaluator reliability',
   },
   {
     id: 'Governance Reliability',
     zh: '治理可靠性',
     desc: 'How the benchmark stays auditable and current',
+    zh_desc: '如何保持可审计且长期有效',
     rubrics: 'R11 Data/annotation QA · R12 Robustness vs gaming · R13 Documentation · R14 Maintenance',
   },
 ];
@@ -448,8 +451,8 @@ async function build() {
     const tools_in_layer = TOOLS.filter(t => t.rubric_layer === layer.id);
     cont.insertAdjacentHTML('beforeend', `
       <div class="layer-header">
-        <h2>${layer.zh} · ${layer.id}</h2>
-        <span class="layer-desc">— ${layer.desc} (${tools_in_layer.length} tools)</span>
+        <h2><span class="lang-en">${layer.id}</span><span class="lang-zh">${layer.zh}</span></h2>
+        <span class="layer-desc"><span class="lang-en">— ${layer.desc} (${tools_in_layer.length} tools)</span><span class="lang-zh">— ${layer.zh_desc || layer.desc} (${tools_in_layer.length} 件)</span></span>
         <span class="layer-rubrics">${layer.rubrics}</span>
       </div>
       <div class="toolbox-grid" id="grid-${layer.id.replace(/\s/g,'')}"></div>
@@ -470,11 +473,11 @@ function renderCardThumb(t) {
   return `
     <div class="tb-card" onclick="openTool('${tid}')">
       <div class="tid">${tid}</div>
-      <div class="name-en">${en}</div>
-      <div class="name-zh">${zh}</div>
+      <div class="name-en lang-en">${en}</div>
+      <div class="name-en lang-zh">${zh}</div>
       <div class="summary">${core}</div>
       <div class="pills">
-        <span class="micro-pill">Evidence ${evC}</span>
+        <span class="micro-pill"><span class="lang-en">Evidence ${evC}</span><span class="lang-zh">证据 ${evC}</span></span>
         <span class="micro-pill">${t.rubric_layer || '—'}</span>
       </div>
     </div>
@@ -576,10 +579,9 @@ function openTool(tid) {
   };
 
   let html = `<span class="close" onclick="closeModal()">×</span>`;
-  html += `<h3>${tid} · ${t['Toolbox 英文名']}
-    <span class="meta-badge">${t['中文译名']}</span>
+  html += `<h3>${tid} · <span class="lang-en">${t['Toolbox 英文名']}</span><span class="lang-zh">${t['中文译名']}</span>
     <span class="meta-badge">${t.rubric_layer}</span>
-    <span class="meta-badge">Evidence: ${t['证据条数']}</span>
+    <span class="meta-badge"><span class="lang-en">Evidence: ${t['证据条数']}</span><span class="lang-zh">证据：${t['证据条数']}</span></span>
   </h3>`;
 
   html += `<div class="section-block">${t['核心做法'] || ''}</div>`;
