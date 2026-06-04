@@ -712,7 +712,7 @@ function renderCase(c, idx) {
           <h3 style="color:#C62828"><span class="lang-en">Original item</span><span class="lang-zh">原题</span></h3>
           ${c.original_items.map(it => `
             <div class="item-block original">
-              <h4>${it.type_zh} / ${it.type_en}</h4>
+              <h4><span class="lang-en">${it.type_en}</span><span class="lang-zh">${it.type_zh}</span></h4>
               ${renderItem(it)}
             </div>
           `).join('')}
@@ -721,7 +721,7 @@ function renderCase(c, idx) {
           <h3 style="color:#2E7D32"><span class="lang-en">HEART-revised item</span><span class="lang-zh">改编后</span></h3>
           ${c.revised_items.map(it => `
             <div class="item-block revised">
-              <h4>${it.type_zh} / ${it.type_en}</h4>
+              <h4><span class="lang-en">${it.type_en}</span><span class="lang-zh">${it.type_zh}</span></h4>
               ${renderItem(it)}
             </div>
           `).join('')}
