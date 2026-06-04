@@ -20,6 +20,6 @@ final BibTeX entry and the Zenodo DOI.
   and runs locally per [`../demo/README.md`](../demo/README.md).
 - The raw source datasets indexed in [`../datasets/README.md`](../datasets/README.md)
   are mirrored in a public Google Drive folder linked from that file.
-- The master workbook with all rubric annotations is at
-  [`../workbook/heart_toolkit.xlsx`](../workbook/heart_toolkit.xlsx); CSV
-  exports are in [`../workbook/exports/`](../workbook/exports/).
+- The master codebook with all rubric annotations is at
+  [`../codebook/heart_codebook.xlsx`](../codebook/heart_codebook.xlsx); CSV
+  exports are in [`../codebook/`](../codebook/).

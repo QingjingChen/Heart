@@ -1,0 +1,15 @@
+rubric,T01,T02,T03,T04,T05,T06,T07,T08,T09,T10,T11,T12,T13,T14
+Construct clarity,12.5,0,0,0,0,0,0,0,0,0,0,0,0,0
+Normative grounding,0,19,0,0,7,0,0,0,0,0,0,0,0,0
+Source provenance and evidence fitness,0,9.5,0,0,7.5,0,0,0,0,14,0,0,0.5,0
+Context and stakeholder coverage,0,0,12.5,0,7.5,0,0,0,0,0,8.5,0,0,0
+Real-world harm linkage,7.5,0,8.5,5,0,0,0,7,3,0,0,0,0,0
+Scenario validity,0,0,21.5,6,0,0,4,0,3,0,0,0,0,0
+Task-format fit,0,0,0,1,0,11,4,14,0,0,0,0,0,0
+Ground truth and disagreement design,0,5,0,0,0,0,0,0,0,0,0,1.5,0,0
+Metric validity,0,0,0,0,0,3,0,0,0,12.5,9,3.5,0,0
+Evaluator reliability,0,0,0,0,0,0,0,0,0,0,0,7.5,0,0
+Data and annotation QA,0,0,0,0,0,10,0,0,0,0,0,0,0,0
+Robustness against gaming and contamination,0,0,0,0,0,0,0,17,0,0,0,0,0,2.5
+Documentation and reproducibility,0,0,0,0,0,0,0,0,0,1,1,0,1,0
+Maintenance and update governance,0,0,0,0,0,0,0,0,0,0,0,0,0,2

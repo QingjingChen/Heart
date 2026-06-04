@@ -1,0 +1,17 @@
+source,type,url,support_Human-Centered,support_Fairness_Inclusiveness,support_Safety_Reliability,support_Trustworthiness_Controllability,support_Privacy_Protection
+UNESCO Recommendation on AI Ethics,International guideline,https://www.unesco.org/en/articles/recommendation-ethics-artificial-intelligence,"D1, D2","D1, D2","D1, D2","D1, D2","D1, D2"
+OECD AI Principles,International guideline,https://oecd.ai/en/ai-principles,D1,D1,D1,D1,D1
+EU AI Act,Hard law,https://eur-lex.europa.eu/eli/reg/2024/1689/oj,"D1, D2","D1, D2","D1, D2","D1, D2","D1, D2"
+NIST AI RMF,Risk framework,https://www.nist.gov/itl/ai-risk-management-framework,"D2, D3","D2, D3","D2, D3","D2, D3","D2, D3"
+GDPR,Privacy law,https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679,D1,D1,D1,D1,D1
+China PIPL / Data Security Law,Privacy and data law,https://en.wikipedia.org/wiki/Personal_Information_Protection_Law_of_the_People%27s_Republic_of_China,"D1, D2","D1, D2","D1, D2","D1, D2","D1, D2"
+Blueprint for an AI Bill of Rights,Rights framework,https://www.whitehouse.gov/ostp/ai-bill-of-rights/,D2,D2,D2,D2,D2
+ISO/IEC 42001 and 27551,Technical standard,https://www.iso.org/standard/81230.html,D1,D1,D1,D1,D1
+UK AI regulatory principles / playbook,Regulatory guidance,https://www.gov.uk/government/publications/ai-regulation-a-pro-innovation-approach,D2,D2,D2,D2,D2
+Japan AI Strategy / APPI,National policy,https://www.cas.go.jp/jp/seisaku/jinkochino/index.html,D1,D1,D1,D1,D1
+Korea AI Framework Act (2024),National policy,https://www.korea.kr/news/policyNewsView.do?newsId=148939237,D1,D1,D1,D1,D1
+AI Guidelines for Business Ver. 1.0,Business guideline,https://www.meti.go.jp/english/press/2024/0419_004.html,D2,D2,D2,D2,D2
+Google responsible AI practice,Industry practice,https://ai.google/responsibility/principles/,D3,D3,D3,D3,D3
+OpenAI preparedness and red-teaming,Industry practice,https://openai.com/safety/preparedness,D3,D3,D3,D3,D3
+Meta responsible AI / Llama Guard,Industry practice,https://ai.meta.com/llama/responsible-use-guide/,D3,D3,D3,D3,D3
+AILuminate / MLCommons,Industry benchmark,https://mlcommons.org/benchmarks/ailuminate/,D3,D3,D3,D3,D3

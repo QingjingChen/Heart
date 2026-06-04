@@ -51,7 +51,7 @@ The 14 rubrics are organised in three layers.
 | 5 | Construct + boundaries + sub-dimensions + exclusion scope + complete task / metric / claim chain |
 
 Full anchor tables for **all 14 rubrics** are in
-[`../workbook/exports/rubrics_14_anchors.csv`](../workbook/exports/rubrics_14_anchors.csv).
+[`../codebook/rubrics.csv`](../codebook/rubrics.csv).
 The same file records, for each rubric, the **current score distribution
 across the 103 originally-reviewed papers** — for example:
 

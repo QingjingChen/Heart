@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report an error in the workbook, documentation, or demo
+about: Report an error in the codebook, documentation, or demo
 title: "[BUG] "
 labels: bug
 assignees: ''
@@ -14,7 +14,7 @@ a CSV column mismatch, an incorrect benchmark attribution).
 ## Where
 
 - File / path:
-- Sheet / row / column (if in workbook):
+- Sheet / row / column (if in codebook):
 - URL (if a broken link):
 
 ## What it should be

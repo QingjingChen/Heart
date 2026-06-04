@@ -31,15 +31,15 @@ The site walks you through HEART end to end:
 ## 📦 Where the data comes from
 
 All data on the site is loaded from JSON files under `docs/interactive/data/`,
-themselves derived from the master workbook `workbook/heart_toolkit.xlsx`.
+themselves derived from the master codebook `codebook/heart_codebook.xlsx`.
 Nothing is generated at runtime.
 
-| Workbook source | Site JSON |
+| Codebook source | Site JSON |
 |:---|:---|
-| `workbook/exports/benchmarks_103_tool_distribution.csv` | `data/bench_map.json` |
-| `workbook/exports/rubrics_14_anchors.csv` | `data/rubrics_full.json` |
-| `workbook/exports/toolbox_master.csv` | `data/t_tools.json` |
+| `codebook/benchmarks.csv` | `data/bench_map.json` |
+| `codebook/rubrics.csv` | `data/rubrics_full.json` |
+| `codebook/tools.csv` | `data/t_tools.json` |
 | `datasets/sources.md` | `data/bench_urls.json` (paper / code / mirror links) |
 
-If you change the workbook, regenerate the JSONs and commit both — the site
+If you change the codebook, regenerate the JSONs and commit both — the site
 is intentionally static.

@@ -3,7 +3,7 @@
 The HEART Workbox is a **two-layer** repair toolbox for adapting existing
 benchmarks into stronger ethics evaluations. The same structure powers the
 interactive [`Revision Toolkit`](../docs/interactive/tools.html) tab and the
-master workbook.
+master codebook.
 
 | Layer | Live tab | Count | What's in it |
 |:---|:---|:---:|:---|
@@ -11,7 +11,7 @@ master workbook.
 | **Specific repair sub-tools** | [Specific Repair Sub-tools](https://qingjingchen.github.io/Heart/interactive/benches.html) | 103 | Each audited benchmark, treated as a bench-specific sub-tool bound to a generic parent |
 | **Gap → Tool workflow** | [Gap → Tool Workflow](https://qingjingchen.github.io/Heart/interactive/rubric_matrix.html) | 14×14 | Diagnosis-to-tool prescription matrix: when a benchmark fails rubric R*y*, which tool fixes it |
 
-Underlying tables live in `workbook/heart_toolkit.xlsx`; the per-tool /
+Underlying tables live in `codebook/heart_codebook.xlsx`; the per-tool /
 per-benchmark / per-rubric records mirror to the JSON files under
 [`./interactive/data/`](./interactive/data/).
 
@@ -60,7 +60,7 @@ protocol the benchmark used). The full catalogue lives in:
 - 🌐 Interactive view (sortable, filterable, with adaptation guide + example per bench): [Specific Repair Sub-tools](https://qingjingchen.github.io/Heart/interactive/benches.html)
 - 📚 Markdown catalogue: [`../datasets/README.md`](../datasets/README.md)
 - 🔗 Per-bench paper / code / dataset-mirror index: [`../datasets/sources.md`](../datasets/sources.md)
-- 📊 Raw CSV: [`../workbook/exports/benchmarks_103_tool_distribution.csv`](../workbook/exports/benchmarks_103_tool_distribution.csv)
+- 📊 Raw CSV: [`../codebook/benchmarks.csv`](../codebook/benchmarks.csv)
 
 Click any benchmark on the site to see its bench-specific adaptation guide
 (6-section plain-language bullets) and a concrete adapted example.
