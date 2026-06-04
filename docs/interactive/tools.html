@@ -121,6 +121,25 @@
   background: var(--surface);
   white-space: pre-wrap;
 }
+.boundary-note {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(238, 243, 249, .6);
+  border-left: 3px solid var(--primary-light);
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.boundary-note b {
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: .3px;
+  color: var(--primary);
+  margin-bottom: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 .subtool-card {
   background: var(--bg);
   border-left: 3px solid var(--primary-light);
@@ -411,15 +430,17 @@ let TOOLS = [], BENCH_URLS = {}, PROMPTS = [];
 let SOURCE_ATTR = null;
 let PROMPTS_PLAIN = {};
 let TOOLS_PLAIN = {};
+let EXAMPLES_PLAIN = {};
 
 async function build() {
-  [TOOLS, BENCH_URLS, PROMPTS, SOURCE_ATTR, PROMPTS_PLAIN, TOOLS_PLAIN] = await Promise.all([
+  [TOOLS, BENCH_URLS, PROMPTS, SOURCE_ATTR, PROMPTS_PLAIN, TOOLS_PLAIN, EXAMPLES_PLAIN] = await Promise.all([
     fetch('data/t_tools.json').then(r=>r.json()),
     fetch('data/bench_urls.json').then(r=>r.json()),
     fetch('data/prompts.json').then(r=>r.json()),
     fetch('data/tool_source_attribution.json').then(r=>r.json()),
     fetch('data/prompts_plain.json').then(r=>r.ok ? r.json() : ({})).catch(() => ({})),
     fetch('data/t_tools_plain.json').then(r=>r.ok ? r.json() : ({})).catch(() => ({})),
+    fetch('data/examples_plain.json').then(r=>r.ok ? r.json() : ({})).catch(() => ({})),
   ]);
   const cont = document.getElementById('layers-container');
   cont.innerHTML = '';
@@ -565,11 +586,11 @@ function openTool(tid) {
 
   html += `<details class="acc">
     <summary><span class="lang-en">What it fixes</span><span class="lang-zh">解决的 benchmark 问题</span></summary>
-    <div class="acc-body">${t['解决的 benchmark 问题'] || ''}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Boundary vs. nearby tools</span><span class="lang-zh">工具边界与相邻工具区别</span></summary>
-    <div class="acc-body">${t['工具边界 / 与相近工具区别'] || ''}</div>
+    <div class="acc-body">${t['解决的 benchmark 问题'] || ''}${
+      t['工具边界 / 与相近工具区别']
+        ? `<div class="boundary-note"><b><span class="lang-en">Boundary vs. nearby tools</span><span class="lang-zh">与相邻工具的边界</span></b>${t['工具边界 / 与相近工具区别']}</div>`
+        : ''
+    }</div>
   </details>`;
   html += `<details class="acc">
     <summary><span class="lang-en">Rubrics improved + applicable scope</span><span class="lang-zh">提升的 rubric 与适用场景</span></summary>
@@ -600,29 +621,28 @@ function openTool(tid) {
     </details>`;
   }
 
-  // ── 改编示例 (collapsed, sits right below the 改编指南) ──
-  const cleanToolExamples = (raw) => {
-    if (!raw) return '';
-    // Strip the verbose "与Prompt对齐的示例：保留/迁移原分类或槽位（…）；目标改编：" framing,
-    // keep the substantive narrative.
-    return raw
-      .split(/\n\s*\n/)
-      .map(chunk => {
-        let s = chunk.trim();
-        s = s.replace(/^与\s*Prompt\s*对齐的示例[：:]\s*/, '');
-        s = s.replace(/^保留\s*\/\s*迁移原分类或槽位\s*[（(][^）)]*[）)][；;]?\s*/, '');
-        s = s.replace(/^目标改编[：:]\s*/, '');
-        s = s.replace(/^补充校验[：:]\s*/, '');
-        return s.trim();
-      })
-      .filter(Boolean)
-      .join('\n\n');
-  };
-  const cleanedExamples = cleanToolExamples(t['代表改编示例（前3）']);
-  if (cleanedExamples) {
+  // ── 改编示例 (collapsed; show 1-3 polished examples drawn from this tool's sub-tools) ──
+  const polishedTopExamples = [];
+  for (let i = 0; i < PROMPTS.length && polishedTopExamples.length < 3; i++) {
+    const p = PROMPTS[i];
+    if ((p['整合工具ID']||'').trim() !== tid) continue;
+    if ((p['匹配类型']||'').trim() === '次匹配') continue; // prefer primary matches
+    const ex = EXAMPLES_PLAIN[String(i)];
+    if (ex && !ex.error && ex.example_zh) {
+      polishedTopExamples.push({ bn: p['Benchmark / Source'] || '', en: ex.example_en || '', zh: ex.example_zh || '' });
+    }
+  }
+  if (polishedTopExamples.length) {
     html += `<details class="acc">
       <summary><span class="lang-en">Adaptation example</span><span class="lang-zh">改编示例</span></summary>
-      <div class="acc-body" style="background:#E8F5E9;border-left:3px solid #2E7D32;white-space:pre-wrap;line-height:1.65">${cleanedExamples}</div>
+      <div class="acc-body" style="background:#E8F5E9;border-left:3px solid #2E7D32;line-height:1.65;display:grid;gap:8px">
+        ${polishedTopExamples.map(ex => `
+          <div style="background:rgba(255,255,255,.6);padding:8px 12px;border-radius:3px">
+            <div style="font-size:11px;font-weight:600;color:#1B5E20;margin-bottom:4px"><a href="benches.html#${encodeURIComponent(ex.bn)}" style="color:inherit">${ex.bn}</a></div>
+            <span class="lang-en">${ex.en}</span><span class="lang-zh">${ex.zh}</span>
+          </div>
+        `).join('')}
+      </div>
     </details>`;
   }
 
@@ -634,7 +654,10 @@ function openTool(tid) {
       ${subToolList.map(([sub, slot]) => {
         const ev = cleanEvidence(slot.evidence);
         const guideHtml = renderPlainGuide(slot.polished_idx, slot.prompt_guide);
-        const exampleHtml = renderPlainExample(slot.example);
+        const polEx = slot.polished_idx != null ? EXAMPLES_PLAIN[String(slot.polished_idx)] : null;
+        const exampleHtml = (polEx && !polEx.error)
+          ? `<div class="lang-en">${polEx.example_en || ''}</div><div class="lang-zh">${polEx.example_zh || ''}</div>`
+          : renderPlainExample(slot.example);
         const benchRows = slot.benches.map(b => {
           const cleanName = b.name.replace(/\s*\(.*\)\s*$/, '');
           const a = attrMap[b.name] || attrMap[cleanName];
