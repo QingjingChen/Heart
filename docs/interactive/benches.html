@@ -215,20 +215,22 @@ function buildTable() {
     const tr = document.createElement('tr');
     tr.dataset.idx = i;
     const dimEn = b['一级标签_en'] || b['一级标签'] || '';
-    const dimZh = b['一级标签'] || '';
+    const dimZh = b['一级标签_zh'] || b['一级标签'] || '';
     const tagEn = b['专家标签_en'] || b['专家标签'] || '';
     const tagZh = b['专家标签'] || '';
-    const primaryToolName = b['主整合工具'] || '';   // already english (Toolbox 英文名)
-    const secToolName = b['次整合工具'] || '';
+    const primaryToolNameEn = b['主整合工具'] || '';
+    const primaryToolNameZh = b['主整合工具_zh'] || primaryToolNameEn;
+    const secToolNameEn = b['次整合工具'] || '';
+    const secToolNameZh = b['次整合工具_zh'] || secToolNameEn;
     const subPriEn = b['主细分工具_en'] || b['主细分工具'] || '';
-    const subPriZh = b['主细分工具'] || '';
+    const subPriZh = b['主细分工具_zh'] || b['主细分工具'] || '';
     tr.innerHTML = `
       <td><span class="lang-en">${dimEn}</span><span class="lang-zh">${dimZh}</span></td>
       <td>${benchPill(b['Benchmark / Source'])}</td>
       <td>${tagZh?`<span class="expert-tag"><span class="lang-en">${tagEn}</span><span class="lang-zh">${tagZh}</span></span>`:'<span class="muted">—</span>'}</td>
-      <td><a class="tool-link" href="tools.html#${b['主整合工具ID']||''}"><b>${(b['主整合工具ID']||'').padEnd(3)}</b><br><span class="muted">${primaryToolName}</span></a></td>
+      <td><a class="tool-link" href="tools.html#${b['主整合工具ID']||''}"><b>${(b['主整合工具ID']||'').padEnd(3)}</b><br><span class="muted"><span class="lang-en">${primaryToolNameEn}</span><span class="lang-zh">${primaryToolNameZh}</span></span></a></td>
       <td style="font-size:12px"><span class="lang-en">${subPriEn.slice(0,140)}${subPriEn.length>140?'…':''}</span><span class="lang-zh">${subPriZh.slice(0,140)}${subPriZh.length>140?'…':''}</span></td>
-      <td>${b['次整合工具ID']?`<a class="tool-link" href="tools.html#${b['次整合工具ID']}"><b>${b['次整合工具ID']}</b><br><span class="muted">${secToolName}</span></a>`:'<span class="muted">—</span>'}</td>
+      <td>${b['次整合工具ID']?`<a class="tool-link" href="tools.html#${b['次整合工具ID']}"><b>${b['次整合工具ID']}</b><br><span class="muted"><span class="lang-en">${secToolNameEn}</span><span class="lang-zh">${secToolNameZh}</span></span></a>`:'<span class="muted">—</span>'}</td>
       <td style="font-size:11px">${rubricPills(b['索引用rubrics（精简口径）'])}</td>
       <td><a href="#" onclick="openDetail(${i});return false;" class="bench-pill">+</a></td>
     `;
@@ -246,7 +248,7 @@ function openDetail(i) {
   const secTool = T_TOOLS.find(t => t['Tool ID'] === b['次整合工具ID']);
   let html = `<span class="close" onclick="closeModal()">×</span>`;
   const dimEn = b['一级标签_en'] || b['一级标签'] || '';
-  const dimZh = b['一级标签'] || '';
+  const dimZh = b['一级标签_zh'] || b['一级标签'] || '';
   html += `<h3>${benchPill(b['Benchmark / Source'])} <span class="muted">[<span class="lang-en">${dimEn}</span><span class="lang-zh">${dimZh}</span>]</span></h3>`;
   const tagEnRaw = b['专家标签_en'] || b['专家标签'] || '';
   const tagZhRaw = b['专家标签'] || '';
@@ -259,7 +261,8 @@ function openDetail(i) {
   html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
 
   // Primary tool block — render adaptation guide + example as 6-section bullets
-  html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['主整合工具ID']}"><span class="lang-en">Primary canonical tool:</span><span class="lang-zh">主整合工具：</span> ${b['主整合工具ID']} · ${b['主整合工具']||''}</a></h4>`;
+  const primaryToolNameZh = b['主整合工具_zh'] || b['主整合工具'] || '';
+  html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['主整合工具ID']}"><span class="lang-en">Primary canonical tool:</span><span class="lang-zh">主整合工具：</span> ${b['主整合工具ID']} · <span class="lang-en">${b['主整合工具']||''}</span><span class="lang-zh">${primaryToolNameZh}</span></a></h4>`;
   if (tool) {
     const boundaryEn = tool['工具边界 / 与相近工具区别_en'] || '';
     const boundaryZh = tool['工具边界 / 与相近工具区别'] || '';
@@ -267,7 +270,7 @@ function openDetail(i) {
   }
   html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Sub-tool name</span><span class="lang-zh">细分工具</span></h5>`;
   const subPriEn = b['主细分工具_en'] || b['主细分工具'] || '';
-  const subPriZh = b['主细分工具'] || '';
+  const subPriZh = b['主细分工具_zh'] || b['主细分工具'] || '';
   html += `<div class="section-block"><span class="lang-en">${subPriEn}</span><span class="lang-zh">${subPriZh}</span></div>`;
   const polishedIdx = findPolishedIdx(b);
   const polished = polishedIdx != null ? PROMPTS_PLAIN[String(polishedIdx)] : null;
@@ -301,7 +304,8 @@ function openDetail(i) {
 
   if (b['次整合工具ID']) {
     html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
-    html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['次整合工具ID']}"><span class="lang-en">Secondary canonical tool:</span><span class="lang-zh">次整合工具：</span> ${b['次整合工具ID']} · ${b['次整合工具']||''}</a></h4>`;
+    const secToolNameZh = b['次整合工具_zh'] || b['次整合工具'] || '';
+    html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['次整合工具ID']}"><span class="lang-en">Secondary canonical tool:</span><span class="lang-zh">次整合工具：</span> ${b['次整合工具ID']} · <span class="lang-en">${b['次整合工具']||''}</span><span class="lang-zh">${secToolNameZh}</span></a></h4>`;
     if (secTool) {
       const sBoundaryEn = secTool['工具边界 / 与相近工具区别_en'] || '';
       const sBoundaryZh = secTool['工具边界 / 与相近工具区别'] || '';
@@ -309,7 +313,7 @@ function openDetail(i) {
     }
     html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Sub-tool name</span><span class="lang-zh">细分工具</span></h5>`;
     const subSecEn = b['次细分工具_en'] || b['次细分工具'] || '';
-    const subSecZh = b['次细分工具'] || '';
+    const subSecZh = b['次细分工具_zh'] || b['次细分工具'] || '';
     html += `<div class="section-block"><span class="lang-en">${subSecEn}</span><span class="lang-zh">${subSecZh}</span></div>`;
     html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Match evidence</span><span class="lang-zh">匹配证据</span></h5>`;
     html += `<div class="section-block lang-zh">${(b['次匹配证据']||'').replace(/^匹配到[^：]*：\s*/,'')}</div>`;
