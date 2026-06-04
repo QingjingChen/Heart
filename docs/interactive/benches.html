@@ -118,15 +118,42 @@ async function load() {
 function renderBulletCard(polished, fallbackGuide, fallbackExample) {
   if (polished && !polished.error) {
     const li = (arr) => (arr || []).filter(Boolean).map(s => `<li>${s}</li>`).join('');
-    const cols = [];
-    if (polished.automatable_zh && polished.automatable_zh.length) cols.push(`<div class="pg-col pg-auto"><b><span class="lang-en">Can automate</span><span class="lang-zh">可自动</span></b><ul>${li(polished.automatable_zh)}</ul></div>`);
-    if (polished.needs_human_zh && polished.needs_human_zh.length) cols.push(`<div class="pg-col pg-human"><b><span class="lang-en">Needs human</span><span class="lang-zh">需人工</span></b><ul>${li(polished.needs_human_zh)}</ul></div>`);
+    // Bilingual bullet block: emits separate lang-en / lang-zh lists per language array
+    const bilingualBlock = (label_en, label_zh, en_arr, zh_arr) => {
+      const en = (en_arr && en_arr.length) ? en_arr : [];
+      const zh = (zh_arr && zh_arr.length) ? zh_arr : [];
+      if (!en.length && !zh.length) return '';
+      return `<div class="pg-block">
+        <b><span class="lang-en">${label_en}</span><span class="lang-zh">${label_zh}</span></b>
+        ${en.length ? `<ul class="lang-en">${li(en)}</ul>` : ''}
+        ${zh.length ? `<ul class="lang-zh">${li(zh)}</ul>` : ''}
+      </div>`;
+    };
+    const bilingualCol = (klass, label_en, label_zh, en_arr, zh_arr) => {
+      const en = (en_arr && en_arr.length) ? en_arr : [];
+      const zh = (zh_arr && zh_arr.length) ? zh_arr : [];
+      if (!en.length && !zh.length) return '';
+      return `<div class="pg-col ${klass}">
+        <b><span class="lang-en">${label_en}</span><span class="lang-zh">${label_zh}</span></b>
+        ${en.length ? `<ul class="lang-en">${li(en)}</ul>` : ''}
+        ${zh.length ? `<ul class="lang-zh">${li(zh)}</ul>` : ''}
+      </div>`;
+    };
+    const cols = [
+      bilingualCol('pg-auto',  'Can automate', '可自动',  polished.automatable_en,  polished.automatable_zh),
+      bilingualCol('pg-human', 'Needs human',  '需人工',  polished.needs_human_en,  polished.needs_human_zh),
+    ].filter(Boolean);
+    const ctx = polished.context_en || polished.context_zh
+      ? `<div class="pg-ctx">
+          ${polished.context_en ? `<span class="lang-en">${polished.context_en}</span>` : ''}
+          ${polished.context_zh ? `<span class="lang-zh">${polished.context_zh}</span>` : ''}
+        </div>` : '';
     return `<div class="bench-guide-card">
-      ${polished.context_zh ? `<div class="pg-ctx">${polished.context_zh}</div>` : ''}
-      ${polished.keep_from_original_zh && polished.keep_from_original_zh.length ? `<div class="pg-block"><b><span class="lang-en">Keep from original</span><span class="lang-zh">从原题保留</span></b><ul>${li(polished.keep_from_original_zh)}</ul></div>` : ''}
-      ${polished.primary_tool_steps_zh && polished.primary_tool_steps_zh.length ? `<div class="pg-block"><b><span class="lang-en">Main steps</span><span class="lang-zh">主要步骤</span></b><ul>${li(polished.primary_tool_steps_zh)}</ul></div>` : ''}
-      ${polished.secondary_tool_steps_zh && polished.secondary_tool_steps_zh.length ? `<div class="pg-block"><b><span class="lang-en">Backup steps</span><span class="lang-zh">补充步骤</span></b><ul>${li(polished.secondary_tool_steps_zh)}</ul></div>` : ''}
-      ${polished.outputs_zh && polished.outputs_zh.length ? `<div class="pg-block"><b><span class="lang-en">What to produce</span><span class="lang-zh">要产出什么</span></b><ul>${li(polished.outputs_zh)}</ul></div>` : ''}
+      ${ctx}
+      ${bilingualBlock('Keep from original', '从原题保留', polished.keep_from_original_en, polished.keep_from_original_zh)}
+      ${bilingualBlock('Main steps',        '主要步骤',    polished.primary_tool_steps_en, polished.primary_tool_steps_zh)}
+      ${bilingualBlock('Backup steps',      '补充步骤',    polished.secondary_tool_steps_en, polished.secondary_tool_steps_zh)}
+      ${bilingualBlock('What to produce',   '要产出什么',  polished.outputs_en, polished.outputs_zh)}
       ${cols.length ? `<div class="pg-cols">${cols.join('')}</div>` : ''}
     </div>`;
   }
@@ -187,13 +214,21 @@ function buildTable() {
     const b = BENCH_MAP[i];
     const tr = document.createElement('tr');
     tr.dataset.idx = i;
+    const dimEn = b['一级标签_en'] || b['一级标签'] || '';
+    const dimZh = b['一级标签'] || '';
+    const tagEn = b['专家标签_en'] || b['专家标签'] || '';
+    const tagZh = b['专家标签'] || '';
+    const primaryToolName = b['主整合工具'] || '';   // already english (Toolbox 英文名)
+    const secToolName = b['次整合工具'] || '';
+    const subPriEn = b['主细分工具_en'] || b['主细分工具'] || '';
+    const subPriZh = b['主细分工具'] || '';
     tr.innerHTML = `
-      <td>${b['一级标签']||''}</td>
+      <td><span class="lang-en">${dimEn}</span><span class="lang-zh">${dimZh}</span></td>
       <td>${benchPill(b['Benchmark / Source'])}</td>
-      <td>${b['专家标签']?`<span class="expert-tag">${b['专家标签']}</span>`:'<span class="muted">—</span>'}</td>
-      <td><a class="tool-link" href="tools.html#${b['主整合工具ID']||''}"><b>${(b['主整合工具ID']||'').padEnd(3)}</b><br><span class="muted">${b['主整合工具']||''}</span></a></td>
-      <td style="font-size:12px">${(b['主细分工具']||'').slice(0,140)}${(b['主细分工具']||'').length>140?'…':''}</td>
-      <td>${b['次整合工具ID']?`<a class="tool-link" href="tools.html#${b['次整合工具ID']}"><b>${b['次整合工具ID']}</b><br><span class="muted">${b['次整合工具']||''}</span></a>`:'<span class="muted">—</span>'}</td>
+      <td>${tagZh?`<span class="expert-tag"><span class="lang-en">${tagEn}</span><span class="lang-zh">${tagZh}</span></span>`:'<span class="muted">—</span>'}</td>
+      <td><a class="tool-link" href="tools.html#${b['主整合工具ID']||''}"><b>${(b['主整合工具ID']||'').padEnd(3)}</b><br><span class="muted">${primaryToolName}</span></a></td>
+      <td style="font-size:12px"><span class="lang-en">${subPriEn.slice(0,140)}${subPriEn.length>140?'…':''}</span><span class="lang-zh">${subPriZh.slice(0,140)}${subPriZh.length>140?'…':''}</span></td>
+      <td>${b['次整合工具ID']?`<a class="tool-link" href="tools.html#${b['次整合工具ID']}"><b>${b['次整合工具ID']}</b><br><span class="muted">${secToolName}</span></a>`:'<span class="muted">—</span>'}</td>
       <td style="font-size:11px">${rubricPills(b['索引用rubrics（精简口径）'])}</td>
       <td><a href="#" onclick="openDetail(${i});return false;" class="bench-pill">+</a></td>
     `;
@@ -210,9 +245,13 @@ function openDetail(i) {
   const tool = T_TOOLS.find(t => t['Tool ID'] === b['主整合工具ID']);
   const secTool = T_TOOLS.find(t => t['Tool ID'] === b['次整合工具ID']);
   let html = `<span class="close" onclick="closeModal()">×</span>`;
-  html += `<h3>${benchPill(b['Benchmark / Source'])} <span class="muted">[${b['一级标签']}]</span></h3>`;
-  const tagHtml = b['专家标签'] ? `<span class="expert-tag">${b['专家标签']}</span>` : '—';
-  const oldTag = b['专家标签_v1'] && b['专家标签_v1'] !== b['专家标签'] ? ` <span class="muted" style="font-size:11px">(v1: ${b['专家标签_v1']})</span>` : '';
+  const dimEn = b['一级标签_en'] || b['一级标签'] || '';
+  const dimZh = b['一级标签'] || '';
+  html += `<h3>${benchPill(b['Benchmark / Source'])} <span class="muted">[<span class="lang-en">${dimEn}</span><span class="lang-zh">${dimZh}</span>]</span></h3>`;
+  const tagEnRaw = b['专家标签_en'] || b['专家标签'] || '';
+  const tagZhRaw = b['专家标签'] || '';
+  const tagHtml = tagZhRaw ? `<span class="expert-tag"><span class="lang-en">${tagEnRaw}</span><span class="lang-zh">${tagZhRaw}</span></span>` : '—';
+  const oldTag = b['专家标签_v1'] && b['专家标签_v1'] !== b['专家标签'] ? ` <span class="muted lang-zh" style="font-size:11px">(v1: ${b['专家标签_v1']})</span>` : '';
   html += `<p class="muted"><b><span class="lang-en">Expert tag:</span><span class="lang-zh">专家标签：</span></b> ${tagHtml}${oldTag}<br>`;
   html += `<b><span class="lang-en">Original representative tool:</span><span class="lang-zh">原 representative tool：</span></b> ${b['原Representative tool']||'—'}<br>`;
   html += `<b><span class="lang-en">Paper-specific labels:</span><span class="lang-zh">文章特有分类/标签：</span></b> ${b['文章特有分类/标签结构']||'—'}</p>`;
@@ -220,10 +259,16 @@ function openDetail(i) {
   html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
 
   // Primary tool block — render adaptation guide + example as 6-section bullets
-  html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['主整合工具ID']}"><span class="lang-en">Primary canonical tool:</span><span class="lang-zh">主整合工具：</span> ${b['主整合工具ID']} · ${b['主整合工具']}</a></h4>`;
-  if (tool) html += `<div class="muted" style="margin-bottom:8px">${tool['工具边界 / 与相近工具区别']||''}</div>`;
+  html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['主整合工具ID']}"><span class="lang-en">Primary canonical tool:</span><span class="lang-zh">主整合工具：</span> ${b['主整合工具ID']} · ${b['主整合工具']||''}</a></h4>`;
+  if (tool) {
+    const boundaryEn = tool['工具边界 / 与相近工具区别_en'] || '';
+    const boundaryZh = tool['工具边界 / 与相近工具区别'] || '';
+    html += `<div class="muted" style="margin-bottom:8px"><span class="lang-en">${boundaryEn}</span><span class="lang-zh">${boundaryZh}</span></div>`;
+  }
   html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Sub-tool name</span><span class="lang-zh">细分工具</span></h5>`;
-  html += `<div class="section-block">${b['主细分工具']||''}</div>`;
+  const subPriEn = b['主细分工具_en'] || b['主细分工具'] || '';
+  const subPriZh = b['主细分工具'] || '';
+  html += `<div class="section-block"><span class="lang-en">${subPriEn}</span><span class="lang-zh">${subPriZh}</span></div>`;
   const polishedIdx = findPolishedIdx(b);
   const polished = polishedIdx != null ? PROMPTS_PLAIN[String(polishedIdx)] : null;
   html += `<h5 style="margin:10px 0 4px"><span class="lang-en">Adaptation guide</span><span class="lang-zh">改编指南</span></h5>`;
@@ -256,12 +301,18 @@ function openDetail(i) {
 
   if (b['次整合工具ID']) {
     html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
-    html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['次整合工具ID']}"><span class="lang-en">Secondary canonical tool:</span><span class="lang-zh">次整合工具：</span> ${b['次整合工具ID']} · ${b['次整合工具']}</a></h4>`;
-    if (secTool) html += `<div class="muted" style="margin-bottom:8px">${secTool['工具边界 / 与相近工具区别']||''}</div>`;
+    html += `<h4 style="color:var(--primary)"><a class="tool-link" href="tools.html#${b['次整合工具ID']}"><span class="lang-en">Secondary canonical tool:</span><span class="lang-zh">次整合工具：</span> ${b['次整合工具ID']} · ${b['次整合工具']||''}</a></h4>`;
+    if (secTool) {
+      const sBoundaryEn = secTool['工具边界 / 与相近工具区别_en'] || '';
+      const sBoundaryZh = secTool['工具边界 / 与相近工具区别'] || '';
+      html += `<div class="muted" style="margin-bottom:8px"><span class="lang-en">${sBoundaryEn}</span><span class="lang-zh">${sBoundaryZh}</span></div>`;
+    }
     html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Sub-tool name</span><span class="lang-zh">细分工具</span></h5>`;
-    html += `<div class="section-block">${b['次细分工具']||''}</div>`;
+    const subSecEn = b['次细分工具_en'] || b['次细分工具'] || '';
+    const subSecZh = b['次细分工具'] || '';
+    html += `<div class="section-block"><span class="lang-en">${subSecEn}</span><span class="lang-zh">${subSecZh}</span></div>`;
     html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Match evidence</span><span class="lang-zh">匹配证据</span></h5>`;
-    html += `<div class="section-block">${(b['次匹配证据']||'').replace(/^匹配到[^：]*：\s*/,'')}</div>`;
+    html += `<div class="section-block lang-zh">${(b['次匹配证据']||'').replace(/^匹配到[^：]*：\s*/,'')}</div>`;
   }
   modal.innerHTML = html;
   modalBg.style.display = 'flex';

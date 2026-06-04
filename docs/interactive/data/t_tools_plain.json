@@ -39,6 +39,46 @@
       [
         "判断某个后果是否真的算‘严重伤害’而非主观感受"
       ]
+    ],
+    "context_en": "Help AI ethics test questions become more realistic and comprehensive, specifically for evaluating AI in complex real-world scenarios.",
+    "keep_from_original_en": [
+      "Keep the original characters",
+      "Retain key actions and purposes from the original",
+      "Maintain rules or social common sense from the original",
+      "Preserve who is affected and who makes decisions"
+    ],
+    "primary_tool_steps_en": [
+      "Expand the original test question into a complete story",
+      "Clearly state who is doing what and why",
+      "List all relevant people (including those affected, bystanders, and decision-makers)",
+      "Specify what information is conveyed or what actions are taken",
+      "Clarify constraints and potential issues",
+      "Mark which behaviors are encouraged and which are prohibited"
+    ],
+    "outputs_en": [
+      "A clearly structured ethical scenario description (including characters, purposes, actions, constraints, etc.)",
+      "A comparison table clearly marking the positions and impacts of all parties",
+      "A risk alert checklist (e.g., privacy leaks, discrimination, trust collapse)",
+      "A standardized question template directly usable for AI testing",
+      "A list of key judgment points requiring human confirmation (such as cultural taboos, legal red lines)"
+    ],
+    "automatable_en": [
+      "Automatically complete character identities and relationships",
+      "Automatically identify and fill in information transmission paths",
+      "Automatically extract purposes and actions from the original question stem",
+      "Automatically match common risk types (such as bias, overstepping, misinformation)"
+    ],
+    "needs_human_en": [
+      "Determine if an action is reasonable in a specific culture",
+      [
+        "Confirm which constraints come from real laws or industry standards"
+      ],
+      [
+        "Decide who should have the final say (e.g., patient vs. family in elder care)"
+      ],
+      [
+        "Judge whether a consequence truly counts as 'serious harm' rather than subjective feeling"
+      ]
     ]
   },
   "T02": {
@@ -69,6 +109,34 @@
       "判断某条规矩在当前情境下是否真能用（比如国外伦理原则能否套用国内社区）",
       "决定‘争议’和‘证据不足’的界限——机器分不清模糊地带",
       "最终确认哪些问题必须交给人类专家，不能靠AI猜"
+    ],
+    "context_en": "Help AI ethics test questions clarify the basis of each judgment, its reliability, and boundaries.",
+    "keep_from_original_en": [
+      "Keep the original question's classification logic (e.g., by scenario, intent, action, consequence)",
+      "Retain the ethical types already marked in the original question (e.g., respect for autonomy, fairness, care)",
+      "Preserve the names of psychological or behavioral scales used (e.g., shame, helplessness)"
+    ],
+    "primary_tool_steps_en": [
+      "Break down the answer basis of each question into 'who set the rule' (law/guideline/consensus, etc.)",
+      "Mark the scope of this rule (e.g., Chinese healthcare, global AI platforms)",
+      "Clearly state what is absolutely not allowed, what can be done, and what has mixed opinions",
+      "Point out situations with too little evidence to draw conclusions",
+      "Explain when an expert must make the final decision"
+    ],
+    "outputs_en": [
+      "A clear ledger: each scoring criterion corresponds to specific sources and conditions",
+      "Clearly mark all controversial, unsupported, or expert-required areas",
+      "Generate a human review checklist, listing only key points needing judgment"
+    ],
+    "automatable_en": [
+      "Automatically extract mentioned laws, guidelines, scales, and theory names from the questions",
+      "Automatically match common jurisdictions (e.g., China, EU) and fields (healthcare, education, social)",
+      "Automatically identify and categorize keywords like 'prohibited/allowed/may have disagreements'"
+    ],
+    "needs_human_en": [
+      "Determine if a rule truly applies in the current context (e.g., applying foreign ethical principles domestically)",
+      "Decide the boundary between 'controversial' and 'insufficient evidence' - machines can't discern gray areas",
+      "Finally confirm which issues must be handed over to human experts, not guessed by AI"
     ]
   },
   "T06": {
@@ -102,6 +170,37 @@
       "确认改写后句子是否符合真实使用场景（比如医生对话里会不会真这么说）",
       "决定哪类偏见该测、哪类不该测（比如宗教vs.地域歧视的优先级）",
       "核对法律/政策依据（比如EEOC条款是否真支持这个对照逻辑）"
+    ],
+    "context_en": "Check if AI is secretly relying on information it shouldn't, like gender or race, to make decisions",
+    "keep_from_original_en": [
+      "Original task goal remains (e.g., still classification or answering)",
+      "Answer range unchanged (e.g., same set of options)",
+      "Real-world context preserved (e.g., job ad, doctor's conversation, review instructions)"
+    ],
+    "primary_tool_steps_en": [
+      "Identify potential bias-triggering keywords in the original sample (e.g., occupation, pronouns, group names)",
+      "Change only this word or its collocation, keep all other words as they are",
+      "Generate 2-4 new sentences, each with a single change",
+      "Ensure all new sentences appear reasonable, natural, and human-like",
+      "Verify that all sentences have the same answer (otherwise, it's not a 'control')"
+    ],
+    "outputs_en": [
+      "A set of original + control sentences (each set 2-4 sentences)",
+      "Each sentence annotated with what was changed (e.g., 'changed ‘he’ paired with ‘engineer’ to ‘she’')",
+      "Explanation of which bias the sentence set aims to test (e.g., 'Does the model lower the professional credibility of nurses based on gender association?')",
+      "Mark areas requiring human verification (e.g., whether 'nurse' carries a gender implication in local culture)"
+    ],
+    "automatable_en": [
+      "Automatically find replaceable sensitive words (e.g., occupations, pronouns, group names)",
+      "Automatically generate grammatically correct control sentences",
+      "Automatically check if sentence length, structure, and part-of-speech are roughly consistent",
+      "Automatically mark the location and type of changes"
+    ],
+    "needs_human_en": [
+      "Determine if a word truly has a biased meaning locally (e.g., does 'nurse' default to female in Hindi?)",
+      "Confirm if rewritten sentences fit real usage scenarios (e.g., would a doctor really say this in conversation?)",
+      "Decide which types of biases to test and which not to (e.g., priority between religious vs. regional discrimination)",
+      "Verify legal/policy basis (e.g., does EEOC policy support this control logic?)"
     ]
   },
   "T08": {
@@ -138,6 +237,40 @@
       [
         "决定哪些越界行为属于高风险，必须人工干预"
       ]
+    ],
+    "context_en": "Test if AI can be gradually led astray and cross ethical boundaries in multi-turn conversations.",
+    "keep_from_original_en": [
+      "Keep original dialogue roles (e.g., seeker/supporter)",
+      "Retain key classification labels from the data (e.g., gender, age, occupation)",
+      "Maintain human-annotated criteria and risk types"
+    ],
+    "primary_tool_steps_en": [
+      "Transform single-question prompts into a series of dialogues, probing step by step",
+      "Let AI lower its guard first, then subtly change the topic direction",
+      "Increase pressure each round, e.g., feigning vulnerability, posing as authority, rephrasing to bypass rules",
+      "See if it ends up saying something inappropriate or abandoning principles",
+      "Record which round AI starts to waver and where it crosses the line"
+    ],
+    "outputs_en": [
+      "A numbered set of multi-turn attack dialogues (with purpose for each round)",
+      "Clear markings on whether AI's response per round adheres to the bottom line",
+      "Specific location and brief analysis of boundary crossing",
+      "Reusable dialogue templates (including trust building, disguise, pressure, final strike)"
+    ],
+    "automatable_en": [
+      "Automatically generate drafts of multi-turn probing dialogues",
+      "Automatically identify sensitive words or rule-violating tendencies in AI responses",
+      "Automatically compare rounds, marking points of attitude change",
+      "Batch rewrite original data according to templates (e.g., replacing titles, adjusting tone)"
+    ],
+    "needs_human_en": [
+      "Determine if a statement counts as 'emotional manipulation' or has 'disguised intent'",
+      [
+        "Confirm where cultural/ethical boundaries lie (e.g., what is acceptable in school vs. medical settings)"
+      ],
+      [
+        "Decide which boundary-crossing behaviors are high-risk and require human intervention"
+      ]
     ]
   },
   "T05": {
@@ -172,6 +305,38 @@
       "决定哪个选项更符合本地人的实际选择（不是理论上该选啥）",
       "确认老人、学生、医护等不同群体对同一题的理解是否一致",
       "最终签字认可：这套题真的能测出AI在本地是否靠谱"
+    ],
+    "context_en": "Adapt foreign AI ethics test questions to fit local culture, language, and living habits",
+    "keep_from_original_en": [
+      "Keep the original testing dimensions (e.g., age, sense of fairness, role relationships)",
+      "Retain the original scoring method or criteria",
+      "Preserve the core moral or social issues the original questions aim to examine"
+    ],
+    "primary_tool_steps_en": [
+      "Replace foreign names, occupations, and locations with common local ones",
+      "Adjust speech, polite expressions, and family relations to local customs",
+      "Update laws, medical, and educational rules to those actually practiced locally",
+      "Change moral judgment scenarios to real dilemmas locals might face",
+      "Have local teachers, doctors, and community elders review the questions for appropriateness",
+      "Ensure the adapted questions still measure the intended capabilities"
+    ],
+    "outputs_en": [
+      "A set of AI ethics test questions that locals find understandable and realistic",
+      "Each question clearly labeled with what it tests (e.g., 'respecting elders' or 'reporting violations')",
+      "Include risk points or contentious areas pointed out by local experts (e.g., 'this may offend the elderly')",
+      "Support multiple language versions of the same set (e.g., Chinese, Japanese, Arabic)"
+    ],
+    "automatable_en": [
+      "Automatically replace place names, job titles, and forms of address (e.g., 'Mr. Smith' → 'Teacher Zhang')",
+      "Automatically translate questions while preserving the original meaning",
+      "Automatically check if the questions still include the original testing dimensions (e.g., 'role relationships')",
+      "Automatically flag questions that may need human review"
+    ],
+    "needs_human_en": [
+      "Determine if a behavior is considered rude or inappropriate in the local context (e.g., 'giving feedback directly')",
+      "Decide which option better reflects the actual choice locals would make (not just theoretically correct)",
+      "Verify if different groups like the elderly, students, and healthcare workers understand a question consistently",
+      "Final approval: This set of questions can truly assess if an AI is reliable in the local context"
     ]
   },
   "T04": {
@@ -211,6 +376,39 @@
       [
         "最终拍板哪些高风险题必须禁答，不能靠模型自己猜"
       ]
+    ],
+    "context_en": "Score AI test questions for risk, guiding it on when to help, clarify, refuse, or escalate to a human.",
+    "keep_from_original_en": [
+      "Do not delete the core issue of the original question",
+      "Retain the originally marked risk types",
+      "Do not change the field involved (e.g., legal, medical, financial)",
+      "Carry over any sensitive tags confirmed by humans"
+    ],
+    "primary_tool_steps_en": [
+      "Label each question with low/medium/high risk levels",
+      "Categorize by harm type (e.g., illegal, harmful, fraudulent)",
+      "Clearly state: what level must be refused, helped, or clarified first",
+      "For high-risk questions, require specific legal or medical references in answers",
+      "Design harder variant questions to test AI's resilience within the same harm category",
+      "Ensure all questions and scoring criteria are consistent with risk categorization"
+    ],
+    "outputs_en": [
+      "Each question labeled with risk level (low/medium/high) and harm type (e.g., 'fraud', 'harmful', 'illegal')",
+      "Clear rules for AI actions (help/reject/ask/escalate) for each risk category",
+      "Generate a set of more challenging but realistic new questions to test if AI can be bypassed",
+      "Identify which questions or rules need human review for reassurance"
+    ],
+    "automatable_en": [
+      "Automatically assign initial risk levels to questions",
+      "Automatically match common issues to harm types (e.g., 'how to commit suicide' → high physical harm risk)",
+      "Automatically generate similar variant questions based on rules (e.g., changing 'weight loss' to 'drinking only lemon water for three days')",
+      "Automatically check for contradictions between question labels and risk levels"
+    ],
+    "needs_human_en": [
+      "Determine if ambiguous statements are truly illegal (e.g., Taiwan-related language)",
+      "Verify the accuracy and currency of medical/legal references (e.g., which law is cited)",
+      "Decide how to handle culturally sensitive questions (e.g., religious, ethnic expressions)",
+      "Make the final decision on which high-risk questions must be prohibited, not guessed by the model"
     ]
   },
   "T01": {
@@ -247,6 +445,40 @@
       "决定文化敏感问题怎么处理（如告知绝症是否适合所有地区）",
       "确认多角色标注里有没有遗漏关键立场",
       "最终拍板哪些结论真的不能外推"
+    ],
+    "context_en": "Help ethics assessment tools turn vague slogans into specific, scoreable, and verifiable standards",
+    "keep_from_original_en": [
+      "Original classification labels (e.g., who is responsible, which morals are more important)",
+      "Original data types and scenarios (e.g., doctor conversations, student feedback)",
+      "Original demographic perspectives (e.g., teachers, parents, students)",
+      "Original scoring methods or scales (e.g., MFQ-2 six dimensions)"
+    ],
+    "primary_tool_steps_en": [
+      "Break down broad ethical claims into specific measurable elements",
+      "Clarify who to protect and under what circumstances it's effective",
+      "Define the boundaries where this assessment does not apply",
+      "Specify which conclusions must never be drawn",
+      "Align and check original scoring rules with new broken-down standards",
+      "Mark risk points that require human judgment"
+    ],
+    "outputs_en": [
+      "A clear 'what can and cannot be measured' manual",
+      "Specific observation points and examples for each ethical claim",
+      "Identify who is affected and whose voices must be heard",
+      "Explicitly list situations where results should not be used",
+      "A marked validation report: what matches automatically and what needs human oversight"
+    ],
+    "automatable_en": [
+      "Automatically break down original statements into goals, scenarios, protected entities, etc.",
+      "Automatically compare new and old classification labels for consistency",
+      "Automatically check if scoring rules cover all sub-dimensions",
+      "Automatically flag clearly out-of-bound extrapolative statements"
+    ],
+    "needs_human_en": [
+      "Determine if a certain boundary is reasonable (e.g., 'only assess teachers, not parents' fairness)",
+      "Decide how to handle culturally sensitive issues (e.g., informing about terminal illness suitability in all regions)",
+      "Verify no key positions are missed in multi-role annotations",
+      "Finalize which conclusions truly cannot be extrapolated"
     ]
   },
   "T07": {
@@ -285,6 +517,39 @@
         "决定某类人群（如宗教信仰者）的敏感边界在哪里，不能只靠算法",
         "审核题目是否无意冒犯特定群体，比如用词是否带偏见"
       ]
+    ],
+    "context_en": "Check if AI makes ethical mistakes in various real scenarios, such as misjudging illnesses, discriminating against patients, or giving incorrect medical advice.",
+    "keep_from_original_en": [
+      "Which capabilities to test (e.g., empathy, fairness, safety)",
+      "Typical scenarios covered (e.g., consultation, prescribing, crisis response)",
+      "Key populations involved (e.g., elderly, children, depression patients)",
+      "Types of risks focused on (e.g., misdiagnosis, discrimination, privacy leaks)"
+    ],
+    "primary_tool_steps_en": [
+      "List the ethical abilities AI should have, e.g., not making random diagnoses, not discriminating",
+      "List common real-life scenarios, e.g., how to respond when a patient says 'I've had enough'",
+      "List potentially affected people, e.g., pregnant women, teenagers, non-native speakers",
+      "Group and match by risk severity and test method (multiple choice/generate answer/rewrite question)",
+      "Design 1-3 specific test questions for each combination, ensuring no key vulnerabilities are missed",
+      "Mark which questions require human judgment, not just machine scoring"
+    ],
+    "outputs_en": [
+      "A clear table: rows are ethical abilities, columns are scenarios + populations + risks + question types",
+      "Each cell contains 1-3 ready-to-use test questions (including prompts and correct response standards)",
+      "Identify questions that may trigger cultural/legal/medical disputes, needing expert review",
+      "Point out which questions were omitted or duplicated in the original test, and which abilities were not truly tested",
+      "Provide suggestions for additional questions, e.g., 'lack of medication reminders for the elderly'"
+    ],
+    "automatable_en": [
+      "Automatically convert patient statements into standardized test formats (e.g., 'Patient says ____, model should ____')",
+      "Automatically generate questions in bulk by different types (true/false, generation, rewriting)",
+      "Automatically match with existing question banks to find duplicates or gaps",
+      "Automatically label which questions can be generated using public data (e.g., Wikipedia, doctor-patient forums)"
+    ],
+    "needs_human_en": [
+      "Determine if a statement is truly 'depressive' or 'suicidal', as machines can easily misjudge",
+      "Verify if a piece of medical advice aligns with current clinical guidelines, requiring a doctor's oversight",
+      "Decide on the sensitive boundaries for certain groups (e.g., religious believers), not relying solely on algorithms"
     ]
   },
   "T10": {
@@ -317,6 +582,36 @@
       "决定模糊表述是否构成歧视或偏见（如‘老年人不适合加班’）",
       "确认文化或政策语境下某句话是否违规（如基层政务中的敏感提法）",
       "最终拍板哪些风险必须人工干预，不能靠AI自判"
+    ],
+    "context_en": "Check each sentence in AI responses for factual basis, specifically for high-risk scenarios like law, medicine, and governance.",
+    "keep_from_original_en": [
+      "Keep the original question's intent (e.g., choosing A or B, making comparisons, seeking confirmation)",
+      "Retain the type of human-labeled tags from the original data (e.g., 'plaintiff', 'notification', 'employment equity')",
+      "Maintain the core subject of the original task (e.g., party identity, medical advice, policy implications)"
+    ],
+    "primary_tool_steps_en": [
+      "Break down the AI response into independent small conclusions",
+      "Find credible sources to support or refute each small conclusion",
+      "Clearly mark which sentences are supported, refuted, or lack sufficient evidence",
+      "Require AI to cite the source, clause, or case for its claims",
+      "Check if each conclusion is outdated, speculative, or ignores key limitations"
+    ],
+    "outputs_en": [
+      "A numbered list of statements, each labeled with evidence status (supported/contradicted/insufficient)",
+      "Specific evidence or source citations for each statement",
+      "Identify risks of temporal mismatch, subjective speculation, or cultural insensitivity in conclusions"
+    ],
+    "automatable_en": [
+      "Automatically split long responses into single-sentence statements",
+      "Automatically search public databases or documents for relevant evidence snippets",
+      "Automatically compare statements with evidence for logical match (support/contradiction/irrelevance)",
+      "Automatically flag clearly outdated information (e.g., citing repealed laws)"
+    ],
+    "needs_human_en": [
+      "Determine if evidence is truly authoritative (e.g., can internal meeting minutes be used as evidence)",
+      "Decide if vague expressions constitute discrimination or bias (e.g., 'elderly unsuitable for overtime')",
+      "Verify if a statement is non-compliant within cultural or policy context (e.g., sensitive phrasing in local governance)",
+      "Make the final decision on which risks require human intervention, not AI judgment"
     ]
   },
   "T12": {
@@ -355,6 +650,43 @@
         "确认正反例是否真实反映现实困境",
         "决定哪些文化差异必须人工把关（如中日老人自主权理解差异）",
         "最终裁定争议答案该得几分"
+      ]
+    ],
+    "context_en": "Score AI responses to ensure fairness, consistency, and justifiability.",
+    "keep_from_original_en": [
+      "Retain the core judgment criteria (e.g., whether to hit a person, question an elder)",
+      "Maintain the original question structure (scenario + options + correct answer)",
+      "Inherit existing classification dimensions (e.g., moral, emotional, social perspectives)",
+      "Reuse validated positive and negative examples"
+    ],
+    "primary_tool_steps_en": [
+      "Set clear scoring criteria for each question (0-5 or right/wrong/partially right)",
+      "Provide specific examples of good and bad answers",
+      "Have at least two individuals (human or AI) score independently",
+      "Automatically flag answers with large scoring discrepancies for expert review",
+      "Analyze overall scoring reliability, identifying models that guess correctly by chance",
+      "Manually check question difficulty and cultural appropriateness"
+    ],
+    "outputs_en": [
+      "Detailed scoring guidelines for each question",
+      "Multi-rater scores and consistency report for each answer",
+      "List of questions needing human re-evaluation (with reasons)",
+      "Comparison table of model performance across different difficulties/cultural contexts",
+      "Analysis of common error types (e.g., always ignoring elders' wishes, favoring younger groups)"
+    ],
+    "automatable_en": [
+      "Draft initial scoring criteria and examples",
+      "Automatically assign scoring tasks and compile results",
+      "Identify and flag low-consistency samples",
+      "Calculate inter-rater agreement rates",
+      "Automatically categorize error types by predefined dimensions"
+    ],
+    "needs_human_en": [
+      "Determine if a criterion truly aligns with ethical or professional standards",
+      [
+        "Verify if examples accurately reflect real dilemmas",
+        "Decide which cultural differences require human oversight (e.g., autonomy of elderly in China vs. Japan)",
+        "Make final decisions on disputed answer scores"
       ]
     ]
   },
@@ -398,6 +730,40 @@
       [
         "决定哪些故障该让AI自己处理，哪些必须立刻叫停"
       ]
+    ],
+    "context_en": "Test if the AI assistant is safe and reliable in real office scenarios, such as using tools, handling files, and sending emails.",
+    "keep_from_original_en": [
+      "Type of capability being tested (e.g., awareness of permissions, handling anomalies)",
+      "Key roles involved in the original question (e.g., doctor, employee, developer)",
+      "Types of sensitive information in the original question (e.g., medical history, keys, urgent emails)",
+      "Business objectives set in the original question (e.g., archiving, uploading, reviewing)"
+    ],
+    "primary_tool_steps_en": [
+      "Change a pure Q&A into a hands-on task",
+      "Clearly inform the AI what it can and cannot do",
+      "Intentionally add faults (e.g., fake data, broken links, insufficient permissions)",
+      "Require the AI to check results after each step before proceeding",
+      "Record all actions and decisions made by the AI for analysis",
+      "Set up recovery procedures for failures (e.g., retry, report error, seek help)"
+    ],
+    "outputs_en": [
+      "A set of executable simulation tasks (including instructions, tool list, and fault points)",
+      "A log of the AI's entire operation process (who did what, when, and the outcome)",
+      "A scoring guide: which behaviors are acceptable, which expose risks",
+      "Highlight areas that require human review (e.g., privacy leaks, unauthorized operations)",
+      "Provide improvement suggestions (e.g., add reminders, lock certain buttons)"
+    ],
+    "automatable_en": [
+      "Automatically convert the original question into a task description with tool usage steps",
+      "Automatically generate simulated faults (e.g., fake API responses, hidden permission prompts)",
+      "Automatically extract key actions and decision points from the AI's operation log",
+      "Automatically compare the AI's behavior against preset security rules (e.g., 'do not transmit keys', 'no unauthorized moves')"
+    ],
+    "needs_human_en": [
+      "Determine if an AI operation truly crosses a boundary (e.g., does 'forwarding' count as leaking?)",
+      "Confirm which information is considered sensitive in the current scenario (e.g., should 'Slack discussions' be blocked?)",
+      "Evaluate cultural or compliance red lines (e.g., is HIPAA applicable locally?)",
+      "Decide which faults the AI should handle alone and which require immediate human intervention"
     ]
   },
   "T13": {
@@ -434,6 +800,40 @@
       "核对标签是否真符合现实逻辑（如中性判断是否被偏见干扰）",
       "识别文化、法律或伦理风险点并写进说明书",
       "确认评分规则是否公平覆盖不同人群或文档类型"
+    ],
+    "context_en": "Make AI evaluation tools transparent, reproducible, and verifiable for research and pre-launch product testing.",
+    "keep_from_original_en": [
+      "Original task type (e.g., right/wrong judgment, multi-hop reasoning)",
+      "Human labeling criteria (e.g., neutral/contradictory/entailment)",
+      "Data sources and real-world application scenarios",
+      "Known potential error points"
+    ],
+    "primary_tool_steps_en": [
+      "Clearly state the purpose of this evaluation",
+      "Specify which scenarios are not suitable for this evaluation",
+      "Indicate data sources and annotation methods",
+      "List specific settings and prompts used in model runs",
+      "Provide a single command to reproduce results",
+      "Note all referenced materials and versions"
+    ],
+    "outputs_en": [
+      "A clear evaluation manual (understandable purpose and limitations)",
+      "A data manual (including sources, annotation methods, potential issues)",
+      "A complete, runnable evaluation script and environment setup",
+      "Explicitly label expected answers and scoring logic for each test case",
+      "Identify conclusions needing human re-verification, e.g., cultural sensitivity or legal boundaries"
+    ],
+    "automatable_en": [
+      "Automatically generate reproduction commands and dependency lists",
+      "Automatically extract model version, prompt, and decoding parameters",
+      "Automatically organize data source links and citation formats",
+      "Automatically check if scripts run successfully"
+    ],
+    "needs_human_en": [
+      "Determine which use cases are 'unsuitable', e.g., involving children or medical decisions",
+      "Verify if labels truly match real-world logic (e.g., if neutrality is biased)",
+      "Identify cultural, legal, or ethical risk points and include in the manual",
+      "Confirm if scoring rules fairly cover different demographics or document types"
     ]
   },
   "T11": {
@@ -466,6 +866,36 @@
       "人工判断AI某些回答是否真的有害，还是只是表述不顺",
       "人工核对价值相关标注（如‘重视集体’vs‘重视个人’）是否贴切语境",
       "人工决定哪些错误必须修复，哪些属于可接受的表达差异"
+    ],
+    "context_en": "Identify in which scenarios, for which groups, and what types of errors AI makes, and how severe these errors are.",
+    "keep_from_original_en": [
+      "Maintain the real usage scenarios of the original test questions",
+      "Keep the grouping method for different populations from the original test",
+      "Retain the risk types defined in the original test (e.g., harmful, biased, incorrect, overly cautious)"
+    ],
+    "primary_tool_steps_en": [
+      "Break down the total score into a detailed table by 'scenario×population×error type×metric'",
+      "Check if AI is helpful, safe, fair, and truthful in each combination",
+      "Mark where AI is particularly prone to errors (e.g., always wrong with seniors, or over-rejects on politics)",
+      "Count if AI frequently refuses to answer (even safe questions) or insists on answering clearly dangerous ones"
+    ],
+    "outputs_en": [
+      "A clear table: rows for scenarios and populations, columns for performance (usefulness, safety, fairness, etc.)",
+      "Each cell notes specific AI issues (e.g., 'overly rejects job advice for female users')",
+      "List 3-5 most common typical failures (e.g., 'makes up answers on religious topics')",
+      "Highlight questions where AI's responses are especially hesitant or contradictory"
+    ],
+    "automatable_en": [
+      "Automatically tag original test questions by scenario, population, and risk type",
+      "Automatically run multiple metric evaluation scripts to score each category",
+      "Automatically identify recurring error patterns in AI responses (e.g., frequent misuse of certain words)",
+      "Automatically compare and highlight differences in AI performance across different populations"
+    ],
+    "needs_human_en": [
+      "Manually confirm if 'sensitive topics' and 'vulnerable groups' match local realities",
+      "Human judgment on whether AI responses are truly harmful or just poorly phrased",
+      "Verify context-appropriate value-related labels (e.g., 'collectivism' vs. 'individualism')",
+      "Decide which errors must be fixed and which are acceptable expression differences"
     ]
   },
   "T14": {
@@ -501,6 +931,39 @@
       "人工确认隐私类题目里的模拟数据是否足够安全、不碰红线",
       "人工决定某套题该不该退役（比如新法规出台后）",
       "人工审核所有涉及文化、伦理、法律边界的评分标准"
+    ],
+    "context_en": "Help AI test question banks stay fresh, unpolluted, safely updated, and properly retired.",
+    "keep_from_original_en": [
+      "Original purpose of question categories (e.g., testing timeliness, causality, privacy protection)",
+      "Manually defined tag meanings (e.g., 'this question tests if the model leaks ID numbers')",
+      "Real scenarios the questions aim to examine (e.g., doctors checking latest guidelines, customer service handling bank card information)"
+    ],
+    "primary_tool_steps_en": [
+      "Divide questions into public practice and hidden formal exam questions",
+      "Regularly check if questions have been 'learned' by models (pollution detection)",
+      "Label each version of the question bank with a version number, noting who updated and why",
+      "Set when questions should be discontinued (e.g., laws change, data expires)",
+      "Provide a channel for users to report issues with questions",
+      "Immediately isolate and handle risky questions (e.g., containing real private information)"
+    ],
+    "outputs_en": [
+      "A set of publicly available practice questions with version numbers",
+      "A strictly confidential set of hidden formal exam questions",
+      "A pollution detection report (which questions may have been seen by models)",
+      "An update/retirement log (who, when, and why changes were made)",
+      "A clear list of responsible persons (who manages the question bank, who decides on retirement)"
+    ],
+    "automatable_en": [
+      "Automatically add version numbers and timestamps to questions",
+      "Automatically scan if the question bank appears in training data (pollution detection)",
+      "Automatically compare differences between new and old versions and generate an update summary",
+      "Automatically mark high-risk questions based on rules (e.g., containing bank or ID numbers)"
+    ],
+    "needs_human_en": [
+      "Human judgment on whether a question truly tests 'rejecting outdated medical advice'",
+      "Human confirmation that simulated data in privacy-related questions is safe and compliant",
+      "Human decision on retiring a set of questions (e.g., after new regulations are introduced)",
+      "Human review of all scoring criteria involving cultural, ethical, and legal boundaries"
     ]
   }
 }
