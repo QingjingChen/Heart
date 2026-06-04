@@ -277,8 +277,8 @@ function createHeartBlindSurveyForm() {
     .setHelpText("此栏仅用于按背景加权统计，不公开身份。");
 
   form.addTextItem()
-    .setTitle("专家代号")
-    .setHelpText("例如 E1 / E2 / E3。请避免使用个人姓名。")
+    .setTitle("姓名缩写")
+    .setHelpText("例如：QJ、ZS、LMH。")
     .setRequired(true);
 
   form.addCheckboxItem()
@@ -292,11 +292,6 @@ function createHeartBlindSurveyForm() {
       "其他"
     ])
     .setRequired(true);
-
-  form.addMultipleChoiceItem()
-    .setTitle("相关领域工作年数")
-    .setChoiceValues(["0-2 年", "3-5 年", "6-10 年", "10 年以上"])
-    .setRequired(false);
 
 
   // ── 5 个 Case ──
