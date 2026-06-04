@@ -98,17 +98,18 @@
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 <script>
 let BENCH_MAP = [], BENCH_URLS = {}, T_TOOLS = [];
-let PROMPTS = [], PROMPTS_PLAIN = {};
+let PROMPTS = [], PROMPTS_PLAIN = {}, EXAMPLES_PLAIN = {};
 let modalBg, modal;
 async function load() {
   modalBg = document.getElementById('modal-bg');
   modal = document.getElementById('modal');
-  [BENCH_MAP, BENCH_URLS, T_TOOLS, PROMPTS, PROMPTS_PLAIN] = await Promise.all([
+  [BENCH_MAP, BENCH_URLS, T_TOOLS, PROMPTS, PROMPTS_PLAIN, EXAMPLES_PLAIN] = await Promise.all([
     fetch('data/bench_map.json').then(r=>r.json()),
     fetch('data/bench_urls.json').then(r=>r.json()),
     fetch('data/t_tools.json').then(r=>r.json()),
     fetch('data/prompts.json').then(r=>r.json()),
     fetch('data/prompts_plain.json').then(r=>r.ok ? r.json() : ({})).catch(() => ({})),
+    fetch('data/examples_plain.json').then(r=>r.ok ? r.json() : ({})).catch(() => ({})),
   ]);
   buildTable();
 }
@@ -237,14 +238,19 @@ function openDetail(i) {
     s = s.replace(/^补充校验[：:]\s*/, '');
     return s.trim();
   };
+  // Prefer the Qwen-polished plain version; fall back to a regex-cleaned raw
+  const polishedExample = polishedIdx != null ? EXAMPLES_PLAIN[String(polishedIdx)] : null;
   const exampleClean = cleanBenchExample(b['改编示例（微改）']);
-  if (exampleClean) {
+  const exampleBody = (polishedExample && !polishedExample.error)
+    ? `<div class="lang-en">${polishedExample.example_en || exampleClean}</div><div class="lang-zh">${polishedExample.example_zh || exampleClean}</div>`
+    : exampleClean;
+  if (exampleBody) {
     html += `<details class="bench-example-fold" style="margin-top:10px;border:1px solid var(--border);border-radius:6px;overflow:hidden">
       <summary style="cursor:pointer;padding:8px 12px;background:var(--bg);font-size:12.5px;font-weight:600;color:var(--primary);list-style:none;display:flex;align-items:center;gap:6px">
         <span style="font-size:11px">▸</span>
         <span class="lang-en">Adaptation example</span><span class="lang-zh">改编示例</span>
       </summary>
-      <div style="background:#E8F5E9;border-left:3px solid #2E7D32;padding:10px 14px;white-space:pre-wrap;line-height:1.65;font-size:12.5px">${exampleClean}</div>
+      <div style="background:#E8F5E9;border-left:3px solid #2E7D32;padding:10px 14px;line-height:1.65;font-size:12.5px">${exampleBody}</div>
     </details>`;
   }
 
