@@ -259,11 +259,10 @@ function createHeartBlindSurveyForm() {
     "—— 答题前请先用 5-10 分钟阅读交互网站 —— \n" +
     "网址：https://qingjingchen.github.io/Heart/interactive/\n" +
     "请重点浏览：\n" +
-    "  • A. 政策与语料：5 大伦理维度的来源和范围\n" +
     "  • B. 诊断 Rubrics：14 条 rubric 的定义、v2 锚点、典型例子\n" +
     "  • C. 修复工具箱：14 件通用修复工具的核心做法\n" +
     "❗ 请不要查看 D. 改编案例 页签 —— 它会暴露本问卷中哪个版本是原题、哪个是改编后的版本，从而破坏盲评。\n\n" +
-    "预计用时：25-35 分钟。所有 rubric 题为必填（A/B/差不多/不适用），理由文本框均为选填。"
+    "预计用时：25-35 分钟。所有 rubric 题为必填（A 更好 / B 更好 / 此 rubric 上没有提升），理由文本框均为选填。"
   );
   form.setCollectEmail(false);
   form.setAllowResponseEdits(false);
@@ -316,17 +315,16 @@ function createHeartBlindSurveyForm() {
       .setTitle("版本 B")
       .setHelpText(c.B);
 
-    // 14 条 rubric · 每条两题：选择 + 理由
+    // 14 条 rubric · 每条两题：选择 + 选填理由（紧贴在选项下方）
     RUBRICS.forEach(function(r) {
       form.addMultipleChoiceItem()
         .setTitle("[" + r.code + "] " + r.name + " —— 哪个版本更好？")
         .setHelpText(r.desc)
-        .setChoiceValues(["版本 A 更好", "版本 B 更好", "差不多", "不适用"])
+        .setChoiceValues(["版本 A 更好", "版本 B 更好", "此 rubric 上没有提升"])
         .setRequired(true);
 
       form.addParagraphTextItem()
-        .setTitle("[" + r.code + "] 理由（选填）")
-        .setHelpText("若需要可简要说明你的判断依据。留空也可以。")
+        .setTitle("理由（选填）")
         .setRequired(false);
     });
 
