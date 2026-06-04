@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>14 HEART Workbox Tools</title>
+<title>Generic Repair Tools · 通用修复工具 — HEART</title>
 <link rel="stylesheet" href="assets/main.css">
 <script src="assets/lang.js"></script>
 <style>
@@ -349,7 +349,7 @@
 </head>
 <body>
 <header>
-  <h1>14 <span class="lang-en">HEART Workbox Tools</span><span class="lang-zh">HEART 工具箱</span></h1>
+  <h1><span class="lang-en">14 Generic Repair Tools</span><span class="lang-zh">14 件通用修复工具</span></h1>
   <div class="subtitle"><span class="lang-en">Grouped by the 3 rubric layers. Click any card to expand.</span><span class="lang-zh">按 3 大 rubric 层级分组，点击卡片可展开完整内容。</span></div>
 </header>
 <nav>
@@ -364,8 +364,9 @@
 
 <div class="subpage-strip">
   <span class="strip-label"><span class="lang-en">C · Sub-pages:</span><span class="lang-zh">C 阶段子页：</span></span>
-  <a href="tools.html" class="strip-pill active"><span class="lang-en">14 Repair Tools</span><span class="lang-zh">14 件修复工具</span></a>
-  <a href="rubric_matrix.html" class="strip-pill"><span class="lang-en">Audit → Tool 14×14 Index</span><span class="lang-zh">Audit → Tool 14×14 索引</span></a>
+  <a href="tools.html" class="strip-pill active"><span class="lang-en">Generic Repair Tools</span><span class="lang-zh">通用修复工具</span></a>
+  <a href="benches.html" class="strip-pill"><span class="lang-en">Specific Repair Sub-tools</span><span class="lang-zh">细分修复子工具</span></a>
+  <a href="rubric_matrix.html" class="strip-pill"><span class="lang-en">Gap → Tool Workflow</span><span class="lang-zh">Gap → Tool 修复工作流</span></a>
 </div>
 
 <section class="card">
@@ -409,14 +410,16 @@ let TOOLS = [], BENCH_URLS = {}, PROMPTS = [];
 
 let SOURCE_ATTR = null;
 let PROMPTS_PLAIN = {};
+let TOOLS_PLAIN = {};
 
 async function build() {
-  [TOOLS, BENCH_URLS, PROMPTS, SOURCE_ATTR, PROMPTS_PLAIN] = await Promise.all([
+  [TOOLS, BENCH_URLS, PROMPTS, SOURCE_ATTR, PROMPTS_PLAIN, TOOLS_PLAIN] = await Promise.all([
     fetch('data/t_tools.json').then(r=>r.json()),
     fetch('data/bench_urls.json').then(r=>r.json()),
     fetch('data/prompts.json').then(r=>r.json()),
     fetch('data/tool_source_attribution.json').then(r=>r.json()),
     fetch('data/prompts_plain.json').then(r=>r.ok ? r.json() : ({})).catch(() => ({})),
+    fetch('data/t_tools_plain.json').then(r=>r.ok ? r.json() : ({})).catch(() => ({})),
   ]);
   const cont = document.getElementById('layers-container');
   cont.innerHTML = '';
@@ -572,18 +575,30 @@ function openTool(tid) {
     <summary><span class="lang-en">Rubrics improved + applicable scope</span><span class="lang-zh">提升的 rubric 与适用场景</span></summary>
     <div class="acc-body"><b><span class="lang-en">Core rubrics lifted:</span><span class="lang-zh">核心提升：</span></b> ${t['核心提升rubrics（精简）'] || ''}<br><br><b><span class="lang-en">Other rubrics seen in sources:</span><span class="lang-zh">来源中出现：</span></b> <span class="muted">${t['来源中出现的相关rubrics（供核查）'] || ''}</span><br><br><b><span class="lang-en">Applicable ethical scope:</span><span class="lang-zh">适用伦理场景：</span></b> ${t['适用伦理场景'] || ''}</div>
   </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Adaptation prompt skeleton</span><span class="lang-zh">通用改编 Prompt 骨架</span></summary>
-    <div class="acc-body">${t['通用改编骨架（仅供二次调整）'] || ''}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Polished revision examples</span><span class="lang-zh">代表改编示例</span></summary>
-    <div class="acc-body">${t['代表改编示例（前3）'] || ''}</div>
-  </details>`;
-  html += `<details class="acc">
-    <summary><span class="lang-en">Automation vs. human gating</span><span class="lang-zh">自动化与人工边界</span></summary>
-    <div class="acc-body"><b><span class="lang-en">Automatable:</span><span class="lang-zh">可自动化：</span></b> ${t['自动化可做部分'] || ''}<br><br><b><span class="lang-en">Needs human governance:</span><span class="lang-zh">需人工治理：</span></b> ${t['需人工校验/治理部分'] || ''}</div>
-  </details>`;
+  // === How to use this tool (6-section bullet card, same format as sub-tools) ===
+  const tp = TOOLS_PLAIN[tid];
+  if (tp && !tp.error) {
+    const li = (arr) => (arr || []).filter(Boolean).map(s => `<li>${s}</li>`).join('');
+    const cols = [];
+    if (tp.automatable_zh && tp.automatable_zh.length) cols.push(`<div class="pg-col pg-auto"><b><span class="lang-en">Can automate</span><span class="lang-zh">可自动</span></b><ul>${li(tp.automatable_zh)}</ul></div>`);
+    if (tp.needs_human_zh && tp.needs_human_zh.length) cols.push(`<div class="pg-col pg-human"><b><span class="lang-en">Needs human</span><span class="lang-zh">需人工</span></b><ul>${li(tp.needs_human_zh)}</ul></div>`);
+    html += `<details class="acc" open>
+      <summary><span class="lang-en">How to use this tool — plain-language steps</span><span class="lang-zh">怎么用这件工具 — 大白话步骤</span></summary>
+      <div class="acc-body" style="background:#FFFBEB">
+        ${tp.context_zh ? `<div class="pg-ctx">${tp.context_zh}</div>` : ''}
+        ${tp.keep_from_original_zh && tp.keep_from_original_zh.length ? `<div class="pg-block"><b><span class="lang-en">Keep from original</span><span class="lang-zh">从原题保留</span></b><ul>${li(tp.keep_from_original_zh)}</ul></div>` : ''}
+        ${tp.primary_tool_steps_zh && tp.primary_tool_steps_zh.length ? `<div class="pg-block"><b><span class="lang-en">Main steps</span><span class="lang-zh">主要步骤</span></b><ul>${li(tp.primary_tool_steps_zh)}</ul></div>` : ''}
+        ${tp.outputs_zh && tp.outputs_zh.length ? `<div class="pg-block"><b><span class="lang-en">What to produce</span><span class="lang-zh">要产出什么</span></b><ul>${li(tp.outputs_zh)}</ul></div>` : ''}
+        ${cols.length ? `<div class="pg-cols">${cols.join('')}</div>` : ''}
+      </div>
+    </details>`;
+  } else {
+    // Fallback when plain version is missing
+    html += `<details class="acc">
+      <summary><span class="lang-en">How to use this tool</span><span class="lang-zh">怎么用这件工具</span></summary>
+      <div class="acc-body"><b><span class="lang-en">Adaptation prompt skeleton:</span><span class="lang-zh">通用改编 Prompt 骨架：</span></b> ${t['通用改编骨架（仅供二次调整）'] || ''}<br><br><b><span class="lang-en">Examples:</span><span class="lang-zh">代表改编示例：</span></b> ${t['代表改编示例（前3）'] || ''}<br><br><b><span class="lang-en">Automatable:</span><span class="lang-zh">可自动化：</span></b> ${t['自动化可做部分'] || ''}<br><br><b><span class="lang-en">Needs human:</span><span class="lang-zh">需人工：</span></b> ${t['需人工校验/治理部分'] || ''}</div>
+    </details>`;
+  }
 
   // === Sub-tools × source benches (merged with source attribution; each sub-tool collapsible) ===
   const totalBenches = subToolList.reduce((s, [_, v]) => s + v.benches.length, 0);
@@ -614,7 +629,6 @@ function openTool(tid) {
             <span class="sub-acc-count">${slot.benches.length} bench${slot.benches.length>1?'es':''}</span>
           </summary>
           <div class="sub-acc-body">
-            ${ev ? `<div class="subtool-evi"><b class="st-label"><span class="lang-en">What this sub-tool is</span><span class="lang-zh">这个细分工具做什么</span></b><div class="st-text">${ev}</div></div>` : ''}
             ${guideHtml ? `<div class="subtool-guide"><b class="st-label"><span class="lang-en">How to adapt — step-by-step</span><span class="lang-zh">怎么用 — 一步步说</span></b>${guideHtml}</div>` : ''}
             ${exampleHtml ? `<div class="subtool-example"><b class="st-label"><span class="lang-en">A concrete adapted example</span><span class="lang-zh">一个具体改编后的例子</span></b>${exampleHtml}</div>` : ''}
             <div class="subtool-sources"><b class="st-label"><span class="lang-en">Benches that exemplify it</span><span class="lang-zh">展示它的 bench（点击跳到 bench 卡片）</span></b><div class="bench-list">${benchRows || '<span class="muted">—</span>'}</div></div>

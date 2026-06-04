@@ -478,7 +478,7 @@
 <body>
 <header>
   <h1>HEART Mini Cases — 5 Real-Data Adaptation Examples</h1>
-  <div class="subtitle">每个 case 都从真实公开 benchmark 抽取一条带 ID 的样本，标注改编前/后的对照，并指明用到的 HEART tools + operations + improved rubrics</div>
+  <div class="subtitle"><span class="lang-en">Each case pulls a single real ID-tagged sample from a public benchmark, shows the before/after revision, and lists the HEART tools, operations and rubrics involved.</span><span class="lang-zh">每个 case 都从真实公开 benchmark 抽取一条带 ID 的样本，标注改编前/后的对照，并指明用到的 HEART 工具、操作和提升的 rubric。</span></div>
 </header>
 <nav>
   <a href="index.html"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
@@ -665,27 +665,14 @@ function renderCase(c, idx) {
       <span class="case-fold-hint"><span class="lang-en">${escapeHtml(c.why_improved_en||'')}</span><span class="lang-zh">${escapeHtml(c.why_improved_zh||'')}</span></span>
     </summary>
     <div class="case-fold-body">
-      <details class="case-narr">
-        <summary><span class="lang-en">Full adaptation rationale</span><span class="lang-zh">详细改编理由</span></summary>
-        <div class="case-narr-body">
-          <span class="lang-en">${escapeHtml(c.adapt_reason_en||'')}</span>
-          <span class="lang-zh">${escapeHtml(c.adapt_reason_zh||'')}</span>
-        </div>
-      </details>
+      <div class="case-narr-body" style="background:var(--bg);padding:10px 12px;border-radius:4px;line-height:1.65;font-size:12.5px">
+        <span class="lang-en">${escapeHtml(c.adapt_reason_en||'')}</span>
+        <span class="lang-zh">${escapeHtml(c.adapt_reason_zh||'')}</span>
+      </div>
     </div>
   </details>`;
 
-  // === Source attribution chip strip (sits next to the source-dataset row) ===
-  const srcAttr = e.source_tool_attribution && e.source_tool_attribution.length
-    ? `<div class="src-strip">
-         <b class="src-strip-label"><span class="lang-en">Source attribution:</span><span class="lang-zh">来源归属：</span></b>
-         ${e.source_tool_attribution.map(s => {
-           const ctClass = (s.contribution_type||'').replace(/[\s\-]/g, '_');
-           const tooltip = (s.contribution_en||'') + (s.contribution_zh ? ' / ' + s.contribution_zh : '');
-           return `<span class="src-chip" title="${escapeHtml(tooltip)}"><b>${escapeHtml(s.source_name||'')}</b> <span class="src-ct ct-${ctClass}">${escapeHtml(s.contribution_type||'')}</span></span>`;
-         }).join('')}
-       </div>`
-    : '';
+  // Source attribution strip removed per user request.
 
   // === ④ Remaining limitations — folded by default ===
   const lims = (e.remaining_limitations_en||[]).length
@@ -719,7 +706,6 @@ function renderCase(c, idx) {
         <b><span class="lang-en">Source dataset:</span><span class="lang-zh">来源数据集：</span></b> <a target="_blank" href="${c.source_dataset_url}">${c.source_dataset} ↗</a>
         &nbsp;·&nbsp; <b><span class="lang-en">Entry:</span><span class="lang-zh">条目：</span></b> <code>${c.source_entry}</code>
       </div>
-      ${srcAttr}
     </div>
     <div class="case-body">
       <div class="before-after">

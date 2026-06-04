@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>14×14 Tool×Rubric Index — HEART</title>
+<title>Gap → Tool Repair Workflow · Gap → Tool 修复工作流 — HEART</title>
 <link rel="stylesheet" href="assets/main.css">
 <script src="assets/lang.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
@@ -117,8 +117,8 @@
 </head>
 <body>
 <header>
-  <h1><span class="lang-en">Audit → Tool 14×14 Index</span><span class="lang-zh">Audit → Tool 14×14 索引</span></h1>
-  <div class="subtitle"><span class="lang-en">Click any cell → which benchmark proves that tool repairs that rubric, with the repair-mechanism explanation and the adaptation prompt</span><span class="lang-zh">点击任意格子 → 该工具修复该 rubric 的最强 benchmark 证据、修复机制说明及改编 prompt</span></div>
+  <h1><span class="lang-en">Gap → Tool Repair Workflow</span><span class="lang-zh">Gap → Tool 修复工作流</span></h1>
+  <div class="subtitle"><span class="lang-en">14 rubrics × 14 tools. Each cell answers: when a benchmark fails this rubric, which tool fixes it, how, and which bench shows it in action.</span><span class="lang-zh">14 条 rubric × 14 件工具的矩阵。每一格告诉你：当某个 bench 在这条 rubric 上有 gap，用哪件工具修、怎么修、哪个 bench 已经做过示范。</span></div>
 </header>
 <nav>
   <a href="index.html"><span class="lang-en">Overview</span><span class="lang-zh">概览</span></a>
@@ -132,24 +132,27 @@
 
 <div class="subpage-strip">
   <span class="strip-label"><span class="lang-en">C · Sub-pages:</span><span class="lang-zh">C 阶段子页：</span></span>
-  <a href="tools.html" class="strip-pill"><span class="lang-en">14 Repair Tools</span><span class="lang-zh">14 件修复工具</span></a>
-  <a href="rubric_matrix.html" class="strip-pill active"><span class="lang-en">Audit → Tool 14×14 Index</span><span class="lang-zh">Audit → Tool 14×14 索引</span></a>
+  <a href="tools.html" class="strip-pill"><span class="lang-en">Generic Repair Tools</span><span class="lang-zh">通用修复工具</span></a>
+  <a href="benches.html" class="strip-pill"><span class="lang-en">Specific Repair Sub-tools</span><span class="lang-zh">细分修复子工具</span></a>
+  <a href="rubric_matrix.html" class="strip-pill active"><span class="lang-en">Gap → Tool Workflow</span><span class="lang-zh">Gap → Tool 修复工作流</span></a>
 </div>
 
 <section class="card">
-  <h2>How to read this</h2>
+  <h2><span class="lang-en">How to read</span><span class="lang-zh">如何阅读</span></h2>
   <p>
-    Heatmap rows = the 14 audit rubrics; columns = the 14 canonical tools (T01–T14).
-    Each cell's intensity = weighted evidence count for "this tool repairs this rubric"
-    (taken from the workbook's <code>Tool×Rubric矩阵_压缩</code> sheet, scaled by precision-recall on member benches).
+    <span class="lang-en">Rows = 14 rubrics (the diagnosis dimensions). Columns = 14 generic repair tools. A coloured cell means: when a bench fails the row's rubric, the column's tool is one repair option, and at least one bench in the corpus has shown this fix. Darker = stronger evidence.</span>
+    <span class="lang-zh">行 = 14 条诊断 rubric。列 = 14 件通用修复工具。彩色格代表：当某 bench 在该 rubric 上有 gap，该列工具是一种可用修复方案，并且语料中至少有一个 bench 已展示过该修复。颜色越深 = 证据越强。</span>
   </p>
   <div class="legend">
-    <span><span class="swatch" style="background:#F3F4F6"></span>0 — no repair</span>
-    <span><span class="swatch" style="background:#FFE082"></span>weak (≤5)</span>
-    <span><span class="swatch" style="background:#FFB74D"></span>medium (5–15)</span>
-    <span><span class="swatch" style="background:#388E3C"></span>strong (&gt;15)</span>
+    <span><span class="swatch" style="background:#F3F4F6"></span>0 — <span class="lang-en">no repair</span><span class="lang-zh">无修复</span></span>
+    <span><span class="swatch" style="background:#FFE082"></span><span class="lang-en">weak (≤5)</span><span class="lang-zh">弱 (≤5)</span></span>
+    <span><span class="swatch" style="background:#FFB74D"></span><span class="lang-en">medium (5–15)</span><span class="lang-zh">中 (5–15)</span></span>
+    <span><span class="swatch" style="background:#388E3C"></span><span class="lang-en">strong (&gt;15)</span><span class="lang-zh">强 (&gt;15)</span></span>
   </div>
-  <p class="muted">Click any non-zero cell to open the explainable card with the repair mechanism, the strongest benchmark evidence (with paper URL), and the adaptation prompt that this benchmark would use under this tool.</p>
+  <p class="muted">
+    <span class="lang-en">Click any non-zero cell → which bench proves the fix, the repair mechanism, and the bench-specific adaptation guide.</span>
+    <span class="lang-zh">点击任意非零格 → 看哪个 bench 证明了这种修复、修复机制、以及该 bench 专属的改编指引。</span>
+  </p>
 </section>
 
 <section class="card">
