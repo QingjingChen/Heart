@@ -435,6 +435,33 @@ let PROMPTS_PLAIN = {};
 let TOOLS_PLAIN = {};
 let EXAMPLES_PLAIN = {};
 
+// Canonical EN → ZH rubric name map (kept in sync with rubrics_full.json name_zh)
+const RUBRIC_EN_TO_ZH = {
+  'Construct clarity': '构念清晰度',
+  'Normative grounding': '规范根据',
+  'Source provenance and evidence fitness': '来源可追溯与证据适配',
+  'Context and stakeholder coverage': '情境与利益相关方覆盖',
+  'Real-world harm linkage': '与现实危害的关联',
+  'Scenario validity': '场景真实性',
+  'Task-format fit': '任务形式适配',
+  'Ground truth and disagreement design': '答案与分歧设计',
+  'Metric validity': '指标有效性',
+  'Evaluator reliability': '评分者可靠性',
+  'Data and annotation QA': '数据与标注质保',
+  'Robustness against gaming and contamination': '对抗博弈与污染稳健性',
+  'Documentation and reproducibility': '文档与可复现',
+  'Maintenance and update governance': '维护与更新治理',
+};
+// Split a "name1; name2; ..." string and emit bilingual spans per entry
+function rubricListBilingual(rawText) {
+  if (!rawText) return '';
+  const tokens = rawText.split(/[;；,，]/).map(t => t.trim()).filter(Boolean);
+  return tokens.map(name => {
+    const zh = RUBRIC_EN_TO_ZH[name] || name;
+    return `<span class="lang-en">${name}</span><span class="lang-zh">${zh}</span>`;
+  }).join('<span class="lang-en">; </span><span class="lang-zh">；</span>');
+}
+
 async function build() {
   [TOOLS, BENCH_URLS, PROMPTS, SOURCE_ATTR, PROMPTS_PLAIN, TOOLS_PLAIN, EXAMPLES_PLAIN, BENCH_MAP] = await Promise.all([
     fetch('data/t_tools.json').then(r=>r.json()),
@@ -613,7 +640,7 @@ function openTool(tid) {
   </details>`;
   html += `<details class="acc">
     <summary><span class="lang-en">Rubrics improved + applicable scope</span><span class="lang-zh">提升的 rubric 与适用场景</span></summary>
-    <div class="acc-body"><b><span class="lang-en">Core rubrics lifted:</span><span class="lang-zh">核心提升：</span></b> ${t['核心提升rubrics（精简）'] || ''}<br><br><b><span class="lang-en">Other rubrics seen in sources:</span><span class="lang-zh">来源中出现：</span></b> <span class="muted">${t['来源中出现的相关rubrics（供核查）'] || ''}</span><br><br><b><span class="lang-en">Applicable ethical scope:</span><span class="lang-zh">适用伦理场景：</span></b> <span class="lang-en">${t['适用伦理场景_en'] || ''}</span><span class="lang-zh">${t['适用伦理场景'] || ''}</span></div>
+    <div class="acc-body"><b><span class="lang-en">Core rubrics lifted:</span><span class="lang-zh">核心提升：</span></b> ${rubricListBilingual(t['核心提升rubrics（精简）'] || '')}<br><br><b><span class="lang-en">Other rubrics seen in sources:</span><span class="lang-zh">来源中出现：</span></b> <span class="muted">${rubricListBilingual(t['来源中出现的相关rubrics（供核查）'] || '')}</span><br><br><b><span class="lang-en">Applicable ethical scope:</span><span class="lang-zh">适用伦理场景：</span></b> <span class="lang-en">${t['适用伦理场景_en'] || ''}</span><span class="lang-zh">${t['适用伦理场景'] || ''}</span></div>
   </details>`;
   // === How to use this tool (6-section bullet card, same format as sub-tools) ===
   const tp = TOOLS_PLAIN[tid];

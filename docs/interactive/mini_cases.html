@@ -522,56 +522,148 @@ async function build() {
   }
 }
 
+// Field-label dictionary: each row = { en_label, zh_label }
+const ITEM_LABELS = {
+  context:                       ['Context',                       '情境'],
+  vignette:                      ['Vignette',                      '故事情景'],
+  executable_trajectory:         ['Executable trajectory',         '可执行轨迹'],
+  sensitive_info:                ['Sensitive info',                '敏感信息'],
+  toolkits:                      ['Toolkits',                      '工具包'],
+  question:                      ['Question',                      '问题'],
+  evaluation_context:            ['Eval context',                  '评测情境'],
+  prompt:                        ['Prompt',                        '指令'],
+  instruction:                   ['Instruction',                   '指令'],
+  gold:                          ['Gold',                          '标准答案'],
+  gold_rationale:                ['Gold rationale',                '标准答案理由'],
+  answer_0:                      ['Answer',                        '答案'],
+  expected_answer:               ['Expected answer',               '期望答案'],
+  expected_response_type:        ['Expected response type',        '期望回复类型'],
+  gold_response_principles:      ['Gold response principles',      '标准回复原则'],
+  expected_safe_output:          ['Expected safe output',          '期望安全输出'],
+  disallowed_output:             ['Disallowed output',             '禁止输出'],
+  expected_safe_rewrite_example: ['Expected safe rewrite example', '期望安全改写示例'],
+  task_type:                     ['Task type',                     '任务类型'],
+  core_evaluation_target:        ['Core evaluation target',        '核心评测目标'],
+  type:                          ['Type',                          '类型'],
+  label:                         ['Label',                         '标签'],
+  focus:                         ['Focus',                         '关注点'],
+  note:                          ['Note',                          '备注'],
+  effective_year:                ['Effective year',                '适用年份'],
+  next_review:                   ['Next review',                   '下次复核'],
+  false_premise:                 ['False premise',                 '错误前提'],
+  num_hops:                      ['Num hops',                      '跳数'],
+  fact_type:                     ['Fact type',                     '事实类型'],
+  source:                        ['Source',                        '来源'],
+  metadata:                      ['Metadata',                      '元数据'],
+};
+function bilField(fld, it, tpl) {
+  // Renders one field row if value present.  Falls back to the EN string when no _zh sibling exists.
+  const v = it[fld];
+  if (v === undefined || v === null || v === '') return '';
+  const vZh = it[fld + '_zh'];
+  const [labelEn, labelZh] = ITEM_LABELS[fld] || [fld, fld];
+  // String content
+  if (typeof v === 'string' || typeof v === 'number') {
+    return tpl(labelEn, labelZh, String(v), vZh ? String(vZh) : String(v));
+  }
+  return '';
+}
 function renderItem(it) {
   let html = '';
-  if (it.context) html += `<div class="item-field"><b>Context:</b><br>${it.context}</div>`;
-  if (it.vignette) html += `<div class="item-field"><b>Vignette:</b><br>${it.vignette}</div>`;
+  const row = (labelEn, labelZh, valEn, valZh, extraStyle) => {
+    return `<div class="item-field"${extraStyle?` style="${extraStyle}"`:''}><b><span class="lang-en">${labelEn}:</span><span class="lang-zh">${labelZh}：</span></b> <span class="lang-en">${valEn}</span><span class="lang-zh">${valZh}</span></div>`;
+  };
+  const rowBlock = (labelEn, labelZh, valEn, valZh) => {
+    return `<div class="item-field"><b><span class="lang-en">${labelEn}:</span><span class="lang-zh">${labelZh}：</span></b><br><span class="lang-en">${valEn}</span><span class="lang-zh">${valZh}</span></div>`;
+  };
+  // Multi-line fields render as block rows; short scalar fields as inline rows.
+  const BLOCK_FIELDS = new Set(['context','vignette','executable_trajectory']);
+  // Helper to render a string field with the right layout
+  const stringField = (fld) => {
+    const v = it[fld];
+    if (v === undefined || v === null || v === '') return '';
+    const vZh = it[fld + '_zh'] || v;
+    const [labelEn, labelZh] = ITEM_LABELS[fld] || [fld, fld];
+    return (BLOCK_FIELDS.has(fld) ? rowBlock : row)(labelEn, labelZh, String(v), String(vZh));
+  };
+
+  html += stringField('context');
+  html += stringField('vignette');
   if (it.seed) {
-    html += `<div class="item-field"><b>Seed:</b><br>`;
+    html += `<div class="item-field"><b><span class="lang-en">Seed:</span><span class="lang-zh">种子：</span></b><br>`;
     for (const [k,v] of Object.entries(it.seed)) html += `<code style="background:var(--bg);padding:1px 5px;border-radius:3px;margin:0 2px">${k}=${v}</code> `;
     html += `</div>`;
   }
-  if (it.executable_trajectory) html += `<div class="item-field"><b>Executable trajectory:</b><br>${it.executable_trajectory}</div>`;
-  if (it.sensitive_info) html += `<div class="item-field"><b>Sensitive info:</b> ${it.sensitive_info}</div>`;
-  if (it.toolkits) html += `<div class="item-field"><b>Toolkits:</b> ${it.toolkits}</div>`;
-  if (it.question) html += `<div class="item-field"><b>Question:</b> ${it.question}</div>`;
-  if (it.evaluation_context) html += `<div class="item-field"><b>Eval context:</b> ${it.evaluation_context}</div>`;
-  if (it.prompt) html += `<div class="item-field"><b>Prompt:</b> "${it.prompt}"</div>`;
-  if (it.options) html += `<ul class="options">${it.options.map(o=>`<li>${o}</li>`).join('')}</ul>`;
-  if (it.instruction) html += `<div class="item-field"><b>Instruction:</b> ${it.instruction}</div>`;
-  if (it.gold) html += `<div class="item-field"><span class="gold-field"><b>Gold:</b> ${it.gold}</span></div>`;
-  if (it.gold_rationale) html += `<div class="item-field"><b>Gold rationale:</b> ${it.gold_rationale}</div>`;
-  if (it.answer_0) html += `<div class="item-field"><b>Answer:</b> ${it.answer_0}</div>`;
-  if (it.expected_answer) html += `<div class="item-field"><b>Expected answer:</b> ${it.expected_answer}</div>`;
-  if (it.expected_response_type) html += `<div class="item-field"><b>Expected response type:</b> ${it.expected_response_type}</div>`;
-  if (it.gold_response_principles) html += `<div class="item-field"><b>Gold response principles:</b> ${it.gold_response_principles}</div>`;
-  if (it.expected_safe_output) html += `<div class="item-field"><b>Expected safe output:</b> ${it.expected_safe_output}</div>`;
-  if (it.disallowed_output) html += `<div class="item-field"><b>Disallowed output:</b> ${it.disallowed_output}</div>`;
-  if (it.expected_safe_rewrite_example) html += `<div class="item-field"><b>Expected safe rewrite example:</b> "${it.expected_safe_rewrite_example}"</div>`;
-  if (it.required_response_features) {
-    html += `<div class="item-field"><b>Required response features:</b><ol style="margin:4px 0 4px 18px">${
-      it.required_response_features.map(f=>`<li>${f.replace(/^\d+\.\s*/,'')}</li>`).join('')
-    }</ol></div>`;
+  html += stringField('executable_trajectory');
+  html += stringField('sensitive_info');
+  html += stringField('toolkits');
+  html += stringField('question');
+  html += stringField('evaluation_context');
+  // prompt: wrap value in quotes
+  if (it.prompt) {
+    const z = it.prompt_zh || it.prompt;
+    html += `<div class="item-field"><b><span class="lang-en">Prompt:</span><span class="lang-zh">指令：</span></b> <span class="lang-en">"${it.prompt}"</span><span class="lang-zh">"${z}"</span></div>`;
   }
-  if (it.task_type) html += `<div class="item-field"><b>Task type:</b> ${it.task_type}</div>`;
-  if (it.core_evaluation_target) html += `<div class="item-field"><b>Core evaluation target:</b> ${it.core_evaluation_target}</div>`;
-  if (it.type && !it.task_type) html += `<div class="item-field"><b>Type:</b> ${it.type}</div>`;
-  if (it.label) html += `<div class="item-field"><b>Label:</b> ${it.label}</div>`;
-  if (it.focus) html += `<div class="item-field"><b>Focus:</b> ${it.focus}</div>`;
-  if (it.note) html += `<div class="item-field"><b>Note:</b> ${it.note}</div>`;
-  if (it.effective_year) html += `<div class="item-field"><b>Effective year:</b> ${it.effective_year}</div>`;
-  if (it.next_review) html += `<div class="item-field"><b>Next review:</b> ${it.next_review}</div>`;
-  if (it.false_premise) html += `<div class="item-field"><b>False premise:</b> ${it.false_premise}</div>`;
-  if (it.num_hops) html += `<div class="item-field"><b>Num hops:</b> ${it.num_hops}</div>`;
-  if (it.fact_type) html += `<div class="item-field"><b>Fact type:</b> ${it.fact_type}</div>`;
-  if (it.source) html += `<div class="item-field"><b>Source:</b> ${it.source}</div>`;
-  if (it.metadata) html += `<div class="item-field"><b>Metadata:</b> ${it.metadata}</div>`;
+  if (it.options) {
+    const optsEn = it.options;
+    const optsZh = it.options_zh || it.options;
+    html += `<ul class="options lang-en">${optsEn.map(o=>`<li>${o}</li>`).join('')}</ul>`;
+    html += `<ul class="options lang-zh">${optsZh.map(o=>`<li>${o}</li>`).join('')}</ul>`;
+  }
+  html += stringField('instruction');
+  if (it.gold) {
+    const z = it.gold_zh || it.gold;
+    html += `<div class="item-field"><span class="gold-field"><b><span class="lang-en">Gold:</span><span class="lang-zh">标准答案：</span></b> <span class="lang-en">${it.gold}</span><span class="lang-zh">${z}</span></span></div>`;
+  }
+  html += stringField('gold_rationale');
+  html += stringField('answer_0');
+  html += stringField('expected_answer');
+  html += stringField('expected_response_type');
+  html += stringField('gold_response_principles');
+  html += stringField('expected_safe_output');
+  html += stringField('disallowed_output');
+  if (it.expected_safe_rewrite_example) {
+    const z = it.expected_safe_rewrite_example_zh || it.expected_safe_rewrite_example;
+    html += `<div class="item-field"><b><span class="lang-en">Expected safe rewrite example:</span><span class="lang-zh">期望安全改写示例：</span></b> <span class="lang-en">"${it.expected_safe_rewrite_example}"</span><span class="lang-zh">"${z}"</span></div>`;
+  }
+  if (it.required_response_features) {
+    const feats = it.required_response_features;
+    const featsZh = it.required_response_features_zh || feats;
+    html += `<div class="item-field"><b><span class="lang-en">Required response features:</span><span class="lang-zh">必备回复要素：</span></b>
+      <ol class="lang-en" style="margin:4px 0 4px 18px">${feats.map(f=>`<li>${f.replace(/^\d+\.\s*/,'')}</li>`).join('')}</ol>
+      <ol class="lang-zh" style="margin:4px 0 4px 18px">${featsZh.map(f=>`<li>${f.replace(/^\d+\.\s*/,'')}</li>`).join('')}</ol>
+    </div>`;
+  }
+  html += stringField('task_type');
+  html += stringField('core_evaluation_target');
+  if (it.type && !it.task_type) html += stringField('type');
+  html += stringField('label');
+  html += stringField('focus');
+  html += stringField('note');
+  html += stringField('effective_year');
+  html += stringField('next_review');
+  html += stringField('false_premise');
+  if (it.num_hops !== undefined) html += stringField('num_hops');
+  html += stringField('fact_type');
+  html += stringField('source');
+  html += stringField('metadata');
   if (it.failure_mode_tags) {
-    html += `<div class="item-field"><b>Failure-mode tags:</b><br>`;
-    for (const tag of it.failure_mode_tags) {
+    const tags = it.failure_mode_tags;
+    const tagsZh = it.failure_mode_tags_zh || tags;
+    html += `<div class="item-field"><b><span class="lang-en">Failure-mode tags:</span><span class="lang-zh">失败模式标签：</span></b><br>`;
+    html += `<span class="lang-en">`;
+    for (const tag of tags) {
       const positive = /safe|preserving|appropriate|escalation|autonomy|aware|handling|redirection|generaliz/i.test(tag);
       html += `<span class="fmtag${positive?' positive':''}">${tag}</span>`;
     }
+    html += `</span>`;
+    html += `<span class="lang-zh">`;
+    for (let i=0; i<tagsZh.length; i++) {
+      const tag = tagsZh[i];
+      const positive = /safe|preserving|appropriate|escalation|autonomy|aware|handling|redirection|generaliz/i.test(tags[i] || '');
+      html += `<span class="fmtag${positive?' positive':''}">${tag}</span>`;
+    }
+    html += `</span>`;
     html += `</div>`;
   }
   return html;
@@ -653,7 +745,10 @@ function renderCase(c, idx) {
     <div class="case-fold-body">
       ${adapterLabel}
       <div class="tools-stack">${toolRows}</div>
-      <div style="margin-top:8px"><b style="font-size:11.5px;color:var(--primary)"><span class="lang-en">Rubrics lifted:</span><span class="lang-zh">提升的 rubric：</span></b> ${c.rubrics_lifted.map(r => `<span class="rubric-pill">${r}</span>`).join('')}</div>
+      <div style="margin-top:8px"><b style="font-size:11.5px;color:var(--primary)"><span class="lang-en">Rubrics lifted:</span><span class="lang-zh">提升的 rubric：</span></b> ${c.rubrics_lifted.map((r, i) => {
+        const zh = (c.rubrics_lifted_zh && c.rubrics_lifted_zh[i]) || r;
+        return `<span class="rubric-pill"><span class="lang-en">${r}</span><span class="lang-zh">${zh}</span></span>`;
+      }).join('')}</div>
     </div>
   </details>`;
 

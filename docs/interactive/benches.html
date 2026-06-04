@@ -199,13 +199,23 @@ const RUBRIC_NAME_TO_CODE = {
   'Evaluator reliability':'R10','Data and annotation QA':'R11','Robustness against gaming and contamination':'R12',
   'Documentation and reproducibility':'R13','Maintenance and update governance':'R14',
 };
+// EN R-code → canonical ZH name (must match rubrics_full.json name_zh)
+const RUBRIC_CODE_TO_ZH = {
+  R1:'构念清晰度', R2:'规范根据', R3:'来源可追溯与证据适配',
+  R4:'情境与利益相关方覆盖', R5:'与现实危害的关联', R6:'场景真实性',
+  R7:'任务形式适配', R8:'答案与分歧设计', R9:'指标有效性',
+  R10:'评分者可靠性', R11:'数据与标注质保', R12:'对抗博弈与污染稳健性',
+  R13:'文档与可复现', R14:'维护与更新治理',
+};
 function rubricPills(rawText) {
   if (!rawText) return '<span class="muted">—</span>';
   const tokens = rawText.split(/[;；,，]/).map(t => t.trim()).filter(Boolean);
   return tokens.map(name => {
     const code = RUBRIC_NAME_TO_CODE[name] || '';
-    const display = code ? `<b>${code}</b> ${name}` : name;
-    return `<a class="rubric-link-pill" href="rubrics.html#${code||encodeURIComponent(name)}" title="${name}">${display}</a>`;
+    const zhName = RUBRIC_CODE_TO_ZH[code] || name;
+    const enLabel = code ? `<b>${code}</b> ${name}` : name;
+    const zhLabel = code ? `<b>${code}</b> ${zhName}` : name;
+    return `<a class="rubric-link-pill" href="rubrics.html#${code||encodeURIComponent(name)}" title="${name}"><span class="lang-en">${enLabel}</span><span class="lang-zh">${zhLabel}</span></a>`;
   }).join(' ');
 }
 function buildTable() {
