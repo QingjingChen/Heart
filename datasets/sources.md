@@ -1,6 +1,6 @@
 # Benchmark Source Index
 
-For each of the 104 benchmarks in the HEART meta-review, this page lists:
+For each of the 103 benchmarks in the HEART meta-review, this page lists:
 
 - **Paper** — link to the original paper (arXiv / ACL Anthology / DOI)
 - **Code / data upstream** — the original authors' GitHub or Hugging Face repository
@@ -177,9 +177,9 @@ All entries are also recorded in the citation-verification sheet of
 
 ## Coverage statistics
 
-- Benchmarks with a paper URL: **104 / 104** (100%)
-- Benchmarks with a curated upstream code/data URL: **104 / 104** (100%)
-- Benchmarks with a corresponding Google Drive mirror: **67 / 104** (64%)
+- Benchmarks with a paper URL: **103 / 103** (100%)
+- Benchmarks with a curated upstream code/data URL: **103 / 103** (100%)
+- Benchmarks with a corresponding Google Drive mirror: **67 / 103** (64%)
 
 Paper URLs were assembled from `custom.bib`, a manual override map verified
 against the arXiv title search and the local PDF library, and author-confirmed
