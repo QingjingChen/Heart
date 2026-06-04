@@ -271,14 +271,31 @@ function cleanRmExample(raw) {
 function renderRmBulletCard(polished) {
   if (!polished || polished.error) return '';
   const li = (arr) => (arr || []).filter(Boolean).map(s => `<li>${s}</li>`).join('');
-  const cols = [];
-  if (polished.automatable_zh && polished.automatable_zh.length) cols.push(`<div class="pg-col pg-auto"><b><span class="lang-en">Can automate</span><span class="lang-zh">可自动</span></b><ul>${li(polished.automatable_zh)}</ul></div>`);
-  if (polished.needs_human_zh && polished.needs_human_zh.length) cols.push(`<div class="pg-col pg-human"><b><span class="lang-en">Needs human</span><span class="lang-zh">需人工</span></b><ul>${li(polished.needs_human_zh)}</ul></div>`);
+  const bilBlock = (lblEn, lblZh, arrEn, arrZh) => {
+    const en = arrEn || []; const zh = arrZh || [];
+    if (!en.length && !zh.length) return '';
+    return `<div class="pg-block"><b><span class="lang-en">${lblEn}</span><span class="lang-zh">${lblZh}</span></b>`
+      + (en.length ? `<ul class="lang-en">${li(en)}</ul>` : '')
+      + (zh.length ? `<ul class="lang-zh">${li(zh)}</ul>` : '')
+      + `</div>`;
+  };
+  const bilCol = (klass, lblEn, lblZh, arrEn, arrZh) => {
+    const en = arrEn || []; const zh = arrZh || [];
+    if (!en.length && !zh.length) return '';
+    return `<div class="pg-col ${klass}"><b><span class="lang-en">${lblEn}</span><span class="lang-zh">${lblZh}</span></b>`
+      + (en.length ? `<ul class="lang-en">${li(en)}</ul>` : '')
+      + (zh.length ? `<ul class="lang-zh">${li(zh)}</ul>` : '')
+      + `</div>`;
+  };
+  const cols = [
+    bilCol('pg-auto', 'Can automate', '可自动', polished.automatable_en, polished.automatable_zh),
+    bilCol('pg-human', 'Needs human', '需人工', polished.needs_human_en, polished.needs_human_zh),
+  ].filter(Boolean);
   return `<div>
-    ${polished.context_zh ? `<div class="pg-ctx">${polished.context_zh}</div>` : ''}
-    ${polished.keep_from_original_zh && polished.keep_from_original_zh.length ? `<div class="pg-block"><b><span class="lang-en">Keep from original</span><span class="lang-zh">从原题保留</span></b><ul>${li(polished.keep_from_original_zh)}</ul></div>` : ''}
-    ${polished.primary_tool_steps_zh && polished.primary_tool_steps_zh.length ? `<div class="pg-block"><b><span class="lang-en">Main steps</span><span class="lang-zh">主要步骤</span></b><ul>${li(polished.primary_tool_steps_zh)}</ul></div>` : ''}
-    ${polished.outputs_zh && polished.outputs_zh.length ? `<div class="pg-block"><b><span class="lang-en">What to produce</span><span class="lang-zh">要产出什么</span></b><ul>${li(polished.outputs_zh)}</ul></div>` : ''}
+    ${(polished.context_en || polished.context_zh) ? `<div class="pg-ctx">${polished.context_en ? `<span class="lang-en">${polished.context_en}</span>` : ''}${polished.context_zh ? `<span class="lang-zh">${polished.context_zh}</span>` : ''}</div>` : ''}
+    ${bilBlock('Keep from original', '从原题保留', polished.keep_from_original_en, polished.keep_from_original_zh)}
+    ${bilBlock('Main steps', '主要步骤', polished.primary_tool_steps_en, polished.primary_tool_steps_zh)}
+    ${bilBlock('What to produce', '要产出什么', polished.outputs_en, polished.outputs_zh)}
     ${cols.length ? `<div class="pg-cols">${cols.join('')}</div>` : ''}
   </div>`;
 }
@@ -369,7 +386,7 @@ function openCell(toolId, rubric, score) {
   })();
 
   let html = `<span class="close" onclick="closeModal()">×</span>`;
-  html += `<h3>${toolId} · ${tool ? tool['Toolbox 英文名'] : ''} <span class="muted">(${tool ? tool['中文译名'] : ''})</span></h3>`;
+  html += `<h3>${toolId} · ${tool ? tool['Toolbox 英文名'] : ''} <span class="muted lang-zh">(${tool ? tool['中文译名'] : ''})</span></h3>`;
   html += `<div class="muted"><b>${rubricCode||''}</b> ${rubric} · <span class="lang-en">Evidence weight:</span><span class="lang-zh">证据权重：</span> <b>${score.toFixed(1)}</b></div>`;
 
   // Rubric → default-tool prescription block (from doc04, applied to web 14-tool)
@@ -415,7 +432,7 @@ function openCell(toolId, rubric, score) {
     if (entries.length) {
       const e = entries[0];
       html += `<h4 class="rm-h"><span class="lang-en">How this tool fixes this rubric</span><span class="lang-zh">这件工具如何修这条 rubric</span></h4>`;
-      html += `<div class="rm-block">${e['修复机制说明'] || '—'}</div>`;
+      html += `<div class="rm-block"><span class="lang-en">${e['修复机制说明_en'] || '—'}</span><span class="lang-zh">${e['修复机制说明'] || '—'}</span></div>`;
     }
 
     // === 2. Adaptation guide (bullet card if available, else cleaned prose) ===
@@ -432,9 +449,10 @@ function openCell(toolId, rubric, score) {
         html += bulletHtml;
       } else {
         // Fallback: clean the raw 代表Prompt/指导 text
-        let raw = (e['代表Prompt/指导'] || '').trim();
-        raw = raw.replace(/^基于[^"""""]*?[""""]\s*[""""\s。]*改编到[^：。]*[：。]\s*/, '');
-        html += `<div style="white-space:pre-wrap;line-height:1.6;font-size:12.5px">${raw || '<span class="muted">—</span>'}</div>`;
+        let rawZh = (e['代表Prompt/指导'] || '').trim();
+        rawZh = rawZh.replace(/^基于[^"""""]*?[""""]\s*[""""\s。]*改编到[^：。]*[：。]\s*/, '');
+        const rawEn = (e['代表Prompt/指导_en'] || '').trim();
+        html += `<div style="white-space:pre-wrap;line-height:1.6;font-size:12.5px"><span class="lang-en">${rawEn || '—'}</span><span class="lang-zh">${rawZh || '—'}</span></div>`;
       }
       html += `</div>`;
 
@@ -448,8 +466,8 @@ function openCell(toolId, rubric, score) {
         html += `<h4 class="rm-h"><span class="lang-en">Adaptation example</span><span class="lang-zh">改编示例</span></h4>`;
         html += `<div class="rm-example-block">${exampleHtml}</div>`;
       }
-      if (e['自动化与人工边界']) {
-        html += `<p class="muted" style="font-size:11.5px;margin:8px 0 0"><b><span class="lang-en">Auto vs. human:</span><span class="lang-zh">自动化与人工边界：</span></b> ${e['自动化与人工边界']}</p>`;
+      if (e['自动化与人工边界'] || e['自动化与人工边界_en']) {
+        html += `<p class="muted" style="font-size:11.5px;margin:8px 0 0"><b><span class="lang-en">Auto vs. human:</span><span class="lang-zh">自动化与人工边界：</span></b> <span class="lang-en">${e['自动化与人工边界_en'] || ''}</span><span class="lang-zh">${e['自动化与人工边界'] || ''}</span></p>`;
       }
     }
 
@@ -477,8 +495,15 @@ function openCell(toolId, rubric, score) {
       for (const item of allBenches) {
         const bn = item.name;
         const pill = `<a class="bench-pill has-url" href="benches.html#${encodeURIComponent(bn)}">${bn}</a>`;
+        let subEn = '';
+        if (item.sub) {
+          for (const b of BENCH_MAP) {
+            if ((b['主细分工具']||'').trim() === item.sub && b['主细分工具_en']) { subEn = b['主细分工具_en']; break; }
+            if ((b['次细分工具']||'').trim() === item.sub && b['次细分工具_en']) { subEn = b['次细分工具_en']; break; }
+          }
+        }
         const subLine = item.sub
-          ? `<div class="rm-bench-sub">${item.sub}</div>`
+          ? `<div class="rm-bench-sub"><span class="lang-en">${subEn || item.sub}</span><span class="lang-zh">${item.sub}</span></div>`
           : '';
         html += `<div class="rm-bench-row">${pill}${subLine}</div>`;
       }
