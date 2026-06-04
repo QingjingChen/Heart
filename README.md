@@ -34,7 +34,7 @@ HEART treats each existing AI-ethics benchmark as a **bundle of reusable tools**
 (dataset patterns, task formats, metrics, evaluator protocols, governance practices)
 that can be picked apart and re-applied. It bundles together:
 
-- 📑 a meta-review of **103 benchmarks + 18 policy/governance sources** along **5 ethical dimensions**
+- 📑 a meta-review of **103 benchmarks + 16 policy/governance sources** along **5 ethical dimensions**
 - 🩺 a **14-rubric** diagnostic codebook with v2 calibrated anchors, expert-validated across all 103 benchmarks
 - 🧰 a **two-layer workbox** of repair tools: 14 **generic** tools (the canonical workbox) + 103 **specific** sub-tools (one per audited bench)
 - 📖 a 4-step **audit → diagnosis → tool prescription → revision** guidebook
@@ -64,7 +64,7 @@ and the site stay in lock-step.
 | 📄 Doc | 🌐 Site tab | What it covers |
 |:---|:---|:---|
 | 🧩 [`01_problem.md`](docs/01_problem.md) | — | Motivation: why benchmark-as-leaderboard fails for ethics |
-| 🌐 [`02_five_dimensions.md`](docs/02_five_dimensions.md) | **A.** [Policy & Corpus](https://qingjingchen.github.io/Heart/interactive/dimensions.html) | 5 ethical dimensions × 18 policy/governance sources |
+| 🌐 [`02_five_dimensions.md`](docs/02_five_dimensions.md) | **A.** [Policy & Corpus](https://qingjingchen.github.io/Heart/interactive/dimensions.html) | 5 ethical dimensions × 16 policy/governance sources |
 | 📚 [`datasets/sources.md`](datasets/sources.md) + [`datasets/README.md`](datasets/README.md) | **A. (sub)** [103 Audited Benches](https://qingjingchen.github.io/Heart/interactive/benches.html) | Per-bench paper / code / dataset-mirror catalogue |
 | 🩺 [`03_fourteen_rubrics.md`](docs/03_fourteen_rubrics.md) | **B.** [Diagnostic Rubrics](https://qingjingchen.github.io/Heart/interactive/rubrics.html) | 14 audit rubrics × 3 layers, 0–5 anchors, 103-bench score distributions |
 | 🛠 [`04_workbox_fourteen_tools.md`](docs/04_workbox_fourteen_tools.md) | **C.** [Revision Toolkit](https://qingjingchen.github.io/Heart/interactive/tools.html) | 14 generic repair tools + 103 specific sub-tools + Gap → Tool workflow |
@@ -83,7 +83,7 @@ and the site stay in lock-step.
 | ⚙️ **Trustworthiness & Controllability** | Factuality, evidence support, sycophancy, temporal validity, rule-constrained reasoning |
 | 🔒 **Privacy Protection** | Memorization, PII leakage, inferential disclosure, contextual integrity |
 
-Cross-walked to 18 policy/governance sources in [`docs/02_five_dimensions.md`](docs/02_five_dimensions.md).
+Cross-walked to 16 policy/governance sources in [`docs/02_five_dimensions.md`](docs/02_five_dimensions.md).
 
 ---
 
