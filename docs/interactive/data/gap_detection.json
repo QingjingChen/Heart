@@ -69,7 +69,14 @@
       "T06",
       "T08",
       "T09"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "No paired/counterfactual control; unable to determine if the change in answers is caused by the protected attribute",
+      "Safety": "No safe/unsafe comparison; no multi-round jailbreak testing; no over-rejection measurement",
+      "Privacy": "No information flow task; no agent workflow; no third-party information transmission",
+      "Human-Centered": "No open supportive response; only tests knowledge, not interaction",
+      "Trustworthiness": "No answerability taxonomy; does not measure refusal to answer, evidence anchoring, or temporal freshness"
+    }
   },
   "R4": {
     "code": "R4",
@@ -143,7 +150,14 @@
       "T03",
       "T04",
       "T02"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "Omission of protected/proxy groups; lack of intersectional coverage; failure to include affected communities",
+      "Privacy": "Does not distinguish between data subjects, recipients, third parties, organizations, and regulators",
+      "Safety": "Focusing only on malicious users, ignoring potential victims, bystanders, and targets of abuse",
+      "Human-Centered": "Not including vulnerable users, caregivers, professionals, and dependents",
+      "Agent": "Not including data owners, tool owners, organizations, and downstream affected parties"
+    }
   },
   "R6": {
     "code": "R6",
@@ -216,7 +230,14 @@
       "T04",
       "T03",
       "T09"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "No job-relevant evidence yet judgment of candidate suitability; forced choice without equitable basis",
+      "Privacy": "Missing sender, subject, recipient, purpose, or authorization for data handling",
+      "Safety": "Missing operationality, intent, proximity, or explicit risk tier for harm assessment",
+      "Human-Centered": "Missing user state, risk level, professional boundaries, or available support resources",
+      "Agent": "Missing tool permissions, environment context, accessible files, or action consequences"
+    }
   },
   "R3": {
     "code": "R3",
@@ -292,7 +313,13 @@
       "T10",
       "T05",
       "T13"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Privacy": "The source of privacy regulations is unclear; the data comes from one legal jurisdiction but claims to be applicable to all jurisdictions.",
+      "Fairness": "identity categories are directly adopted without specifying the source and local adaptability.",
+      "Trustworthiness": "Factual questions lack an evidence source, timestamp, and update mechanism.",
+      "Professional domains": "Medical/psychological/legal sources do not come from professional standards or expert reviews."
+    }
   },
   "R5": {
     "code": "R5",
@@ -366,7 +393,14 @@
       "T04",
       "T11",
       "T03"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Privacy": "It does not explain how information leaks can lead to discrimination, harassment, identity theft, or loss of autonomy.",
+      "Safety": "Does not specify whether the request is actionable, or whether it could cause physical/cyber/public safety harm",
+      "Fairness": "Does not explain how bias leads to opportunity deprivation, service degradation, or unfair resource allocation",
+      "Human-Centered": "Does not explain how erroneous responses affect the user's psychological safety, autonomy, or professional help-seeking behavior",
+      "Trustworthiness": "Not explained how hallucinations can lead to incorrect decisions, financial loss, or medical/legal risks"
+    }
   },
   "R1": {
     "code": "R1",
@@ -440,7 +474,14 @@
       "T01",
       "T11",
       "T10"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "Only testing for gender stereotype associations in occupation fill-ins, yet claiming to measure fairness",
+      "Safety": "Only tests for rejection of harmful requests, does not test for over-rejection, safe continuation, or multi-round robustness",
+      "Privacy": "Only tests for PII leakage, does not test information flow, authorization, recipient, or purpose inference",
+      "Trustworthiness": "Only tests the accuracy of factual Q&A, does not test evidence traceability, proactive refusal to answer, timeliness, or citation validity",
+      "Human-Centered": "Only tests for helpfulness or psychological knowledge, but claims to measure dignity, autonomy, or psychological support"
+    }
   },
   "R2": {
     "code": "R2",
@@ -516,7 +557,14 @@
       "T12",
       "T04",
       "T03"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "No anti-discrimination norms or affected-community evidence; no basis for protected/proxy attributes",
+      "Safety": "No explanation of why specific behaviors constitute misuse; unsafe labeling based only on keywords",
+      "Privacy": "Missing consent, authorization, purpose limitation, minimum necessary, recipient role, or legal basis",
+      "Trustworthiness": "",
+      "Human-Centered": "No engagement with affected-community evidence or participatory norm-setting for community harms"
+    }
   },
   "R11": {
     "code": "R11",
@@ -590,7 +638,13 @@
     ],
     "default_tools_web14": [
       "T13"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "The group of annotators is not transparent; there is no review by the affected community",
+      "Safety": "Lack of expert/red team review for harm category labeling",
+      "Privacy": "Information flow judgment lacks legal/privacy expert or regulatory basis",
+      "Truthfulness": "Factual labels lack evidence verification"
+    }
   },
   "R8": {
     "code": "R8",
@@ -659,7 +713,14 @@
       "T12",
       "T02",
       "T11"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "Lack of ambiguous vs. clear labels; does not allow for 'insufficient evidence to determine' when evidence is lacking",
+      "Safety": "Lack of distinction between educational, defensive, fictional, and operational harmfulness",
+      "Privacy": "Lacks allow / refuse / ask for consent / redact / minimize / insufficient authorization",
+      "Professional advice": "Lack of expert escalation, boundary maintenance, insufficient information",
+      "Moral dilemmas": "Lacks acceptable disagreement"
+    }
   },
   "R13": {
     "code": "R13",
@@ -737,7 +798,14 @@
     ],
     "default_tools_web14": [
       "T13"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "",
+      "Safety": "Lack of harmful content warnings, access controls",
+      "Privacy": "Lack of data processing/sensitive data policy",
+      "Trustworthiness": "Lack of factual sources, timestamps, and retrieval settings",
+      "Human-Centered": "Lack of environmental configuration, tool permissions, and trace logs"
+    }
   },
   "R12": {
     "code": "R12",
@@ -810,7 +878,13 @@
     ],
     "default_tools_web14": [
       "T14"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Safety": "Harmful prompts that are made public are trained into the model as templates for rejection",
+      "Truthfulness": "Factual questions are trained for memorization and cannot reflect timeliness.",
+      "Fairness": "The model has seen stereotypical paired samples and learned the question patterns.",
+      "Privacy": "After the workflow test samples are made public, the model may specifically learn the 'standard safety actions'"
+    }
   },
   "R10": {
     "code": "R10",
@@ -885,7 +959,14 @@
       "T14",
       "T13",
       "T13"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "Judge holds cultural/identity biases affecting fairness assessment",
+      "Safety": "Judge prefers strong refusals, misclassifying over-refusal as safe",
+      "Privacy": "",
+      "Trustworthiness": "",
+      "Human-Centered": "Psychological support judge favors warm/long responses while ignoring professional boundaries"
+    }
   },
   "R9": {
     "code": "R9",
@@ -961,7 +1042,14 @@
       "T09",
       "T03",
       "T04"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Fairness": "High average accuracy but large subgroup disparity",
+      "Safety": "ASR is low but over-refusal is high; the refusal rate is high but safety assistance is poor",
+      "Privacy": "PII leakage is low, but contextual privacy fails; the model still incorrectly forwards sensitive information",
+      "Trustworthiness": "high accuracy but cites inaccurately; does not measure abstention and freshness",
+      "Human-Centered": "helpfulness is high but oversteps in diagnosis, ignores crises, and undermines autonomy"
+    }
   },
   "R14": {
     "code": "R14",
@@ -1040,6 +1128,13 @@
       "T13",
       "T04",
       "T09"
-    ]
+    ],
+    "domain_symptoms_en": {
+      "Safety": "New jailbreak / agent misuse appears, but the benchmark is not updated",
+      "Privacy": "From PII leakage developing to memory / agent / multimodal privacy, but the benchmark still only tests strings",
+      "Trustworthiness": "Facts are outdated, lacking temporal refresh",
+      "Law/policy": "Regulations change, but the benchmark still uses old rules",
+      "Agent": "The model's capability changes, but the task remains chat-only"
+    }
   }
 }

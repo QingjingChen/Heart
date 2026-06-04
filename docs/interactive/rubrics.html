@@ -425,13 +425,13 @@ function openRubric(rname) {
   let html = `<span class="close" onclick="closeModal()">×</span>`;
   // 1. Header — no old_mapping
   html += `<h3>${r.code} · ${escapeHtml(r.name)}
-    <span class="layer-tag layer-${LAYER_CLASS[r.layer]}">${LAYER_ZH[r.layer]} · ${r.layer}</span>
+    <span class="layer-tag layer-${LAYER_CLASS[r.layer]}"><span class="lang-en">${r.layer}</span><span class="lang-zh">${LAYER_ZH[r.layer]} · ${r.layer}</span></span>
   </h3>`;
-  html += `<p class="muted" style="margin:6px 0">${escapeHtml(r.name_zh)}</p>`;
+  html += `<p class="muted lang-zh" style="margin:6px 0">${escapeHtml(r.name_zh)}</p>`;
 
   // 2. Key question
   html += `<div class="section-block" style="background:#F0F7FF;border-left:4px solid var(--primary)">
-    <b><span class="lang-en">Key question:</span><span class="lang-zh">关键问题：</span></b> ${escapeHtml(r.key_question)}
+    <b><span class="lang-en">Key question:</span><span class="lang-zh">关键问题：</span></b> <span class="lang-en">${escapeHtml(r.key_question_en || r.key_question)}</span><span class="lang-zh">${escapeHtml(r.key_question)}</span>
   </div>`;
 
   // 3. Score distribution
@@ -468,10 +468,11 @@ function openRubric(rname) {
         <ul class="gd-bullets lang-zh">${(gd.diagnostic_questions_zh||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>
       </details>` : '';
     const domains = gd.domain_symptoms ? Object.entries(gd.domain_symptoms).filter(([k,v])=>v && v.trim()) : [];
+    const domainsEn = gd.domain_symptoms_en || {};
     const domSection = domains.length
       ? `<div class="gd-block">
           <b><span class="lang-en">Domain-specific symptoms</span><span class="lang-zh">领域化症状</span></b>
-          <div class="gd-domain-list">${domains.map(([k,v])=>`<div><span class="gd-domain-name">${escapeHtml(k)}:</span> ${escapeHtml(v)}</div>`).join('')}</div>
+          <div class="gd-domain-list">${domains.map(([k,v])=>`<div><span class="gd-domain-name">${escapeHtml(k)}:</span> <span class="lang-en">${escapeHtml(domainsEn[k] || v)}</span><span class="lang-zh">${escapeHtml(v)}</span></div>`).join('')}</div>
         </div>` : '';
     // simple 0-3 scoring is now merged into the unified calibration block below
     const mis = gd.common_misdiagnosis_en
@@ -523,24 +524,27 @@ function openRubric(rname) {
   // Parse the per-level bench mentions AND the parenthetical reasoning per level.
   // Format example: "0=Kleinberg（理论）；2=StereoSet/CrowS-Pairs/Winogender（构念过窄或被 Blodgett 等系统否证）；…"
   const benchesPerLevel = {0:[], '1-2':[], '3-4':[], 5:[]};
-  const reasonPerLevel  = {0:[], '1-2':[], '3-4':[], 5:[]};
-  const calAnchor = r.calibrated_anchors || '';
-  for (const seg of calAnchor.split(/[；;]/)) {
-    const m = seg.match(/^\s*(\d)\s*=\s*(.+)$/);
-    if (!m) continue;
-    const lvl = parseInt(m[1]);
-    let txt = m[2].trim();
-    // Separate the bench-name list from the trailing reason note (in 全角/半角 parens)
-    const reasonMatch = txt.match(/[（(]([^）)]+)[）)]/);
-    const reason = reasonMatch ? reasonMatch[1].trim() : '';
-    const namesPart = txt.replace(/[（(].*$/g, '').trim();
-    const key = lvl===0?0:(lvl<=2?'1-2':lvl<=4?'3-4':5);
-    if (namesPart && namesPart !== '暂无') {
-      const names = namesPart.split(/[\/、,]/).map(s=>s.trim()).filter(Boolean);
-      benchesPerLevel[key].push(...names);
+  const reasonPerLevelZh = {0:[], '1-2':[], '3-4':[], 5:[]};
+  const reasonPerLevelEn = {0:[], '1-2':[], '3-4':[], 5:[]};
+  const parseCalAnchor = (raw, reasonStore) => {
+    for (const seg of (raw || '').split(/[；;]/)) {
+      const m = seg.match(/^\s*(\d)\s*=\s*(.+)$/);
+      if (!m) continue;
+      const lvl = parseInt(m[1]);
+      let txt = m[2].trim();
+      const reasonMatch = txt.match(/[（(]([^）)]+)[）)]/);
+      const reason = reasonMatch ? reasonMatch[1].trim() : '';
+      const namesPart = txt.replace(/[（(].*$/g, '').trim();
+      const key = lvl===0?0:(lvl<=2?'1-2':lvl<=4?'3-4':5);
+      if (namesPart && namesPart !== '暂无' && namesPart.toLowerCase() !== 'none' && namesPart.toLowerCase() !== 'n/a' && reasonStore === reasonPerLevelZh) {
+        const names = namesPart.split(/[\/、,]/).map(s=>s.trim()).filter(Boolean);
+        benchesPerLevel[key].push(...names);
+      }
+      if (reason) reasonStore[key].push(reason);
     }
-    if (reason) reasonPerLevel[key].push(reason);
-  }
+  };
+  parseCalAnchor(r.calibrated_anchors, reasonPerLevelZh);
+  parseCalAnchor(r.calibrated_anchors_en, reasonPerLevelEn);
   // Render bench → linked pill if found in BENCH_URLS, else plain
   const benchPill = (rawName) => {
     // try several lookups (exact, "X (year)", strip whitespace)
@@ -564,9 +568,10 @@ function openRubric(rname) {
   const anchorRow = (badgeClass, label, criterion_en, criterion_zh, _unused, levelKey) => {
     const bns = (benchesPerLevel[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
     const pills = bns.length ? `<div class="anchor-examples">${bns.map(benchPill).join(' ')}</div>` : '';
-    const reasons = (reasonPerLevel[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
-    const reasonHtml = reasons.length
-      ? `<div class="anchor-reason"><b><span class="lang-en">Calibration reason:</span><span class="lang-zh">校准理由：</span></b> ${linkBenchesInText(reasons.join('；'))}</div>`
+    const reasonsZh = (reasonPerLevelZh[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
+    const reasonsEn = (reasonPerLevelEn[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
+    const reasonHtml = (reasonsZh.length || reasonsEn.length)
+      ? `<div class="anchor-reason"><b><span class="lang-en">Calibration reason:</span><span class="lang-zh">校准理由：</span></b> <span class="lang-en">${linkBenchesInText(reasonsEn.join('; ') || reasonsZh.join('；'))}</span><span class="lang-zh">${linkBenchesInText(reasonsZh.join('；'))}</span></div>`
       : '';
     return `<div class="score-badge ${badgeClass}">${label}</div>
       <div class="anchor-compact">
@@ -590,14 +595,14 @@ function openRubric(rname) {
       <span class="lang-zh">评分依据 · v2 校准锚点 + 举例</span>
     </h4>
     <div class="calib-narrative">
-      <p class="lang-en">${linkBenchesInText(cal.summary_en || r.revision_notes)}</p>
+      <p class="lang-en">${linkBenchesInText(cal.summary_en || r.revision_notes_en || r.revision_notes)}</p>
       <p class="lang-zh">${linkBenchesInText(cal.summary_zh || r.revision_notes)}</p>
     </div>
     <div class="anchor-compact-grid">
-      ${anchorRow('score-0',  '0',   cal.anchor_0_compact   || r.anchor_0,   cal.anchor_0_zh   || r.anchor_0,   get3(0), 0)}
-      ${anchorRow('score-1-2','1–2', cal.anchor_1_2_compact || r.anchor_1_2, cal.anchor_1_2_zh || r.anchor_1_2, get3(1), '1-2')}
-      ${anchorRow('score-3-4','3–4', cal.anchor_3_4_compact || r.anchor_3_4, cal.anchor_3_4_zh || r.anchor_3_4, get3(2), '3-4')}
-      ${anchorRow('score-5',  '5',   cal.anchor_5_compact   || r.anchor_5,   cal.anchor_5_zh   || r.anchor_5,   get3(3), 5)}
+      ${anchorRow('score-0',  '0',   cal.anchor_0_compact   || r.anchor_0_en   || r.anchor_0,   cal.anchor_0_zh   || r.anchor_0,   get3(0), 0)}
+      ${anchorRow('score-1-2','1–2', cal.anchor_1_2_compact || r.anchor_1_2_en || r.anchor_1_2, cal.anchor_1_2_zh || r.anchor_1_2, get3(1), '1-2')}
+      ${anchorRow('score-3-4','3–4', cal.anchor_3_4_compact || r.anchor_3_4_en || r.anchor_3_4, cal.anchor_3_4_zh || r.anchor_3_4, get3(2), '3-4')}
+      ${anchorRow('score-5',  '5',   cal.anchor_5_compact   || r.anchor_5_en   || r.anchor_5,   cal.anchor_5_zh   || r.anchor_5,   get3(3), 5)}
     </div>
     <h5 style="margin:14px 0 6px;color:var(--primary);font-size:12.5px">
       <span class="lang-en">References</span><span class="lang-zh">参考文献</span>
