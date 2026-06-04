@@ -1,7 +1,7 @@
 # Source Datasets — Full Benchmark Catalogue
 
 HEART's meta-review covers **103 benchmark and survey papers** organised by
-five policy-grounded dimensions (see [`../docs/02_five_dimensions.md`](../docs/02_five_dimensions.md)).
+five ethical dimensions (see [`../docs/02_five_dimensions.md`](../docs/02_five_dimensions.md)).
 This page is the **complete catalogue** with the borrowable innovation, the
 why-it-improves rationale, a concrete adaptation example, and the
 author-acknowledged limits for every entry.

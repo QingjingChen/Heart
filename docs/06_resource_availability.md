@@ -13,10 +13,10 @@ users.
 | Master workbook (xlsx) | [`workbook/heart_toolkit.xlsx`](../workbook/heart_toolkit.xlsx) | Zenodo (TBD, at release) |
 | Workbook CSV exports | [`workbook/exports/`](../workbook/exports/) | Zenodo (TBD) |
 | 14-rubric definitions & anchors | [`docs/03_fourteen_rubrics.md`](03_fourteen_rubrics.md) + [`workbook/exports/rubrics_14_anchors.csv`](../workbook/exports/rubrics_14_anchors.csv) | Zenodo (TBD) |
-| Workbox (6 tools / 48 entries) | [`docs/04_workbox_six_tools.md`](04_workbox_six_tools.md) + [`workbook/exports/toolbox_48_tools.csv`](../workbook/exports/toolbox_48_tools.csv) | Zenodo (TBD) |
+| Workbox (14 generic tools + 103 specific sub-tools) | [`docs/04_workbox_fourteen_tools.md`](04_workbox_fourteen_tools.md) + [`workbook/exports/toolbox_master.csv`](../workbook/exports/toolbox_master.csv) | Zenodo (TBD) |
 | Full benchmark catalogue (103 entries) | [`datasets/README.md`](../datasets/README.md) | Zenodo (TBD) |
 | Per-benchmark paper / code / Drive URL index | [`datasets/sources.md`](../datasets/sources.md) + Google Drive | Zenodo (TBD) |
-| Web Demo source | [github.com/QingjingChen/heart_web_demo_pub](https://github.com/QingjingChen/heart_web_demo_pub) | — |
+| Interactive site | [`docs/interactive/`](interactive/) (live at [qingjingchen.github.io/Heart/interactive/](https://qingjingchen.github.io/Heart/interactive/)) | GitHub Pages |
 | Companion paper PDF | [`paper/README.md`](../paper/README.md) (added at release time) | — |
 
 A permanent **Zenodo DOI** will be minted at release time and back-filled

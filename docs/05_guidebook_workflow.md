@@ -1,7 +1,7 @@
 # 05 — The Guidebook Workflow (4 steps)
 
 The HEART Guidebook applies the [14 rubrics](03_fourteen_rubrics.md) and the
-[6 workbox tools](04_workbox_six_tools.md) to a **single benchmark you want
+[14 workbox tools](04_workbox_fourteen_tools.md) to a **single benchmark you want
 to adapt**. The same workflow is automated end-to-end in the
 [Web Demo](../demo/README.md).
 
@@ -38,7 +38,7 @@ The result is a rubric profile. **The ✗ and ◐ rubrics are your revision targ
 ## Step 3 — Select tools from the workbox
 
 Match each weak rubric to its repair tool from the
-[HEART Workbox](04_workbox_six_tools.md):
+[HEART Workbox](04_workbox_fourteen_tools.md):
 
 | If this rubric came up ✗ or ◐ | Use this tool |
 |---|---|
