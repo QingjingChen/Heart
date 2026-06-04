@@ -7,6 +7,41 @@
 <link rel="stylesheet" href="assets/main.css">
 <script src="assets/lang.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+<style>
+.tool-link { color: var(--primary); text-decoration: none; }
+.tool-link:hover { text-decoration: underline; }
+.rubric-link-pill {
+  display: inline-block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1px 7px;
+  font-size: 10.5px;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin: 1px 2px;
+  line-height: 1.4;
+}
+.rubric-link-pill b { color: var(--primary); font-size: 10.5px; margin-right: 3px; }
+.rubric-link-pill:hover { background: #E8F0F8; border-color: var(--primary-light); color: var(--text); }
+/* Plain-language bullet card (mirrors tools.html) */
+.pg-ctx { font-size: 12.5px; color: var(--text); margin-bottom: 8px; background: rgba(255,255,255,.7); padding: 6px 10px; border-radius: 3px; border-left: 2px solid #B45309; }
+.pg-block { margin: 6px 0; }
+.pg-block > b { display: block; font-size: 10.5px; text-transform: uppercase; color: #7C5306; letter-spacing: .3px; margin-bottom: 2px; font-weight: 700; }
+.pg-block ul { margin: 2px 0 0; padding-left: 18px; font-size: 12px; line-height: 1.55; color: var(--text); }
+.pg-block li { margin: 1px 0; }
+.pg-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+@media (max-width: 640px) { .pg-cols { grid-template-columns: 1fr; } }
+.pg-col { background: rgba(255,255,255,.7); padding: 6px 10px; border-radius: 3px; }
+.pg-col.pg-auto  { border-left: 2px solid #2E7D32; }
+.pg-col.pg-human { border-left: 2px solid #C62828; }
+.pg-col > b { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .3px; margin-bottom: 2px; font-weight: 700; }
+.pg-col.pg-auto > b  { color: #1B5E20; }
+.pg-col.pg-human > b { color: #B71C1C; }
+.pg-col ul { margin: 2px 0 0; padding-left: 18px; font-size: 11.5px; line-height: 1.55; color: var(--text); }
+.pg-col li { margin: 1px 0; }
+.bench-guide-card { background: #FFFBEB; border-left: 3px solid #B45309; padding: 10px 14px; border-radius: 4px; }
+</style>
 </head>
 <body>
 <header>
@@ -33,8 +68,8 @@
 <section class="card">
   <h2><span class="lang-en">How to read</span><span class="lang-zh">如何阅读</span></h2>
   <p>
-    <span class="lang-en">Each row is one benchmark, treated as a <b>specific repair sub-tool</b> bound to its primary canonical tool. Search by name / dimension / tool ID, or click any row's <b>+</b> for that bench's adaptation guide (6-section plain-language bullets) and a concrete example.</span>
-    <span class="lang-zh">每一行都是一个被审计的 benchmark，作为一个绑到主整合工具的<b>细分修复子工具</b>。可按名字 / 维度 / 工具 ID 搜索，点击行的 <b>+</b> 看该 bench 专属的改编指引（6 段大白话清单）和具体例子。</span>
+    <span class="lang-en">Each row is one benchmark, treated as a <b>specific repair sub-tool</b> bound to its primary canonical tool. Search by name / dimension / tool ID, or click any row's <b>+</b> for that bench's adaptation guide (6-section bullets) and a concrete example.</span>
+    <span class="lang-zh">每一行都是一个被审计的 benchmark，作为一个绑到主整合工具的<b>细分修复子工具</b>。可按名字 / 维度 / 工具 ID 搜索，点击行的 <b>+</b> 看该 bench 专属的改编指南和具体例子。</span>
   </p>
 </section>
 
@@ -128,6 +163,23 @@ function benchPill(name) {
   if (url) return `<a class="bench-pill has-url" target="_blank" href="${url}">${name}</a>`;
   return `<span class="bench-pill">${name}</span>`;
 }
+// Canonical 14 rubrics — name → R-code (kept in sync with rubrics_full.json)
+const RUBRIC_NAME_TO_CODE = {
+  'Construct clarity':'R1','Normative grounding':'R2','Source provenance and evidence fitness':'R3',
+  'Context and stakeholder coverage':'R4','Real-world harm linkage':'R5','Scenario validity':'R6',
+  'Task-format fit':'R7','Ground truth and disagreement design':'R8','Metric validity':'R9',
+  'Evaluator reliability':'R10','Data and annotation QA':'R11','Robustness against gaming and contamination':'R12',
+  'Documentation and reproducibility':'R13','Maintenance and update governance':'R14',
+};
+function rubricPills(rawText) {
+  if (!rawText) return '<span class="muted">—</span>';
+  const tokens = rawText.split(/[;；,，]/).map(t => t.trim()).filter(Boolean);
+  return tokens.map(name => {
+    const code = RUBRIC_NAME_TO_CODE[name] || '';
+    const display = code ? `<b>${code}</b> ${name}` : name;
+    return `<a class="rubric-link-pill" href="rubrics.html#${code||encodeURIComponent(name)}" title="${name}">${display}</a>`;
+  }).join(' ');
+}
 function buildTable() {
   const tbody = document.querySelector('#bench-table tbody');
   for (let i=0;i<BENCH_MAP.length;i++) {
@@ -138,10 +190,10 @@ function buildTable() {
       <td>${b['一级标签']||''}</td>
       <td>${benchPill(b['Benchmark / Source'])}</td>
       <td>${b['专家标签']?`<span class="expert-tag">${b['专家标签']}</span>`:'<span class="muted">—</span>'}</td>
-      <td><b>${(b['主整合工具ID']||'').padEnd(3)}</b><br><span class="muted">${b['主整合工具']||''}</span></td>
+      <td><a class="tool-link" href="tools.html#${b['主整合工具ID']||''}"><b>${(b['主整合工具ID']||'').padEnd(3)}</b><br><span class="muted">${b['主整合工具']||''}</span></a></td>
       <td style="font-size:12px">${(b['主细分工具']||'').slice(0,140)}${(b['主细分工具']||'').length>140?'…':''}</td>
-      <td><b>${b['次整合工具ID']||''}</b><br><span class="muted">${b['次整合工具']||''}</span></td>
-      <td style="font-size:12px"><span class="muted">${b['索引用rubrics（精简口径）']||''}</span></td>
+      <td>${b['次整合工具ID']?`<a class="tool-link" href="tools.html#${b['次整合工具ID']}"><b>${b['次整合工具ID']}</b><br><span class="muted">${b['次整合工具']||''}</span></a>`:'<span class="muted">—</span>'}</td>
+      <td style="font-size:11px">${rubricPills(b['索引用rubrics（精简口径）'])}</td>
       <td><a href="#" onclick="openDetail(${i});return false;" class="bench-pill">+</a></td>
     `;
     tbody.appendChild(tr);
@@ -173,11 +225,27 @@ function openDetail(i) {
   html += `<div class="section-block">${b['主细分工具']||''}</div>`;
   const polishedIdx = findPolishedIdx(b);
   const polished = polishedIdx != null ? PROMPTS_PLAIN[String(polishedIdx)] : null;
-  html += `<h5 style="margin:10px 0 4px"><span class="lang-en">Adaptation guide · plain-language bullets</span><span class="lang-zh">改编指引 · 大白话清单</span></h5>`;
-  html += renderBulletCard(polished, b['改编Prompt指导'], b['改编示例（微改）']);
-  if (b['改编示例（微改）']) {
-    html += `<h5 style="margin:12px 0 4px"><span class="lang-en">A concrete adapted example</span><span class="lang-zh">一个具体改编后的例子</span></h5>`;
-    html += `<div class="section-block" style="background:#E8F5E9;border-left:3px solid #2E7D32">${b['改编示例（微改）']}</div>`;
+  html += `<h5 style="margin:10px 0 4px"><span class="lang-en">Adaptation guide</span><span class="lang-zh">改编指南</span></h5>`;
+  html += renderBulletCard(polished, b['改编Prompt指导'], '');
+  // Clean 改编示例（微改） — strip the verbose framing
+  const cleanBenchExample = (raw) => {
+    if (!raw) return '';
+    let s = raw.trim();
+    s = s.replace(/^与\s*Prompt\s*对齐的示例[：:]\s*/, '');
+    s = s.replace(/^保留\s*\/\s*迁移原分类或槽位\s*[（(][^）)]*[）)][；;]?\s*/, '');
+    s = s.replace(/^目标改编[：:]\s*/, '');
+    s = s.replace(/^补充校验[：:]\s*/, '');
+    return s.trim();
+  };
+  const exampleClean = cleanBenchExample(b['改编示例（微改）']);
+  if (exampleClean) {
+    html += `<details class="bench-example-fold" style="margin-top:10px;border:1px solid var(--border);border-radius:6px;overflow:hidden">
+      <summary style="cursor:pointer;padding:8px 12px;background:var(--bg);font-size:12.5px;font-weight:600;color:var(--primary);list-style:none;display:flex;align-items:center;gap:6px">
+        <span style="font-size:11px">▸</span>
+        <span class="lang-en">Adaptation example</span><span class="lang-zh">改编示例</span>
+      </summary>
+      <div style="background:#E8F5E9;border-left:3px solid #2E7D32;padding:10px 14px;white-space:pre-wrap;line-height:1.65;font-size:12.5px">${exampleClean}</div>
+    </details>`;
   }
 
   if (b['次整合工具ID']) {

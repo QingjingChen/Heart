@@ -583,7 +583,7 @@ function openTool(tid) {
     if (tp.automatable_zh && tp.automatable_zh.length) cols.push(`<div class="pg-col pg-auto"><b><span class="lang-en">Can automate</span><span class="lang-zh">可自动</span></b><ul>${li(tp.automatable_zh)}</ul></div>`);
     if (tp.needs_human_zh && tp.needs_human_zh.length) cols.push(`<div class="pg-col pg-human"><b><span class="lang-en">Needs human</span><span class="lang-zh">需人工</span></b><ul>${li(tp.needs_human_zh)}</ul></div>`);
     html += `<details class="acc" open>
-      <summary><span class="lang-en">How to use this tool — plain-language steps</span><span class="lang-zh">怎么用这件工具 — 大白话步骤</span></summary>
+      <summary><span class="lang-en">Adaptation guide</span><span class="lang-zh">改编指南</span></summary>
       <div class="acc-body" style="background:#FFFBEB">
         ${tp.context_zh ? `<div class="pg-ctx">${tp.context_zh}</div>` : ''}
         ${tp.keep_from_original_zh && tp.keep_from_original_zh.length ? `<div class="pg-block"><b><span class="lang-en">Keep from original</span><span class="lang-zh">从原题保留</span></b><ul>${li(tp.keep_from_original_zh)}</ul></div>` : ''}
@@ -595,8 +595,34 @@ function openTool(tid) {
   } else {
     // Fallback when plain version is missing
     html += `<details class="acc">
-      <summary><span class="lang-en">How to use this tool</span><span class="lang-zh">怎么用这件工具</span></summary>
-      <div class="acc-body"><b><span class="lang-en">Adaptation prompt skeleton:</span><span class="lang-zh">通用改编 Prompt 骨架：</span></b> ${t['通用改编骨架（仅供二次调整）'] || ''}<br><br><b><span class="lang-en">Examples:</span><span class="lang-zh">代表改编示例：</span></b> ${t['代表改编示例（前3）'] || ''}<br><br><b><span class="lang-en">Automatable:</span><span class="lang-zh">可自动化：</span></b> ${t['自动化可做部分'] || ''}<br><br><b><span class="lang-en">Needs human:</span><span class="lang-zh">需人工：</span></b> ${t['需人工校验/治理部分'] || ''}</div>
+      <summary><span class="lang-en">Adaptation guide</span><span class="lang-zh">改编指南</span></summary>
+      <div class="acc-body"><b><span class="lang-en">Skeleton:</span><span class="lang-zh">改编骨架：</span></b> ${t['通用改编骨架（仅供二次调整）'] || ''}<br><br><b><span class="lang-en">Automatable:</span><span class="lang-zh">可自动化：</span></b> ${t['自动化可做部分'] || ''}<br><br><b><span class="lang-en">Needs human:</span><span class="lang-zh">需人工：</span></b> ${t['需人工校验/治理部分'] || ''}</div>
+    </details>`;
+  }
+
+  // ── 改编示例 (collapsed, sits right below the 改编指南) ──
+  const cleanToolExamples = (raw) => {
+    if (!raw) return '';
+    // Strip the verbose "与Prompt对齐的示例：保留/迁移原分类或槽位（…）；目标改编：" framing,
+    // keep the substantive narrative.
+    return raw
+      .split(/\n\s*\n/)
+      .map(chunk => {
+        let s = chunk.trim();
+        s = s.replace(/^与\s*Prompt\s*对齐的示例[：:]\s*/, '');
+        s = s.replace(/^保留\s*\/\s*迁移原分类或槽位\s*[（(][^）)]*[）)][；;]?\s*/, '');
+        s = s.replace(/^目标改编[：:]\s*/, '');
+        s = s.replace(/^补充校验[：:]\s*/, '');
+        return s.trim();
+      })
+      .filter(Boolean)
+      .join('\n\n');
+  };
+  const cleanedExamples = cleanToolExamples(t['代表改编示例（前3）']);
+  if (cleanedExamples) {
+    html += `<details class="acc">
+      <summary><span class="lang-en">Adaptation example</span><span class="lang-zh">改编示例</span></summary>
+      <div class="acc-body" style="background:#E8F5E9;border-left:3px solid #2E7D32;white-space:pre-wrap;line-height:1.65">${cleanedExamples}</div>
     </details>`;
   }
 
@@ -629,9 +655,9 @@ function openTool(tid) {
             <span class="sub-acc-count">${slot.benches.length} bench${slot.benches.length>1?'es':''}</span>
           </summary>
           <div class="sub-acc-body">
-            ${guideHtml ? `<div class="subtool-guide"><b class="st-label"><span class="lang-en">How to adapt — step-by-step</span><span class="lang-zh">怎么用 — 一步步说</span></b>${guideHtml}</div>` : ''}
-            ${exampleHtml ? `<div class="subtool-example"><b class="st-label"><span class="lang-en">A concrete adapted example</span><span class="lang-zh">一个具体改编后的例子</span></b>${exampleHtml}</div>` : ''}
-            <div class="subtool-sources"><b class="st-label"><span class="lang-en">Benches that exemplify it</span><span class="lang-zh">展示它的 bench（点击跳到 bench 卡片）</span></b><div class="bench-list">${benchRows || '<span class="muted">—</span>'}</div></div>
+            ${guideHtml ? `<div class="subtool-guide"><b class="st-label"><span class="lang-en">Adaptation guide</span><span class="lang-zh">改编指南</span></b>${guideHtml}</div>` : ''}
+            ${exampleHtml ? `<div class="subtool-example"><b class="st-label"><span class="lang-en">Adaptation example</span><span class="lang-zh">改编示例</span></b>${exampleHtml}</div>` : ''}
+            <div class="subtool-sources"><b class="st-label"><span class="lang-en">Benches that exemplify it</span><span class="lang-zh">体现该工具的 bench（点击跳卡）</span></b><div class="bench-list">${benchRows || '<span class="muted">—</span>'}</div></div>
           </div>
         </details>`;
       }).join('')}

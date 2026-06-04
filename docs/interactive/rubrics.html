@@ -610,10 +610,28 @@ function openRubric(rname) {
   document.getElementById('modal-bg').style.display = 'flex';
 }
 
-function closeModal() { document.getElementById('modal-bg').style.display = 'none'; }
+function closeModal() {
+  document.getElementById('modal-bg').style.display = 'none';
+  if (history.replaceState && location.hash) history.replaceState(null, '', location.pathname + location.search);
+}
 document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
 
-window.addEventListener('DOMContentLoaded', init);
+async function bootstrap() {
+  await init();
+  const hash = location.hash.replace(/^#/,'');
+  if (hash && /^R\d{1,2}$/.test(hash)) {
+    const r = RUBRICS.find(x => x.code === hash);
+    if (r) openRubric(r.name);
+  }
+}
+window.addEventListener('DOMContentLoaded', bootstrap);
+window.addEventListener('hashchange', () => {
+  const hash = location.hash.replace(/^#/,'');
+  if (hash && /^R\d{1,2}$/.test(hash)) {
+    const r = RUBRICS.find(x => x.code === hash);
+    if (r) openRubric(r.name);
+  }
+});
 </script>
 </body>
 </html>
