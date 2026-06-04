@@ -695,10 +695,9 @@ function renderCase(c, idx) {
   <details class="case-card" id="${c.id}" ${isFirst ? 'open' : ''}>
     <summary class="case-summary">
       <div class="case-summary-head">
-        <span class="case-id">Case ${idx} · ${c.dim_zh}</span>
-        <h2 class="case-title">${c.title_en}</h2>
+        <span class="case-id">Case ${idx} · <span class="lang-en">${c.dimension}</span><span class="lang-zh">${c.dim_zh}</span></span>
+        <h2 class="case-title"><span class="lang-en">${c.title_en}</span><span class="lang-zh">${c.title_zh}</span></h2>
       </div>
-      <span class="dim-pill">${c.dimension}</span>
       <span class="case-toggle-hint"><span class="lang-en">click to expand/collapse</span><span class="lang-zh">点击展开/收起</span></span>
     </summary>
     <div class="case-source">
