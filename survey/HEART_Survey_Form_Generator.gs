@@ -18,7 +18,7 @@
  *   • 每条 rubric 给一个 4 选 + 一个选填的理由文本框。
  *   • 首页贴交互网站学习链接，明确写"请不要查看 D 改编案例 tab"。
  *
- * 题量：5 case × (14 rubric + 3 总评) ≈ 90 项；预计 15–20 分钟。
+ * 题量：5 case × (14 rubric × 2 项 + 4 总评) ≈ 160 项；预计 25–30 分钟。
  */
 
 
@@ -262,7 +262,7 @@ function createHeartBlindSurveyForm() {
     "  • B. 诊断 Rubrics：14 条 rubric 的定义、v2 锚点、典型例子\n" +
     "  • C. 修复工具箱：14 件通用修复工具的核心做法\n" +
     "❗ 请不要查看 D. 改编案例 页签 —— 它会暴露本问卷中哪个版本是原题、哪个是改编后的版本，从而破坏盲评。\n\n" +
-    "预计用时：15-20 分钟。所有 rubric 题为必填（A 更好 / B 更好 / 此 rubric 上没有提升）。每个 case 末尾有一个选填的整体说明框，可在那里集中写理由。"
+    "预计用时：25-30 分钟。所有 rubric 题为必填（A 更好 / B 更好 / 此 rubric 上没有提升），紧贴其下的「理由（选填）」可以填也可以留空。"
   );
   form.setCollectEmail(false);
   form.setAllowResponseEdits(false);
@@ -310,13 +310,18 @@ function createHeartBlindSurveyForm() {
       .setTitle("版本 B")
       .setHelpText(c.B);
 
-    // 14 条 rubric · 每条一题 MC（理由统一在 case 末尾的整体说明里写）
+    // 14 条 rubric · 每条两题：MC + 选填理由（Google Forms 无法在同一 item 里
+    // 同时承载 MC 选项和自由文本，所以分两个 item，视觉上紧贴在选项下方）
     RUBRICS.forEach(function(r) {
       form.addMultipleChoiceItem()
         .setTitle("[" + r.code + "] " + r.name + " —— 哪个版本更好？")
         .setHelpText(r.desc)
         .setChoiceValues(["版本 A 更好", "版本 B 更好", "此 rubric 上没有提升"])
         .setRequired(true);
+
+      form.addParagraphTextItem()
+        .setTitle("理由（选填）")
+        .setRequired(false);
     });
 
     // 总评
