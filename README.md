@@ -53,6 +53,49 @@ that can be picked apart and re-applied. It bundles together:
 | 📊 Get the raw data | [`codebook/benchmarks.csv`](codebook/) |
 | 🔗 Look up a benchmark's paper / code / dataset mirror | [`datasets/sources.md`](datasets/sources.md) |
 | 📚 Cite HEART | [`CITATION.cff`](CITATION.cff) (placeholder; DOI at release) |
+| ✅ Sanity-check the codebook is internally consistent | `python3 scripts/validate_codebook.py` |
+
+---
+
+## 📊 Data manifest
+
+The codebook is the single source of truth. Every CSV is regenerated from
+`docs/interactive/data/*.json` (the same files that power the live site)
+by `codebook/build_codebook.py`. Sanity is enforced by
+`scripts/validate_codebook.py`.
+
+| File | Rows | Purpose | Key columns |
+|---|---:|---|---|
+| [`codebook/benchmarks.csv`](codebook/benchmarks.csv) | 103 | One row per `(benchmark × primary_dimension)` audit entry. A benchmark scored under two dimensions appears twice with a `[HC]` / `[F]` / `[S]` / `[T]` / `[P]` suffix. | `benchmark`, `dimension_en/_zh`, `paper_url`, `code_url`, `primary_tool_id`, `secondary_tool_id`, `rubrics_improved`, `adaptation_prompt_en/_zh`, `adaptation_example_en/_zh` |
+| [`codebook/tools.csv`](codebook/tools.csv) | 14 | The 14 generic repair tools (T01–T14). | `tool_id`, `name_en/_zh`, `layer`, `core_practice_en/_zh`, `problem_fixed`, `core_rubrics_lifted`, `boundary_vs_neighbors`, `automatable`, `needs_human` |
+| [`codebook/sub_tools.csv`](codebook/sub_tools.csv) | 206 | Primary + secondary specific sub-tools (one per benchmark per role); some secondary slots are empty. | `role`, `benchmark`, `parent_tool_id`, `subtool_name_en/_zh` |
+| [`codebook/rubrics.csv`](codebook/rubrics.csv) | 14 | 14 diagnostic rubrics with v2 calibrated anchors. | `code`, `layer`, `name_en/_zh`, `key_question`, `anchor_0/1_2/3_4/5`, `score_distribution`, `mean` |
+| [`codebook/policies.csv`](codebook/policies.csv) | 16 | Policy + governance corpus. | `source`, `type`, `url`, `support_<dimension>` |
+| [`codebook/mini_cases.csv`](codebook/mini_cases.csv) | 5 | Worked before/after revision examples. | `id`, `dimension`, `title`, `source_dataset`, `rubrics_lifted`, `tools_applied` |
+| [`codebook/rubric_tool_matrix.csv`](codebook/rubric_tool_matrix.csv) | 14×14 | Evidence-score matrix used by the site's `Gap → Tool Workflow` heatmap. | `rubric`, `T01`…`T14` |
+| [`codebook/gap_detection.csv`](codebook/gap_detection.csv) | 14 | Per-rubric symptoms / red flags / evidence-to-inspect. | `code`, `typical_symptoms_en/_zh`, `red_flags`, `diagnostic_questions`, `domain_symptoms` |
+| [`codebook/heart_codebook.xlsx`](codebook/heart_codebook.xlsx) | — | All eight CSVs bundled as one workbook (one sheet each). | — |
+
+### Manifest numbers
+
+> **103** audited benchmark entries · **16** policy/governance sources · **5** dimensions · **14** diagnostic rubrics · **14** generic repair tools · **103** benchmark-specific sub-tools.
+
+These numbers are the only ones that should appear anywhere in the repo,
+the website, the README badges, or the paper. The validator hard-codes
+them so any drift fails CI.
+
+### Reproducing the site from the codebook
+
+```bash
+# edit JSON under docs/interactive/data/, then:
+python3 codebook/build_codebook.py        # → codebook/*.csv + heart_codebook.xlsx
+python3 scripts/validate_codebook.py      # PASS = 103/16/14/14
+```
+
+The website is statically served from `docs/interactive/`; opening
+[`docs/interactive/index.html`](docs/interactive/) locally already works
+without a build step. Do not hand-edit the CSVs — they are derived
+artefacts.
 
 ---
 

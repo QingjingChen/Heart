@@ -276,7 +276,7 @@
   },
   "Chinese-Safeguard (2024)": {
     "paper": "https://aclanthology.org/2024.findings-acl.184/",
-    "code": "[https://huggingface.co/datasets/Libr-AI/do-not-answer/tree/main/files/cdna](https://github.com/Libr-AI/do-not-answer/tree/main/cdna)",
+    "code": "",
     "mirror": ""
   },
   "Do-not-answer (2024)": {
@@ -508,5 +508,20 @@
     "paper": "https://arxiv.org/abs/2601.08235",
     "code": "https://github.com/hpzhang94/MPCI-Bench",
     "mirror": "https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb"
+  },
+  "Converse (2024)": {
+    "paper": "https://arxiv.org/abs/2511.05359",
+    "code": "",
+    "mirror": ""
+  },
+  "WebArena-Privacy (2024)": {
+    "paper": "https://arxiv.org/abs/2503.09780",
+    "code": "https://github.com/sail-sg/AgentDAM",
+    "mirror": ""
+  },
+  "EAI-Bench (2024)": {
+    "paper": "",
+    "code": "",
+    "mirror": ""
   }
 }
