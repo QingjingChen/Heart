@@ -51,27 +51,27 @@
   },
   "Educator-LLM (2025)": {
     "paper": "https://arxiv.org/abs/2508.15250",
-    "code": "https://github.com/Yifan-EDU/Educator-LLM",
+    "code": "https://github.com/E-M-N-L-P/EMNLP-Educator-role-Moral-and-Normative-LLMs-Profiling",
     "mirror": ""
   },
   "HeartBench (2025)": {
     "paper": "https://arxiv.org/abs/2512.21849",
-    "code": "https://github.com/HeartBench/HeartBench",
+    "code": "https://github.com/inclusionAI/HeartBench",
     "mirror": "https://drive.google.com/drive/folders/19i6t4bNkTZr1SjNRYwJ4q7N8rBIANu8q"
   },
   "HumaniBench (2025)": {
     "paper": "https://arxiv.org/abs/2505.11454",
-    "code": "https://huggingface.co/datasets/aiana94/HumaniBench",
+    "code": "https://huggingface.co/datasets/vector-institute/HumaniBench",
     "mirror": "https://drive.google.com/drive/folders/1auLDZ7ZrNTPRtE4oYx8i0HbpyaDkJ2rE"
   },
   "MoReBench (2025)": {
     "paper": "https://arxiv.org/abs/2510.16380",
-    "code": "https://github.com/yuzhaouoe/MoReBench",
+    "code": "https://github.com/morebench/morebench",
     "mirror": "https://drive.google.com/drive/folders/1CCGm51Wyqwlpb5p-o2q2kyAmu_Yv4E3I"
   },
   "NaVAB (2025)": {
     "paper": "https://arxiv.org/abs/2504.12911",
-    "code": "https://github.com/Stmoonshine/NaVAB",
+    "code": "https://huggingface.co/datasets/JadenGGGeee/NaVAB",
     "mirror": "https://drive.google.com/drive/folders/1k-GWLK5ylDqjAIFtIOawgFtq7lKOeTiQ"
   },
   "VITAL (2025)": {
@@ -91,7 +91,7 @@
   },
   "PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)": {
     "paper": "https://arxiv.org/abs/2310.01386",
-    "code": "https://github.com/LingyueYan-NLP/PsycoLLM",
+    "code": "https://github.com/MACLAB-HFUT/PsycoLLM; https://github.com/CUHK-ARISE/PsychoBench; https://github.com/Value4AI/ValueBench",
     "mirror": ""
   },
   "SOCKET (2023)": {
@@ -106,7 +106,7 @@
   },
   "EtiCor (2023)": {
     "paper": "https://aclanthology.org/2023.emnlp-main.747/",
-    "code": "https://github.com/Reddy-Lab-Code-Research/EtiCor",
+    "code": "https://github.com/exploration-lab/EtiCor",
     "mirror": ""
   },
   "MoralBench / MIC (survey-mentioned value benchmarks)": {
@@ -116,7 +116,7 @@
   },
   "MFTCXplain (survey-mentioned)": {
     "paper": "https://arxiv.org/abs/2506.19073",
-    "code": "https://github.com/MeMoLab-NLP/MFTCXplain",
+    "code": "https://github.com/franciellevargas/MFTCXplain",
     "mirror": ""
   },
   "Kleinberg-FairTradeoffs (2016)": {
@@ -206,7 +206,7 @@
   },
   "Panda (2022)": {
     "paper": "https://arxiv.org/abs/2205.12586",
-    "code": "https://github.com/facebookresearch/ResponsibleNLP/tree/main/PANDA",
+    "code": "https://github.com/facebookresearch/ResponsibleNLP/tree/main/fairscore",
     "mirror": "https://drive.google.com/drive/folders/1U8nND1y63TpUFZK7QW7BXLbrsfX0mJ7c"
   },
   "Grep-BiasIR (2023)": {
@@ -236,7 +236,7 @@
   },
   "FLEX (2025)": {
     "paper": "https://aclanthology.org/2025.findings-naacl.201/",
-    "code": "https://github.com/anna-shin/FLEX",
+    "code": "https://github.com/ekgus9/FLEX",
     "mirror": ""
   },
   "Phare (2025)": {
@@ -301,7 +301,7 @@
   },
   "LifeTox (2024)": {
     "paper": "https://aclanthology.org/2024.naacl-short.59/",
-    "code": "https://github.com/mbzuai-nlp/LifeTox",
+    "code": "https://huggingface.co/datasets/mbkim/LifeTox",
     "mirror": "https://drive.google.com/drive/folders/1baFmEIQlSVA1VTt6jIEW3Q-oJJgcE2tQ"
   },
   "MM-SafetyBench (2024)": {
@@ -331,7 +331,7 @@
   },
   "SafeInfer (2025)": {
     "paper": "https://arxiv.org/abs/2406.12274",
-    "code": "https://github.com/SomnathBanerjee/SafeInfer",
+    "code": "https://github.com/NeuralSentinel/SafeInfer",
     "mirror": ""
   },
   "SaFeRDialogues (2022)": {
@@ -346,7 +346,7 @@
   },
   "HarmEval (2025)": {
     "paper": "https://arxiv.org/abs/2402.15302",
-    "code": "https://github.com/SomnathBanerjee/HarmEval",
+    "code": "https://huggingface.co/datasets/SoftMINER-Group/TechHazardQA",
     "mirror": "https://drive.google.com/drive/folders/1B4iPpDasT-Tl3pMxB7mkKMXamM1ZnXQW"
   },
   "HH-RLHF / Anthropic H&H (2022)": {
@@ -456,7 +456,7 @@
   },
   "EAPrivacy (ICLR 2026)": {
     "paper": "https://arxiv.org/abs/2510.02356",
-    "code": "https://github.com/xinjie-shen/EAPrivacy",
+    "code": "https://github.com/Graph-COM/EAPrivacy",
     "mirror": "https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD"
   },
   "GoldCoin (2024)": {
@@ -491,7 +491,7 @@
   },
   "ProPILE (2023)": {
     "paper": "https://arxiv.org/abs/2307.01881",
-    "code": "https://github.com/SongHwangbo/ProPILE",
+    "code": "",
     "mirror": ""
   },
   "ConfAIde (2023)": {
@@ -506,7 +506,7 @@
   },
   "MPCI-Bench (2026)": {
     "paper": "https://arxiv.org/abs/2601.08235",
-    "code": "https://github.com/shoujuw/MPCI-Bench",
+    "code": "https://github.com/hpzhang94/MPCI-Bench",
     "mirror": "https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb"
   }
 }
