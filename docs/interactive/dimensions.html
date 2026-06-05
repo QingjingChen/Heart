@@ -56,9 +56,9 @@
   font-weight: 600;
   margin: 0 2px;
 }
-.code-pill.D1 { background: #2C5282; }
-.code-pill.D2 { background: #4A75A8; }
-.code-pill.D3 { background: #87B0D8; color: #1A2733; }
+.code-pill.E1 { background: #2C5282; }
+.code-pill.E2 { background: #4A75A8; }
+.code-pill.E3 { background: #87B0D8; color: #1A2733; }
 .policy-table {
   width: 100%;
   border-collapse: collapse;
@@ -150,8 +150,8 @@
 <section class="card">
   <h2><span class="lang-en">Policy ⇄ Dimension Source Support</span><span class="lang-zh">政策 ⇄ 维度 来源支持矩阵</span></h2>
   <p class="muted">
-    <span class="lang-en">For each of 16 policy/governance sources we record the evidence type per dimension: <span class="code-pill D1">D1</span> direct primary citation · <span class="code-pill D2">D2</span> indirect (framing) · <span class="code-pill D3">D3</span> tertiary (practice).</span>
-    <span class="lang-zh">16 个政策/治理来源中，每条针对 5 维度记录支持类型：<span class="code-pill D1">D1</span> 直接一手引用 · <span class="code-pill D2">D2</span> 间接（动机/框架）· <span class="code-pill D3">D3</span> 三次（行业实践）。</span>
+    <span class="lang-en">For each of 16 policy/governance sources we record the evidence type per dimension: <span class="code-pill E1">E1</span> direct primary citation · <span class="code-pill E2">E2</span> indirect (framing) · <span class="code-pill E3">E3</span> tertiary (practice). The five dimensions themselves use ordinal labels (1–5) on the cards above to avoid clashing with these evidence codes.</span>
+    <span class="lang-zh">16 个政策/治理来源中，每条针对 5 维度记录支持类型：<span class="code-pill E1">E1</span> 直接一手引用 · <span class="code-pill E2">E2</span> 间接（动机/框架）· <span class="code-pill E3">E3</span> 三次（行业实践）。上方维度卡片使用序号 1–5，与 E1–E3 证据等级编码区分。</span>
   </p>
   <div id="policy-matrix" style="width:100%;height:680px;"></div>
 </section>
@@ -211,7 +211,7 @@ function renderDimCards() {
   DATA.dimensions.forEach((d, i) => {
     grid.insertAdjacentHTML('beforeend', `
       <div class="dim-card dim-d${i+1}">
-        <div class="dim-code">D${i+1}</div>
+        <div class="dim-code">${i+1}</div>
         <h3>${d.en}</h3>
         <div class="dim-zh lang-zh">${d.zh}</div>
         <div class="dim-desc lang-en">${d.desc_en}</div>
@@ -243,7 +243,7 @@ function renderPolicyMatrix() {
     colorscale, showscale:true, zmin:0, zmax:2,
     hovertemplate:'<b>%{y}</b><br>Dimension: %{x}<br>Code: %{text}<br>Support: %{z}<extra></extra>',
     xgap:2, ygap:2,
-    colorbar:{title:{text:'Local evidence files', font:{size:10}}, len:0.7, x:1.02, tickfont:{size:10}},
+    colorbar:{title:{text:'Evidence support level', font:{size:10}}, len:0.7, x:1.02, tickfont:{size:10}},
   }];
 
   const layout = {
