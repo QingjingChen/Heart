@@ -4,11 +4,11 @@
       "source": "UNESCO Recommendation on AI Ethics",
       "type": "International guideline",
       "cells": {
-        "Human-Centered": "D1, D2",
-        "Fairness & Inclusiveness": "D1, D2",
-        "Safety & Reliability": "D1, D2",
-        "Trustworthiness & Controllability": "D1, D2",
-        "Privacy Protection": "D1, D2"
+        "Human-Centered": "E1, E2",
+        "Fairness & Inclusiveness": "E1, E2",
+        "Safety & Reliability": "E1, E2",
+        "Trustworthiness & Controllability": "E1, E2",
+        "Privacy Protection": "E1, E2"
       },
       "support": {
         "Human-Centered": 2,
@@ -22,11 +22,11 @@
       "source": "OECD AI Principles",
       "type": "International guideline",
       "cells": {
-        "Human-Centered": "D1",
-        "Fairness & Inclusiveness": "D1",
-        "Safety & Reliability": "D1",
-        "Trustworthiness & Controllability": "D1",
-        "Privacy Protection": "D1"
+        "Human-Centered": "E1",
+        "Fairness & Inclusiveness": "E1",
+        "Safety & Reliability": "E1",
+        "Trustworthiness & Controllability": "E1",
+        "Privacy Protection": "E1"
       },
       "support": {
         "Human-Centered": 1,
@@ -40,11 +40,11 @@
       "source": "EU AI Act",
       "type": "Hard law",
       "cells": {
-        "Human-Centered": "D1, D2",
-        "Fairness & Inclusiveness": "D1, D2",
-        "Safety & Reliability": "D1, D2",
-        "Trustworthiness & Controllability": "D1, D2",
-        "Privacy Protection": "D1, D2"
+        "Human-Centered": "E1, E2",
+        "Fairness & Inclusiveness": "E1, E2",
+        "Safety & Reliability": "E1, E2",
+        "Trustworthiness & Controllability": "E1, E2",
+        "Privacy Protection": "E1, E2"
       },
       "support": {
         "Human-Centered": 2,
@@ -58,11 +58,11 @@
       "source": "NIST AI RMF",
       "type": "Risk framework",
       "cells": {
-        "Human-Centered": "D2, D3",
-        "Fairness & Inclusiveness": "D2, D3",
-        "Safety & Reliability": "D2, D3",
-        "Trustworthiness & Controllability": "D2, D3",
-        "Privacy Protection": "D2, D3"
+        "Human-Centered": "E2, E3",
+        "Fairness & Inclusiveness": "E2, E3",
+        "Safety & Reliability": "E2, E3",
+        "Trustworthiness & Controllability": "E2, E3",
+        "Privacy Protection": "E2, E3"
       },
       "support": {
         "Human-Centered": 2,
@@ -76,11 +76,11 @@
       "source": "GDPR",
       "type": "Privacy law",
       "cells": {
-        "Human-Centered": "D1",
-        "Fairness & Inclusiveness": "D1",
-        "Safety & Reliability": "D1",
-        "Trustworthiness & Controllability": "D1",
-        "Privacy Protection": "D1"
+        "Human-Centered": "E1",
+        "Fairness & Inclusiveness": "E1",
+        "Safety & Reliability": "E1",
+        "Trustworthiness & Controllability": "E1",
+        "Privacy Protection": "E1"
       },
       "support": {
         "Human-Centered": 1,
@@ -94,11 +94,11 @@
       "source": "China PIPL / Data Security Law",
       "type": "Privacy and data law",
       "cells": {
-        "Human-Centered": "D1, D2",
-        "Fairness & Inclusiveness": "D1, D2",
-        "Safety & Reliability": "D1, D2",
-        "Trustworthiness & Controllability": "D1, D2",
-        "Privacy Protection": "D1, D2"
+        "Human-Centered": "E1, E2",
+        "Fairness & Inclusiveness": "E1, E2",
+        "Safety & Reliability": "E1, E2",
+        "Trustworthiness & Controllability": "E1, E2",
+        "Privacy Protection": "E1, E2"
       },
       "support": {
         "Human-Centered": 2,
@@ -112,11 +112,11 @@
       "source": "Blueprint for an AI Bill of Rights",
       "type": "Rights framework",
       "cells": {
-        "Human-Centered": "D2",
-        "Fairness & Inclusiveness": "D2",
-        "Safety & Reliability": "D2",
-        "Trustworthiness & Controllability": "D2",
-        "Privacy Protection": "D2"
+        "Human-Centered": "E2",
+        "Fairness & Inclusiveness": "E2",
+        "Safety & Reliability": "E2",
+        "Trustworthiness & Controllability": "E2",
+        "Privacy Protection": "E2"
       },
       "support": {
         "Human-Centered": 1,
@@ -130,11 +130,11 @@
       "source": "ISO/IEC 42001 and 27551",
       "type": "Technical standard",
       "cells": {
-        "Human-Centered": "D1",
-        "Fairness & Inclusiveness": "D1",
-        "Safety & Reliability": "D1",
-        "Trustworthiness & Controllability": "D1",
-        "Privacy Protection": "D1"
+        "Human-Centered": "E1",
+        "Fairness & Inclusiveness": "E1",
+        "Safety & Reliability": "E1",
+        "Trustworthiness & Controllability": "E1",
+        "Privacy Protection": "E1"
       },
       "support": {
         "Human-Centered": 1,
@@ -148,11 +148,11 @@
       "source": "UK AI regulatory principles / playbook",
       "type": "Regulatory guidance",
       "cells": {
-        "Human-Centered": "D2",
-        "Fairness & Inclusiveness": "D2",
-        "Safety & Reliability": "D2",
-        "Trustworthiness & Controllability": "D2",
-        "Privacy Protection": "D2"
+        "Human-Centered": "E2",
+        "Fairness & Inclusiveness": "E2",
+        "Safety & Reliability": "E2",
+        "Trustworthiness & Controllability": "E2",
+        "Privacy Protection": "E2"
       },
       "support": {
         "Human-Centered": 1,
@@ -166,11 +166,11 @@
       "source": "Japan AI Strategy / APPI",
       "type": "National policy",
       "cells": {
-        "Human-Centered": "D1",
-        "Fairness & Inclusiveness": "D1",
-        "Safety & Reliability": "D1",
-        "Trustworthiness & Controllability": "D1",
-        "Privacy Protection": "D1"
+        "Human-Centered": "E1",
+        "Fairness & Inclusiveness": "E1",
+        "Safety & Reliability": "E1",
+        "Trustworthiness & Controllability": "E1",
+        "Privacy Protection": "E1"
       },
       "support": {
         "Human-Centered": 1,
@@ -184,11 +184,11 @@
       "source": "Korea AI Framework Act (2024)",
       "type": "National policy",
       "cells": {
-        "Human-Centered": "D1",
-        "Fairness & Inclusiveness": "D1",
-        "Safety & Reliability": "D1",
-        "Trustworthiness & Controllability": "D1",
-        "Privacy Protection": "D1"
+        "Human-Centered": "E1",
+        "Fairness & Inclusiveness": "E1",
+        "Safety & Reliability": "E1",
+        "Trustworthiness & Controllability": "E1",
+        "Privacy Protection": "E1"
       },
       "support": {
         "Human-Centered": 1,
@@ -202,11 +202,11 @@
       "source": "AI Guidelines for Business Ver. 1.0",
       "type": "Business guideline",
       "cells": {
-        "Human-Centered": "D2",
-        "Fairness & Inclusiveness": "D2",
-        "Safety & Reliability": "D2",
-        "Trustworthiness & Controllability": "D2",
-        "Privacy Protection": "D2"
+        "Human-Centered": "E2",
+        "Fairness & Inclusiveness": "E2",
+        "Safety & Reliability": "E2",
+        "Trustworthiness & Controllability": "E2",
+        "Privacy Protection": "E2"
       },
       "support": {
         "Human-Centered": 1,
@@ -220,11 +220,11 @@
       "source": "Google responsible AI practice",
       "type": "Industry practice",
       "cells": {
-        "Human-Centered": "D3",
-        "Fairness & Inclusiveness": "D3",
-        "Safety & Reliability": "D3",
-        "Trustworthiness & Controllability": "D3",
-        "Privacy Protection": "D3"
+        "Human-Centered": "E3",
+        "Fairness & Inclusiveness": "E3",
+        "Safety & Reliability": "E3",
+        "Trustworthiness & Controllability": "E3",
+        "Privacy Protection": "E3"
       },
       "support": {
         "Human-Centered": 1,
@@ -238,11 +238,11 @@
       "source": "OpenAI preparedness and red-teaming",
       "type": "Industry practice",
       "cells": {
-        "Human-Centered": "D3",
-        "Fairness & Inclusiveness": "D3",
-        "Safety & Reliability": "D3",
-        "Trustworthiness & Controllability": "D3",
-        "Privacy Protection": "D3"
+        "Human-Centered": "E3",
+        "Fairness & Inclusiveness": "E3",
+        "Safety & Reliability": "E3",
+        "Trustworthiness & Controllability": "E3",
+        "Privacy Protection": "E3"
       },
       "support": {
         "Human-Centered": 1,
@@ -256,11 +256,11 @@
       "source": "Meta responsible AI / Llama Guard",
       "type": "Industry practice",
       "cells": {
-        "Human-Centered": "D3",
-        "Fairness & Inclusiveness": "D3",
-        "Safety & Reliability": "D3",
-        "Trustworthiness & Controllability": "D3",
-        "Privacy Protection": "D3"
+        "Human-Centered": "E3",
+        "Fairness & Inclusiveness": "E3",
+        "Safety & Reliability": "E3",
+        "Trustworthiness & Controllability": "E3",
+        "Privacy Protection": "E3"
       },
       "support": {
         "Human-Centered": 1,
@@ -274,11 +274,11 @@
       "source": "AILuminate / MLCommons",
       "type": "Industry benchmark",
       "cells": {
-        "Human-Centered": "D3",
-        "Fairness & Inclusiveness": "D3",
-        "Safety & Reliability": "D3",
-        "Trustworthiness & Controllability": "D3",
-        "Privacy Protection": "D3"
+        "Human-Centered": "E3",
+        "Fairness & Inclusiveness": "E3",
+        "Safety & Reliability": "E3",
+        "Trustworthiness & Controllability": "E3",
+        "Privacy Protection": "E3"
       },
       "support": {
         "Human-Centered": 1,
@@ -415,15 +415,15 @@
     "Korea AI Framework Act (2024)": "https://www.korea.kr/news/policyNewsView.do?newsId=148939237"
   },
   "evidence_codes": {
-    "D1": {
+    "E1": {
       "en": "Direct primary citation in benchmark / dataset",
       "zh": "Benchmark/数据集中直接引用"
     },
-    "D2": {
+    "E2": {
       "en": "Indirect (motivation / framing)",
       "zh": "间接引用（动机或框架）"
     },
-    "D3": {
+    "E3": {
       "en": "Tertiary (industry practice, internal policy)",
       "zh": "三次引用（行业实践或内部政策）"
     }

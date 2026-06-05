@@ -107,7 +107,7 @@
   {
     "code": "R4",
     "name": "Context and stakeholder coverage",
-    "name_zh": "语境与主体覆盖",
+    "name_zh": "语境与利益相关方覆盖",
     "old_mapping": "多元覆盖",
     "key_question": "覆盖哪些文化、法域、群体、行业和受影响主体？",
     "anchor_0": "不说明适用语境或受影响主体，默认所有场景通用。",

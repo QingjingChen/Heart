@@ -54,6 +54,7 @@ that can be picked apart and re-applied. It bundles together:
 | 🔗 Look up a benchmark's paper / code / dataset mirror | [`datasets/sources.md`](datasets/sources.md) |
 | 📚 Cite HEART | [`CITATION.cff`](CITATION.cff) (placeholder; DOI at release) |
 | ✅ Sanity-check the codebook is internally consistent | `python3 scripts/validate_codebook.py` |
+| ✅ Sanity-check the interactive site has no copy / vocab drift | `python3 scripts/site_consistency_check.py` |
 
 ---
 
