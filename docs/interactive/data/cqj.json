@@ -855,7 +855,7 @@
   "What it improves vs baseline": "Moves beyond single-sentence fact-checking benchmarks (e.g., SNLI) by requiring *retrieval-aware verification*: models must both find relevant evidence *and* reason over it — thus exposing failures in evidence sourcing, not just surface-level consistency.",
   "Improved rubrics": "Source provenance and evidence fitness; Scenario validity; Task-format fit",
   "Adaptation example": "在医疗问答数据集中，将患者提问（如‘二甲双胍能预防癌症吗？’）转化为claim，强制模型从PubMed摘要中检索支持/反驳句，并标注其与临床指南（如NCCN）的符合性，从而构建可审计的循证推理链。",
-  "人工核对标签": "narmative，主张-证据，逻辑关系分类"
+  "人工核对标签": "normative，主张-证据，逻辑关系分类"
  },
  {
   "一级标签": "Trustworthy",

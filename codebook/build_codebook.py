@@ -55,10 +55,29 @@ def main():
           f"{len(mini_cases)} mini cases")
 
     # ---------- benchmarks.csv ----------
+    # The audit unit is (benchmark × primary_dimension): a benchmark scored
+    # under two dimensions appears as two rows.  Disambiguate the few
+    # repeating names by suffixing the dimension short-code in the
+    # `benchmark` column so it stays a primary key.
+    name_counts = {}
+    for b in bench_map:
+        n = b.get('Benchmark / Source', '')
+        name_counts[n] = name_counts.get(n, 0) + 1
+    dim_short = {
+        'Human centered': 'HC', 'Human-Centered': 'HC',
+        'Fairness&inclusive': 'F', 'Fairness & Inclusiveness': 'F',
+        'Safety': 'S', 'Safety & Reliability': 'S',
+        'Trustworthy': 'T', 'Trustworthiness & Controllability': 'T',
+        'Privacy': 'P', 'Privacy Protection': 'P',
+    }
     bench_rows = []
     for b in bench_map:
         name = b.get('Benchmark / Source', '')
-        urls = bench_urls.get(name) or bench_urls.get(name.split(' (')[0]) or {}
+        dim_raw = (b.get('一级标签') or '').strip()
+        if name_counts.get(name, 0) > 1:
+            suffix = dim_short.get(dim_raw, dim_raw[:2].upper())
+            name = f'{name} [{suffix}]'
+        urls = bench_urls.get(b.get('Benchmark / Source', '')) or bench_urls.get((b.get('Benchmark / Source','')).split(' (')[0]) or {}
         row = {
             'benchmark': name,
             'dimension_en': b.get('一级标签_en', '') or b.get('一级标签', ''),
