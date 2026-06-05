@@ -27,20 +27,20 @@ upstream resources become discoverable. Contributions welcome via the
 | 8 | **CPsyExam (2024)** | <https://arxiv.org/abs/2405.18743> | <https://github.com/CAS-SIAT-XinHai/CPsyExam> | [CPsyExam_data](https://drive.google.com/drive/folders/1zO7imfVcKEl_vHUahrrJHibXCVoFicA3) |
 | 9 | **EmotionBench (2024)** | <https://arxiv.org/abs/2308.03656> | <https://github.com/CUHK-ARISE/EmotionBench> | [EmotionBench_data](https://drive.google.com/drive/folders/1-V-pSA6dlRd86yw9u0uoVPRj_6NE0fSm) |
 | 10 | **SMILE (2024)** | <https://arxiv.org/abs/2305.00450> | <https://github.com/qiuhuachuan/smile> | [smile_data](https://drive.google.com/drive/folders/1COAYS-qrA3nmZ1LUCQcZw-Te17yb8y6N) |
-| 11 | **Educator-LLM (2025)** | <https://arxiv.org/abs/2508.15250> | <https://github.com/Yifan-EDU/Educator-LLM> | — |
-| 12 | **HeartBench (2025)** | <https://arxiv.org/abs/2512.21849> | <https://github.com/HeartBench/HeartBench> | [HeartBench_data](https://drive.google.com/drive/folders/19i6t4bNkTZr1SjNRYwJ4q7N8rBIANu8q) |
-| 13 | **HumaniBench (2025)** | <https://arxiv.org/abs/2505.11454> | <https://huggingface.co/datasets/aiana94/HumaniBench> | [HumaniBench_HC](https://drive.google.com/drive/folders/1auLDZ7ZrNTPRtE4oYx8i0HbpyaDkJ2rE) |
-| 14 | **MoReBench (2025)** | <https://arxiv.org/abs/2510.16380> | <https://github.com/yuzhaouoe/MoReBench> | [Morebench_HC](https://drive.google.com/drive/folders/1CCGm51Wyqwlpb5p-o2q2kyAmu_Yv4E3I) |
-| 15 | **NaVAB (2025)** | <https://arxiv.org/abs/2504.12911> | <https://github.com/Stmoonshine/NaVAB> | [NaVAB_HC](https://drive.google.com/drive/folders/1k-GWLK5ylDqjAIFtIOawgFtq7lKOeTiQ) |
+| 11 | **Educator-LLM (2025)** | <https://arxiv.org/abs/2508.15250> | <https://github.com/E-M-N-L-P/EMNLP-Educator-role-Moral-and-Normative-LLMs-Profiling> | — |
+| 12 | **HeartBench (2025)** | <https://arxiv.org/abs/2512.21849> | <https://github.com/inclusionAI/HeartBench> | [HeartBench_data](https://drive.google.com/drive/folders/19i6t4bNkTZr1SjNRYwJ4q7N8rBIANu8q) |
+| 13 | **HumaniBench (2025)** | <https://arxiv.org/abs/2505.11454> | <https://huggingface.co/datasets/vector-institute/HumaniBench> | [HumaniBench_HC](https://drive.google.com/drive/folders/1auLDZ7ZrNTPRtE4oYx8i0HbpyaDkJ2rE) |
+| 14 | **MoReBench (2025)** | <https://arxiv.org/abs/2510.16380> | <https://github.com/morebench/morebench> | [Morebench_HC](https://drive.google.com/drive/folders/1CCGm51Wyqwlpb5p-o2q2kyAmu_Yv4E3I) |
+| 15 | **NaVAB (2025)** | <https://arxiv.org/abs/2504.12911> | <https://huggingface.co/datasets/JadenGGGeee/NaVAB> | [NaVAB_HC](https://drive.google.com/drive/folders/1k-GWLK5ylDqjAIFtIOawgFtq7lKOeTiQ) |
 | 16 | **VITAL (2025)** | <https://arxiv.org/abs/2502.13775> | <https://github.com/anudeex/VITAL> | [VITAL_HC](https://drive.google.com/drive/folders/1rs59eN1gQRkJlHSWZus5rVICuNSLTQW0) |
 | 17 | **TrustMH-Bench (2026)** | <https://arxiv.org/abs/2603.03047> | <https://github.com/Qiyuan0130/TrustMH_Bench> | — |
 | 18 | **WVS / World Values Survey (2012)** | <https://www.worldvaluessurvey.org/> | <https://www.worldvaluessurvey.org/> | [Wvs_HC](https://drive.google.com/drive/folders/1cf8Q5-27h5vhcYWB_Zmjrbc2AK1xYb0w) |
-| 19 | **PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)** | <https://arxiv.org/abs/2310.01386>; <https://arxiv.org/abs/2406.04214> | <https://github.com/LingyueYan-NLP/PsycoLLM>; <https://github.com/Psychim/PsychoBench>; <https://github.com/GOODDASH/ValueBench> | — |
+| 19 | **PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)** | <https://arxiv.org/abs/2310.01386>; <https://arxiv.org/abs/2406.04214> | <https://github.com/MACLAB-HFUT/PsycoLLM>; <https://github.com/CUHK-ARISE/PsychoBench>; <https://github.com/Value4AI/ValueBench> | — |
 | 20 | **SOCKET (2023)** | <https://aclanthology.org/2023.findings-emnlp.969/> | <https://github.com/minjechoi/SOCKET> | — |
 | 21 | **SOCIAL-CHEM-101 (2020)** | <https://aclanthology.org/2020.emnlp-main.48/> | <https://maxwellforbes.com/social-chemistry/> | — |
-| 22 | **EtiCor (2023)** | <https://aclanthology.org/2023.emnlp-main.747/> | <https://github.com/Reddy-Lab-Code-Research/EtiCor> | — |
+| 22 | **EtiCor (2023)** | <https://aclanthology.org/2023.emnlp-main.747/> | <https://github.com/exploration-lab/EtiCor> | — |
 | 23 | **MoralBench / MIC (survey-mentioned value benchmarks)** | <https://arxiv.org/abs/2406.04428> | <https://github.com/agiresearch/MoralBench> | — |
-| 24 | **MFTCXplain (survey-mentioned)** | <https://arxiv.org/abs/2506.19073> | <https://github.com/MeMoLab-NLP/MFTCXplain> | — |
+| 24 | **MFTCXplain (survey-mentioned)** | <https://arxiv.org/abs/2506.19073> | <https://github.com/franciellevargas/MFTCXplain> | — |
 
 ## Fairness & Inclusiveness
 
@@ -63,14 +63,14 @@ upstream resources become discoverable. Contributions welcome via the
 | 15 | **StereoSet (2021)** | <https://aclanthology.org/2021.acl-long.416/> | <https://github.com/moinnadeem/StereoSet> | [StereoSet](https://drive.google.com/drive/folders/1KlLJOuYzWq-6UNiLDC6gw6bHYy9aKJ4s) |
 | 16 | **BBQ (2022)** | <https://aclanthology.org/2022.findings-acl.165/> | <https://github.com/nyu-mll/BBQ> | [BBQ](https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_) |
 | 17 | **HolisticBias (2022)** | <https://aclanthology.org/2022.emnlp-main.625/> | <https://github.com/facebookresearch/ResponsibleNLP> | [HolisticBias](https://drive.google.com/drive/folders/1rNaTZB-GI4KQYIes7CDk5xpkQICw6aJk) |
-| 18 | **Panda (2022)** | <https://arxiv.org/abs/2205.12586> | <https://github.com/facebookresearch/ResponsibleNLP/tree/main/PANDA> | [PANDA](https://drive.google.com/drive/folders/1U8nND1y63TpUFZK7QW7BXLbrsfX0mJ7c) |
+| 18 | **Panda (2022)** | <https://arxiv.org/abs/2205.12586> | <https://github.com/facebookresearch/ResponsibleNLP/tree/main/fairscore> | [PANDA](https://drive.google.com/drive/folders/1U8nND1y63TpUFZK7QW7BXLbrsfX0mJ7c) |
 | 19 | **Grep-BiasIR (2023)** | <https://arxiv.org/abs/2201.07754> | <https://github.com/KlaraKrieg/GrepBiasIR> | [Grep-BiasIR](https://drive.google.com/drive/folders/1oUFe-Nm-1Q_P4xkzGFbj8CRpWepWlKfo) |
 | 20 | **MoralChoice (2023)** | <https://arxiv.org/abs/2307.14324> | <https://github.com/ninodimontalcino/moralchoice> | [Moral_choice_HC](https://drive.google.com/drive/folders/1fPqsa3njy9cGTGpC1KQls0rBw4lVxTAr) |
 | 21 | **TrustGPT (2023)** | <https://arxiv.org/abs/2306.11507> | <https://github.com/HowieHwong/TrustGPT> | [TrustGPT](https://drive.google.com/drive/folders/1W-5-49BkspcyXJjvgDxs6U_kjKRPPPH6) |
 | 22 | **WinoQueer (2023)** | <https://aclanthology.org/2023.acl-long.507/> | <https://github.com/katyfelkner/winoqueer> | [winoqueer](https://drive.google.com/drive/folders/19HRqUE5EzHd0xyWaXytVux54byOD8b1U) |
 | 23 | **CBBQ (2024)** | <https://arxiv.org/abs/2306.16244> | <https://github.com/YFHuangxxxx/CBBQ> | [CBBQ](https://drive.google.com/drive/folders/11SidpflggcB1CBTE4GhCiIFhSMxS0eIO) |
 | 24 | **KoBBQ (2024)** | <https://aclanthology.org/2024.tacl-1.28/> | <https://github.com/naver-ai/KoBBQ> | [BBQ](https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_) |
-| 25 | **FLEX (2025)** | <https://aclanthology.org/2025.findings-naacl.201/> | <https://github.com/anna-shin/FLEX> | — |
+| 25 | **FLEX (2025)** | <https://aclanthology.org/2025.findings-naacl.201/> | <https://github.com/ekgus9/FLEX> | — |
 | 26 | **Phare (2025)** | <https://arxiv.org/abs/2505.11365> | <https://github.com/Giskard-AI/phare> | — |
 | 27 | **BharatBBQ (2024/2025)** | <https://arxiv.org/abs/2508.07090> | <https://github.com/nyu-mll/BBQ> | [BBQ](https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_) |
 | 28 | **JBBQ (2024/2025)** | <https://arxiv.org/abs/2506.12327> | <https://github.com/nyu-mll/BBQ> | [BBQ](https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_) |
@@ -88,16 +88,16 @@ upstream resources become discoverable. Contributions welcome via the
 | 7 | **FFT (2024)** | <https://arxiv.org/abs/2311.18580> | <https://github.com/cuishiyao96/FFT> | [FFT](https://drive.google.com/drive/folders/1mfWAfiBjhCqwoIgxFcFdNCT7HWrRsYfv) |
 | 8 | **HarmBench (2024)** | <https://arxiv.org/abs/2402.04249> | <https://github.com/centerforaisafety/HarmBench> | [HarmBench](https://drive.google.com/drive/folders/1qV4Apl2VxNYcnGYbuy0n4S__6pNFxq4N) |
 | 9 | **JailBreakV (2024)** | <https://arxiv.org/abs/2404.03027> | <https://github.com/EddyLuo1232/JailBreakV_28K> | [JailBreakV_28K](https://drive.google.com/drive/folders/13RQ0kav6pBAOBk6c0KovCuYs1t4lC3l8) |
-| 10 | **LifeTox (2024)** | <https://aclanthology.org/2024.naacl-short.59/> | <https://github.com/mbzuai-nlp/LifeTox> | [LifeTox](https://drive.google.com/drive/folders/1baFmEIQlSVA1VTt6jIEW3Q-oJJgcE2tQ) |
+| 10 | **LifeTox (2024)** | <https://aclanthology.org/2024.naacl-short.59/> | <https://huggingface.co/datasets/mbkim/LifeTox> | [LifeTox](https://drive.google.com/drive/folders/1baFmEIQlSVA1VTt6jIEW3Q-oJJgcE2tQ) |
 | 11 | **MM-SafetyBench (2024)** | <https://arxiv.org/abs/2311.17600> | <https://github.com/thu-coai/SafetyBench> | [SafetyBench](https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM) |
 | 12 | **SALAD-bench (2024)** | <https://aclanthology.org/2024.findings-acl.235/> | <https://github.com/OpenSafetyLab/SALAD-BENCH> | [SALAD-bench](https://drive.google.com/drive/folders/1qrYJ5ooiUAaI6pNf0M7VnVshA4I5t6yJ) |
 | 13 | **SafetyBench (2024)** | <https://arxiv.org/abs/2311.17600> | <https://github.com/thu-coai/SafetyBench> | [SafetyBench](https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM) |
 | 14 | **XSTest (2024)** | <https://aclanthology.org/2024.naacl-long.301/> | <https://github.com/paul-rottger/exaggerated-safety> | [xstest](https://drive.google.com/drive/folders/1C5Zipc6iQGDHHoUVD0z4lAyt9Z0C6fU2) |
 | 15 | **Agent-SafetyBench (2025)** | <https://arxiv.org/abs/2412.14470> | <https://github.com/thu-coai/SafetyBench> | [SafetyBench](https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM) |
-| 16 | **SafeInfer (2025)** | <https://arxiv.org/abs/2406.12274> | <https://github.com/SomnathBanerjee/SafeInfer> | — |
+| 16 | **SafeInfer (2025)** | <https://arxiv.org/abs/2406.12274> | <https://github.com/NeuralSentinel/SafeInfer> | — |
 | 17 | **SaFeRDialogues (2022)** | <https://aclanthology.org/2022.acl-long.447/> | <https://parl.ai/projects/saferdialogues/> | [saferdialogues_dataset](https://drive.google.com/drive/folders/1VM4j5N9oxLIVP0aV4s1Ec7xjD7vI2l5T) |
 | 18 | **BAD / Bot-Adversarial Dialogue (2021)** | <https://aclanthology.org/2021.naacl-main.235/> | <https://parl.ai/projects/safety_recipes/> | — |
-| 19 | **HarmEval (2025)** | <https://arxiv.org/abs/2402.15302> | <https://github.com/SomnathBanerjee/HarmEval> | [HarmEval](https://drive.google.com/drive/folders/1B4iPpDasT-Tl3pMxB7mkKMXamM1ZnXQW) |
+| 19 | **HarmEval (2025)** | <https://arxiv.org/abs/2402.15302> | <https://huggingface.co/datasets/SoftMINER-Group/TechHazardQA> | [HarmEval](https://drive.google.com/drive/folders/1B4iPpDasT-Tl3pMxB7mkKMXamM1ZnXQW) |
 | 20 | **HH-RLHF / Anthropic H&H (2022)** | <https://arxiv.org/abs/2204.05862> | <https://github.com/anthropics/hh-rlhf> | [H&H](https://drive.google.com/drive/folders/1nSWsGjxw-nAO16t7fqsR9d-IxBqzU4f3) |
 | 21 | **AdvBench (2023)** | <https://arxiv.org/abs/2307.15043> | <https://github.com/llm-attacks/llm-attacks> | — |
 | 22 | **Red-Eval (2024)** | <https://arxiv.org/abs/2308.09662> | <https://github.com/declare-lab/red-instruct> | — |
@@ -130,17 +130,17 @@ upstream resources become discoverable. Contributions welcome via the
 | # | Benchmark | Paper | Code / data upstream | Local dataset mirror |
 |---|---|---|---|---|
 | 1 | **ConVerse (Findings of EACL 2026)** | <https://arxiv.org/abs/2511.05359> | <https://github.com/amrgomaaelhady/ConVerse> | [Converse](https://drive.google.com/drive/folders/117OloShfJJfokRK08YTRSmlMJJQEc8Yr) |
-| 2 | **EAPrivacy (ICLR 2026)** | <https://arxiv.org/abs/2510.02356> | <https://github.com/xinjie-shen/EAPrivacy> | [eai_bench](https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD) |
+| 2 | **EAPrivacy (ICLR 2026)** | <https://arxiv.org/abs/2510.02356> | <https://github.com/Graph-COM/EAPrivacy> | [eai_bench](https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD) |
 | 3 | **GoldCoin (2024)** | <https://arxiv.org/abs/2406.11149> | <https://github.com/HKUST-KnowComp/GoldCoin> | [GoldCoin](https://drive.google.com/drive/folders/1wfHwJnFsOqSG7WsOKf9AZrxISgOOj9Ff) |
 | 4 | **PrivacyLens (2024)** | <https://arxiv.org/abs/2409.00138> | <https://github.com/SALT-NLP/PrivacyLens> | [PrivacyLens](https://drive.google.com/drive/folders/140TkRL08Dv6D0oPiQcW5ElYGn9e-EvhW) |
 | 5 | **AgentDAM (2025)** | <https://arxiv.org/abs/2503.09780> | <https://github.com/facebookresearch/ai-agent-privacy> | [wa_format](https://drive.google.com/drive/folders/12EDOGC-Md8UA8RLUIKvgB76bq3F4cI1Z) |
 | 6 | **PrivaCI-Bench (2025)** | <https://arxiv.org/abs/2503.04340> | <https://github.com/HKUST-KnowComp/PrivaCI-Bench> | — |
 | 7 | **Carlini Extraction / Training Data Extraction (2021)** | <https://arxiv.org/abs/2012.07805> | <https://github.com/ftramer/LM_Memorization> | — |
 | 8 | **DecodingTrust-Privacy (2023)** | <https://arxiv.org/abs/2306.11698> | <https://github.com/AI-secure/DecodingTrust> | [Decoding trust](https://drive.google.com/drive/folders/16c6hPtRXdl7UxWoyOIO_36jR3i7QfWgP) |
-| 9 | **ProPILE (2023)** | <https://arxiv.org/abs/2307.01881> | <https://github.com/SongHwangbo/ProPILE> | — |
+| 9 | **ProPILE (2023)** | <https://arxiv.org/abs/2307.01881> | — (code never released publicly) | — |
 | 10 | **ConfAIde (2023)** | <https://arxiv.org/abs/2310.17884> | <https://github.com/skywalker023/confAIde> | — |
 | 11 | **LLM-PBE (2024)** | <https://arxiv.org/abs/2408.12787> | <https://github.com/QinbinLi/LLM-PBE> | — |
-| 12 | **MPCI-Bench (2026)** | <https://arxiv.org/abs/2601.08235> | <https://github.com/shoujuw/MPCI-Bench> | [MPCI-Bench](https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb) |
+| 12 | **MPCI-Bench (2026)** | <https://arxiv.org/abs/2601.08235> | <https://github.com/hpzhang94/MPCI-Bench> | [MPCI-Bench](https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb) |
 
 ## Survey papers consulted
 
