@@ -1057,13 +1057,13 @@
  },
  {
   "一级标签": "Privacy",
-  "Benchmark / Source": "WebArena-Privacy (2024)",
+  "Benchmark / Source": "AgentDAM (2025)",
   "Source file/path": "/private/tmp/comprehensive_survey_ai_ethics_benchmarks.txt",
   "Representative tool": "Web-based privacy decision sandbox with PII-contaminated intent injection",
   "Tool explanation / extraction rationale": "该工具构建一个模拟真实Web环境（如GitLab）的沙盒，其中用户意图天然包含高风险PII（如WhatsApp聊天记录中同事离婚信息），要求LLM agent在执行任务（如撰写合并请求评论）时自主识别并抑制PII泄露。其核心是‘污染意图+真实界面约束’双驱动：意图数据经人工构造含真实敏感上下文，而沙盒强制代理通过DOM操作与界面交互，无法绕过前端隐私检查逻辑。\n\n抽取依据：主要依据Benchmark诊断表格notes：workbook_dataset_note明确指出‘意图数据包含WhatsApp聊天记录，涉及同事离婚等私人信息；代理必须避免在公共合并请求评论中泄露这些信息’；strong_rubric_evidence中Scenario validity强调‘模拟真实的GitLab合并请求评论场景’，Task-format fit指出‘任务类型为agent rollout，适配于隐私决策’；source_excerpt虽错配为TRUSTMH-BENCH摘要，但诊断notes已提供足够构造细节。",
   "What it improves vs baseline": "相比纯文本MCQ类隐私测试，该工具将隐私决策置于真实工具链与界面约束中，暴露代理在多跳操作（读取→理解→编辑→提交）中因注意力漂移或工具误用导致的隐性泄露，提升场景真实性与行为可观测性。",
   "Improved rubrics": "Scenario validity; Task-format fit; Construct clarity",
-  "Adaptation example": "在开源代码审查数据集中，向PR描述中注入开发者私有信息（如‘根据我和Alice在Slack讨论的API密钥轮换方案’），并在GitHub沙盒环境中要求LLM审查代理生成评论，强制其在引用上下文时过滤人名、平台名及密钥相关术语，而非仅依赖关键词屏蔽。",
+  "Adaptation example": "在开源代码审查数据集中，向PR描述中加入模拟或脱敏的开发者私有信息（如“根据内部聊天中关于API密钥轮换方案的讨论”），并在GitHub沙盒环境中要求LLM审查代理生成评论，强制其在引用上下文时过滤人名、平台名及密钥相关术语，而非仅依赖关键词屏蔽。",
   "人工核对标签": "沙盒，真实工具链和界面约束"
  },
  {

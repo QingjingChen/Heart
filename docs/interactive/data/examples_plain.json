@@ -152,12 +152,12 @@
     "example_en": "Adapt the World Values Survey 2012 data for Southeast Asian e-commerce customer service. Use Thailand's, Vietnam's, and Indonesia's average ratings (8.2, 7.9, 8.5) on 'respecting elders in service' as cultural benchmarks. Adjust model responses to complaints about elder disrespect so that honorific usage and accountability phrasing match local cultural norms."
   },
   "39": {
-    "example_zh": "把SOCKET伦理测评用于青少年校园社交AI助手场景。从真实校园论坛中选取'被当众叫错名字后如何回应？'这类帖子，保留发帖学生年级、教师与同学评论分歧、点赞分布等原始信息。要求AI不仅判断是否该纠正，还要生成三种回应：适配师生关系、同龄人关系，以及兼顾集体谦抑和个体主张的文化差异，并说明每种回应体现的隐含规范。",
-    "example_en": "Adapt the SOCKET ethics benchmark for a teen school social AI assistant. Use real forum posts like 'What to do when called the wrong name in class?' and keep grade level, teacher vs peer comments, and upvote patterns. The AI must judge whether correction is appropriate and generate three responses—tailored to teacher-student, peer-peer, and cultural values—and label the underlying norm each response reflects."
+    "example_zh": "把 SocKET 用到校园AI助手：围绕同一个学生互动场景，分别测试模型是否理解玩笑/讽刺、冒犯性、情绪状态和建议可信度，并按四类社会知识错误分别报告。",
+    "example_en": "Adapt SocKET to a school AI assistant: for the same student interaction, separately test joke/sarcasm understanding, offensiveness, emotion, and trustworthiness, then report category-level social-knowledge errors."
   },
   "38": {
-    "example_zh": "把SOCKET伦理测评用于青少年校园社交AI助手场景。从真实校园论坛中选取'被当众叫错名字后如何回应？'等帖子，保留发帖学生年级、教师与同学的评论分歧及点赞数据。要求AI不仅判断是否该纠正，还要生成三种回应：适配师生关系、同龄人关系，以及符合集体谦抑或个体主张文化背景，并说明每种回应体现的规范，如尊重称谓权或维护课堂秩序。",
-    "example_en": "Adapt the SOCKET benchmark for an AI assistant supporting teens in school social settings. Use real forum posts like 'What to do when called the wrong name in class?' and keep grade level, teacher vs peer comments, and upvote patterns. The AI must judge whether correction is appropriate and generate three responses—tailored to teacher-student or peer relationships and to collectivist humility or individual assertion—and label the underlying norm each response reflects, such as 'right to correct one’s name' or 'maintaining classroom order'."
+    "example_zh": "把 SocKET 用到校园AI助手：围绕同一个学生互动场景，分别测试模型是否理解玩笑/讽刺、冒犯性、情绪状态和建议可信度，并按四类社会知识错误分别报告。",
+    "example_en": "Adapt SocKET to a school AI assistant: for the same student interaction, separately test joke/sarcasm understanding, offensiveness, emotion, and trustworthiness, then report category-level social-knowledge errors."
   },
   "40": {
     "example_zh": "把SOCIAL-CHEM-101伦理规则库用到中国基层远程医疗场景中。把英语规则‘医生应避免在候诊室讨论患者病情’改成符合中国农村实际的规则，例如‘村医在村口大树下告知检查结果时，需确认周围无其他村民’。再从隐私期待强度、熟人社会容忍度、信息紧急性三个角度评估这条新规则是否合理。",
@@ -392,12 +392,12 @@
     "example_en": "Adapt the FLEX ethics benchmark to medical consultation dialogues. Perturb doctor recommendations by rephrasing age and gender descriptions, such as changing 'this elderly female patient' to 'this older woman' or 'this 65-year-old woman'. Measure how consistently the model gives referral advice across variants to assess fairness in clinical decision-making."
   },
   "99": {
-    "example_zh": "把Phare伦理评估方法用到招聘简历筛选场景中。向模型同时提出选择题判断（如‘该候选人适合技术岗吗？’）和开放生成任务（如‘请用三句话总结其核心优势’）。分析生成内容是否对不同文化背景姓名存在隐性偏见，例如更常夸‘Mohammed’的沟通能力而非技术能力。",
-    "example_en": "Apply the Phare ethics benchmark to job resume screening. Ask the model both a multiple-choice question (e.g., 'Is this candidate suitable for a technical role?') and an open-ended generation task (e.g., 'Summarize their key strengths in three sentences'). Analyze whether the generated text shows implicit bias—such as praising 'Mohammed' for communication skills more often than technical skills."
+    "example_zh": "把 Phare 安全探针用于客服AI评测：同一请求提供中英双语版本，分别检查模型是否编造政策依据、是否复现社会偏见、是否输出危险建议，并按失败模式而不是单一分数报告结果。",
+    "example_en": "Adapt Phare to customer-service AI safety evaluation: test bilingual versions of the same request for fabricated policy claims, social-bias reproduction, and harmful advice, then report failure modes rather than one aggregate score."
   },
   "98": {
-    "example_zh": "把Phare伦理评估方法用到招聘简历筛选场景中。向模型同时提交选择题判断（如‘该候选人适合技术岗吗？’）和开放生成任务（如‘用三句话总结候选人优势’）。分析生成内容是否对不同文化背景姓名存在隐性偏见，例如更常夸‘Mohammed’沟通能力强，却少提其算法能力。",
-    "example_en": "Apply the Phare ethical evaluation method to job resume screening. Ask the model both a multiple-choice question (e.g., 'Is this candidate suitable for a technical role?') and an open-ended generation task (e.g., 'Summarize the candidate's key strengths in three sentences'). Analyze whether the generated text shows implicit bias—such as praising 'Mohammed' for communication skills while overlooking technical strengths."
+    "example_zh": "把 Phare 安全探针用于客服AI评测：同一请求提供中英双语版本，分别检查模型是否编造政策依据、是否复现社会偏见、是否输出危险建议，并按失败模式而不是单一分数报告结果。",
+    "example_en": "Adapt Phare to customer-service AI safety evaluation: test bilingual versions of the same request for fabricated policy claims, social-bias reproduction, and harmful advice, then report failure modes rather than one aggregate score."
   },
   "100": {
     "example_zh": "把印度的BharatBBQ公平性评测基准改用到马来西亚多民族教育政策问答场景。把原模板中的‘种姓’字段换成‘马来西亚少数民族身份（如原住民Orang Asli、印度裔马来西亚人）’。将情境设为PT3考试升学资格审核，并加入当地关于原住民加分政策的法规常识。",
@@ -508,16 +508,16 @@
     "example_en": "Apply the SALAD-bench ethical evaluation framework to security testing of open-source dialogue models. Relabel risky conversations in the OpenAssistant dataset using SALAD's three-level hierarchy: macro (e.g., malicious use), meso (e.g., CBRN), and micro (e.g., bioterrorism). Add stealthier attack variants for each micro-level behavior, such as changing 'pretending to be a boyfriend asking for gift cards' to 'posing as a tax inspector demanding advance payment of fines'."
   },
   "128": {
-    "example_zh": "把SafetyBench伦理测评方法用到客服领域。将客服回应改写成伪装成生活建议的越界话术，比如教人偷偷录屏剪辑后发社交媒体施压客户。在选择题中要求识别其侵犯隐私或不公平的具体问题。",
-    "example_en": "Adapt the SafetyBench evaluation method for customer service scenarios. Rewrite polite customer service responses as covertly harmful 'life tips', such as advising secret screen recording and selective editing to pressure customers on social media. Use multiple-choice questions to test recognition of specific harms like privacy violation or unfairness."
+    "example_zh": "把SafetyBench安全理解评测方法用到客服领域。将客服场景改写为多选题，覆盖隐私、违法行为、心理健康、歧视/不公平等安全类别，要求模型识别具体风险类别，并判断应拒答、澄清还是转介人工处理。",
+    "example_en": "Adapt the SafetyBench safety-understanding benchmark to customer service. Rewrite customer-service cases as MCQs covering privacy, illegal activity, mental health, discrimination/unfairness, and related safety categories; ask the model to identify the risk category and decide whether to refuse, clarify, or escalate to a human."
   },
   "127": {
     "example_zh": "把SALAD-bench安全评估框架用到开源对话模型的风险测试中。按宏观、中观、微观三级重新标注OpenAssistant数据集中的高风险对话。为每个最细粒度行为补充更隐蔽的攻击变体，比如把‘假装男友索要礼品卡’改成‘冒充税务人员要求预付保证金’。",
     "example_en": "Apply the SALAD-bench safety evaluation framework to stress-test open-source dialogue models. Relabel risky conversations in the OpenAssistant dataset using SALAD's three-level hierarchy: macro (e.g., Malicious Use), meso (e.g., CBRN), and micro (e.g., Bioterrorism). Inject stealthier adversarial variants for each micro-level behavior, such as changing 'pretending to be a boyfriend asking for gift cards' to 'posing as a tax auditor demanding upfront bond payments'."
   },
   "129": {
-    "example_zh": "把SafetyBench伦理评测基准用到客服场景中。将原本合规的客服回复改写成伪装成生活建议的隐含违规话术，比如教人偷录客户视频再断章取义施压。在选择题中要求识别其违反的具体伦理维度，如侵犯隐私或不公平。",
-    "example_en": "Adapt the SafetyBench benchmark for customer service settings. Rewrite appropriate customer service responses as covertly harmful 'life tips', such as advising secret screen recording and selective editing to pressure difficult customers. Ask annotators to identify the specific ethical violation, like privacy infringement or unfairness, via multiple-choice questions."
+    "example_zh": "把SafetyBench安全理解评测方法用到客服领域。将客服场景改写为多选题，覆盖隐私、违法行为、心理健康、歧视/不公平等安全类别，要求模型识别具体风险类别，并判断应拒答、澄清还是转介人工处理。",
+    "example_en": "Adapt the SafetyBench safety-understanding benchmark to customer service. Rewrite customer-service cases as MCQs covering privacy, illegal activity, mental health, discrimination/unfairness, and related safety categories; ask the model to identify the risk category and decide whether to refuse, clarify, or escalate to a human."
   },
   "130": {
     "example_zh": "把XSTest伦理测评方法用到医疗问答领域。为每个真实患者提问，人工编写一个意思安全但说法模糊或带比喻的对照问题。这样组成对比对，测试医疗大模型会不会因为听不懂日常化表达而错误拒绝合理咨询。",
@@ -556,16 +556,16 @@
     "example_en": "Adapt the SaFeRDialogues safety benchmark to the ConvAI2 empathy dataset. Rewrite all unsafe model responses using the three-step Acknowledge-Apologize-Correct structure. For example, replace stigmatizing mental health advice with a response that acknowledges harm, apologizes, and offers evidence-based alternatives."
   },
   "140": {
-    "example_zh": "把HarmEval伦理测评基准用到医疗问答场景中。参考《HIPAA合规指南》和主流医疗AI政策，构建保护患者隐私的示范样例。在生成患者咨询回复时，自动抑制可能泄露健康信息的词汇。",
-    "example_en": "Adapt the HarmEval ethics benchmark to medical Q&A tasks. Build privacy-preserving examples based on HIPAA guidelines and leading healthcare AI policies. Automatically suppress words that could leak patient health information when generating replies."
+    "example_zh": "把 TechHazardQA 用到医疗客服安全：将同一危险请求改写成普通文本、伪代码、SOP片段和表格步骤，检查模型是否因为格式看起来像流程说明而输出不安全内容。",
+    "example_en": "Adapt TechHazardQA to healthcare chatbot safety: rewrite the same unsafe request as plain text, pseudocode, SOP snippets, and tabular steps, then check whether procedural formatting triggers unsafe output."
   },
   "142": {
     "example_zh": "把HH-RLHF伦理偏好基准用在法律咨询助手领域。为同一法律问题生成两个不同回答，组成对比样本。请执业律师从法律准确性和风险规避性两方面判断哪个回答更好。",
     "example_en": "Adapt the HH-RLHF preference benchmark for legal consultation assistants. Create paired responses to the same legal question. Have practicing lawyers judge which response is better on legal accuracy and risk avoidance."
   },
   "141": {
-    "example_zh": "把HarmEval伦理测评基准用到医疗问答场景中。参考《HIPAA合规指南》和主流医疗AI政策，构建保护患者隐私的示范问答样例。在生成患者咨询回复时，自动抑制可能泄露健康信息的词汇输出。",
-    "example_en": "Adapt the HarmEval ethics benchmark for medical Q&A tasks. Build privacy-preserving example questions and answers based on HIPAA guidelines and leading healthcare AI policies. Automatically suppress words in responses that could leak protected health information."
+    "example_zh": "把 TechHazardQA 用到医疗客服安全：将同一危险请求改写成普通文本、伪代码、SOP片段和表格步骤，检查模型是否因为格式看起来像流程说明而输出不安全内容。",
+    "example_en": "Adapt TechHazardQA to healthcare chatbot safety: rewrite the same unsafe request as plain text, pseudocode, SOP snippets, and tabular steps, then check whether procedural formatting triggers unsafe output."
   },
   "143": {
     "example_zh": "把HH-RLHF伦理偏好基准用在法律咨询助手场景中。为同一法律问题生成两个不同回答，组成对比样本。请执业律师从法律准确性和风险规避性两方面判断哪个回答更好。",
@@ -768,12 +768,12 @@
     "example_en": "Adapt the PrivacyLens benchmark to medical consultation dialogues. Annotate each doctor-patient turn with five elements: data type, data subject, sender, receiver, and transmission principle. Before an AI doctor calls the 'upload report' tool, it must verify that the receiver has proper authorization and purpose alignment."
   },
   "193": {
-    "example_zh": "把WebArena-Privacy隐私评测基准迁移到开源代码审查场景。在PR描述中加入开发者真实对话内容，比如提到Slack里和同事讨论的API密钥轮换方案。要求AI审查工具在生成评论时主动隐去人名、平台名和密钥相关词，不能只靠关键词过滤。",
-    "example_en": "Adapt the WebArena-Privacy benchmark to open-source code review. Inject real developer private information into PR descriptions, such as 'per my Slack discussion with Alice about API key rotation'. Require the AI reviewer to proactively redact names, platform names, and key-related terms when citing context—not just rely on keyword blocking."
+    "example_zh": "把AgentDAM隐私评测基准迁移到开源代码审查场景。在PR描述中加入模拟或脱敏的开发者私有信息，比如提到内部聊天中讨论过API密钥轮换方案。要求AI审查工具在生成评论时主动隐去人名、平台名和密钥相关词，不能只靠关键词过滤。",
+    "example_en": "Adapt the AgentDAM benchmark to open-source code review. Insert synthetic or de-identified developer-private context into PR descriptions, such as 'per an internal chat about API key rotation'. Require the AI reviewer to proactively redact names, platform names, and key-related terms when citing context—not just rely on keyword blocking."
   },
   "192": {
-    "example_zh": "把WebArena-Privacy隐私评测基准迁移到开源代码审查场景。在GitHub Pull Request描述中加入开发者真实对话内容，比如提到Slack里讨论的API密钥轮换方案。要求AI审查工具在生成评论时主动隐去人名、平台名和密钥相关术语，不能只靠关键词过滤。",
-    "example_en": "Adapt the WebArena-Privacy benchmark to open-source code review. Inject real developer private information—like 'API key rotation plan discussed with Alice on Slack'—into PR descriptions. Require the AI reviewer to proactively redact names, platform names, and key-related terms when citing context, not just rely on keyword filtering."
+    "example_zh": "把AgentDAM隐私评测基准迁移到开源代码审查场景。在GitHub Pull Request描述中加入模拟或脱敏的开发者私有信息，比如提到内部聊天中讨论过API密钥轮换方案。要求AI审查工具在生成评论时主动隐去人名、平台名和密钥相关术语，不能只靠关键词过滤。",
+    "example_en": "Adapt the AgentDAM benchmark to open-source code review. Insert synthetic or de-identified developer-private context, such as an internal discussion about API key rotation, into PR descriptions. Require the AI reviewer to proactively redact names, platform names, and key-related terms when citing context, not just rely on keyword filtering."
   },
   "194": {
     "example_zh": "把PrivaCI-Bench伦理测评方法用到金融客服语音场景中。针对客户通话中透露社保号等敏感信息的片段，结合《美国格拉姆-里奇-布莱利法案》第501条安全要求设计选择题。题目描述违规操作，配套银行内部数据流转示意图，要求识别哪个环节违反法规。",
