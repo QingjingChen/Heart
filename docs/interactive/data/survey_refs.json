@@ -55,9 +55,9 @@
     "venue": "NeurIPS D&B 2021"
   },
   "White et al. 2025": {
-    "title": "Benchmarking and Evaluating Large Language Models: Methodologies and Pitfalls",
-    "url": "https://arxiv.org/abs/2411.03350",
-    "venue": "arXiv 2025"
+    "title": "LiveBench: A Challenging, Contamination-Limited LLM Benchmark",
+    "url": "https://arxiv.org/abs/2406.19314",
+    "venue": "ICLR 2025 Spotlight"
   },
   "Xu et al. 2025": {
     "title": "AI Alignment: A Comprehensive Survey",
