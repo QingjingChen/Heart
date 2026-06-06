@@ -139,35 +139,30 @@ h1 {
 .scope-heart svg { position: absolute; inset: 0; }
 .scope-node {
   position: absolute;
-  width: 78px;
-  height: 82px;
-  border-radius: 16px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
   background: #FFFFFF;
-  border: 1px solid #D5DEE8;
+  border: 1.8px solid #F1C9BC;
   box-shadow: 0 4px 16px rgba(31,42,53,.10);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   transform: translate(-50%, -50%);
-  color: #1F2A35;
-  font-size: 12px;
-  font-weight: 850;
-  line-height: 1.05;
+  z-index: 2;
 }
 .scope-node img {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  margin-bottom: 4px;
-}
-.scope-node.human {
-  width: 88px;
-  height: 88px;
-}
-.scope-node.human img {
   width: 48px;
   height: 48px;
+  object-fit: contain;
+}
+.scope-node.human {
+  width: 82px;
+  height: 82px;
+}
+.scope-node.human img {
+  width: 54px;
+  height: 54px;
 }
 .scope-audit {
   position: absolute;
@@ -188,6 +183,30 @@ h1 {
   font-size: 12px;
   line-height: 1.1;
   font-weight: 900;
+  z-index: 3;
+}
+.scope-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: #FFFFFF;
+  padding: 5px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 850;
+  box-shadow: 0 3px 9px rgba(31,42,53,.13);
+  z-index: 4;
+  white-space: nowrap;
+}
+.scope-label.safety { background: #F57C20; }
+.scope-label.privacy { background: #9E9E9E; }
+.scope-label.fairness { background: #F57C20; }
+.scope-label.trust { background: #F57C20; }
+.scope-label.human { background: #9E9E9E; }
+.scope-link {
+  stroke-linecap: round;
+  stroke-width: 1.55;
+  opacity: .82;
 }
 .scope-caption {
   position: absolute;
@@ -233,15 +252,17 @@ h1 {
 .repair-wrench {
   position: relative;
   width: 300px;
-  height: 280px;
+  height: 306px;
 }
 .wrench-ghost {
   position: absolute;
-  right: 24px;
-  top: 2px;
-  font-size: 102px;
+  right: 20px;
+  top: 0;
+  width: 112px;
+  height: 112px;
   opacity: .17;
   transform: rotate(-18deg);
+  object-fit: contain;
 }
 .wrench-bar {
   position: absolute;
@@ -256,26 +277,29 @@ h1 {
 }
 .tool-chip {
   position: absolute;
-  width: 44px;
-  height: 32px;
-  border-radius: 9px;
-  background: #FFF4E0;
-  border: 2px solid #F3B36F;
+  width: 42px;
+  height: 48px;
   color: #7A3500;
-  box-shadow: 0 3px 9px rgba(230,81,0,.13);
+  background: transparent;
   text-align: center;
-  line-height: 28px;
-  font-size: 13px;
+  line-height: 1;
+  font-size: 12px;
   font-weight: 850;
 }
-.tool-chip.head {
-  background: #FDEBD6;
-  border-color: #E65100;
+.tool-chip img {
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 2px;
+  object-fit: contain;
+}
+.tool-chip span {
+  display: block;
 }
 .wrench-caption {
   position: absolute;
   left: 50%;
-  bottom: 4px;
+  bottom: 2px;
   width: 260px;
   transform: translateX(-50%);
   color: var(--muted);
@@ -348,23 +372,29 @@ h1 {
       <div class="content">
         <div class="scope-heart" aria-label="five interwoven ethical dimensions">
           <svg viewBox="0 0 286 278" aria-hidden="true">
-            <path d="M28 99 C31 40 86 29 143 82 C200 29 255 40 258 99 C262 154 204 192 143 222 C82 192 24 154 28 99 Z" fill="#B94949" opacity=".06" stroke="#B94949" stroke-width="1.8"/>
-            <path d="M81 90 C116 53 159 53 198 90" fill="none" stroke="#D9822B" stroke-width="1.7"/>
-            <path d="M81 162 C116 198 159 198 198 162" fill="none" stroke="#2F6F8F" stroke-width="1.7"/>
-            <path d="M81 90 C119 142 151 148 198 162" fill="none" stroke="#4F8F46" stroke-width="1.5"/>
-            <path d="M198 90 C154 143 116 149 81 162" fill="none" stroke="#B94949" stroke-width="1.5"/>
-            <line x1="143" y1="112" x2="81" y2="90" stroke="#B7BFC8" stroke-width="1.2"/>
-            <line x1="143" y1="112" x2="198" y2="90" stroke="#B7BFC8" stroke-width="1.2"/>
-            <line x1="143" y1="112" x2="81" y2="162" stroke="#B7BFC8" stroke-width="1.2"/>
-            <line x1="143" y1="112" x2="198" y2="162" stroke="#B7BFC8" stroke-width="1.2"/>
-            <line x1="143" y1="112" x2="143" y2="176" stroke="#B7BFC8" stroke-width="1.2"/>
+            <path d="M39 106 C43 48 92 40 143 86 C194 40 243 48 247 106 C251 163 202 198 143 228 C84 198 35 163 39 106 Z" fill="#B94949" opacity=".05" stroke="#F1C9BC" stroke-width="1.8"/>
+            <path class="scope-link" d="M80 83 C107 47 132 52 143 96 C154 52 179 47 206 83" fill="none" stroke="#F57C20"/>
+            <path class="scope-link" d="M80 164 C104 203 132 214 143 190 C154 214 182 203 206 164" fill="none" stroke="#2F6F8F"/>
+            <path class="scope-link" d="M80 83 C108 137 148 147 206 164" fill="none" stroke="#4F8F46"/>
+            <path class="scope-link" d="M206 83 C179 138 134 147 80 164" fill="none" stroke="#B94949"/>
+            <path class="scope-link" d="M80 164 C100 119 124 104 143 138 C162 104 186 119 206 164" fill="none" stroke="#D9822B"/>
+            <line class="scope-link" x1="143" y1="117" x2="80" y2="83" stroke="#B7BFC8"/>
+            <line class="scope-link" x1="143" y1="117" x2="206" y2="83" stroke="#B7BFC8"/>
+            <line class="scope-link" x1="143" y1="117" x2="80" y2="164" stroke="#B7BFC8"/>
+            <line class="scope-link" x1="143" y1="117" x2="206" y2="164" stroke="#B7BFC8"/>
+            <line class="scope-link" x1="143" y1="117" x2="143" y2="186" stroke="#B7BFC8"/>
           </svg>
           <div class="scope-audit">HEART<br>audit</div>
-          <div class="scope-node" style="left:28%;top:32%"><img src="../../docs/interactive/assets/architecture_icons/icon_safety.png" alt="">Safety</div>
-          <div class="scope-node" style="left:72%;top:32%"><img src="../../docs/interactive/assets/architecture_icons/icon_privacy.png" alt="">Privacy</div>
-          <div class="scope-node" style="left:26%;top:64%"><img src="../../docs/interactive/assets/architecture_icons/icon_fairness.png" alt="">Fairness</div>
-          <div class="scope-node" style="left:74%;top:64%"><img src="../../docs/interactive/assets/architecture_icons/icon_trust.png" alt="">Trust</div>
-          <div class="scope-node human" style="left:50%;top:70%"><img src="../../docs/interactive/assets/architecture_icons/icon_human.png" alt="">Human</div>
+          <div class="scope-node" style="left:28%;top:30%"><img src="../../docs/interactive/assets/architecture_icons/icon_safety.png" alt="Safety"></div>
+          <div class="scope-label safety" style="left:13%;top:22%">Safety</div>
+          <div class="scope-node" style="left:72%;top:30%"><img src="../../docs/interactive/assets/architecture_icons/icon_privacy.png" alt="Privacy"></div>
+          <div class="scope-label privacy" style="left:87%;top:22%">Privacy</div>
+          <div class="scope-node" style="left:28%;top:59%"><img src="../../docs/interactive/assets/architecture_icons/icon_fairness.png" alt="Fairness"></div>
+          <div class="scope-label fairness" style="left:13%;top:69%">Fairness</div>
+          <div class="scope-node" style="left:72%;top:59%"><img src="../../docs/interactive/assets/architecture_icons/icon_trust.png" alt="Trustworthy"></div>
+          <div class="scope-label trust" style="left:88%;top:69%">Trustworthy</div>
+          <div class="scope-node human" style="left:50%;top:70%"><img src="../../docs/interactive/assets/architecture_icons/icon_human.png" alt="Human-centered"></div>
+          <div class="scope-label human" style="left:50%;top:62%">Human</div>
           <div class="scope-caption">Benchmark, survey, and policy sources define the scope.</div>
         </div>
       </div>
@@ -395,22 +425,22 @@ h1 {
       <div class="sub">14 repair tools + audit-to-tool gap index</div>
       <div class="content">
         <div class="repair-wrench" aria-label="14 repair tools arranged as a wrench">
-          <div class="wrench-ghost">🔧</div>
+          <img class="wrench-ghost" src="../../docs/interactive/assets/architecture_icons/tool-wrench-pale.svg" alt="">
           <div class="wrench-bar"></div>
-          <div class="tool-chip" style="left:10px;top:204px">T01</div>
-          <div class="tool-chip" style="left:40px;top:184px">T02</div>
-          <div class="tool-chip" style="left:70px;top:164px">T03</div>
-          <div class="tool-chip" style="left:100px;top:144px">T04</div>
-          <div class="tool-chip" style="left:130px;top:124px">T05</div>
-          <div class="tool-chip" style="left:160px;top:104px">T06</div>
-          <div class="tool-chip head" style="left:190px;top:48px">T07</div>
-          <div class="tool-chip head" style="left:230px;top:34px">T08</div>
-          <div class="tool-chip head" style="left:258px;top:66px">T09</div>
-          <div class="tool-chip head" style="left:250px;top:104px">T10</div>
-          <div class="tool-chip head" style="left:210px;top:124px">T11</div>
-          <div class="tool-chip head" style="left:178px;top:118px">T12</div>
-          <div class="tool-chip" style="left:112px;top:208px">T13</div>
-          <div class="tool-chip" style="left:152px;top:222px">T14</div>
+          <div class="tool-chip alt" style="left:10px;top:204px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T01</span></div>
+          <div class="tool-chip alt" style="left:40px;top:184px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T02</span></div>
+          <div class="tool-chip alt" style="left:70px;top:164px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T03</span></div>
+          <div class="tool-chip alt" style="left:100px;top:144px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T04</span></div>
+          <div class="tool-chip alt" style="left:130px;top:124px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T05</span></div>
+          <div class="tool-chip alt" style="left:160px;top:104px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T06</span></div>
+          <div class="tool-chip head" style="left:190px;top:48px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T07</span></div>
+          <div class="tool-chip head" style="left:230px;top:34px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T08</span></div>
+          <div class="tool-chip head" style="left:258px;top:66px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T09</span></div>
+          <div class="tool-chip head" style="left:250px;top:104px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T10</span></div>
+          <div class="tool-chip head" style="left:210px;top:124px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T11</span></div>
+          <div class="tool-chip head" style="left:178px;top:118px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T12</span></div>
+          <div class="tool-chip" style="left:112px;top:184px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T13</span></div>
+          <div class="tool-chip" style="left:152px;top:196px"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T14</span></div>
           <div class="wrench-caption">Diagnosis gaps become concrete repair operations.</div>
         </div>
       </div>
