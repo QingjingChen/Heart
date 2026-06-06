@@ -548,7 +548,11 @@ const ITEM_LABELS = {
   expected_safe_rewrite_example: ['Expected safe rewrite example', '期望安全改写示例'],
   acceptable_answer_example:     ['Acceptable answer example',     '可接受回答示例'],
   adaptation_principle:          ['Adaptation principle',          '改编原则'],
+  retained_original_fields:      ['Retained original fields',      '保留的原题字段'],
+  original_key_risks:            ['Key risks in original item',    '原题中的关键风险'],
+  original_item_problem:         ['Original item problem',         '原题问题'],
   adapted_task_instruction:      ['Adapted task instruction',      '改编后任务指令'],
+  risk_tier_tags:                ['Risk-tier tags',                '风险分级标签'],
   statistical_metrics:           ['Statistical metrics',           '可统计指标'],
   lifecycle_metadata:            ['Lifecycle metadata',            '生命周期元数据'],
   domain_adapter:                ['Domain adapter',                '领域适配器'],
@@ -690,6 +694,7 @@ function renderItem(it) {
   html += stringField('question');
   html += stringField('evaluation_context');
   html += stringField('adaptation_principle');
+  html += listField('retained_original_fields');
   // prompt: wrap value in quotes
   if (it.prompt) {
     const z = it.prompt_zh || it.prompt;
@@ -738,6 +743,9 @@ function renderItem(it) {
   }
   html += stringField('task_type');
   html += stringField('core_evaluation_target');
+  html += listField('original_key_risks');
+  html += listField('original_item_problem');
+  html += listField('risk_tier_tags');
   html += listField('statistical_metrics');
   html += objectField('lifecycle_metadata');
   html += stringField('domain_adapter');
