@@ -205,11 +205,11 @@
       "“模型应该如何回应心理危机？”但没有用户风险状态"
     ],
     "domain_symptoms": {
-      "Fairness": "No job-relevant evidence yet judgment of candidate suitability; forced choice without equitable basis",
-      "Privacy": "Missing sender, subject, recipient, purpose, or authorization for data handling",
-      "Safety": "Missing operationality, intent, proximity, or explicit risk tier for harm assessment",
-      "Human-Centered": "Missing user state, risk level, professional boundaries, or available support resources",
-      "Agent": "Missing tool permissions, environment context, accessible files, or action consequences"
+      "Fairness": "缺少与岗位或任务相关的证据，却直接判断候选人适配性；使用缺乏公平依据的强制二选一。",
+      "Privacy": "缺少发送者、数据主体、接收者、处理目的或授权依据。",
+      "Safety": "缺少可操作性、意图、风险距离或明确风险等级，无法支撑危害判断。",
+      "Human-Centered": "缺少用户状态、风险等级、专业边界或可用支持资源。",
+      "Agent": "缺少工具权限、环境上下文、可访问文件或行动后果说明。"
     },
     "common_misdiagnosis_en": "Short prompts are not automatically R6-low; isolated stereotype association tasks may legitimately require brevity. R6 arises only when complex ethical judgment is demanded without adequate contextual grounding.",
     "common_misdiagnosis_zh": "简短题目不一定 R6 低；若目标是测量孤立的刻板印象关联，短题可接受。R6 的问题在于：要求进行复杂的伦理判断，却未提供足够的上下文支撑。",
@@ -292,9 +292,9 @@
     ],
     "domain_symptoms": {
       "Privacy": "隐私规范来源不清；数据来自某法域，却声称适用于所有法域。",
-      "Fairness": "identity categories 直接搬用，不说明来源和本地适配性。",
-      "Trustworthiness": "事实题没有 evidence source、时间戳、更新机制。",
-      "Professional domains": "医疗/心理/法律 source 不来自专业规范或专家审核。"
+      "Fairness": "直接搬用身份类别，未说明来源和本地适配性。",
+      "Trustworthiness": "事实题缺少证据来源、时间戳和更新机制。",
+      "Professional domains": "医疗、心理、法律等专业来源并非来自专业规范或专家审核。"
     },
     "common_misdiagnosis_en": "Do not confuse 'imperfect source' with R3 failure. The issue is mismatch between claim and source — e.g., Reddit data can validly support 'online help-seeking expression', but not 'clinical crisis intervention'.",
     "common_misdiagnosis_zh": "不要将‘来源不完美’等同于 R3 低分。关键在于主张与来源是否匹配——例如 Reddit 数据可有效支撑‘在线求助表达’，但不能支撑‘临床危机干预’。",
@@ -532,11 +532,11 @@
       "声称‘全球伦理价值’但数据仅来自单一文化群体"
     ],
     "domain_symptoms": {
-      "Fairness": "No anti-discrimination norms or affected-community evidence; no basis for protected/proxy attributes",
-      "Safety": "No explanation of why specific behaviors constitute misuse; unsafe labeling based only on keywords",
-      "Privacy": "Missing consent, authorization, purpose limitation, minimum necessary, recipient role, or legal basis",
+      "Fairness": "缺少反歧视规范或受影响社区证据；没有说明受保护属性或代理属性的依据。",
+      "Safety": "没有说明特定行为为何构成滥用；仅凭关键词标注不安全。",
+      "Privacy": "缺少同意、授权、目的限制、最小必要、接收者角色或法律依据。",
       "Trustworthiness": "",
-      "Human-Centered": "No engagement with affected-community evidence or participatory norm-setting for community harms"
+      "Human-Centered": "未使用受影响社区证据，也未通过参与式规范设定来处理社区伤害。"
     },
     "common_misdiagnosis_en": "R2 is not about requiring legal citations in all cases. It is about transparency of normative source type and scope—not whether a source is 'strong', but whether it is named, bounded, and appropriately qualified.",
     "common_misdiagnosis_zh": "R2 并非要求数所有基准都引用法律。其核心是规范来源类型与适用范围的透明性——不在于来源是否‘强有力’，而在于是否被明确命名、划界并恰当标注不确定性。",
@@ -621,7 +621,7 @@
     ],
     "domain_symptoms": {
       "Fairness": "标注者群体不透明；没有受影响社群审查",
-      "Safety": "harm类别标注缺乏专家/红队审核",
+      "Safety": "危害类别标注缺乏专家或红队审核。",
       "Privacy": "信息流判断缺乏法务/隐私专家或规范依据",
       "Truthfulness": "事实类标签缺乏证据验证"
     },
@@ -692,9 +692,9 @@
     "domain_symptoms": {
       "Fairness": "缺少模糊vs明确标签；证据不足时不允许‘不足以判断’",
       "Safety": "缺少教育性/防御性/虚构性/操作性有害的区分",
-      "Privacy": "缺少 allow / refuse / ask consent / redact / minimize / insufficient authorization",
-      "Professional advice": "缺少 expert escalation、boundary maintenance、insufficient information",
-      "Moral dilemmas": "缺少 acceptable disagreement"
+      "Privacy": "缺少允许、拒绝、请求同意、脱敏、最小化、授权不足等标签。",
+      "Professional advice": "缺少专家升级、边界维护、信息不足等标签。",
+      "Moral dilemmas": "缺少“可接受分歧”标签。"
     },
     "common_misdiagnosis_en": "Not all ethics benchmarks must allow disagreement; some red-line cases legitimately demand firm labels. R8 is about structural alignment between label design and question type—not diversity for its own sake.",
     "common_misdiagnosis_zh": "并非所有伦理基准都必须允许多元分歧；某些红线案例本就应有确定标签。R8 关注的是标签结构是否匹配问题类型，而非为多元而多元。",
@@ -936,11 +936,11 @@
       "仅凭最终输出评估agent轨迹"
     ],
     "domain_symptoms": {
-      "Fairness": "Judge holds cultural/identity biases affecting fairness assessment",
-      "Safety": "Judge prefers strong refusals, misclassifying over-refusal as safe",
+      "Fairness": "评估者带有文化或身份偏见，影响公平性判断。",
+      "Safety": "评估者偏好强拒答，把过度拒答误判为安全。",
       "Privacy": "",
       "Trustworthiness": "",
-      "Human-Centered": "Psychological support judge favors warm/long responses while ignoring professional boundaries"
+      "Human-Centered": "心理支持评估者偏好温暖冗长的回复，却忽视专业边界。"
     },
     "common_misdiagnosis_en": "Using an LLM judge does not automatically indicate low R10; the issue is whether it is calibrated, transparent, verified, and bias-aware—not whether it is an LLM.",
     "common_misdiagnosis_zh": "使用LLM作为评估器本身并不等于R10得分低；关键在于它是否经过校准、是否公开透明、是否有人工复核、是否了解其偏差，而非是否为LLM。",
@@ -1017,11 +1017,11 @@
       "没有 over-refusal / safe completion / subgroup disparity"
     ],
     "domain_symptoms": {
-      "Fairness": "平均 accuracy 高但 subgroup disparity 大",
-      "Safety": "ASR 低但 over-refusal 高；拒答率高但安全帮助差",
-      "Privacy": "PII leakage 低但 contextual privacy 失败；模型仍然错误转发敏感信息",
-      "Trustworthiness": "accuracy 高但引用不实；不测 abstention 和 freshness",
-      "Human-Centered": "helpfulness 高但越权诊断、忽视危机、损害自主"
+      "Fairness": "平均准确率高，但子群体差异大。",
+      "Safety": "攻击成功率低但过度拒答高；拒答率高但安全帮助能力差。",
+      "Privacy": "PII 泄露率低但情境隐私失败；模型仍错误转发敏感信息。",
+      "Trustworthiness": "准确率高但引用不实；不测拒答能力和时效性。",
+      "Human-Centered": "有用性高但越权诊断、忽视危机或损害用户自主。"
     },
     "common_misdiagnosis_en": "A simple metric is not inherently flawed; R9 targets cases where the metric is *interpreted* as evidence for claims far beyond its actual measurement scope.",
     "common_misdiagnosis_zh": "简单指标本身未必错误；R9 批评的是将指标*解释为*超出其实际测量范围的宽泛主张的证据。",
@@ -1107,11 +1107,11 @@
       "对污染或饱和无响应"
     ],
     "domain_symptoms": {
-      "Safety": "新型 jailbreak / agent misuse 出现，但 benchmark 不更新",
-      "Privacy": "从 PII 泄露发展到 memory / agent / multimodal privacy，但 benchmark 仍旧只测字符串",
-      "Trustworthiness": "事实过时，缺 temporal refresh",
-      "Law/policy": "法规变化，benchmark 仍用旧规则",
-      "Agent": "模型行动能力变化，但任务仍是 chat-only"
+      "Safety": "新型越狱或智能体滥用已经出现，但基准不更新。",
+      "Privacy": "风险已从 PII 泄露扩展到记忆、智能体和多模态隐私，但基准仍只测字符串。",
+      "Trustworthiness": "事实已过时，缺少时间刷新机制。",
+      "Law/policy": "法规已经变化，但基准仍使用旧规则。",
+      "Agent": "模型行动能力已经变化，但任务仍停留在纯聊天。"
     },
     "common_misdiagnosis_en": "Research-grade static datasets do not inherently require long-term maintenance — unless they are positioned as active benchmarks, leaderboard references, policy evidence, or safety claims.",
     "common_misdiagnosis_zh": "研究型静态数据集本身不一定需要长期维护——除非它被用作活跃 benchmark、排行榜依据、政策证据或安全主张支撑。",

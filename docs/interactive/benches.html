@@ -83,7 +83,7 @@
       <th><span class="lang-en">Primary sub-tool</span><span class="lang-zh">主细分工具</span></th>
       <th><span class="lang-en">Secondary tool</span><span class="lang-zh">次整合工具</span></th>
       <th><span class="lang-en">Rubrics improved</span><span class="lang-zh">提升的 rubric</span></th>
-      <th>+ Detail</th>
+      <th><span class="lang-en">+ Detail</span><span class="lang-zh">详情</span></th>
     </tr></thead>
     <tbody></tbody>
   </table>
@@ -264,9 +264,12 @@ function openDetail(i) {
   const tagZhRaw = b['专家标签'] || '';
   const tagHtml = tagZhRaw ? `<span class="expert-tag"><span class="lang-en">${tagEnRaw}</span><span class="lang-zh">${tagZhRaw}</span></span>` : '—';
   const oldTag = b['专家标签_v1'] && b['专家标签_v1'] !== b['专家标签'] ? ` <span class="muted lang-zh" style="font-size:11px">(v1: ${b['专家标签_v1']})</span>` : '';
+  const repToolEn = b['原Representative tool'] || b['主细分工具_en'] || b['主细分工具'] || '—';
+  const repToolZh = b['主细分工具_zh'] || b['次细分工具_zh'] || b['专家标签'] || repToolEn;
+  const paperLabels = b['文章特有分类/标签结构'] || '—';
   html += `<p class="muted"><b><span class="lang-en">Expert tag:</span><span class="lang-zh">专家标签：</span></b> ${tagHtml}${oldTag}<br>`;
-  html += `<b><span class="lang-en">Original representative tool:</span><span class="lang-zh">原 representative tool：</span></b> ${b['原Representative tool']||'—'}<br>`;
-  html += `<b><span class="lang-en">Paper-specific labels:</span><span class="lang-zh">文章特有分类/标签：</span></b> ${b['文章特有分类/标签结构']||'—'}</p>`;
+  html += `<b><span class="lang-en">Original representative tool:</span><span class="lang-zh">原代表工具：</span></b> <span class="lang-en">${repToolEn}</span><span class="lang-zh">${repToolZh}</span><br>`;
+  html += `<b><span class="lang-en">Paper-specific labels:</span><span class="lang-zh">文章原始标签结构：</span></b> ${paperLabels}</p>`;
 
   html += `<hr style="border:none;border-top:1px solid var(--border);margin:12px 0">`;
 
@@ -326,7 +329,11 @@ function openDetail(i) {
     const subSecZh = b['次细分工具_zh'] || b['次细分工具'] || '';
     html += `<div class="section-block"><span class="lang-en">${subSecEn}</span><span class="lang-zh">${subSecZh}</span></div>`;
     html += `<h5 style="margin:8px 0 4px"><span class="lang-en">Match evidence</span><span class="lang-zh">匹配证据</span></h5>`;
-    html += `<div class="section-block lang-zh">${(b['次匹配证据']||'').replace(/^匹配到[^：]*：\s*/,'')}</div>`;
+    const secEvidenceEn = (b['次匹配证据']||'').replace(/^匹配到[^：]*：\s*/,'');
+    const secEvidenceZh = secTool && secTool['核心做法']
+      ? secTool['核心做法']
+      : (subSecZh || secToolNameZh || '');
+    html += `<div class="section-block"><span class="lang-en">${secEvidenceEn}</span><span class="lang-zh">${secEvidenceZh}</span></div>`;
   }
   modal.innerHTML = html;
   modalBg.style.display = 'flex';
