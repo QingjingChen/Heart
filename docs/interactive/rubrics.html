@@ -405,6 +405,17 @@ window.addEventListener('heart-lang-change', () => { if (RUBRICS.length) buildCh
 
 function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
+const BENCH_ALIASES = {
+  'Kleinberg': 'Kleinberg-FairTradeoffs (2016)',
+  'BERT-Bartl': 'BEC-pro (2020)',
+  'NeuTral': 'NeuTral-WinoBiasPlus (2021)',
+};
+function resolveBenchName(rawName) {
+  const name = (rawName || '').trim();
+  if (!name) return '';
+  return BENCH_ALIASES[name] || name;
+}
+
 // Convert in-text "——如 BenchA、BenchB" → clickable pills linking to benches.html#Name,
 // stripping the "——如" prefix per user feedback. Preserves other text safely.
 function linkBenchesInText(text) {
@@ -414,7 +425,7 @@ function linkBenchesInText(text) {
     (match, list) => {
       const names = list.split(/[、,，]\s*/).map(x => x.trim()).filter(Boolean);
       if (!names.length) return match;
-      const pills = names.map(n => `<a class="bench-pill has-url" href="benches.html#${encodeURIComponent(n)}">${n}</a>`).join(' ');
+      const pills = names.map(n => `<a class="bench-pill has-url" href="benches.html#${encodeURIComponent(resolveBenchName(n))}">${n}</a>`).join(' ');
       return ' ' + pills;
     });
   return s;
@@ -565,11 +576,12 @@ function openRubric(rname) {
   // Render bench → linked pill if found in BENCH_URLS, else plain
   const benchPill = (rawName) => {
     // try several lookups (exact, "X (year)", strip whitespace)
+    const lookupName = resolveBenchName(rawName);
     let url = '';
-    if (BENCH_URLS[rawName]) url = BENCH_URLS[rawName].paper || '';
+    if (BENCH_URLS[lookupName]) url = BENCH_URLS[lookupName].paper || '';
     else {
       // try fuzzy: find a key whose prefix matches rawName ignoring case
-      const lower = rawName.toLowerCase();
+      const lower = lookupName.toLowerCase();
       for (const k of Object.keys(BENCH_URLS)) {
         const stripped = k.replace(/\s*\(.*\)\s*$/, '').toLowerCase();
         if (stripped === lower || stripped === lower.replace(/-/g,'')) {
