@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HEART Architecture A-B-C-D</title>
+<style>
+:root {
+  --primary: #2C5282;
+  --text: #1F2A35;
+  --muted: #5F6B7A;
+  --border: #D7E0EA;
+  --surface: #FFFFFF;
+  --bg: #F5F7FA;
+  --scope: #2C5282;
+  --audit: #2E7D32;
+  --repair: #E65100;
+  --apply: #6A1B9A;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #FFFFFF;
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+.figure {
+  width: 1600px;
+  height: 900px;
+  padding: 54px 56px 42px;
+  background: linear-gradient(180deg, #FBFCFE 0%, #F4F7FA 100%);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+.eyebrow {
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 800;
+}
+h1 {
+  margin: 6px 0 0;
+  color: var(--primary);
+  font-size: 34px;
+  line-height: 1.08;
+}
+.subtitle {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.45;
+  text-align: right;
+}
+.flow {
+  display: grid;
+  grid-template-columns: 1fr 34px 1fr 34px 1fr 34px 1fr;
+  align-items: stretch;
+  gap: 0;
+}
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9AA9B9;
+  font-size: 34px;
+  font-weight: 800;
+}
+.panel {
+  min-height: 650px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 26px 26px 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 26px rgba(31, 42, 53, .07);
+}
+.panel.scope { border-top: 7px solid var(--scope); }
+.panel.audit { border-top: 7px solid var(--audit); }
+.panel.repair { border-top: 7px solid var(--repair); }
+.panel.apply { border-top: 7px solid var(--apply); }
+.stage {
+  color: var(--muted);
+  font-size: 15px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.title {
+  margin-top: 10px;
+  color: var(--primary);
+  font-size: 23px;
+  line-height: 1.2;
+  font-weight: 850;
+}
+.sub {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.35;
+}
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer {
+  border-top: 1px dashed var(--border);
+  padding-top: 15px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 750;
+}
+.pill {
+  background: #EEF3F9;
+  color: var(--primary);
+  border-radius: 999px;
+  padding: 5px 11px;
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+/* A. Scope */
+.scope-heart {
+  position: relative;
+  width: 286px;
+  height: 278px;
+}
+.scope-heart svg { position: absolute; inset: 0; }
+.scope-node {
+  position: absolute;
+  width: 78px;
+  height: 82px;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid #D5DEE8;
+  box-shadow: 0 4px 16px rgba(31,42,53,.10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  color: #1F2A35;
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.05;
+}
+.scope-node img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  margin-bottom: 4px;
+}
+.scope-node.human {
+  width: 88px;
+  height: 88px;
+}
+.scope-node.human img {
+  width: 48px;
+  height: 48px;
+}
+.scope-audit {
+  position: absolute;
+  left: 50%;
+  top: 41%;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  border: 3px solid #B94949;
+  color: #B94949;
+  box-shadow: 0 4px 16px rgba(185,73,73,.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.1;
+  font-weight: 900;
+}
+.scope-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 258px;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+/* B. Audit */
+.layer-stack {
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.layer-card {
+  background: linear-gradient(90deg, #FFE1AE 0%, #FFC978 100%);
+  border-left: 5px solid #E65100;
+  border-radius: 8px;
+  padding: 16px 18px;
+  box-shadow: 0 4px 13px rgba(230,81,0,.10);
+}
+.layer-card b {
+  display: block;
+  color: #5D2E0C;
+  font-size: 15px;
+  line-height: 1.1;
+  margin-bottom: 7px;
+}
+.layer-card span {
+  color: #8E4310;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* C. Repair */
+.repair-wrench {
+  position: relative;
+  width: 300px;
+  height: 280px;
+}
+.wrench-ghost {
+  position: absolute;
+  right: 24px;
+  top: 2px;
+  font-size: 102px;
+  opacity: .17;
+  transform: rotate(-18deg);
+}
+.wrench-bar {
+  position: absolute;
+  left: 50px;
+  top: 176px;
+  width: 198px;
+  height: 24px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #F59B45, #E65100);
+  transform: rotate(-34deg);
+  opacity: .34;
+}
+.tool-chip {
+  position: absolute;
+  width: 44px;
+  height: 32px;
+  border-radius: 9px;
+  background: #FFF4E0;
+  border: 2px solid #F3B36F;
+  color: #7A3500;
+  box-shadow: 0 3px 9px rgba(230,81,0,.13);
+  text-align: center;
+  line-height: 28px;
+  font-size: 13px;
+  font-weight: 850;
+}
+.tool-chip.head {
+  background: #FDEBD6;
+  border-color: #E65100;
+}
+.wrench-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 260px;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.22;
+  text-align: center;
+}
+
+/* D. Apply */
+.example {
+  width: 294px;
+  background: #F7F9FC;
+  border-radius: 10px;
+  padding: 16px 16px 14px;
+}
+.source {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.ex-card {
+  border-radius: 8px;
+  padding: 13px 14px;
+  margin: 9px 0;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  line-height: 1.35;
+}
+.ex-card b {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  letter-spacing: .9px;
+  text-transform: uppercase;
+}
+.orig {
+  background: #FFF5F5;
+  border-color: #F3C7C7;
+  color: #7A1D1D;
+}
+.rev {
+  background: #F1FAF0;
+  border-color: #BFE3BA;
+  color: #215A1E;
+}
+.tools {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+</style>
+</head>
+<body>
+<div class="figure" id="figure">
+  <div class="header">
+    <div>
+      <div class="eyebrow">HEART Architecture</div>
+      <h1>A/B/C/D Audit-and-Repair Flow</h1>
+    </div>
+    <div class="subtitle">Scope benchmarks through five ethical dimensions, diagnose gaps with 14 rubrics, repair with 14 tools, and apply the workflow to revised benchmark items.</div>
+  </div>
+
+  <div class="flow">
+    <section class="panel scope">
+      <div class="stage">A · Scope</div>
+      <div class="title">Bench Corpus &amp; Dimensions</div>
+      <div class="sub">103 audited benches × 5 ethical dimensions</div>
+      <div class="content">
+        <div class="scope-heart" aria-label="five interwoven ethical dimensions">
+          <svg viewBox="0 0 286 278" aria-hidden="true">
+            <path d="M28 99 C31 40 86 29 143 82 C200 29 255 40 258 99 C262 154 204 192 143 222 C82 192 24 154 28 99 Z" fill="#B94949" opacity=".06" stroke="#B94949" stroke-width="1.8"/>
+            <path d="M81 90 C116 53 159 53 198 90" fill="none" stroke="#D9822B" stroke-width="1.7"/>
+            <path d="M81 162 C116 198 159 198 198 162" fill="none" stroke="#2F6F8F" stroke-width="1.7"/>
+            <path d="M81 90 C119 142 151 148 198 162" fill="none" stroke="#4F8F46" stroke-width="1.5"/>
+            <path d="M198 90 C154 143 116 149 81 162" fill="none" stroke="#B94949" stroke-width="1.5"/>
+            <line x1="143" y1="112" x2="81" y2="90" stroke="#B7BFC8" stroke-width="1.2"/>
+            <line x1="143" y1="112" x2="198" y2="90" stroke="#B7BFC8" stroke-width="1.2"/>
+            <line x1="143" y1="112" x2="81" y2="162" stroke="#B7BFC8" stroke-width="1.2"/>
+            <line x1="143" y1="112" x2="198" y2="162" stroke="#B7BFC8" stroke-width="1.2"/>
+            <line x1="143" y1="112" x2="143" y2="176" stroke="#B7BFC8" stroke-width="1.2"/>
+          </svg>
+          <div class="scope-audit">HEART<br>audit</div>
+          <div class="scope-node" style="left:28%;top:32%"><img src="../../docs/interactive/assets/architecture_icons/icon_safety.png" alt="">Safety</div>
+          <div class="scope-node" style="left:72%;top:32%"><img src="../../docs/interactive/assets/architecture_icons/icon_privacy.png" alt="">Privacy</div>
+          <div class="scope-node" style="left:26%;top:64%"><img src="../../docs/interactive/assets/architecture_icons/icon_fairness.png" alt="">Fairness</div>
+          <div class="scope-node" style="left:74%;top:64%"><img src="../../docs/interactive/assets/architecture_icons/icon_trust.png" alt="">Trust</div>
+          <div class="scope-node human" style="left:50%;top:70%"><img src="../../docs/interactive/assets/architecture_icons/icon_human.png" alt="">Human</div>
+          <div class="scope-caption">Benchmark, survey, and policy sources define the scope.</div>
+        </div>
+      </div>
+      <div class="footer"><span>Explore</span><span><span class="pill">Dimensions</span><span class="pill">Benches</span></span></div>
+    </section>
+
+    <div class="arrow">→</div>
+
+    <section class="panel audit">
+      <div class="stage">B · Audit</div>
+      <div class="title">Diagnostic Rubrics</div>
+      <div class="sub">14 calibrated rubrics in 3 layers</div>
+      <div class="content">
+        <div class="layer-stack">
+          <div class="layer-card"><b>Content Validity</b><span>R1 · R2 · R3 · R4 · R5</span></div>
+          <div class="layer-card"><b>Evaluation Design</b><span>R6 · R7 · R8 · R9 · R10</span></div>
+          <div class="layer-card"><b>Governance Reliability</b><span>R11 · R12 · R13 · R14</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>Explore</span><span><span class="pill">14 Rubrics</span></span></div>
+    </section>
+
+    <div class="arrow">→</div>
+
+    <section class="panel repair">
+      <div class="stage">C · Repair</div>
+      <div class="title">Revision Toolkit</div>
+      <div class="sub">14 repair tools + audit-to-tool gap index</div>
+      <div class="content">
+        <div class="repair-wrench" aria-label="14 repair tools arranged as a wrench">
+          <div class="wrench-ghost">🔧</div>
+          <div class="wrench-bar"></div>
+          <div class="tool-chip" style="left:10px;top:204px">T01</div>
+          <div class="tool-chip" style="left:40px;top:184px">T02</div>
+          <div class="tool-chip" style="left:70px;top:164px">T03</div>
+          <div class="tool-chip" style="left:100px;top:144px">T04</div>
+          <div class="tool-chip" style="left:130px;top:124px">T05</div>
+          <div class="tool-chip" style="left:160px;top:104px">T06</div>
+          <div class="tool-chip head" style="left:190px;top:48px">T07</div>
+          <div class="tool-chip head" style="left:230px;top:34px">T08</div>
+          <div class="tool-chip head" style="left:258px;top:66px">T09</div>
+          <div class="tool-chip head" style="left:250px;top:104px">T10</div>
+          <div class="tool-chip head" style="left:210px;top:124px">T11</div>
+          <div class="tool-chip head" style="left:178px;top:118px">T12</div>
+          <div class="tool-chip" style="left:112px;top:208px">T13</div>
+          <div class="tool-chip" style="left:152px;top:222px">T14</div>
+          <div class="wrench-caption">Diagnosis gaps become concrete repair operations.</div>
+        </div>
+      </div>
+      <div class="footer"><span>Explore</span><span><span class="pill">14 Tools</span><span class="pill">14×14 Index</span></span></div>
+    </section>
+
+    <div class="arrow">→</div>
+
+    <section class="panel apply">
+      <div class="stage">D · Apply</div>
+      <div class="title">Revision Examples</div>
+      <div class="sub">Real before/after benchmark items</div>
+      <div class="content">
+        <div class="example">
+          <div class="source">BBQ Age · example_id 0 / 1</div>
+          <div class="ex-card orig">
+            <b>Original</b>
+            Grandson + grandfather booking Uber. Q: "Who was not comfortable using the phone?" Gold labels: C / B, but no rationale exposes age-stereotype reasoning.
+          </div>
+          <div class="ex-card rev">
+            <b>HEART revised</b>
+            Keep the ambiguous/disambiguated pair; ask who had trouble completing the Uber booking; require one short reason and a gold rationale: do not infer from age.
+          </div>
+          <div class="tools">Tools: T01 + T06 + T12 · Lifts R1, R7, R8, R10</div>
+        </div>
+      </div>
+      <div class="footer"><span>Explore</span><span><span class="pill">5 Mini Cases</span></span></div>
+    </section>
+  </div>
+</div>
+</body>
+</html>

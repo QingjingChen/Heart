@@ -12,6 +12,7 @@ final BibTeX entry and the Zenodo DOI.
 | Preprint (arXiv) | TBD |
 | Permanent DOI (Zenodo) | TBD, minted for the v0.1.0 archival release |
 | Final BibTeX entry | TBD |
+| A/B/C/D architecture figure | [`figures/heart_architecture_abcd.png`](figures/heart_architecture_abcd.png), [`figures/heart_architecture_abcd.pdf`](figures/heart_architecture_abcd.pdf), [`figures/heart_architecture_abcd.svg`](figures/heart_architecture_abcd.svg) |
 | Corpus construction table | [`sections/corpus_construction_summary_table.tex`](sections/corpus_construction_summary_table.tex) |
 | Methodology 3.2/3.3 sections | [`sections/methodology_3_2_3_3.tex`](sections/methodology_3_2_3_3.tex) |
 | Expert quality assessment section | [`sections/expert_quality_assessment_section.tex`](sections/expert_quality_assessment_section.tex) |
