@@ -37,8 +37,8 @@ primary,WVS / World Values Survey (2012),T05,Cultural & Cross-Lingual Adaptation
 secondary,WVS / World Values Survey (2012),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Cross-Cultural Value Distribution Anchoring Template,跨文化价值分布锚定模板
 primary,PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks),T11,Multi-Metric Failure-Mode Profile,多指标失败模式画像,"Psychometrically grounded item templates from clinical/consulting instruments (e.g., PHQ-9, GAD-7 adapted as LLM response prompts)",基于心理测量的临床咨询项目模板
 secondary,PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks),T01,Claim-Construct & Protected-Interest Mapper,声明-构念-受保护利益映射器,"Psychometrically grounded item templates from clinical/consulting instruments (e.g., PHQ-9, GAD-7 adapted as LLM response prompts)",心理测量基础项目模板映射器
-primary,SOCKET (2023),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Social forum-derived scenario scaffolding with implicit norm inference tasks,社交论坛场景框架与隐含规范推断任务
-secondary,SOCKET (2023),T02,Normative Source & Decision-Boundary Ledger,规范来源与决策边界台账,Social forum-derived scenario scaffolding with implicit norm inference tasks,社交论坛衍生情景框架与隐式规范推理任务台账
+primary,SOCKET (2023),T11,Multi-Metric Failure-Mode Profile,多指标失败模式画像,Theory-driven Social-Knowledge Task Suite (SocKET),理论驱动社会知识任务套件
+secondary,SOCKET (2023),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Theory-driven Social-Knowledge Task Suite (SocKET),理论驱动社会知识任务套件
 primary,SOCIAL-CHEM-101 (2020),T11,Multi-Metric Failure-Mode Profile,多指标失败模式画像,Rules-of-thumb generation and contextual applicability scoring framework,经验规则生成与情境适用性评分框架
 secondary,SOCIAL-CHEM-101 (2020),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Rules-of-thumb generation and contextual applicability scoring framework,经验规则生成与情境适用性评分框架
 primary,EtiCor (2023),T05,Cultural & Cross-Lingual Adaptation Protocol,文化与跨语言适配流程,Multi-regional normative scenario template with culture-anchored annotation guidelines,多区域规范场景模板与文化锚定标注指南
@@ -97,8 +97,8 @@ primary,KoBBQ (2024),T05,Cultural & Cross-Lingual Adaptation Protocol,文化与�
 secondary,KoBBQ (2024),T01,Claim-Construct & Protected-Interest Mapper,声明-构念-受保护利益映射器,BBQ cultural filter + Korea-specific dimension re-engineering framework,BBQ文化过滤器与韩国特定维度重构框架映射器
 primary,FLEX (2025),T08,Multi-Turn & Adversarial Red-Team Protocol,多轮与对抗红队协议,Adversarial Fairness Sensitivity Probe (AFSP),对抗公平敏感性探测器
 secondary,FLEX (2025),T01,Claim-Construct & Protected-Interest Mapper,声明-构念-受保护利益映射器,Adversarial Fairness Sensitivity Probe (AFSP),对抗公平敏感度探测器
-primary,Phare (2025),T01,Claim-Construct & Protected-Interest Mapper,声明-构念-受保护利益映射器,Discrimination-Generation Gap Analyzer (DGGA),歧视-代沟分析器
-secondary,Phare (2025),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Discrimination-Generation Gap Analyzer (DGGA),歧视-代沟分析器
+primary,Phare (2025),T11,Multi-Metric Failure-Mode Profile,多指标失败模式画像,Multilingual Safety Failure-Mode Probe (Phare),多语言安全失败模式探针
+secondary,Phare (2025),T04,Risk-Tier & Hazard Taxonomy,风险等级与危害分类,Multilingual Safety Failure-Mode Probe (Phare),多语言安全失败模式探针
 primary,BharatBBQ (2024/2025),T05,Cultural & Cross-Lingual Adaptation Protocol,文化与跨语言适配流程,Culturally-Localized BBQ Template Adapter (CL-BTA),文化本地化 BBQ 模板适配器
 secondary,BharatBBQ (2024/2025),T02,Normative Source & Decision-Boundary Ledger,规范来源与决策边界台账,Culturally-Localized BBQ Template Adapter (CL-BTA),文化本地化 BBQ 模板适配器
 primary,JBBQ (2024/2025),T05,Cultural & Cross-Lingual Adaptation Protocol,文化与跨语言适配流程,"Culturally grounded, language-specific BBQ template adaptation framework",文化基础 BBQ 模板跨语言适配框架
@@ -127,8 +127,8 @@ primary,MM-SafetyBench (2024),T08,Multi-Turn & Adversarial Red-Team Protocol,多
 secondary,MM-SafetyBench (2024),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Cross-Modal Jailbreak Probe Construction Framework,跨模态越狱探测构建框架
 primary,SALAD-bench (2024),T04,Risk-Tier & Hazard Taxonomy,风险等级与危害分类,Three-Tier Hierarchical Safety Taxonomy with Attack-Enhanced Dual-Track Evaluation,三层次安全分类与攻防双轨评估
 secondary,SALAD-bench (2024),T08,Multi-Turn & Adversarial Red-Team Protocol,多轮与对抗红队协议,Three-Tier Hierarchical Safety Taxonomy with Attack-Enhanced Dual-Track Evaluation,三层安全分类与攻防双轨评估
-primary,SafetyBench (2024),T07,Behavioral Coverage Matrix,行为覆盖矩阵,Multi-dimension MCQ Safety Template with Implicit Toxicity Triggering (LifeTox-inspired),多维度隐式毒性触发安全模板
-secondary,SafetyBench (2024),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Multi-dimension MCQ Safety Template with Implicit Toxicity Triggering (LifeTox-inspired),多维度安全模板隐含毒性触发
+primary,SafetyBench (2024),T07,Behavioral Coverage Matrix,行为覆盖矩阵,Bilingual seven-category MCQ safety benchmark template,双语七类安全多选题模板
+secondary,SafetyBench (2024),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Bilingual seven-category MCQ safety benchmark template,双语七类安全多选题模板
 primary,XSTest (2024),T06,Contrast-Set Builder,对照集构造器,Controlled Over-refusal Contrast Pair Framework,对照集构造器控制过度拒绝对比框架
 secondary,XSTest (2024),T12,Rubric-Based & Multi-Judge Evaluation Protocol,细则化与多评分者评估协议,Controlled Over-refusal Contrast Pair Framework,受控过度拒绝对比对框架
 primary,Agent-SafetyBench (2025),T09,Agent & Workflow Simulation,智能体与工作流仿真,Multi-turn Tool-Invocation Safety Test Case Generator with Failure Mode Taxonomy,多轮工具调用安全测试用例生成器与失效模式分类
@@ -139,8 +139,8 @@ primary,SaFeRDialogues (2022),T08,Multi-Turn & Adversarial Red-Team Protocol,多
 secondary,SaFeRDialogues (2022),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Graceful Recovery Dialogue Template (Acknowledge-Apologize-Correct protocol),优雅恢复对话模板
 primary,BAD / Bot-Adversarial Dialogue (2021),T08,Multi-Turn & Adversarial Red-Team Protocol,多轮与对抗红队协议,Human-Led Adversarial Dialogue Protocol (HALADP),人类主导对抗对话协议
 secondary,BAD / Bot-Adversarial Dialogue (2021),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Human-Led Adversarial Dialogue Protocol (HALADP),人类主导对抗对话协议
-primary,HarmEval (2025),T04,Risk-Tier & Hazard Taxonomy,风险等级与危害分类,Safety Amplification (SA) vector + Safety-guided decoding strategy (sGDS),安全放大向量与安全引导解码策略
-secondary,HarmEval (2025),T01,Claim-Construct & Protected-Interest Mapper,声明-构念-受保护利益映射器,Safety Amplification (SA) vector + Safety-guided decoding strategy (sGDS),安全放大向量与安全引导解码策略映射器
+primary,TechHazardQA (2025),T08,Multi-Turn & Adversarial Red-Team Protocol,多轮与对抗红队协议,Instruction-Centric Harmful Query Evaluation (TechHazardQA),指令格式有害查询评估
+secondary,TechHazardQA (2025),T04,Risk-Tier & Hazard Taxonomy,风险等级与危害分类,Instruction-Centric Harmful Query Evaluation (TechHazardQA),指令格式有害查询评估
 primary,HH-RLHF / Anthropic H&H (2022),T04,Risk-Tier & Hazard Taxonomy,风险等级与危害分类,Human preference-based helpful-harmless pairwise ranking template,基于人类偏好的有益无害成对排序模板
 secondary,HH-RLHF / Anthropic H&H (2022),T08,Multi-Turn & Adversarial Red-Team Protocol,多轮与对抗红队协议,Human preference-based helpful-harmless pairwise ranking template,基于人类偏好的有益无害成对排序模板
 primary,AdvBench (2023),T08,Multi-Turn & Adversarial Red-Team Protocol,多轮与对抗红队协议,Adversarial harmful instruction template with jailbreak-resistant prompt engineering,对抗性有害指令模板与防越狱提示工程
@@ -191,8 +191,8 @@ primary,GoldCoin (2024),T03,Scenario-Stakeholder-Information-Flow Template,场�
 secondary,GoldCoin (2024),T02,Normative Source & Decision-Boundary Ledger,规范来源与决策边界台账,Law-grounded contextual integrity question generation pipeline,法律基础的情境完整性问题生成流程
 primary,PrivacyLens (2024),T09,Agent & Workflow Simulation,智能体与工作流仿真,Contextual Integrity 5-tuple agent trajectory tester,情境完整性五元组智能体轨迹测试器
 secondary,PrivacyLens (2024),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Contextual Integrity 5-tuple agent trajectory tester,场景-利益相关方-信息流五元组代理轨迹测试器
-primary,WebArena-Privacy (2024),T09,Agent & Workflow Simulation,智能体与工作流仿真,Web-based privacy decision sandbox with PII-contaminated intent injection,基于网页的隐私决策沙盒与PII污染意图注入仿真
-secondary,WebArena-Privacy (2024),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Web-based privacy decision sandbox with PII-contaminated intent injection,基于网页的隐私决策沙盒与PII污染意图注入
+primary,AgentDAM (2025),T09,Agent & Workflow Simulation,智能体与工作流仿真,Web-based privacy decision sandbox with PII-contaminated intent injection,基于网页的隐私决策沙盒与PII污染意图注入仿真
+secondary,AgentDAM (2025),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Web-based privacy decision sandbox with PII-contaminated intent injection,基于网页的隐私决策沙盒与PII污染意图注入
 primary,PrivaCI-Bench (2025),T03,Scenario-Stakeholder-Information-Flow Template,场景-利益相关方-信息流模板,Multi-jurisdictional CI-aligned MCQ + vignette generator with legal clause anchoring,多司法管辖区CI对齐选择题与情景生成器法律条款锚定
 secondary,PrivaCI-Bench (2025),T02,Normative Source & Decision-Boundary Ledger,规范来源与决策边界台账,Multi-jurisdictional CI-aligned MCQ + vignette generator with legal clause anchoring,多司法辖区合规对齐选择题与情景生成器法律条款锚定
 primary,Carlini Extraction / Training Data Extraction (2021),T14,"Lifecycle, Hidden-Split & Contamination Governance",生命周期、隐藏集与污染治理,Verbatim Memorization Attack Pipeline,逐字记忆攻击流程
