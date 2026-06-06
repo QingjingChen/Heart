@@ -471,12 +471,25 @@ function openRubric(rname) {
         <ul class="gd-bullets lang-en">${gd.diagnostic_questions_en.map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>
         <ul class="gd-bullets lang-zh">${(gd.diagnostic_questions_zh||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('')}</ul>
       </details>` : '';
+    const domainNameZh = {
+      'Fairness': '公平/包容',
+      'Safety': '安全',
+      'Privacy': '隐私',
+      'Trustworthiness': '可信性',
+      'Human-Centered': '以人为本',
+      'Agent': '智能体',
+      'Professional domains': '专业领域',
+      'Professional advice': '专业建议',
+      'Moral dilemmas': '道德困境',
+      'Law/policy': '法律/政策',
+      'Truthfulness': '真实性'
+    };
     const domains = gd.domain_symptoms ? Object.entries(gd.domain_symptoms).filter(([k,v])=>v && v.trim()) : [];
     const domainsEn = gd.domain_symptoms_en || {};
     const domSection = domains.length
       ? `<div class="gd-block">
           <b><span class="lang-en">Domain-specific symptoms</span><span class="lang-zh">领域化症状</span></b>
-          <div class="gd-domain-list">${domains.map(([k,v])=>`<div><span class="gd-domain-name">${escapeHtml(k)}:</span> <span class="lang-en">${escapeHtml(domainsEn[k] || v)}</span><span class="lang-zh">${escapeHtml(v)}</span></div>`).join('')}</div>
+          <div class="gd-domain-list">${domains.map(([k,v])=>`<div><span class="gd-domain-name lang-en">${escapeHtml(k)}:</span><span class="gd-domain-name lang-zh">${escapeHtml(domainNameZh[k] || k)}：</span> <span class="lang-en">${escapeHtml(domainsEn[k] || v)}</span><span class="lang-zh">${escapeHtml(v)}</span></div>`).join('')}</div>
         </div>` : '';
     // simple 0-3 scoring is now merged into the unified calibration block below
     const mis = gd.common_misdiagnosis_en
