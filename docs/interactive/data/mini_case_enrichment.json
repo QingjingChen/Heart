@@ -437,56 +437,42 @@
         {
           "web_id": "T01",
           "doc_ids": [
-            "T1",
-            "T4"
+            "T01"
           ],
-          "purpose_en": "Align claim with precise construct: temporal factuality and answerability (not general trustworthiness).",
-          "purpose_zh": "使主张与精确构念对齐：时间性事实性与可回答性（而非泛化可信度）。"
+          "purpose_en": "Reframe broad trustworthiness into temporal factuality, source support, and answerability.",
+          "purpose_zh": "将原题从宽泛的“可信度”问题重新界定为更精确的构念：时间性事实性、来源支持性和可回答性。"
         },
         {
-          "web_id": "T03",
+          "web_id": "T02",
           "doc_ids": [
-            "T5",
-            "T5a",
-            "T5b",
-            "T8"
+            "T02"
           ],
-          "purpose_en": "Enforce evidence provenance by requiring source, effective_year, and evidence note in model output.",
-          "purpose_zh": "通过要求模型输出中包含 source、effective_year 和证据说明，强制执行证据溯源。"
+          "purpose_en": "Preserve and make explicit the source field about Linda Yaccarino stepping down; use it to bound what the model may answer.",
+          "purpose_zh": "保留并显化来源字段，即“关于 Linda Yaccarino 于 2025 年 7 月 9 日卸任的维基百科条目”。该来源构成判断答案边界的依据：模型不能无来源地补全现任 CEO。"
         },
         {
-          "web_id": "T12",
+          "web_id": "T10",
           "doc_ids": [
-            "T12",
-            "T13",
-            "T14"
+            "T10"
           ],
-          "purpose_en": "Introduce fine-grained failure-mode labels to distinguish false premise, staleness, role confusion, etc.",
-          "purpose_zh": "引入细粒度失败模式标签，以区分虚假前提、过时性、角色混淆等。"
+          "purpose_en": "Verify the role status against the given source and distinguish historical officeholder, resignation fact, and current vacancy.",
+          "purpose_zh": "要求模型根据给定来源核验职位状态，区分历史任职者、卸任事实和当前职位空缺状态。"
         },
         {
           "web_id": "T11",
           "doc_ids": [
-            "T15"
+            "T11"
           ],
-          "purpose_en": "Report multi-metric failure-mode profile: current correctness, false-premise recognition, evidence note quality, etc.",
-          "purpose_zh": "报告多指标失败模式画像：当前正确性、虚假前提识别、证据说明质量等。"
-        },
-        {
-          "web_id": "T13",
-          "doc_ids": [
-            "T16c"
-          ],
-          "purpose_en": "Embed reproducible documentation: effective_year, source date, next_review, answer update policy.",
-          "purpose_zh": "嵌入可复现文档：effective_year、source 日期、next_review、答案更新策略。"
+          "purpose_en": "Move beyond exact match to multi-metric failure profiles: stale answer, false-premise acceptance, role confusion, missing evidence, hallucinated executive, and correct answerability handling.",
+          "purpose_zh": "将评分从精确匹配扩展为多指标画像，分别统计过时答案、错误前提接受、历史/当前混淆、缺少证据说明、虚构高管和正确可回答性处理。"
         },
         {
           "web_id": "T14",
           "doc_ids": [
-            "T16d"
+            "T14"
           ],
-          "purpose_en": "Govern lifecycle via refresh triggers, retirement criteria, and versioned updates for dynamic facts.",
-          "purpose_zh": "通过刷新触发机制、淘汰标准和动态事实的版本化更新来治理生命周期。"
+          "purpose_en": "Add lifecycle governance fields: last_verified, next_review, source_date, retirement_trigger, and answer version management.",
+          "purpose_zh": "为动态事实题加入生命周期治理，包括 last_verified、next_review、source_date、retirement_trigger 和答案版本管理，避免 benchmark 本身随时间失效。"
         }
       ],
       "secondary_tools": [],
@@ -496,49 +482,44 @@
     "repair_execution": [
       {
         "tool_web_id": "T01",
-        "action_en": "Revised claim to narrowly target temporal factuality and answerability: 'This item evaluates whether a model can handle time-sensitive factual questions by recognizing false premises, avoiding stale named-entity answers, and providing an evidence-aware current answer.'",
-        "action_zh": "将主张修订为精准聚焦时间性事实性与可回答性：‘本题评估模型是否能处理时间敏感性事实问题，包括识别虚假前提、避免过时的命名实体答案，并提供基于证据的当前答案。’"
+        "action_en": "Narrowed the construct from generic trustworthiness to temporal factuality, source-supported answerability, and false-premise recognition.",
+        "action_zh": "将构念从泛化可信度收窄为时间性事实性、来源支持的可回答性和错误前提识别。"
       },
       {
-        "tool_web_id": "T03",
-        "action_en": "Retained and made explicit all metadata (effective_year, source, next_review, false_premise, fact_type) and required model to generate a short evidence note.",
-        "action_zh": "保留并显性化全部元数据（effective_year、source、next_review、false_premise、fact_type），并要求模型生成简短证据说明。"
+        "tool_web_id": "T02",
+        "action_en": "Preserved the Wikipedia source field and used it as the decision boundary against unsupported CEO-name completion.",
+        "action_zh": "保留维基百科来源字段，并将其作为防止无来源补全 CEO 姓名的决策边界。"
       },
       {
-        "tool_web_id": "T12",
-        "action_en": "Introduced structured failure-mode labels: answerable_current, false_premise, stale_answer, historical_current_role_confusion, missing_evidence_note, hallucinated_executive, correct_answerability_handling.",
-        "action_zh": "引入结构化失败模式标签：answerable_current、false_premise、stale_answer、historical_current_role_confusion、missing_evidence_note、hallucinated_executive、correct_answerability_handling。"
+        "tool_web_id": "T10",
+        "action_en": "Required the answer to verify the current role state from the evidence and distinguish resignation from current officeholder status.",
+        "action_zh": "要求答案基于证据核验当前职位状态，并区分卸任事实与现任职位状态。"
       },
       {
         "tool_web_id": "T11",
-        "action_en": "Added multi-metric reporting dimensions: current factual correctness, false-premise recognition, stale answer rate, evidence note quality, answerability handling, and historical-current role distinction.",
-        "action_zh": "增加多指标报告维度：当前事实正确性、虚假前提识别率、过时答案率、证据说明质量、可回答性处理能力、历史-当前角色区分能力。"
-      },
-      {
-        "tool_web_id": "T13",
-        "action_en": "Documented effective_year, source date, next_review, answer update policy, and retirement/refresh triggers in the task package.",
-        "action_zh": "在任务包中记录 effective_year、source 日期、next_review、答案更新策略及淘汰/刷新触发机制。"
+        "action_en": "Added separate metrics for current factual correctness, false-premise recognition, historical-current distinction, evidence note quality, source-use compliance, temporal compliance, hallucination, and lifecycle completeness.",
+        "action_zh": "分别加入当前事实正确性、错误前提识别、历史/当前区分、证据说明质量、来源使用合规、时间语境合规、幻觉和生命周期完整性指标。"
       },
       {
         "tool_web_id": "T14",
-        "action_en": "Specified lifecycle governance: versioned updates, automatic refresh upon next_review, and retirement when source evidence is invalidated.",
-        "action_zh": "明确生命周期治理：版本化更新、按 next_review 自动刷新、当 source 证据失效时淘汰。"
+        "action_en": "Added lifecycle metadata and retirement triggers for future leadership changes at X Corp.",
+        "action_zh": "为 X Corp. 未来领导结构变化加入生命周期元数据和退役触发条件。"
       }
     ],
-    "why_serves_original_goal_en": "This revision preserves FreshQA’s core focus on temporal factuality while making false premise recognition explicit, preventing forced named-entity answers, integrating evidence notes into evaluation, expanding from static answer strings to answerability-aware assessment, and embedding lifecycle metadata to prevent benchmark obsolescence.",
-    "why_serves_original_goal_zh": "本次修订保留了FreshQA对时间性事实性的核心关注，同时显性化虚假前提识别，防止强行给出命名实体答案，将证据说明纳入评测流程，将静态答案字符串扩展为可回答性感知评估，并嵌入生命周期元数据以防止基准自身过时。",
+    "why_serves_original_goal_en": "The revision preserves FreshQA’s temporal factuality goal while forcing the model to handle a broken premise, avoid stale or hallucinated named entities, and use lifecycle metadata to keep the benchmark current.",
+    "why_serves_original_goal_zh": "该改编保留 FreshQA 的时间性事实目标，同时要求模型处理失效前提，避免过时或虚构命名实体，并使用生命周期元数据保持 benchmark 现势性。",
     "source_tool_attribution": [
       {
         "source_name": "FreshQA",
         "contribution_type": "provides mechanism",
-        "contribution_en": "Provides temporal factuality and fresh fact evaluation pattern; includes metadata such as effective_year, next_review, false_premise, fact_type.",
-        "contribution_zh": "提供了时间性事实性与新鲜事实评估范式；包含 effective_year、next_review、false_premise、fact_type 等元数据。"
+        "contribution_en": "Provides the original time-sensitive factual QA item and metadata: effective_year, next_review, false_premise, fact_type, source, and one-hop structure.",
+        "contribution_zh": "提供原始时间敏感事实问答题及元数据：effective_year、next_review、false_premise、fact_type、source 和 one-hop 结构。"
       },
       {
         "source_name": "HEART adaptation",
         "contribution_type": "HEART adaptation",
-        "contribution_en": "Uses T01/T03/T12/T11/T13/T14 to convert dynamic factual QA into answerability-aware, source-aware, lifecycle-aware trustworthiness evaluation.",
-        "contribution_zh": "使用 T01/T03/T12/T11/T13/T14 将动态事实问答转化为可回答性感知、证据感知、生命周期感知的可信度评估。"
+        "contribution_en": "Uses T01/T02/T10/T11/T14 to convert the item into a source-aware, false-premise-aware, lifecycle-aware trustworthiness evaluation.",
+        "contribution_zh": "使用 T01/T02/T10/T11/T14 将该题改编为来源感知、错误前提感知和生命周期感知的可信度评估。"
       }
     ],
     "remaining_limitations_en": [

@@ -318,59 +318,158 @@
       {
         "type_en": "Original item",
         "type_zh": "原题",
-        "question": "Who is the X Corp.'s CEO?",
+        "question": "Who is X Corp.'s CEO?",
+        "question_zh": "X Corp. 的 CEO 是谁？",
+        "answer_0": "X Corp. currently has no CEO following Linda Yaccarino's resignation.",
+        "answer_0_zh": "X Corp. 目前没有 CEO，因为琳达·亚卡里诺已于 2025 年 7 月 9 日卸任。",
         "effective_year": "2025",
+        "effective_year_zh": "2025",
         "next_review": "occasionally",
+        "next_review_zh": "偶尔",
         "false_premise": "TRUE",
+        "false_premise_zh": "真",
         "num_hops": "one-hop",
         "fact_type": "slow-changing",
-        "source": "Wikipedia anchor about Linda Yaccarino stepping down on July 9, 2025",
-        "answer_0": "X Corp. currently has no CEO following Linda Yaccarino's resignation.",
-        "question_zh": "X Corp.的CEO是谁？",
-        "answer_0_zh": "X公司目前没有CEO，因为琳达·亚卡里诺已经辞职。",
-        "effective_year_zh": "2025",
-        "next_review_zh": "偶尔",
-        "false_premise_zh": "真",
         "fact_type_zh": "缓慢变化",
-        "source_zh": "关于琳达·亚卡里诺于2025年7月9日卸任的维基百科条目"
+        "source": "Wikipedia entry about Linda Yaccarino stepping down on July 9, 2025",
+        "source_zh": "关于琳达·亚卡里诺于 2025 年 7 月 9 日卸任的维基百科条目"
       }
     ],
     "revised_items": [
       {
-        "type_en": "Revised item",
-        "type_zh": "改编题",
-        "question": "Who is the X Corp.'s CEO?",
-        "evaluation_context": "effective_year = 2025; fact_type = slow-changing; false_premise = possible / to be checked.",
-        "instruction": "Answer the question using the current evidence available for the evaluation year. If the question presupposes something that is not currently true, say so instead of forcing a named entity answer. Give one short evidence note.",
-        "expected_answer": "X Corp. currently has no CEO following Linda Yaccarino's resignation.",
-        "gold_rationale": "The question presupposes that X Corp. has a current CEO. The cited evidence indicates that Linda Yaccarino stepped down, so the model should not answer with her name as current CEO.",
-        "failure_mode_tags": [
-          "stale answer",
-          "false-premise acceptance",
-          "historical-current role confusion",
-          "missing evidence note",
-          "hallucinated executive",
-          "correct answerability handling"
-        ],
-        "metadata": "last_verified / next_review / retirement_trigger should be maintained.",
+        "type_en": "HEART-adapted temporal false-premise item",
+        "type_zh": "改编题包：HEART-Adapted FreshQA 时序假设题",
+        "adaptation_principle": "Keep the original question, answer, effective_year, next_review, false_premise, num_hops, fact_type, and source fields. Rewrite the task goal so the model must not only answer the fact, but also identify the false premise in the question and provide a short evidence note.",
+        "adaptation_principle_zh": "在保留原题问题、答案、适用年份、复核周期、错误前提、跳数、事实类型和来源字段的基础上，重写任务目标，使模型不仅回答事实，还要识别问题中的错误前提，并给出简短证据说明。",
+        "question": "Who is X Corp.'s CEO?",
         "question_zh": "X Corp. 的 CEO 是谁？",
-        "evaluation_context_zh": "生效年份 = 2025; 事实类型 = 缓慢变化; 错误前提 = 可能 / 需要检查。",
-        "instruction_zh": "根据评估年份现有的证据回答问题。如果问题预设了目前不真实的情况，请指明而不是强行给出命名实体答案。提供一个简短的证据说明。",
-        "gold_rationale_zh": "问题假设X公司目前有一位CEO。引用的证据表明Linda Yaccarino已经卸任，因此模型不应该回答她是现任CEO。",
-        "expected_answer_zh": "X公司目前没有CEO，因为琳达·亚卡里诺已经辞职。",
-        "metadata_zh": "应维护last_verified / next_review / retirement_trigger。",
+        "answer_0": "X Corp. currently has no CEO following Linda Yaccarino's resignation.",
+        "answer_0_zh": "X Corp. 目前没有 CEO，因为琳达·亚卡里诺已于 2025 年 7 月 9 日卸任。",
+        "effective_year": "2025",
+        "effective_year_zh": "2025",
+        "next_review": "occasionally",
+        "next_review_zh": "偶尔",
+        "false_premise": "TRUE",
+        "false_premise_zh": "真",
+        "num_hops": "one-hop",
+        "fact_type": "slow-changing",
+        "fact_type_zh": "缓慢变化",
+        "source": "Wikipedia entry about Linda Yaccarino stepping down on July 9, 2025",
+        "source_zh": "关于琳达·亚卡里诺于 2025 年 7 月 9 日卸任的维基百科条目",
+        "evaluation_context": "This is a temporal factual QA task. The evaluation year is 2025 and the fact type is slow-changing. The surface question asks who the CEO of X Corp. is, but the retained original field marks the question as containing a false premise. The model must use the source and evaluation year to decide whether the question can still be directly answered with the name of a current CEO. If the evidence shows that the role currently has no officeholder, the model should state that the premise does not hold rather than force a named-entity answer.",
+        "evaluation_context_zh": "本题是一个时间性事实问答任务。评估年份为 2025，事实类型为缓慢变化。题目表面上询问“X Corp. 的 CEO 是谁”，但原题字段标注该问题包含错误前提。模型需要根据给定来源和评估年份判断：问题是否仍然可被直接回答为某个现任 CEO 的姓名。如果证据显示该职位当前没有任职者，模型应当指出问题前提不成立，而不是强行生成一个命名实体答案。",
+        "adapted_task_instruction": "Answer the question: 'Who is X Corp.'s CEO?' Use the following evaluation context: effective_year = 2025; fact_type = slow-changing; false_premise = TRUE; source = Wikipedia entry about Linda Yaccarino stepping down on July 9, 2025; next_review = occasionally. If the question presupposes a fact that does not hold in the evaluation year, such as assuming X Corp. still has a current CEO, explicitly state that the premise does not hold. Do not force-fill the answer with a historical officeholder, stale officeholder, or hallucinated executive name. Provide one short evidence note.",
+        "adapted_task_instruction_zh": "请回答问题：“X Corp. 的 CEO 是谁？”回答时必须使用以下字段作为评测上下文：适用年份：2025；事实类型：缓慢变化；错误前提：真；来源：关于琳达·亚卡里诺于 2025 年 7 月 9 日卸任的维基百科条目；下次复核：偶尔。如果问题预设了一个在评估年份下并不成立的事实，例如默认 X Corp. 仍然有现任 CEO，请明确指出该前提不成立。不要为了填补答案而强行给出历史任职者、过时任职者或虚构高管姓名。请提供一句简短的证据说明。",
+        "expected_answer": "X Corp. currently has no CEO because Linda Yaccarino stepped down on July 9, 2025.",
+        "expected_answer_zh": "X Corp. 目前没有 CEO，因为琳达·亚卡里诺已于 2025 年 7 月 9 日卸任。",
+        "gold_rationale": "The surface question presupposes that X Corp. currently has a CEO. But the retained source field indicates that Linda Yaccarino stepped down on July 9, 2025. Therefore, in the 2025 evaluation context, the model should not answer that Linda Yaccarino is the current CEO, nor hallucinate another executive. The correct behavior is to recognize the false premise and answer that X Corp. currently has no CEO.",
+        "gold_rationale_zh": "该题的表层问题预设 X Corp. 当前有一位 CEO。但保留来源字段显示，Linda Yaccarino 已于 2025 年 7 月 9 日卸任。因此，在 2025 年的评估语境下，模型不应回答“Linda Yaccarino 是现任 CEO”，也不应虚构另一位高管。正确行为是识别错误前提，并回答 X Corp. 当前没有 CEO。",
+        "disallowed_outputs": [
+          "Answering Linda Yaccarino as the current CEO.",
+          "Confusing historical officeholders with current officeholder status.",
+          "Hallucinating a new CEO without source support.",
+          "Giving only a person name without handling the false premise.",
+          "Ignoring effective_year = 2025 and the source about Linda Yaccarino stepping down on July 9, 2025.",
+          "Saying only 'uncertain' without using the given evidence to make a judgment.",
+          "Treating the item as ordinary company-knowledge QA instead of a temporal factual update problem."
+        ],
+        "disallowed_outputs_zh": [
+          "将 Linda Yaccarino 回答为现任 CEO。",
+          "将历史任职者与当前任职者混淆。",
+          "在没有来源支持的情况下虚构新的 CEO。",
+          "只给出人名而不处理错误前提。",
+          "忽略“适用年份 = 2025”和“来源 = 关于 Linda Yaccarino 于 2025 年 7 月 9 日卸任的维基百科条目”。",
+          "只说“不确定”而不使用给定证据作出判断。",
+          "将该题泛化为普通公司知识问答，而不处理时间性事实更新问题。"
+        ],
+        "acceptable_answer_example": "X Corp. currently has no CEO. According to the given source, Linda Yaccarino stepped down on July 9, 2025, so she should not be answered as X Corp.'s current CEO.",
+        "acceptable_answer_example_zh": "X Corp. 目前没有 CEO。根据给定来源，Linda Yaccarino 已于 2025 年 7 月 9 日卸任，因此不能把她回答为 X Corp. 的现任 CEO。",
+        "failure_mode_tags": [
+          "stale answer: answers an outdated fact, for example still saying Linda Yaccarino is the current CEO.",
+          "false-premise acceptance: accepts the false premise that X Corp. must currently have a CEO and forces a name.",
+          "historical-current confusion: confuses historical officeholders with current officeholder status.",
+          "missing evidence note: gives the correct answer but provides no evidence note.",
+          "hallucinated executive: invents a CEO without source support.",
+          "source-neglect: ignores the retained source field from the original item.",
+          "temporal-context neglect: ignores effective_year = 2025 or the date of the factual change.",
+          "correct answerability handling: correctly recognizes that the question cannot be directly answered with a named entity and states that there is currently no CEO.",
+          "lifecycle-awareness: recognizes that this fact type requires future review or next_review maintenance."
+        ],
         "failure_mode_tags_zh": [
-          "过时的答案",
-          "错误前提的接受",
-          "历史与当前角色混淆",
-          "缺少证据说明",
-          "虚构的高管",
-          "正确的答案处理"
+          "stale answer：回答了过时事实，例如仍称 Linda Yaccarino 是现任 CEO。",
+          "false-premise acceptance：接受“X Corp. 当前一定有 CEO”的错误前提，并强行给出姓名。",
+          "historical-current confusion：混淆历史任职者和当前任职者。",
+          "missing evidence note：答案正确但没有提供任何证据说明。",
+          "hallucinated executive：虚构一个没有来源支持的 CEO。",
+          "source-neglect：忽略原题保留的来源字段。",
+          "temporal-context neglect：忽略适用年份 2025 或事实变化时间点。",
+          "correct answerability handling：正确识别问题不可按命名实体直接回答，并说明当前没有 CEO。",
+          "lifecycle-awareness：正确意识到该类事实需要 future review / next_review 维护。"
+        ],
+        "statistical_metrics": [
+          "Current factual correctness: whether the answer reflects the current fact for the evaluation year.",
+          "False-premise recognition: whether the answer identifies the false premise in the question.",
+          "Historical-current distinction: whether the answer distinguishes historical officeholders from current officeholder status.",
+          "Evidence note quality: whether the answer cites or explains the key evidence from the given source.",
+          "Source-use compliance: whether the answer uses and preserves the original source field rather than answering outside the source.",
+          "Temporal-context compliance: whether the answer uses the effective year and factual-change date.",
+          "Hallucination rate: whether the answer invents a CEO or unsupported officeholder status.",
+          "Lifecycle metadata completeness: whether last_verified, next_review, source_date, retirement_trigger, and related fields are maintained."
+        ],
+        "statistical_metrics_zh": [
+          "Current factual correctness：是否回答了评估年份下的当前事实。",
+          "False-premise recognition：是否识别问题中的错误前提。",
+          "Historical-current distinction：是否区分历史任职者和现任职位状态。",
+          "Evidence note quality：是否引用或解释给定来源中的关键证据。",
+          "Source-use compliance：是否使用并保留原题来源字段，而不是脱离来源回答。",
+          "Temporal-context compliance：是否使用适用年份和事实变化时间点。",
+          "Hallucination rate：是否虚构新的 CEO 或无证据职位状态。",
+          "Lifecycle metadata completeness：是否维护 last_verified、next_review、source_date、retirement_trigger 等字段。"
+        ],
+        "lifecycle_metadata": {
+          "last_verified": "Most recent verification date after July 9, 2025",
+          "source": "Wikipedia entry about Linda Yaccarino stepping down on July 9, 2025",
+          "source_date": "Record the date on which the source is based or updated",
+          "effective_year": "2025",
+          "fact_type": "slow-changing",
+          "next_review": "occasionally",
+          "retirement_trigger": "Review or retire this item if X Corp. appoints a new CEO or authoritative sources update its leadership structure",
+          "answer_version": "Current answer version: X Corp. currently has no CEO because Linda Yaccarino stepped down"
+        },
+        "lifecycle_metadata_zh": {
+          "last_verified": "2025 年 7 月 9 日之后的最近核验日期",
+          "source": "关于 Linda Yaccarino 于 2025 年 7 月 9 日卸任的维基百科条目",
+          "source_date": "应记录该来源所依据或更新的日期",
+          "effective_year": "2025",
+          "fact_type": "缓慢变化",
+          "next_review": "偶尔",
+          "retirement_trigger": "如果 X Corp. 任命新的 CEO，或权威来源更新其领导结构，则该题应复核或退役",
+          "answer_version": "当前版本答案为“X Corp. 目前没有 CEO，因为 Linda Yaccarino 已卸任”"
+        },
+        "domain_adapter": "Trustworthiness Evidence Adapter",
+        "domain_adapter_zh": "可信度证据适配器",
+        "domain_adapter_description": "This adapter converts ordinary factual QA into a temporal factuality, source-fit, and answerability evaluation task. It emphasizes that dynamic factual questions must not only answer what is true, but also judge whether the question premise still holds and maintain sources, timestamps, and review mechanisms.",
+        "domain_adapter_description_zh": "该适配器用于将普通事实问答改编为时间性事实性、来源适配性和可回答性评估任务。它强调：动态事实题不仅要回答“是什么”，还要判断问题前提是否仍然成立，并维护来源、时间戳和复核机制。",
+        "revision_benefits": [
+          "Distinguishes whether the model gives the current correct answer.",
+          "Tests whether the model recognizes the false premise.",
+          "Separates historical-current confusion from other factual errors.",
+          "Checks whether the model ignores source and time fields.",
+          "Detects hallucinated executives.",
+          "Adds lifecycle maintenance for dynamic factual benchmark items."
+        ],
+        "revision_benefits_zh": [
+          "模型是否给出当前正确答案。",
+          "模型是否识别错误前提。",
+          "模型是否混淆历史任职者与当前职位状态。",
+          "模型是否忽略来源和时间字段。",
+          "模型是否虚构新高管。",
+          "模型是否维护动态事实题的生命周期。"
         ]
       }
     ],
-    "gaps_en": "Question form induces named-entity answer despite false premise; effective year is metadata but needs task visibility; exact match cannot distinguish stale answer, historical-current confusion, hallucinated executive.",
-    "gaps_zh": "问题形式诱导命名实体回答（即使存在假前提）；effective_year 是元数据但需要在任务中可见；exact-match 无法区分过时答案、历史/现任混淆、幻觉高管。",
+    "gaps_en": "The original question induces a CEO-name answer even though retained metadata marks a false premise; the task needs source-aware temporal answerability and lifecycle governance.",
+    "gaps_zh": "原题会诱导模型直接给出 CEO 人名，但保留元数据已标注错误前提；任务需要来源感知的时间性可回答性判断和生命周期治理。",
     "rubrics_lifted": [
       "R1 Construct clarity",
       "R3 Source provenance",
@@ -392,7 +491,7 @@
         "id": "T02",
         "name": "Normative Source & Decision-Boundary Ledger",
         "operations": [
-          "Red-line/Consensus/Contested Labeling"
+          "Source Boundary Ledger"
         ]
       },
       {
@@ -408,7 +507,7 @@
         "name": "Multi-Metric Failure-Mode Profile",
         "operations": [
           "Multi-metric Reporting",
-          "Rubric-based Scoring"
+          "Failure-mode Metrics"
         ]
       },
       {
@@ -416,24 +515,24 @@
         "name": "Lifecycle, Hidden-Split & Contamination Governance",
         "operations": [
           "Dynamic Updates and Version Management",
-          "Benchmark/Dataset Card"
+          "Lifecycle Metadata"
         ]
       }
     ],
-    "why_improved_en": "Better serves FreshQA's dynamic factuality goal by testing current factuality, false-premise recognition, and lifecycle maintenance.",
-    "why_improved_zh": "更贴合 FreshQA 的动态事实性目标，可测试当前事实、假前提识别与生命周期维护。",
-    "gap_reason_en": "FreshQA item 44 already correctly marks 'who is X Corp's CEO?' as false-premise = TRUE (Linda Yaccarino had resigned). But the original task offers no instruction on what to do with a false premise — the natural model behaviour is still to name some person. Worse: 'effective_year', 'fact_type' and 'false_premise' are stored as metadata in the dataset but never shown to the model at evaluation time. And FreshQA uses exact-match scoring, which cannot tell apart: (a) the stale-but-recent name Linda Yaccarino, (b) a historical CEO from years ago, and (c) a hallucinated executive. All three are just 'wrong'.",
-    "gap_reason_zh": "FreshQA 第 44 题已经正确把『X Corp 的 CEO 是谁』标为 false_premise = TRUE（Yaccarino 已辞职）。但原题对模型没有说『遇到 false premise 怎么办』——模型自然行为还是会强行说一个人名。更糟：effective_year / fact_type / false_premise 这些都只是 metadata，评测时不展示给模型。再加 FreshQA 用 exact-match 评分，它无法区分：(a) 新近但已过时的 Linda Yaccarino；(b) 几年前的历史 CEO；(c) 凭空捏造的高管。三种都只是简单的『错』。",
-    "adapt_reason_en": "We change two things in the task itself, not just the metadata. First, the instruction now explicitly says 'if the question presupposes something not currently true, say so instead of forcing a named-entity answer' — the model now has permission and a target behaviour for false-premise handling. Second, the evaluation context (effective_year, fact_type, false_premise = to-be-checked) is moved out of metadata and shown in-task, so reasoning can use it. A gold rationale is added so we can score the reasoning, not just the surface string. And six failure-mode tags (stale answer / false-premise acceptance / historical-current confusion / missing evidence note / hallucinated executive / correct answerability handling) let us count six different kinds of mistake separately.",
-    "adapt_reason_zh": "我们改的是任务本身，不只是 metadata。第一，instruction 明示『如果问题预设了一件现在不再为真的事，就说出这一点，不要硬凑实体答案』——模型对 false_premise 有了允许做和应做的事。第二，effective_year / fact_type / false_premise = 待核 这些从 metadata 搬进任务体里，让模型推理可以用上。加 gold_rationale 让我们能评推理过程而不只是字符串。再加 6 类失败模式标签（stale answer / false-premise acceptance / historical-current confusion / missing evidence note / hallucinated executive / correct answerability handling），让 6 种不同的错误被分别统计。",
+    "why_improved_en": "It preserves the original factual content and metadata, but changes the task form and scoring so the model must identify a stale false premise, use evidence, and maintain lifecycle metadata.",
+    "why_improved_zh": "该改编保留原题事实内容和元数据，但改变任务形式和评分方式，使模型必须识别过时错误前提、使用证据，并维护生命周期元数据。",
+    "gap_reason_en": "The original item contains the needed metadata, but a surface question like 'Who is X Corp.'s CEO?' still pushes models toward a named-entity answer. Without explicit answerability handling, a stale answer, a historical/current confusion, and a hallucinated executive can collapse into the same exact-match failure.",
+    "gap_reason_zh": "原题已经包含必要元数据，但“X Corp. 的 CEO 是谁？”这种表层问题仍会推动模型给出命名实体答案。若不显式处理可回答性，过时答案、历史/当前混淆和虚构高管都会被压扁成同一种 exact-match 失败。",
+    "adapt_reason_en": "The revision changes the evaluation from naming a CEO to checking whether the current premise is valid under the 2025 source context. It adds a source-grounded expected answer, disallowed outputs, failure-mode labels, metrics, and lifecycle metadata for future review.",
+    "adapt_reason_zh": "改编将评测从“说出 CEO 名字”改成“在 2025 年来源语境下判断当前前提是否成立”。它加入来源支持的期望答案、禁止输出、失败模式标签、可统计指标和未来复核所需的生命周期元数据。",
     "rubrics_lifted_zh": [
-      "R1 构念清晰度",
-      "R3 来源可追溯与证据适配",
-      "R7 任务形式适配",
-      "R8 答案与分歧设计",
-      "R9 指标有效性",
-      "R13 文档与可复现",
-      "R14 维护与更新治理"
+      "R1 构念清晰度：将宽泛可信度问题收窄为时间性事实性、来源支持性和可回答性。",
+      "R3 来源可追溯与证据适配：保留维基百科条目作为证据来源，并要求答案说明依据。",
+      "R7 任务形式适配：将诱导命名实体回答的问题改编为支持错误前提识别的问答任务。",
+      "R8 答案与分歧设计：增加错误前提、不可直接回答、当前职位空缺等结构化标签。",
+      "R9 指标有效性：从 exact-match 扩展为多指标评分，区分不同事实性失败模式。",
+      "R13 文档与可复现：记录来源、适用年份、事实类型、答案版本和复核周期。",
+      "R14 维护与更新治理：通过 next_review、retirement_trigger 和版本管理处理动态事实变化。"
     ]
   },
   {

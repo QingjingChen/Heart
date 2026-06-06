@@ -546,9 +546,14 @@ const ITEM_LABELS = {
   disallowed_output:             ['Disallowed output',             '禁止输出'],
   disallowed_outputs:            ['Disallowed outputs',            '禁止输出'],
   expected_safe_rewrite_example: ['Expected safe rewrite example', '期望安全改写示例'],
+  acceptable_answer_example:     ['Acceptable answer example',     '可接受回答示例'],
+  adaptation_principle:          ['Adaptation principle',          '改编原则'],
   adapted_task_instruction:      ['Adapted task instruction',      '改编后任务指令'],
   statistical_metrics:           ['Statistical metrics',           '可统计指标'],
+  lifecycle_metadata:            ['Lifecycle metadata',            '生命周期元数据'],
   domain_adapter:                ['Domain adapter',                '领域适配器'],
+  domain_adapter_description:    ['Domain adapter description',    '领域适配器说明'],
+  revision_benefits:             ['Revision benefits',             '改编收益'],
   task_type:                     ['Task type',                     '任务类型'],
   core_evaluation_target:        ['Core evaluation target',        '核心评测目标'],
   type:                          ['Type',                          '类型'],
@@ -587,6 +592,7 @@ const OP_ZH = {
   'Dynamic Updates and Version Management': '动态更新与版本管理',
   'Failure-mode Metrics': '失败模式指标',
   'Information-flow Template': '信息流模板',
+  'Lifecycle Metadata': '生命周期元数据',
   'Multi-metric / Failure-mode Reporting': '多指标/失败模式报告',
   'Multi-metric Reporting': '多指标报告',
   'Multi-rater Aggregation': '多评分者聚合',
@@ -601,6 +607,7 @@ const OP_ZH = {
   'Rubric-based Scoring': '基于细则评分',
   'Safe/Unsafe Contrast Set': '安全/不安全对照集',
   'Scenario Template': '场景模板',
+  'Source Boundary Ledger': '来源边界台账',
   'Stakeholder Coverage Expansion': '利益相关方覆盖扩展',
   'Temporal/factuality checks': '时效性/事实性核查',
 };
@@ -630,9 +637,12 @@ function renderItem(it) {
     'vignette',
     'executable_trajectory',
     'retained_executable_trajectory',
+    'evaluation_context',
     'expected_safe_output',
     'disallowed_output',
-    'adapted_task_instruction'
+    'adaptation_principle',
+    'adapted_task_instruction',
+    'domain_adapter_description'
   ]);
   // Helper to render a string field with the right layout
   const stringField = (fld) => {
@@ -652,6 +662,18 @@ function renderItem(it) {
       <ul class="options lang-zh">${vZh.map(x=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ul>
     </div>`;
   };
+  const objectField = (fld) => {
+    const v = it[fld];
+    if (!v || typeof v !== 'object' || Array.isArray(v)) return '';
+    const vZh = it[fld + '_zh'] && typeof it[fld + '_zh'] === 'object' ? it[fld + '_zh'] : v;
+    const [labelEn, labelZh] = ITEM_LABELS[fld] || [fld, fld];
+    const rowsEn = Object.entries(v).map(([k,val]) => `<li><b>${escapeHtml(k)}:</b> ${escapeHtml(String(val))}</li>`).join('');
+    const rowsZh = Object.entries(vZh).map(([k,val]) => `<li><b>${escapeHtml(k)}：</b>${escapeHtml(String(val))}</li>`).join('');
+    return `<div class="item-field"><b><span class="lang-en">${labelEn}:</span><span class="lang-zh">${labelZh}：</span></b>
+      <ul class="options lang-en">${rowsEn}</ul>
+      <ul class="options lang-zh">${rowsZh}</ul>
+    </div>`;
+  };
 
   html += stringField('context');
   html += stringField('vignette');
@@ -667,6 +689,7 @@ function renderItem(it) {
   html += stringField('original_sensitive_info');
   html += stringField('question');
   html += stringField('evaluation_context');
+  html += stringField('adaptation_principle');
   // prompt: wrap value in quotes
   if (it.prompt) {
     const z = it.prompt_zh || it.prompt;
@@ -699,6 +722,12 @@ function renderItem(it) {
       <div class="case-narr-body" style="white-space:pre-wrap;margin-top:4px"><span class="lang-en">${escapeHtml(it.expected_safe_rewrite_example)}</span><span class="lang-zh">${escapeHtml(z)}</span></div>
     </div>`;
   }
+  if (it.acceptable_answer_example) {
+    const z = it.acceptable_answer_example_zh || it.acceptable_answer_example;
+    html += `<div class="item-field"><b><span class="lang-en">Acceptable answer example:</span><span class="lang-zh">可接受回答示例：</span></b>
+      <div class="case-narr-body" style="white-space:pre-wrap;margin-top:4px"><span class="lang-en">${escapeHtml(it.acceptable_answer_example)}</span><span class="lang-zh">${escapeHtml(z)}</span></div>
+    </div>`;
+  }
   if (it.required_response_features) {
     const feats = it.required_response_features;
     const featsZh = it.required_response_features_zh || feats;
@@ -710,7 +739,10 @@ function renderItem(it) {
   html += stringField('task_type');
   html += stringField('core_evaluation_target');
   html += listField('statistical_metrics');
+  html += objectField('lifecycle_metadata');
   html += stringField('domain_adapter');
+  html += stringField('domain_adapter_description');
+  html += listField('revision_benefits');
   if (it.type && !it.task_type) html += stringField('type');
   html += stringField('label');
   html += stringField('focus');

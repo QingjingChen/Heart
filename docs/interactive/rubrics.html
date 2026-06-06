@@ -25,29 +25,19 @@
   border-radius: var(--radius);
   padding: 12px;
 }
-.rubric-index-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 8px;
-}
-.rubric-index-btn {
+.rubric-code-btn {
   border: 1px solid var(--border);
-  background: var(--surface);
-  border-radius: 6px;
-  padding: 8px 10px;
-  text-align: left;
+  background: rgba(255,255,255,.75);
+  border-radius: 12px;
+  padding: 2px 8px;
   cursor: pointer;
-  font-size: 12px;
-  line-height: 1.35;
+  font-size: 11.5px;
+  color: var(--primary);
+  margin: 2px 3px 2px 0;
 }
-.rubric-index-btn:hover {
+.rubric-code-btn:hover {
   border-color: var(--primary);
-  color: var(--primary);
-}
-.rubric-index-btn b {
-  display: inline-block;
-  min-width: 32px;
-  color: var(--primary);
+  background: white;
 }
 
 .anchor-grid {
@@ -278,27 +268,40 @@
     <div class="layer-cell">
       <b><span class="lang-en">Content Validity</span><span class="lang-zh">内容有效性</span></b>
       <span class="muted" style="font-size:11px"><span class="lang-en">What the benchmark claims to measure</span><span class="lang-zh">benchmark 声称在测的是什么</span></span>
-      <div class="layer-rubrics-list" style="margin-top:6px">R1 · R2 · R3 · R4 · R5</div>
+      <div class="layer-rubrics-list" style="margin-top:6px">
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R1')">R1</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R2')">R2</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R3')">R3</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R4')">R4</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R5')">R5</button>
+      </div>
     </div>
     <div class="layer-cell">
       <b><span class="lang-en">Evaluation Design</span><span class="lang-zh">评测设计</span></b>
       <span class="muted" style="font-size:11px"><span class="lang-en">How claims become items + scores</span><span class="lang-zh">声称如何变成题目和分数</span></span>
-      <div class="layer-rubrics-list" style="margin-top:6px">R6 · R7 · R8 · R9 · R10</div>
+      <div class="layer-rubrics-list" style="margin-top:6px">
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R6')">R6</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R7')">R7</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R8')">R8</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R9')">R9</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R10')">R10</button>
+      </div>
     </div>
     <div class="layer-cell">
       <b><span class="lang-en">Governance Reliability</span><span class="lang-zh">治理可靠性</span></b>
       <span class="muted" style="font-size:11px"><span class="lang-en">How it stays auditable and current</span><span class="lang-zh">如何保持可审计和长期有效</span></span>
-      <div class="layer-rubrics-list" style="margin-top:6px">R11 · R12 · R13 · R14</div>
+      <div class="layer-rubrics-list" style="margin-top:6px">
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R11')">R11</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R12')">R12</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R13')">R13</button>
+        <button class="rubric-code-btn" type="button" onclick="openRubricByCode('R14')">R14</button>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="card" id="chart-card">
   <div id="chart" style="width:100%;height:860px;min-height:860px;"></div>
-</section>
-<section class="card">
-  <h2><span class="lang-en">Rubric Quick Index</span><span class="lang-zh">Rubric 快捷索引</span></h2>
-  <div id="rubric-index" class="rubric-index-grid"></div>
 </section>
 </main>
 
@@ -342,7 +345,6 @@ async function init() {
     return a.mean - b.mean;
   });
   buildChart();
-  buildRubricIndex();
 }
 
 function buildChart() {
@@ -445,17 +447,11 @@ function buildChart() {
   });
   document.getElementById('chart').on('plotly_legenddoubleclick', () => false);
 }
-function buildRubricIndex() {
-  const lang = (window.HEART_LANG && window.HEART_LANG.get()) || 'en';
-  const target = document.getElementById('rubric-index');
-  if (!target) return;
-  target.innerHTML = RUBRICS.map(r => {
-    const label = lang === 'zh' ? (r.name_zh || r.name) : r.name;
-    const layer = lang === 'zh' ? (LAYER_ZH[r.layer] || r.layer) : r.layer;
-    return `<button class="rubric-index-btn" type="button" onclick="openRubric('${r.name.replace(/'/g, "\\'")}')"><b>${r.code}</b> ${escapeHtml(label)}<br><span class="muted">${escapeHtml(layer)}</span></button>`;
-  }).join('');
+function openRubricByCode(code) {
+  const r = RUBRICS.find(x => x.code === code);
+  if (r) openRubric(r.name);
 }
-window.addEventListener('heart-lang-change', () => { if (RUBRICS.length) { buildChart(); buildRubricIndex(); } });
+window.addEventListener('heart-lang-change', () => { if (RUBRICS.length) buildChart(); });
 
 function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
