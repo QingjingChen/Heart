@@ -25,6 +25,30 @@
   border-radius: var(--radius);
   padding: 12px;
 }
+.rubric-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 8px;
+}
+.rubric-index-btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 8px 10px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.35;
+}
+.rubric-index-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.rubric-index-btn b {
+  display: inline-block;
+  min-width: 32px;
+  color: var(--primary);
+}
 
 .anchor-grid {
   display: grid;
@@ -270,7 +294,11 @@
 </section>
 
 <section class="card" id="chart-card">
-  <div id="chart" style="width:100%;height:760px;min-height:760px;"></div>
+  <div id="chart" style="width:100%;height:860px;min-height:860px;"></div>
+</section>
+<section class="card">
+  <h2><span class="lang-en">Rubric Quick Index</span><span class="lang-zh">Rubric 快捷索引</span></h2>
+  <div id="rubric-index" class="rubric-index-grid"></div>
 </section>
 </main>
 
@@ -314,13 +342,14 @@ async function init() {
     return a.mean - b.mean;
   });
   buildChart();
+  buildRubricIndex();
 }
 
 function buildChart() {
   const lang = (window.HEART_LANG && window.HEART_LANG.get()) || 'en';
   const labels = RUBRICS.map(r => `${r.code}  ${lang==='zh' ? (r.name_zh||r.name) : r.name}`);
   const chartEl = document.getElementById('chart');
-  const chartHeight = Math.max(760, RUBRICS.length * 48 + 170);
+  const chartHeight = Math.max(860, RUBRICS.length * 56 + 210);
   chartEl.style.height = `${chartHeight}px`;
   const traces = [];
   for (let s=0; s<=5; s++) {
@@ -388,7 +417,18 @@ function buildChart() {
     height: chartHeight,
     margin:{l:220, r:90, t:20, b:90},
     xaxis:{range:[0,100], title: lang==='zh' ? '审计条目分布（%）' : 'Share of audited entries (%)', tickfont:{size:10}, gridcolor:'#E5E7EB'},
-    yaxis:{automargin:true, tickfont:{size:10.5}, autorange:'reversed'},
+    yaxis:{
+      automargin:true,
+      tickfont:{size:10.5},
+      autorange:'reversed',
+      type:'category',
+      categoryorder:'array',
+      categoryarray:labels,
+      tickmode:'array',
+      tickvals:labels,
+      ticktext:labels,
+      dtick:1
+    },
     legend:{orientation:'h', y:-0.13, x:0.5, xanchor:'center', font:{size:11}},
     annotations,
     shapes,
@@ -405,7 +445,17 @@ function buildChart() {
   });
   document.getElementById('chart').on('plotly_legenddoubleclick', () => false);
 }
-window.addEventListener('heart-lang-change', () => { if (RUBRICS.length) buildChart(); });
+function buildRubricIndex() {
+  const lang = (window.HEART_LANG && window.HEART_LANG.get()) || 'en';
+  const target = document.getElementById('rubric-index');
+  if (!target) return;
+  target.innerHTML = RUBRICS.map(r => {
+    const label = lang === 'zh' ? (r.name_zh || r.name) : r.name;
+    const layer = lang === 'zh' ? (LAYER_ZH[r.layer] || r.layer) : r.layer;
+    return `<button class="rubric-index-btn" type="button" onclick="openRubric('${r.name.replace(/'/g, "\\'")}')"><b>${r.code}</b> ${escapeHtml(label)}<br><span class="muted">${escapeHtml(layer)}</span></button>`;
+  }).join('');
+}
+window.addEventListener('heart-lang-change', () => { if (RUBRICS.length) { buildChart(); buildRubricIndex(); } });
 
 function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 

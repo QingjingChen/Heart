@@ -527,7 +527,9 @@ const ITEM_LABELS = {
   context:                       ['Context',                       '情境'],
   vignette:                      ['Vignette',                      '故事情景'],
   executable_trajectory:         ['Executable trajectory',         '可执行轨迹'],
+  retained_executable_trajectory:['Retained executable trajectory','保留的可执行轨迹'],
   sensitive_info:                ['Sensitive info',                '敏感信息'],
+  original_sensitive_info:       ['Original sensitive info',       '原始敏感信息'],
   toolkits:                      ['Toolkits',                      '工具包'],
   question:                      ['Question',                      '问题'],
   evaluation_context:            ['Eval context',                  '评测情境'],
@@ -540,8 +542,13 @@ const ITEM_LABELS = {
   expected_response_type:        ['Expected response type',        '期望回复类型'],
   gold_response_principles:      ['Gold response principles',      '标准回复原则'],
   expected_safe_output:          ['Expected safe output',          '期望安全输出'],
+  safe_output_criteria:          ['Safe-output criteria',          '安全回答应当'],
   disallowed_output:             ['Disallowed output',             '禁止输出'],
+  disallowed_outputs:            ['Disallowed outputs',            '禁止输出'],
   expected_safe_rewrite_example: ['Expected safe rewrite example', '期望安全改写示例'],
+  adapted_task_instruction:      ['Adapted task instruction',      '改编后任务指令'],
+  statistical_metrics:           ['Statistical metrics',           '可统计指标'],
+  domain_adapter:                ['Domain adapter',                '领域适配器'],
   task_type:                     ['Task type',                     '任务类型'],
   core_evaluation_target:        ['Core evaluation target',        '核心评测目标'],
   type:                          ['Type',                          '类型'],
@@ -578,12 +585,17 @@ const OP_ZH = {
   'Construct Definition': '构念界定',
   'Contextual Integrity Test': '情境完整性测试',
   'Dynamic Updates and Version Management': '动态更新与版本管理',
+  'Failure-mode Metrics': '失败模式指标',
+  'Information-flow Template': '信息流模板',
   'Multi-metric / Failure-mode Reporting': '多指标/失败模式报告',
   'Multi-metric Reporting': '多指标报告',
   'Multi-rater Aggregation': '多评分者聚合',
   'Normative Source Coding': '规范来源编码',
   'Professional Boundary Rubric': '专业边界评分细则',
+  'Privacy-preserving Helpfulness Scoring': '隐私保护型有用性评分',
+  'Protected-interest Mapping': '受保护利益映射',
   'Red-line/Consensus/Contested Labeling': '红线/共识/争议标注',
+  'Recipient Authorization Boundary': '接收者授权边界',
   'Retrieval + entailment': '检索与蕴含核验',
   'Risk-level Classification': '风险等级分类',
   'Rubric-based Scoring': '基于细则评分',
@@ -613,7 +625,15 @@ function renderItem(it) {
     return `<div class="item-field"><b><span class="lang-en">${labelEn}:</span><span class="lang-zh">${labelZh}：</span></b><br><span class="lang-en">${valEn}</span><span class="lang-zh">${valZh}</span></div>`;
   };
   // Multi-line fields render as block rows; short scalar fields as inline rows.
-  const BLOCK_FIELDS = new Set(['context','vignette','executable_trajectory']);
+  const BLOCK_FIELDS = new Set([
+    'context',
+    'vignette',
+    'executable_trajectory',
+    'retained_executable_trajectory',
+    'expected_safe_output',
+    'disallowed_output',
+    'adapted_task_instruction'
+  ]);
   // Helper to render a string field with the right layout
   const stringField = (fld) => {
     const v = it[fld];
@@ -621,6 +641,16 @@ function renderItem(it) {
     const vZh = it[fld + '_zh'] || v;
     const [labelEn, labelZh] = ITEM_LABELS[fld] || [fld, fld];
     return (BLOCK_FIELDS.has(fld) ? rowBlock : row)(labelEn, labelZh, String(v), String(vZh));
+  };
+  const listField = (fld) => {
+    const v = it[fld];
+    if (!Array.isArray(v) || !v.length) return '';
+    const vZh = Array.isArray(it[fld + '_zh']) ? it[fld + '_zh'] : v;
+    const [labelEn, labelZh] = ITEM_LABELS[fld] || [fld, fld];
+    return `<div class="item-field"><b><span class="lang-en">${labelEn}:</span><span class="lang-zh">${labelZh}：</span></b>
+      <ul class="options lang-en">${v.map(x=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ul>
+      <ul class="options lang-zh">${vZh.map(x=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ul>
+    </div>`;
   };
 
   html += stringField('context');
@@ -630,9 +660,11 @@ function renderItem(it) {
     for (const [k,v] of Object.entries(it.seed)) html += `<code style="background:var(--bg);padding:1px 5px;border-radius:3px;margin:0 2px">${k}=${v}</code> `;
     html += `</div>`;
   }
-  html += stringField('executable_trajectory');
-  html += stringField('sensitive_info');
   html += stringField('toolkits');
+  html += stringField('executable_trajectory');
+  html += stringField('retained_executable_trajectory');
+  html += stringField('sensitive_info');
+  html += stringField('original_sensitive_info');
   html += stringField('question');
   html += stringField('evaluation_context');
   // prompt: wrap value in quotes
@@ -646,6 +678,7 @@ function renderItem(it) {
     html += `<ul class="options lang-en">${optsEn.map(o=>`<li>${o}</li>`).join('')}</ul>`;
     html += `<ul class="options lang-zh">${optsZh.map(o=>`<li>${o}</li>`).join('')}</ul>`;
   }
+  html += stringField('adapted_task_instruction');
   html += stringField('instruction');
   if (it.gold) {
     const z = it.gold_zh || it.gold;
@@ -657,10 +690,14 @@ function renderItem(it) {
   html += stringField('expected_response_type');
   html += stringField('gold_response_principles');
   html += stringField('expected_safe_output');
+  html += listField('safe_output_criteria');
   html += stringField('disallowed_output');
+  html += listField('disallowed_outputs');
   if (it.expected_safe_rewrite_example) {
     const z = it.expected_safe_rewrite_example_zh || it.expected_safe_rewrite_example;
-    html += `<div class="item-field"><b><span class="lang-en">Expected safe rewrite example:</span><span class="lang-zh">期望安全改写示例：</span></b> <span class="lang-en">"${it.expected_safe_rewrite_example}"</span><span class="lang-zh">"${z}"</span></div>`;
+    html += `<div class="item-field"><b><span class="lang-en">Expected safe rewrite example:</span><span class="lang-zh">可接受的安全改写示例：</span></b>
+      <div class="case-narr-body" style="white-space:pre-wrap;margin-top:4px"><span class="lang-en">${escapeHtml(it.expected_safe_rewrite_example)}</span><span class="lang-zh">${escapeHtml(z)}</span></div>
+    </div>`;
   }
   if (it.required_response_features) {
     const feats = it.required_response_features;
@@ -672,6 +709,8 @@ function renderItem(it) {
   }
   html += stringField('task_type');
   html += stringField('core_evaluation_target');
+  html += listField('statistical_metrics');
+  html += stringField('domain_adapter');
   if (it.type && !it.task_type) html += stringField('type');
   html += stringField('label');
   html += stringField('focus');
