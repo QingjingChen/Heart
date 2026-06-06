@@ -229,63 +229,63 @@
 .layer-card b { display: block; color: #5D2E0C; font-size: 11.5px; }
 .layer-card .layer-r { color: #8E4310; font-size: 10.5px; font-family: ui-monospace, monospace; }
 
-/* Block C: wrench-shaped repair toolkit */
+/* Block C: parallel tool-handle chips */
 .repair-wrench {
-  position: relative;
-  width: 222px;
-  height: 202px;
+  display: grid;
+  grid-template-columns: repeat(4, 42px);
+  gap: 12px 9px;
+  width: 198px;
   margin: auto;
-}
-.repair-wrench .wrench-ghost {
-  position: absolute;
-  right: 14px;
-  top: 2px;
-  width: 82px;
-  height: 82px;
-  opacity: .14;
-  transform: rotate(-18deg);
-  object-fit: contain;
-}
-.repair-wrench .wrench-bar {
-  position: absolute;
-  left: 36px;
-  top: 118px;
-  width: 142px;
-  height: 18px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #F59B45, #E65100);
-  transform: rotate(-34deg);
-  opacity: .34;
+  justify-content: center;
+  align-content: center;
 }
 .repair-wrench .tool-chip {
-  position: absolute;
-  width: 28px;
-  height: 36px;
+  position: relative;
+  width: 42px;
+  height: 31px;
+  border: 1.4px solid #F59B45;
+  border-radius: 7px;
+  background: #FFF4E0;
   color: #7A3500;
   font-size: 8.5px;
-  line-height: 1;
+  line-height: 29px;
   text-align: center;
-  font-weight: 600;
-  border: 0;
-  box-shadow: none;
-  background: transparent;
+  font-weight: 700;
+  box-shadow: 0 2px 5px rgba(230,81,0,.12);
 }
-.repair-wrench .tool-chip img {
-  display: block;
-  width: 24px;
-  height: 24px;
-  margin: 0 auto 1px;
-  object-fit: contain;
+.repair-wrench .tool-chip::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  width: 17px;
+  height: 8px;
+  transform: translateX(-50%);
+  border: 1.4px solid #F59B45;
+  border-bottom: 0;
+  border-radius: 9px 9px 0 0;
+  background: #FFF8EE;
+}
+.repair-wrench .tool-chip.head {
+  border-color: #E65100;
+  background: #FDEBD6;
+}
+.repair-wrench .tool-chip.head::before {
+  border-color: #E65100;
+  background: #FFF4E0;
+}
+.repair-wrench .tool-chip.alt {
+  border-color: #D9822B;
+}
+.repair-wrench .tool-chip.alt::before {
+  border-color: #D9822B;
 }
 .repair-wrench .tool-chip span {
   display: block;
 }
 .repair-wrench .wrench-label {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 190px;
+  grid-column: 1 / -1;
+  width: 184px;
   color: var(--text-muted);
   font-size: 10px;
   text-align: center;
@@ -495,22 +495,20 @@
     <div class="arch-sub"><span class="lang-en">14 repair tools + Audit→Tool gap index</span><span class="lang-zh">14 件修复工具 + Audit→Tool 缺口矩阵</span></div>
     <div class="arch-content">
       <div class="repair-wrench" aria-label="14 repair tools arranged as a small wrench">
-        <img class="wrench-ghost" src="assets/architecture_icons/tool-wrench-pale.svg" alt="">
-        <div class="wrench-bar"></div>
-        <div class="tool-chip alt" style="left:8px;top:136px"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T01</span></div>
-        <div class="tool-chip alt" style="left:30px;top:122px"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T02</span></div>
-        <div class="tool-chip alt" style="left:52px;top:108px"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T03</span></div>
-        <div class="tool-chip alt" style="left:74px;top:94px"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T04</span></div>
-        <div class="tool-chip alt" style="left:96px;top:80px"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T05</span></div>
-        <div class="tool-chip alt" style="left:118px;top:66px"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T06</span></div>
-        <div class="tool-chip head" style="left:142px;top:32px"><img src="assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T07</span></div>
-        <div class="tool-chip head" style="left:170px;top:22px"><img src="assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T08</span></div>
-        <div class="tool-chip head" style="left:190px;top:46px"><img src="assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T09</span></div>
-        <div class="tool-chip head" style="left:184px;top:74px"><img src="assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T10</span></div>
-        <div class="tool-chip head" style="left:156px;top:88px"><img src="assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T11</span></div>
-        <div class="tool-chip head" style="left:132px;top:84px"><img src="assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T12</span></div>
-        <div class="tool-chip" style="left:90px;top:116px"><img src="assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T13</span></div>
-        <div class="tool-chip" style="left:118px;top:124px"><img src="assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T14</span></div>
+        <div class="tool-chip alt"><span>T01</span></div>
+        <div class="tool-chip alt"><span>T02</span></div>
+        <div class="tool-chip alt"><span>T03</span></div>
+        <div class="tool-chip alt"><span>T04</span></div>
+        <div class="tool-chip alt"><span>T05</span></div>
+        <div class="tool-chip alt"><span>T06</span></div>
+        <div class="tool-chip head"><span>T07</span></div>
+        <div class="tool-chip head"><span>T08</span></div>
+        <div class="tool-chip head"><span>T09</span></div>
+        <div class="tool-chip head"><span>T10</span></div>
+        <div class="tool-chip head"><span>T11</span></div>
+        <div class="tool-chip head"><span>T12</span></div>
+        <div class="tool-chip"><span>T13</span></div>
+        <div class="tool-chip"><span>T14</span></div>
         <div class="wrench-label"><span class="lang-en">Diagnosis gaps become concrete repair operations.</span><span class="lang-zh">诊断缺口转成可执行的修复操作。</span></div>
       </div>
     </div>
