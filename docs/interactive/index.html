@@ -129,8 +129,8 @@
 }
 .scope-heart .scope-node {
   position: absolute;
-  width: 54px;
-  height: 54px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: var(--surface);
   border: 1.4px solid #F1C9BC;
@@ -142,38 +142,17 @@
   z-index: 2;
 }
 .scope-heart .scope-node img {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 .scope-heart .scope-node.scope-human {
-  width: 62px;
-  height: 62px;
-}
-.scope-heart .scope-node.scope-human img {
-  width: 39px;
-  height: 39px;
-}
-.scope-heart .scope-audit {
-  position: absolute;
-  left: 50%;
-  top: 41%;
-  transform: translate(-50%,-50%);
   width: 58px;
   height: 58px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid #B94949;
-  color: #B94949;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 9px;
-  line-height: 1.1;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(185,73,73,.12);
-  z-index: 3;
+}
+.scope-heart .scope-node.scope-human img {
+  width: 37px;
+  height: 37px;
 }
 .scope-heart .scope-label {
   position: absolute;
@@ -195,8 +174,14 @@
 .scope-heart .scope-label.human { background: #9E9E9E; }
 .scope-heart .scope-link {
   stroke-linecap: round;
-  stroke-width: 1.15;
+  stroke-width: 1.35;
   opacity: .82;
+}
+.scope-heart .scope-heartline {
+  fill: rgba(185,73,73,.065);
+  stroke: #B94949;
+  stroke-width: 3;
+  opacity: .95;
 }
 .scope-heart .scope-caption {
   position: absolute;
@@ -229,56 +214,32 @@
 .layer-card b { display: block; color: #5D2E0C; font-size: 11.5px; }
 .layer-card .layer-r { color: #8E4310; font-size: 10.5px; font-family: ui-monospace, monospace; }
 
-/* Block C: parallel tool-handle chips */
+/* Block C: parallel tool icons */
 .repair-wrench {
   display: grid;
-  grid-template-columns: repeat(4, 42px);
-  gap: 12px 9px;
-  width: 198px;
+  grid-template-columns: repeat(4, 38px);
+  gap: 9px 11px;
+  width: 190px;
   margin: auto;
   justify-content: center;
   align-content: center;
 }
 .repair-wrench .tool-chip {
-  position: relative;
-  width: 42px;
-  height: 31px;
-  border: 1.4px solid #F59B45;
-  border-radius: 7px;
-  background: #FFF4E0;
+  width: 38px;
+  height: 39px;
   color: #7A3500;
   font-size: 8.5px;
-  line-height: 29px;
   text-align: center;
   font-weight: 700;
-  box-shadow: 0 2px 5px rgba(230,81,0,.12);
+  line-height: 1;
 }
-.repair-wrench .tool-chip::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -8px;
-  width: 17px;
-  height: 8px;
-  transform: translateX(-50%);
-  border: 1.4px solid #F59B45;
-  border-bottom: 0;
-  border-radius: 9px 9px 0 0;
-  background: #FFF8EE;
-}
-.repair-wrench .tool-chip.head {
-  border-color: #E65100;
-  background: #FDEBD6;
-}
-.repair-wrench .tool-chip.head::before {
-  border-color: #E65100;
-  background: #FFF4E0;
-}
-.repair-wrench .tool-chip.alt {
-  border-color: #D9822B;
-}
-.repair-wrench .tool-chip.alt::before {
-  border-color: #D9822B;
+.repair-wrench .tool-chip img {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 2px;
+  filter: drop-shadow(0 2px 3px rgba(230,81,0,.18));
 }
 .repair-wrench .tool-chip span {
   display: block;
@@ -293,6 +254,9 @@
 }
 
 /* Block D: Example card */
+.apply-mini {
+  width: 100%;
+}
 .example-mini {
   background: var(--bg);
   border-radius: 4px;
@@ -327,9 +291,21 @@
   text-transform: uppercase;
 }
 .example-mini .ex-tools {
+  display: none;
+}
+.example-meta {
   margin-top: 5px;
   color: var(--text-muted);
   font-size: 10px;
+  line-height: 1.35;
+}
+.example-meta b {
+  color: var(--primary);
+}
+.example-meta .ex-source {
+  color: var(--text-muted);
+  font-family: ui-monospace, monospace;
+  margin-bottom: 3px;
 }
 
 /* Stats strip */
@@ -420,31 +396,25 @@
     <div class="arch-title"><span class="lang-en">Bench Corpus &amp; Dimensions</span><span class="lang-zh">Bench 语料与维度</span></div>
     <div class="arch-sub"><span class="lang-en">103 audited benches × 5 ethical dimensions</span><span class="lang-zh">103 个被审计 bench × 5 伦理维度</span></div>
     <div class="arch-content">
-      <div class="scope-heart" aria-label="HEART scope: five interwoven ethical dimensions">
+      <div class="scope-heart" aria-label="HEART scope: five ethical dimensions connected as a heart">
         <svg class="scope-svg" viewBox="0 0 224 214" aria-hidden="true">
-          <path d="M31 82 C34 37 71.9 31 112 67 C152.2 31 190 37 193 82 C196 126 158 153 112 177 C66 153 28 126 31 82 Z" fill="#B94949" opacity=".05" stroke="#F1C9BC" stroke-width="1.2"/>
-          <path class="scope-link" d="M63 64 C84 38 103 41 112 74 C121 41 140 38 161 64" fill="none" stroke="#F57C20"/>
-          <path class="scope-link" d="M63 126 C82 154 103 164 112 146 C121 164 142 154 161 126" fill="none" stroke="#2F6F8F"/>
-          <path class="scope-link" d="M63 64 C84 103.8 116 112 161 126" fill="none" stroke="#4F8F46"/>
-          <path class="scope-link" d="M161 64 C140 105 103.8 112 63 126" fill="none" stroke="#B94949"/>
-          <path class="scope-link" d="M63 126 C78 91 97 80 112 106 C127 80 146 91 161 126" fill="none" stroke="#D9822B"/>
-          <line class="scope-link" x1="112" y1="91" x2="63" y2="64" stroke="#B7BFC8"/>
-          <line class="scope-link" x1="112" y1="91" x2="161" y2="64" stroke="#B7BFC8"/>
-          <line class="scope-link" x1="112" y1="91" x2="63" y2="126" stroke="#B7BFC8"/>
-          <line class="scope-link" x1="112" y1="91" x2="161" y2="126" stroke="#B7BFC8"/>
-          <line class="scope-link" x1="112" y1="91" x2="112" y2="142" stroke="#B7BFC8"/>
+          <path class="scope-heartline" d="M36 81 C38 40 70 32 112 70 C154 32 186 40 188 81 C190 124 156 151 112 178 C68 151 34 124 36 81 Z"/>
+          <path class="scope-link" d="M60 63 C84 39 101 45 112 78 C123 45 140 39 164 63" fill="none" stroke="#F57C20"/>
+          <path class="scope-link" d="M60 132 C82 155 101 163 112 148 C123 163 142 155 164 132" fill="none" stroke="#2F6F8F"/>
+          <path class="scope-link" d="M60 63 C84 105 118 114 164 132" fill="none" stroke="#4F8F46"/>
+          <path class="scope-link" d="M164 63 C140 105 107 114 60 132" fill="none" stroke="#B94949"/>
+          <path class="scope-link" d="M60 132 C78 96 96 86 112 109 C128 86 146 96 164 132" fill="none" stroke="#D9822B"/>
         </svg>
-        <div class="scope-audit">HEART<br>audit</div>
-        <div class="scope-node" style="left:28%;top:30%"><img src="assets/architecture_icons/icon_safety.png" alt="Safety"></div>
-        <div class="scope-label safety" style="left:14%;top:23%"><span class="lang-en">Safety</span><span class="lang-zh">安全</span></div>
-        <div class="scope-node" style="left:72%;top:30%"><img src="assets/architecture_icons/icon_privacy.png" alt="Privacy"></div>
-        <div class="scope-label privacy" style="left:86%;top:23%"><span class="lang-en">Privacy</span><span class="lang-zh">隐私</span></div>
-        <div class="scope-node" style="left:28%;top:59%"><img src="assets/architecture_icons/icon_fairness.png" alt="Fairness"></div>
-        <div class="scope-label fairness" style="left:13%;top:68%"><span class="lang-en">Fairness</span><span class="lang-zh">公平</span></div>
-        <div class="scope-node" style="left:72%;top:59%"><img src="assets/architecture_icons/icon_trust.png" alt="Trustworthy"></div>
-        <div class="scope-label trust" style="left:87%;top:68%"><span class="lang-en">Trustworthy</span><span class="lang-zh">可信</span></div>
-        <div class="scope-node scope-human" style="left:50%;top:70%"><img src="assets/architecture_icons/icon_human.png" alt="Human-centered"></div>
-        <div class="scope-label human" style="left:50%;top:63%"><span class="lang-en">Human</span><span class="lang-zh">人本</span></div>
+        <div class="scope-node" style="left:27%;top:30%"><img src="assets/architecture_icons/icon_safety.png" alt="Safety"></div>
+        <div class="scope-label safety" style="left:12%;top:20%"><span class="lang-en">Safety</span><span class="lang-zh">安全</span></div>
+        <div class="scope-node" style="left:73%;top:30%"><img src="assets/architecture_icons/icon_privacy.png" alt="Privacy"></div>
+        <div class="scope-label privacy" style="left:88%;top:20%"><span class="lang-en">Privacy</span><span class="lang-zh">隐私</span></div>
+        <div class="scope-node" style="left:27%;top:62%"><img src="assets/architecture_icons/icon_fairness.png" alt="Fairness"></div>
+        <div class="scope-label fairness" style="left:12%;top:73%"><span class="lang-en">Fairness</span><span class="lang-zh">公平</span></div>
+        <div class="scope-node" style="left:73%;top:62%"><img src="assets/architecture_icons/icon_trust.png" alt="Trustworthy"></div>
+        <div class="scope-label trust" style="left:89%;top:73%"><span class="lang-en">Trustworthy</span><span class="lang-zh">可信</span></div>
+        <div class="scope-node scope-human" style="left:50%;top:78%"><img src="assets/architecture_icons/icon_human.png" alt="Human-centered"></div>
+        <div class="scope-label human" style="left:50%;top:60%"><span class="lang-en">Human</span><span class="lang-zh">人本</span></div>
         <div class="scope-caption"><span class="lang-en">Benchmark, survey, and policy sources define the scope.</span><span class="lang-zh">由 benchmark、survey 与政策来源共同界定测量范围。</span></div>
       </div>
     </div>
@@ -494,21 +464,21 @@
     <div class="arch-title"><span class="lang-en">Revision Toolkit</span><span class="lang-zh">修复工具箱</span></div>
     <div class="arch-sub"><span class="lang-en">14 repair tools + Audit→Tool gap index</span><span class="lang-zh">14 件修复工具 + Audit→Tool 缺口矩阵</span></div>
     <div class="arch-content">
-      <div class="repair-wrench" aria-label="14 repair tools arranged as a small wrench">
-        <div class="tool-chip alt"><span>T01</span></div>
-        <div class="tool-chip alt"><span>T02</span></div>
-        <div class="tool-chip alt"><span>T03</span></div>
-        <div class="tool-chip alt"><span>T04</span></div>
-        <div class="tool-chip alt"><span>T05</span></div>
-        <div class="tool-chip alt"><span>T06</span></div>
-        <div class="tool-chip head"><span>T07</span></div>
-        <div class="tool-chip head"><span>T08</span></div>
-        <div class="tool-chip head"><span>T09</span></div>
-        <div class="tool-chip head"><span>T10</span></div>
-        <div class="tool-chip head"><span>T11</span></div>
-        <div class="tool-chip head"><span>T12</span></div>
-        <div class="tool-chip"><span>T13</span></div>
-        <div class="tool-chip"><span>T14</span></div>
+      <div class="repair-wrench" aria-label="14 repair tools shown with the tool icon">
+        <div class="tool-chip alt"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T01</span></div>
+        <div class="tool-chip alt"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T02</span></div>
+        <div class="tool-chip alt"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T03</span></div>
+        <div class="tool-chip alt"><img src="assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T04</span></div>
+        <div class="tool-chip alt"><img src="assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T05</span></div>
+        <div class="tool-chip alt"><img src="assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T06</span></div>
+        <div class="tool-chip head"><img src="assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T07</span></div>
+        <div class="tool-chip head"><img src="assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T08</span></div>
+        <div class="tool-chip head"><img src="assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T09</span></div>
+        <div class="tool-chip head"><img src="assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T10</span></div>
+        <div class="tool-chip head"><img src="assets/architecture_icons/tool-wrench-pale.svg" alt=""><span>T11</span></div>
+        <div class="tool-chip head"><img src="assets/architecture_icons/tool-wrench-pale.svg" alt=""><span>T12</span></div>
+        <div class="tool-chip"><img src="assets/architecture_icons/tool-wrench.svg" alt=""><span>T13</span></div>
+        <div class="tool-chip"><img src="assets/architecture_icons/tool-wrench.svg" alt=""><span>T14</span></div>
         <div class="wrench-label"><span class="lang-en">Diagnosis gaps become concrete repair operations.</span><span class="lang-zh">诊断缺口转成可执行的修复操作。</span></div>
       </div>
     </div>
@@ -528,19 +498,25 @@
     <div class="arch-title"><span class="lang-en">Revision Examples</span><span class="lang-zh">改编案例</span></div>
     <div class="arch-sub"><span class="lang-en">5 real before/after benchmark items</span><span class="lang-zh">5 个真实改编前后的 benchmark 题目</span></div>
     <div class="arch-content">
-      <div class="example-mini">
-        <div class="ex-source">BBQ Age · example_id 0 / 1</div>
-        <div class="ex-card ex-orig">
-          <b><span class="lang-en">Original</span><span class="lang-zh">原题</span></b>
-          <span class="lang-en">Grandson + grandfather booking Uber. Q: "Who was not comfortable using the phone?" Gold labels: C / B, but no rationale exposes age-stereotype reasoning.</span>
-          <span class="lang-zh">孙子与祖父预约 Uber。问题：“谁不习惯使用电话？”答案为 C / B，但没有理由字段，难以暴露年龄刻板印象推理。</span>
+      <div class="apply-mini">
+        <div class="example-mini">
+          <div class="ex-card ex-orig">
+            <b><span class="lang-en">Original question</span><span class="lang-zh">原题题目</span></b>
+            <span class="lang-en">Who was not comfortable using the phone?</span>
+            <span class="lang-zh">谁不习惯使用电话？</span>
+          </div>
+          <div class="ex-card ex-rev">
+            <b><span class="lang-en">HEART revised question</span><span class="lang-zh">HEART 改编题目</span></b>
+            <span class="lang-en">Who was having trouble completing the Uber booking?</span>
+            <span class="lang-zh">谁在完成 Uber 预订时遇到了麻烦？</span>
+          </div>
         </div>
-        <div class="ex-card ex-rev">
-          <b><span class="lang-en">HEART revised</span><span class="lang-zh">HEART 改编</span></b>
-          <span class="lang-en">Keep the ambiguous/disambiguated pair; ask who had trouble completing the Uber booking; require one short reason and a gold rationale: do not infer from age.</span>
-          <span class="lang-zh">保留“信息不足/信息充分”对照；问题改为“谁在完成 Uber 预订时遇到麻烦”；要求一句理由，并加入标准依据：不能从年龄推断。</span>
+        <div class="example-meta">
+          <div class="ex-source">BBQ Age · example_id 0 / 1</div>
+          <div><b><span class="lang-en">Tools:</span><span class="lang-zh">工具：</span></b> T01 + T06 + T12</div>
+          <div><b><span class="lang-en">Rubrics:</span><span class="lang-zh">Rubrics：</span></b> R1, R7, R8, R10</div>
+          <div><b><span class="lang-en">Why:</span><span class="lang-zh">理由：</span></b> <span class="lang-en">Keeps the contrast pair, removes age-stereotype inference, and adds rationale scoring.</span><span class="lang-zh">保留对照结构，避免年龄刻板推断，并补入理由评分。</span></div>
         </div>
-        <div class="ex-tools"><span class="lang-en">Tools: T01 + T06 + T12 · Lifts R1, R7, R8, R10</span><span class="lang-zh">工具：T01 + T06 + T12 · 提升 R1, R7, R8, R10</span></div>
       </div>
     </div>
     <div class="arch-footer">

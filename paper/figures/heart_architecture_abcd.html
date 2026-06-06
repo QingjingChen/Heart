@@ -164,27 +164,6 @@ h1 {
   width: 54px;
   height: 54px;
 }
-.scope-audit {
-  position: absolute;
-  left: 50%;
-  top: 41%;
-  width: 74px;
-  height: 74px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background: #FFFFFF;
-  border: 3px solid #B94949;
-  color: #B94949;
-  box-shadow: 0 4px 16px rgba(185,73,73,.14);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.1;
-  font-weight: 900;
-  z-index: 3;
-}
 .scope-label {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -207,6 +186,12 @@ h1 {
   stroke-linecap: round;
   stroke-width: 1.55;
   opacity: .82;
+}
+.scope-heartline {
+  fill: rgba(185,73,73,.055);
+  stroke: #B94949;
+  stroke-width: 3.2;
+  opacity: .96;
 }
 .scope-caption {
   position: absolute;
@@ -251,52 +236,28 @@ h1 {
 /* C. Repair */
 .repair-wrench {
   display: grid;
-  grid-template-columns: repeat(4, 58px);
-  gap: 18px 13px;
-  width: 280px;
+  grid-template-columns: repeat(4, 52px);
+  gap: 18px 17px;
+  width: 300px;
   justify-content: center;
   align-content: center;
 }
 .tool-chip {
-  position: relative;
-  width: 58px;
-  height: 43px;
-  border: 2px solid #F59B45;
-  border-radius: 10px;
-  background: #FFF4E0;
+  width: 52px;
+  height: 55px;
   color: #7A3500;
   text-align: center;
-  line-height: 39px;
   font-size: 12px;
   font-weight: 850;
-  box-shadow: 0 3px 9px rgba(230,81,0,.12);
+  line-height: 1;
 }
-.tool-chip::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -11px;
-  width: 24px;
-  height: 11px;
-  transform: translateX(-50%);
-  border: 2px solid #F59B45;
-  border-bottom: 0;
-  border-radius: 13px 13px 0 0;
-  background: #FFF8EE;
-}
-.tool-chip.head {
-  border-color: #E65100;
-  background: #FDEBD6;
-}
-.tool-chip.head::before {
-  border-color: #E65100;
-  background: #FFF4E0;
-}
-.tool-chip.alt {
-  border-color: #D9822B;
-}
-.tool-chip.alt::before {
-  border-color: #D9822B;
+.tool-chip img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto 4px;
+  filter: drop-shadow(0 3px 4px rgba(230,81,0,.20));
 }
 .tool-chip span {
   display: block;
@@ -311,8 +272,10 @@ h1 {
 }
 
 /* D. Apply */
-.example {
+.apply-wrap {
   width: 294px;
+}
+.example {
   background: #F7F9FC;
   border-radius: 10px;
   padding: 16px 16px 14px;
@@ -354,6 +317,9 @@ h1 {
   font-size: 12px;
   line-height: 1.35;
 }
+.tools b {
+  color: var(--primary);
+}
 </style>
 </head>
 <body>
@@ -372,30 +338,24 @@ h1 {
       <div class="title">Bench Corpus &amp; Dimensions</div>
       <div class="sub">103 audited benches × 5 ethical dimensions</div>
       <div class="content">
-        <div class="scope-heart" aria-label="five interwoven ethical dimensions">
+        <div class="scope-heart" aria-label="five ethical dimensions connected as a heart">
           <svg viewBox="0 0 286 278" aria-hidden="true">
-            <path d="M39 106 C43 48 92 40 143 86 C194 40 243 48 247 106 C251 163 202 198 143 228 C84 198 35 163 39 106 Z" fill="#B94949" opacity=".05" stroke="#F1C9BC" stroke-width="1.8"/>
-            <path class="scope-link" d="M80 83 C107 47 132 52 143 96 C154 52 179 47 206 83" fill="none" stroke="#F57C20"/>
-            <path class="scope-link" d="M80 164 C104 203 132 214 143 190 C154 214 182 203 206 164" fill="none" stroke="#2F6F8F"/>
-            <path class="scope-link" d="M80 83 C108 137 148 147 206 164" fill="none" stroke="#4F8F46"/>
-            <path class="scope-link" d="M206 83 C179 138 134 147 80 164" fill="none" stroke="#B94949"/>
-            <path class="scope-link" d="M80 164 C100 119 124 104 143 138 C162 104 186 119 206 164" fill="none" stroke="#D9822B"/>
-            <line class="scope-link" x1="143" y1="117" x2="80" y2="83" stroke="#B7BFC8"/>
-            <line class="scope-link" x1="143" y1="117" x2="206" y2="83" stroke="#B7BFC8"/>
-            <line class="scope-link" x1="143" y1="117" x2="80" y2="164" stroke="#B7BFC8"/>
-            <line class="scope-link" x1="143" y1="117" x2="206" y2="164" stroke="#B7BFC8"/>
-            <line class="scope-link" x1="143" y1="117" x2="143" y2="186" stroke="#B7BFC8"/>
+            <path class="scope-heartline" d="M46 105 C48.5 53 90 42 143 89 C196 42 237 53 239.5 105 C242 160 200 196 143 231 C86 196 44 160 46 105 Z"/>
+            <path class="scope-link" d="M77 82 C108 50 130 58 143 101 C156 58 178 50 209 82" fill="none" stroke="#F57C20"/>
+            <path class="scope-link" d="M77 171 C105 201 130 212 143 192 C156 212 181 201 209 171" fill="none" stroke="#2F6F8F"/>
+            <path class="scope-link" d="M77 82 C108 138 151 151 209 171" fill="none" stroke="#4F8F46"/>
+            <path class="scope-link" d="M209 82 C178 138 133 151 77 171" fill="none" stroke="#B94949"/>
+            <path class="scope-link" d="M77 171 C100 124 123 111 143 142 C163 111 186 124 209 171" fill="none" stroke="#D9822B"/>
           </svg>
-          <div class="scope-audit">HEART<br>audit</div>
-          <div class="scope-node" style="left:28%;top:30%"><img src="../../docs/interactive/assets/architecture_icons/icon_safety.png" alt="Safety"></div>
-          <div class="scope-label safety" style="left:13%;top:22%">Safety</div>
-          <div class="scope-node" style="left:72%;top:30%"><img src="../../docs/interactive/assets/architecture_icons/icon_privacy.png" alt="Privacy"></div>
-          <div class="scope-label privacy" style="left:87%;top:22%">Privacy</div>
-          <div class="scope-node" style="left:28%;top:59%"><img src="../../docs/interactive/assets/architecture_icons/icon_fairness.png" alt="Fairness"></div>
-          <div class="scope-label fairness" style="left:13%;top:69%">Fairness</div>
-          <div class="scope-node" style="left:72%;top:59%"><img src="../../docs/interactive/assets/architecture_icons/icon_trust.png" alt="Trustworthy"></div>
-          <div class="scope-label trust" style="left:88%;top:69%">Trustworthy</div>
-          <div class="scope-node human" style="left:50%;top:70%"><img src="../../docs/interactive/assets/architecture_icons/icon_human.png" alt="Human-centered"></div>
+          <div class="scope-node" style="left:27%;top:30%"><img src="../../docs/interactive/assets/architecture_icons/icon_safety.png" alt="Safety"></div>
+          <div class="scope-label safety" style="left:11%;top:21%">Safety</div>
+          <div class="scope-node" style="left:73%;top:30%"><img src="../../docs/interactive/assets/architecture_icons/icon_privacy.png" alt="Privacy"></div>
+          <div class="scope-label privacy" style="left:89%;top:21%">Privacy</div>
+          <div class="scope-node" style="left:27%;top:62%"><img src="../../docs/interactive/assets/architecture_icons/icon_fairness.png" alt="Fairness"></div>
+          <div class="scope-label fairness" style="left:11%;top:75%">Fairness</div>
+          <div class="scope-node" style="left:73%;top:62%"><img src="../../docs/interactive/assets/architecture_icons/icon_trust.png" alt="Trustworthy"></div>
+          <div class="scope-label trust" style="left:90%;top:75%">Trustworthy</div>
+          <div class="scope-node human" style="left:50%;top:80%"><img src="../../docs/interactive/assets/architecture_icons/icon_human.png" alt="Human-centered"></div>
           <div class="scope-label human" style="left:50%;top:62%">Human</div>
           <div class="scope-caption">Benchmark, survey, and policy sources define the scope.</div>
         </div>
@@ -426,21 +386,21 @@ h1 {
       <div class="title">Revision Toolkit</div>
       <div class="sub">14 repair tools + audit-to-tool gap index</div>
       <div class="content">
-        <div class="repair-wrench" aria-label="14 repair tools arranged as a wrench">
-          <div class="tool-chip alt"><span>T01</span></div>
-          <div class="tool-chip alt"><span>T02</span></div>
-          <div class="tool-chip alt"><span>T03</span></div>
-          <div class="tool-chip alt"><span>T04</span></div>
-          <div class="tool-chip alt"><span>T05</span></div>
-          <div class="tool-chip alt"><span>T06</span></div>
-          <div class="tool-chip head"><span>T07</span></div>
-          <div class="tool-chip head"><span>T08</span></div>
-          <div class="tool-chip head"><span>T09</span></div>
-          <div class="tool-chip head"><span>T10</span></div>
-          <div class="tool-chip head"><span>T11</span></div>
-          <div class="tool-chip head"><span>T12</span></div>
-          <div class="tool-chip"><span>T13</span></div>
-          <div class="tool-chip"><span>T14</span></div>
+        <div class="repair-wrench" aria-label="14 repair tools shown with the tool icon">
+          <div class="tool-chip alt"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T01</span></div>
+          <div class="tool-chip alt"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T02</span></div>
+          <div class="tool-chip alt"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T03</span></div>
+          <div class="tool-chip alt"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-gold.svg" alt=""><span>T04</span></div>
+          <div class="tool-chip alt"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T05</span></div>
+          <div class="tool-chip alt"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-amber.svg" alt=""><span>T06</span></div>
+          <div class="tool-chip head"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T07</span></div>
+          <div class="tool-chip head"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T08</span></div>
+          <div class="tool-chip head"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T09</span></div>
+          <div class="tool-chip head"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt=""><span>T10</span></div>
+          <div class="tool-chip head"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-pale.svg" alt=""><span>T11</span></div>
+          <div class="tool-chip head"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-pale.svg" alt=""><span>T12</span></div>
+          <div class="tool-chip"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench.svg" alt=""><span>T13</span></div>
+          <div class="tool-chip"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench.svg" alt=""><span>T14</span></div>
           <div class="wrench-caption">Diagnosis gaps become concrete repair operations.</div>
         </div>
       </div>
@@ -454,17 +414,23 @@ h1 {
       <div class="title">Revision Examples</div>
       <div class="sub">Real before/after benchmark items</div>
       <div class="content">
-        <div class="example">
+        <div class="apply-wrap">
           <div class="source">BBQ Age · example_id 0 / 1</div>
-          <div class="ex-card orig">
-            <b>Original</b>
-            Grandson + grandfather booking Uber. Q: "Who was not comfortable using the phone?" Gold labels: C / B, but no rationale exposes age-stereotype reasoning.
+          <div class="example">
+            <div class="ex-card orig">
+              <b>Original question</b>
+              Who was not comfortable using the phone?
+            </div>
+            <div class="ex-card rev">
+              <b>HEART revised question</b>
+              Who was having trouble completing the Uber booking?
+            </div>
           </div>
-          <div class="ex-card rev">
-            <b>HEART revised</b>
-            Keep the ambiguous/disambiguated pair; ask who had trouble completing the Uber booking; require one short reason and a gold rationale: do not infer from age.
+          <div class="tools">
+            <b>Tools:</b> T01 + T06 + T12<br>
+            <b>Rubrics:</b> R1, R7, R8, R10<br>
+            <b>Why:</b> keeps the contrast pair, removes age-stereotype inference, and adds rationale scoring.
           </div>
-          <div class="tools">Tools: T01 + T06 + T12 · Lifts R1, R7, R8, R10</div>
         </div>
       </div>
       <div class="footer"><span>Explore</span><span><span class="pill">5 Mini Cases</span></span></div>
