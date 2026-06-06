@@ -141,11 +141,33 @@
         ]
       },
       {
+        "id": "T12",
+        "name": "Rubric-Based & Multi-Judge Evaluation Protocol",
+        "operations": [
+          "Red-line/Consensus/Contested Labeling",
+          "Rubric-based Scoring"
+        ]
+      },
+      {
         "id": "T11",
         "name": "Multi-Metric Failure-Mode Profile",
         "operations": [
           "Multi-metric / Failure-mode Reporting",
-          "Rubric-based Scoring"
+          "Failure-mode Metrics"
+        ]
+      },
+      {
+        "id": "T03",
+        "name": "Scenario-Stakeholder-Information-Flow Template",
+        "operations": [
+          "Scenario Template"
+        ]
+      },
+      {
+        "id": "T13",
+        "name": "Reproducible Evaluation & Benchmark Card",
+        "operations": [
+          "Benchmark/Dataset Card"
         ]
       }
     ],
@@ -282,11 +304,27 @@
         ]
       },
       {
+        "id": "T12",
+        "name": "Rubric-Based & Multi-Judge Evaluation Protocol",
+        "operations": [
+          "Red-line/Consensus/Contested Labeling",
+          "Rubric-based Scoring",
+          "Multi-rater Aggregation"
+        ]
+      },
+      {
         "id": "T11",
         "name": "Multi-Metric Failure-Mode Profile",
         "operations": [
           "Multi-metric / Failure-mode Reporting",
-          "Rubric-based Scoring"
+          "Failure-mode Metrics"
+        ]
+      },
+      {
+        "id": "T08",
+        "name": "Multi-Turn & Adversarial Red-Team Protocol",
+        "operations": [
+          "Multi-turn Red-Team Protocol"
         ]
       }
     ],

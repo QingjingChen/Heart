@@ -600,6 +600,7 @@ const OP_ZH = {
   'Multi-metric / Failure-mode Reporting': '多指标/失败模式报告',
   'Multi-metric Reporting': '多指标报告',
   'Multi-rater Aggregation': '多评分者聚合',
+  'Multi-turn Red-Team Protocol': '多轮红队协议',
   'Normative Source Coding': '规范来源编码',
   'Professional Boundary Rubric': '专业边界评分细则',
   'Privacy-preserving Helpfulness Scoring': '隐私保护型有用性评分',
@@ -791,7 +792,12 @@ function renderCase(c, idx) {
   const purposeByWebId = {};
   if (e.tool_prescription) {
     for (const t of [...(e.tool_prescription.primary_tools||[]), ...(e.tool_prescription.secondary_tools||[])]) {
-      purposeByWebId[t.web_id] = { en: t.purpose_en, zh: t.purpose_zh };
+      if (purposeByWebId[t.web_id]) {
+        purposeByWebId[t.web_id].en += ' ' + (t.purpose_en || '');
+        purposeByWebId[t.web_id].zh += ' ' + (t.purpose_zh || '');
+      } else {
+        purposeByWebId[t.web_id] = { en: t.purpose_en || '', zh: t.purpose_zh || '' };
+      }
     }
   }
   const primarySet = new Set((e.tool_prescription && e.tool_prescription.primary_tools || []).map(t=>t.web_id));
@@ -865,7 +871,7 @@ function renderCase(c, idx) {
     <div class="case-fold-body">
       ${adapterLabel}
       <div class="tools-stack">${toolRows}</div>
-      <div style="margin-top:8px"><b style="font-size:11.5px;color:var(--primary)"><span class="lang-en">Rubrics lifted:</span><span class="lang-zh">提升的 rubric：</span></b> ${c.rubrics_lifted.map((r, i) => {
+      <div style="margin-top:8px"><b style="font-size:11.5px;color:var(--primary)"><span class="lang-en">Directly lifted rubrics:</span><span class="lang-zh">直接提升的 rubric：</span></b> ${c.rubrics_lifted.map((r, i) => {
         const zh = (c.rubrics_lifted_zh && c.rubrics_lifted_zh[i]) || r;
         return `<span class="rubric-pill"><span class="lang-en">${r}</span><span class="lang-zh">${zh}</span></span>`;
       }).join('')}</div>
