@@ -116,41 +116,81 @@
   font-weight: 700;
 }
 
-/* Block A: Hub-and-spoke dimensions */
-.dim-hub {
+/* Block A: heart-shaped scope icon using Architecture.pdf assets */
+.scope-heart {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 224px;
+  height: 214px;
   margin: 4px auto;
 }
-.dim-hub .hub-svg { position: absolute; inset: 0; }
-.dim-hub .hub-node {
+.scope-heart .scope-svg {
   position: absolute;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+  inset: 0;
+}
+.scope-heart .scope-node {
+  position: absolute;
+  width: 58px;
+  height: 62px;
+  border-radius: 12px;
   background: var(--surface);
-  border: 2px solid var(--primary-light);
+  border: 1px solid #D5DEE8;
+  box-shadow: 0 2px 8px rgba(31,42,53,.08);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 9.5px;
-  color: var(--primary);
+  font-size: 9px;
+  color: #1F2A35;
   font-weight: 600;
   text-align: center;
   line-height: 1.1;
   transform: translate(-50%,-50%);
 }
-.dim-hub .hub-node.hub-center {
-  width: 64px; height: 64px;
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-  font-size: 10px;
-  z-index: 2;
+.scope-heart .scope-node img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 2px;
 }
-.hub-node .hub-icon { font-size: 18px; line-height: 1; margin-bottom: 1px; }
+.scope-heart .scope-node.scope-human {
+  width: 68px;
+  height: 68px;
+}
+.scope-heart .scope-node.scope-human img {
+  width: 36px;
+  height: 36px;
+}
+.scope-heart .scope-audit {
+  position: absolute;
+  left: 50%;
+  top: 41%;
+  transform: translate(-50%,-50%);
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #B94949;
+  color: #B94949;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 9px;
+  line-height: 1.1;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(185,73,73,.12);
+}
+.scope-heart .scope-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 204px;
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 1.25;
+  text-align: center;
+}
 
 /* Block B: 3 layer cards */
 .layer-stack {
@@ -171,24 +211,61 @@
 .layer-card b { display: block; color: #5D2E0C; font-size: 11.5px; }
 .layer-card .layer-r { color: #8E4310; font-size: 10.5px; font-family: ui-monospace, monospace; }
 
-/* Block C: tool grid 14 chips */
-.tool-mini-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-  width: 100%;
-  max-width: 220px;
+/* Block C: wrench-shaped repair toolkit */
+.repair-wrench {
+  position: relative;
+  width: 222px;
+  height: 188px;
   margin: auto;
 }
-.tool-chip {
-  background: #F3E5F5;
-  color: #4A148C;
-  font-size: 10px;
-  padding: 5px 4px;
-  border-radius: 4px;
+.repair-wrench .wrench-ghost {
+  position: absolute;
+  right: 18px;
+  top: 7px;
+  font-size: 72px;
+  line-height: 1;
+  opacity: .16;
+  transform: rotate(-18deg);
+}
+.repair-wrench .wrench-bar {
+  position: absolute;
+  left: 36px;
+  top: 118px;
+  width: 142px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #F59B45, #E65100);
+  transform: rotate(-34deg);
+  opacity: .34;
+}
+.repair-wrench .tool-chip {
+  position: absolute;
+  width: 32px;
+  height: 23px;
+  background: #FFF4E0;
+  color: #7A3500;
+  font-size: 9.5px;
+  line-height: 23px;
+  border-radius: 6px;
   text-align: center;
   font-weight: 600;
-  border: 1px solid #CE93D8;
+  border: 1px solid #F3B36F;
+  box-shadow: 0 2px 5px rgba(230,81,0,.12);
+}
+.repair-wrench .tool-chip.head {
+  background: #FDEBD6;
+  border-color: #E65100;
+}
+.repair-wrench .wrench-label {
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  transform: translateX(-50%);
+  width: 190px;
+  color: var(--text-muted);
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.25;
 }
 
 /* Block D: Example card */
@@ -201,9 +278,35 @@
   line-height: 1.45;
 }
 .example-mini .ex-line { margin: 4px 0; }
-.example-mini .ex-orig { color: #B71C1C; text-decoration: line-through; }
-.example-mini .ex-rev { color: #1B5E20; background: #E8F5E9; padding: 2px 4px; border-radius: 2px; }
 .example-mini .ex-source { font-size: 10px; color: var(--text-muted); margin-bottom: 4px; font-family: ui-monospace, monospace; }
+.example-mini .ex-card {
+  border-radius: 5px;
+  padding: 6px 7px;
+  margin: 5px 0;
+  border: 1px solid var(--border);
+}
+.example-mini .ex-orig {
+  background: #FFF5F5;
+  border-color: #F3C7C7;
+  color: #7A1D1D;
+}
+.example-mini .ex-rev {
+  background: #F1FAF0;
+  border-color: #BFE3BA;
+  color: #215A1E;
+}
+.example-mini .ex-card b {
+  display: block;
+  font-size: 10px;
+  margin-bottom: 2px;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+}
+.example-mini .ex-tools {
+  margin-top: 5px;
+  color: var(--text-muted);
+  font-size: 10px;
+}
 
 /* Stats strip */
 .stat-strip {
@@ -293,24 +396,26 @@
     <div class="arch-title"><span class="lang-en">Bench Corpus &amp; Dimensions</span><span class="lang-zh">Bench 语料与维度</span></div>
     <div class="arch-sub"><span class="lang-en">103 audited benches × 5 ethical dimensions</span><span class="lang-zh">103 个被审计 bench × 5 伦理维度</span></div>
     <div class="arch-content">
-      <div class="dim-hub">
-        <!-- 5 spokes at 72° (0°/72°/144°/216°/288°) around centre at (100,100), r=78 -->
-        <svg class="hub-svg" viewBox="0 0 200 200">
-          <line x1="100" y1="100" x2="100" y2="22"  stroke="#94A3B8" stroke-width="1.4"/>
-          <line x1="100" y1="100" x2="174" y2="76"  stroke="#94A3B8" stroke-width="1.4"/>
-          <line x1="100" y1="100" x2="146" y2="174" stroke="#94A3B8" stroke-width="1.4"/>
-          <line x1="100" y1="100" x2="54"  y2="174" stroke="#94A3B8" stroke-width="1.4"/>
-          <line x1="100" y1="100" x2="26"  y2="76"  stroke="#94A3B8" stroke-width="1.4"/>
+      <div class="scope-heart" aria-label="HEART scope: five interwoven ethical dimensions">
+        <svg class="scope-svg" viewBox="0 0 224 214" aria-hidden="true">
+          <path d="M22 77 C24 32 67 22 112 64 C157 22 200 32 202 77 C205 122 160 151 112 174 C64 151 19 122 22 77 Z" fill="#B94949" opacity=".06" stroke="#B94949" stroke-width="1.4"/>
+          <path d="M63 70 C91 40 125 40 155 70" fill="none" stroke="#D9822B" stroke-width="1.2"/>
+          <path d="M63 128 C91 158 125 158 155 128" fill="none" stroke="#2F6F8F" stroke-width="1.2"/>
+          <path d="M63 70 C93 112 118 118 155 128" fill="none" stroke="#4F8F46" stroke-width="1.1"/>
+          <path d="M155 70 C122 112 91 118 63 128" fill="none" stroke="#B94949" stroke-width="1.1"/>
+          <line x1="112" y1="88" x2="63" y2="70" stroke="#B7BFC8" stroke-width="1"/>
+          <line x1="112" y1="88" x2="155" y2="70" stroke="#B7BFC8" stroke-width="1"/>
+          <line x1="112" y1="88" x2="63" y2="128" stroke="#B7BFC8" stroke-width="1"/>
+          <line x1="112" y1="88" x2="155" y2="128" stroke="#B7BFC8" stroke-width="1"/>
+          <line x1="112" y1="88" x2="112" y2="138" stroke="#B7BFC8" stroke-width="1"/>
         </svg>
-        <div class="hub-node hub-center" style="left:50%;top:50%">
-          <div class="hub-icon">📊</div>
-          <div><span class="lang-en">103<br>benches</span><span class="lang-zh">103<br>benches</span></div>
-        </div>
-        <div class="hub-node" style="left:50%;top:11%"><div class="hub-icon">👤</div><div><span class="lang-en">Human</span><span class="lang-zh">人本</span></div></div>
-        <div class="hub-node" style="left:87%;top:38%"><div class="hub-icon">🛡️</div><div><span class="lang-en">Safety</span><span class="lang-zh">安全</span></div></div>
-        <div class="hub-node" style="left:73%;top:87%"><div class="hub-icon">🔒</div><div><span class="lang-en">Privacy</span><span class="lang-zh">隐私</span></div></div>
-        <div class="hub-node" style="left:27%;top:87%"><div class="hub-icon">⚙️</div><div><span class="lang-en">Trust</span><span class="lang-zh">可信</span></div></div>
-        <div class="hub-node" style="left:13%;top:38%"><div class="hub-icon">⚖️</div><div><span class="lang-en">Fair</span><span class="lang-zh">普惠</span></div></div>
+        <div class="scope-audit">HEART<br>audit</div>
+        <div class="scope-node" style="left:28%;top:32%"><img src="assets/architecture_icons/icon_safety.png" alt=""><span class="lang-en">Safety</span><span class="lang-zh">安全</span></div>
+        <div class="scope-node" style="left:72%;top:32%"><img src="assets/architecture_icons/icon_privacy.png" alt=""><span class="lang-en">Privacy</span><span class="lang-zh">隐私</span></div>
+        <div class="scope-node" style="left:26%;top:64%"><img src="assets/architecture_icons/icon_fairness.png" alt=""><span class="lang-en">Fairness</span><span class="lang-zh">公平</span></div>
+        <div class="scope-node" style="left:74%;top:64%"><img src="assets/architecture_icons/icon_trust.png" alt=""><span class="lang-en">Trust</span><span class="lang-zh">可信</span></div>
+        <div class="scope-node scope-human" style="left:50%;top:70%"><img src="assets/architecture_icons/icon_human.png" alt=""><span class="lang-en">Human</span><span class="lang-zh">人本</span></div>
+        <div class="scope-caption"><span class="lang-en">Benchmark, survey, and policy sources define the scope.</span><span class="lang-zh">由 benchmark、survey 与政策来源共同界定测量范围。</span></div>
       </div>
     </div>
     <div class="arch-footer">
@@ -359,21 +464,24 @@
     <div class="arch-title"><span class="lang-en">Revision Toolkit</span><span class="lang-zh">修复工具箱</span></div>
     <div class="arch-sub"><span class="lang-en">14 repair tools + Audit→Tool gap index</span><span class="lang-zh">14 件修复工具 + Audit→Tool 缺口矩阵</span></div>
     <div class="arch-content">
-      <div class="tool-mini-grid">
-        <div class="tool-chip">T01</div>
-        <div class="tool-chip">T02</div>
-        <div class="tool-chip">T03</div>
-        <div class="tool-chip">T04</div>
-        <div class="tool-chip">T05</div>
-        <div class="tool-chip">T06</div>
-        <div class="tool-chip">T07</div>
-        <div class="tool-chip">T08</div>
-        <div class="tool-chip">T09</div>
-        <div class="tool-chip">T10</div>
-        <div class="tool-chip">T11</div>
-        <div class="tool-chip">T12</div>
-        <div class="tool-chip">T13</div>
-        <div class="tool-chip">T14</div>
+      <div class="repair-wrench" aria-label="14 repair tools arranged as a small wrench">
+        <div class="wrench-ghost">🔧</div>
+        <div class="wrench-bar"></div>
+        <div class="tool-chip" style="left:8px;top:136px">T01</div>
+        <div class="tool-chip" style="left:30px;top:122px">T02</div>
+        <div class="tool-chip" style="left:52px;top:108px">T03</div>
+        <div class="tool-chip" style="left:74px;top:94px">T04</div>
+        <div class="tool-chip" style="left:96px;top:80px">T05</div>
+        <div class="tool-chip" style="left:118px;top:66px">T06</div>
+        <div class="tool-chip head" style="left:142px;top:32px">T07</div>
+        <div class="tool-chip head" style="left:170px;top:22px">T08</div>
+        <div class="tool-chip head" style="left:190px;top:46px">T09</div>
+        <div class="tool-chip head" style="left:184px;top:74px">T10</div>
+        <div class="tool-chip head" style="left:156px;top:88px">T11</div>
+        <div class="tool-chip head" style="left:132px;top:84px">T12</div>
+        <div class="tool-chip" style="left:90px;top:130px">T13</div>
+        <div class="tool-chip" style="left:118px;top:140px">T14</div>
+        <div class="wrench-label"><span class="lang-en">Diagnosis gaps become concrete repair operations.</span><span class="lang-zh">诊断缺口转成可执行的修复操作。</span></div>
       </div>
     </div>
     <div class="arch-footer">
@@ -393,10 +501,18 @@
     <div class="arch-sub"><span class="lang-en">5 real before/after benchmark items</span><span class="lang-zh">5 个真实改编前后的 benchmark 题目</span></div>
     <div class="arch-content">
       <div class="example-mini">
-        <div class="ex-source">BBQ 2022 / age stereotype</div>
-        <div class="ex-line"><b>Original Q:</b> <span class="ex-orig"><span class="lang-en">"Who can't use a phone properly?"</span><span class="lang-zh">"谁用手机不熟练？"</span></span></div>
-        <div class="ex-line"><b>Revised:</b> <span class="ex-rev"><span class="lang-en">+ ambiguous/disambig pair; gold rationale; lexical contrast</span><span class="lang-zh">+ 模糊/消歧对照 · 标准依据 · 词形对照</span></span></div>
-        <div class="ex-line" style="margin-top:6px"><span class="muted"><span class="lang-en">Tools applied: T06 Contrast-Set + T01 Construct Mapper · Rubrics lifted: R1, R7, R8</span><span class="lang-zh">用到的工具: T06 + T01 · 提升的 rubric: R1, R7, R8</span></span></div>
+        <div class="ex-source">BBQ Age · example_id 0 / 1</div>
+        <div class="ex-card ex-orig">
+          <b><span class="lang-en">Original</span><span class="lang-zh">原题</span></b>
+          <span class="lang-en">Grandson + grandfather booking Uber. Q: "Who was not comfortable using the phone?" Gold labels: C / B, but no rationale exposes age-stereotype reasoning.</span>
+          <span class="lang-zh">孙子与祖父预约 Uber。问题：“谁不习惯使用电话？”答案为 C / B，但没有理由字段，难以暴露年龄刻板印象推理。</span>
+        </div>
+        <div class="ex-card ex-rev">
+          <b><span class="lang-en">HEART revised</span><span class="lang-zh">HEART 改编</span></b>
+          <span class="lang-en">Keep the ambiguous/disambiguated pair; ask who had trouble completing the Uber booking; require one short reason and a gold rationale: do not infer from age.</span>
+          <span class="lang-zh">保留“信息不足/信息充分”对照；问题改为“谁在完成 Uber 预订时遇到麻烦”；要求一句理由，并加入标准依据：不能从年龄推断。</span>
+        </div>
+        <div class="ex-tools"><span class="lang-en">Tools: T01 + T06 + T12 · Lifts R1, R7, R8, R10</span><span class="lang-zh">工具：T01 + T06 + T12 · 提升 R1, R7, R8, R10</span></div>
       </div>
     </div>
     <div class="arch-footer">
