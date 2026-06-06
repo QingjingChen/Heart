@@ -1,0 +1,72 @@
+{
+  "title": "HEART: Human-centric Ethical Audit and Revision Toolkit for Benchmarks",
+  "upload_type": "dataset",
+  "description": "HEART is a resource package for auditing and revising AI-ethics benchmarks. It contains a 103-entry benchmark corpus, 14 diagnostic rubrics, 14 generic repair tools, 103 benchmark-specific repair sub-tools, five worked mini cases, and anonymized pilot expert A/B validation results.",
+  "creators": [
+    {
+      "name": "Chen, Qingjing",
+      "affiliation": "Alma AI, University of Bologna"
+    },
+    {
+      "name": "Shi, Yuzhen",
+      "affiliation": "Alibaba Group"
+    },
+    {
+      "name": "Yang, Zexia",
+      "affiliation": "School of Law, Institute for AI and Law, Tsinghua University"
+    },
+    {
+      "name": "Zhang, Li",
+      "affiliation": "School of Computing and Information, University of Pittsburgh"
+    },
+    {
+      "name": "Xu, Xinran",
+      "affiliation": "KoGuan School of Law, Shanghai Jiao Tong University"
+    },
+    {
+      "name": "Rotolo, Antonino",
+      "affiliation": "Alma AI, University of Bologna"
+    },
+    {
+      "name": "Zhao, Bing",
+      "affiliation": "Alibaba Group"
+    },
+    {
+      "name": "Hu, Wei",
+      "affiliation": "Alibaba Group"
+    },
+    {
+      "name": "Lin, Qu",
+      "affiliation": "Alibaba Group"
+    },
+    {
+      "name": "Liu, Yun",
+      "affiliation": "School of Law, Institute for AI and Law, Tsinghua University"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "version": "v0.1.0",
+  "keywords": [
+    "AI ethics",
+    "benchmark",
+    "benchmark revision",
+    "construct validity",
+    "fairness",
+    "safety",
+    "privacy",
+    "trustworthiness",
+    "human-centered AI"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/QingjingChen/Heart",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    },
+    {
+      "identifier": "https://qingjingchen.github.io/Heart/interactive/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    }
+  ]
+}

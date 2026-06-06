@@ -30,10 +30,10 @@ def load(name):
 def write_csv(name, rows, fieldnames):
     path = OUT / name
     with open(path, 'w', newline='', encoding='utf-8') as f:
-        w = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore')
+        w = csv.DictWriter(f, fieldnames=fieldnames, extrasaction='ignore', lineterminator='\n')
         w.writeheader()
         for r in rows:
-            w.writerow(r)
+            w.writerow({k: (v.strip() if isinstance(v, str) else v) for k, v in r.items()})
     print(f"  ✓ {name} ({len(rows)} rows)")
 
 def main():

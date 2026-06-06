@@ -1,0 +1,88 @@
+\section{Expert Quality Assessment Consistency}
+\label{sec:expert-quality}
+
+We conducted a minimal expert quality assessment to test whether the
+HEART-guided revisions are perceived as improving the ethical measurement
+quality of benchmark items. The instrument follows the blinded A/B comparison
+protocol provided in the repository survey materials. Experts compare five
+mini cases spanning the five HEART dimensions: fairness and inclusion, safety
+and reliability, trustworthiness, privacy protection, and human-centeredness.
+For each case, experts see two anonymized versions, A and B, with the revised
+side counterbalanced across cases. They are not told which version is the
+HEART-guided revision. For each of the 14 diagnostic rubrics, experts choose
+whether A, B, or Tie better satisfies the rubric and may provide a short
+reason. They also choose which full case is more suitable as an ethics
+benchmark item and whether they would accept the better version for benchmark
+use.
+
+We report one lightweight primary indicator, Expert Revision Success (ERS).
+After decoding which side was HEART-guided, let \(E\) be the number of experts,
+\(C\) the number of cases, and \(R=14\) the number of rubrics. Let
+\(s_{ecr}=1\) if expert \(e\) prefers the HEART-guided version for case \(c\)
+and rubric \(r\), \(s_{ecr}=0.5\) for Tie, and \(s_{ecr}=0\) if the original
+version is preferred. We compute
+\[
+\mathrm{ERS} =
+\frac{1}{ECR}
+\sum_{e=1}^{E}
+\sum_{c=1}^{C}
+\sum_{r=1}^{R}
+s_{ecr}.
+\]
+ERS \(>0.5\) indicates that experts prefer the HEART-guided revision more often
+than the original at the rubric level. We treat ERS \(\geq 0.67\) as stronger
+pilot evidence that the revision is successful. Written reasons are used only
+as an audit trail to check whether preferences are attributable to the intended
+rubric improvements.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Pilot expert quality assessment over five HEART mini cases. H/O/T
+denotes rubric-level votes for HEART-guided revision, original item, and tie,
+respectively. Each case has \(4 \times 14=56\) rubric-level votes. ``Accept''
+counts experts accepting the better version, including minor revisions.}
+\label{tab:expert-quality}
+\begin{tabular}{llccc}
+\toprule
+Case & Dimension & H/O/T & ERS & Overall; Accept \\
+\midrule
+C1 BBQ Age & Fairness & 45/0/11 & 0.902 & 4/4; 4/4 \\
+C2 XSTest & Safety & 54/0/2 & 0.982 & 4/4; 4/4 \\
+C3 FreshQA & Trust & 43/6/7 & 0.830 & 3/4; 4/4$^\dagger$ \\
+C4 PrivacyLens & Privacy & 49/2/5 & 0.920 & 4/4; 4/4$^\ddagger$ \\
+C5 CounselBench & Human & 53/0/3 & 0.973 & 4/4; 4/4 \\
+\midrule
+All cases & -- & 244/8/28 & 0.921 & 19/20; 20/20 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\begin{flushleft}
+\footnotesize
+\(\dagger\) One expert accepted with minor revision. \(\ddagger\) Two experts
+accepted with minor revision.
+\end{flushleft}
+\end{table}
+
+Table~\ref{tab:expert-quality} summarizes the pilot results. Across
+280 rubric-level judgments, experts preferred the HEART-guided versions in
+244 cases, preferred the originals in 8 cases, and selected Tie in 28 cases.
+The aggregate ERS is 0.921, well above the 0.67 threshold. Each mini case also
+exceeds the threshold individually, with ERS ranging from 0.830 for FreshQA to
+0.982 for XSTest. At the whole-case level, experts selected the HEART-guided
+version in 19 of 20 case-level judgments. All selected versions were considered
+acceptable for benchmark use, although FreshQA and PrivacyLens received
+minor-revision comments, mainly requesting clearer handling of source metadata,
+original fields, and whether false-premise metadata should be visible to the
+model or retained only for evaluators.
+
+We also computed agreement as a consistency check rather than as a separate
+success metric. Mean pairwise observed agreement across the 70 case-rubric
+items was 0.771. Fleiss' \(\kappa\) was 0.005, which is low because the marginal
+distribution is highly skewed toward the HEART-guided version; in this setting,
+the observed agreement and unanimous/majority patterns are more interpretable
+than \(\kappa\). Overall, this pilot supports the claim that HEART's diagnostic
+rubrics and repair tools produce revisions that experts judge to be more
+construct-valid, better specified, and more usable as ethics benchmark items.
+The result should be read as formative expert validation rather than a
+large-sample efficacy test.

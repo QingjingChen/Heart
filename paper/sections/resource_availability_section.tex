@@ -1,0 +1,53 @@
+\section{Resource Availability, FAIR Status, and Repository Contents}
+\label{sec:resource-availability}
+
+HEART is released as a public resource package rather than only as a paper
+appendix. The repository contains the 103-entry benchmark corpus, the
+14-rubric diagnostic codebook, 14 generic repair tools, 103
+benchmark-specific repair sub-tools, five worked mini cases, the literature
+index used for corpus construction, and anonymized expert A/B validation
+results. The benchmark corpus is available in multiple formats:
+CSV and XLSX tables in \texttt{codebook/}, a human-readable catalogue in
+\texttt{datasets/}, JSON files powering the interactive website under
+\texttt{docs/interactive/data/}, and the live static site at
+\url{https://qingjingchen.github.io/Heart/interactive/}. The 14 rubrics have a
+machine-readable version in \texttt{codebook/rubrics.csv} and
+\texttt{docs/interactive/data/rubrics\_full.json}; this means the rubric
+identifiers, layers, questions, anchors, calibration notes, and score
+distributions are exposed as structured fields rather than only as prose.
+
+The 103 specific repair sub-tools are listed in
+\texttt{codebook/sub\_tools.csv}. This file contains primary and secondary
+tool mappings for each audited benchmark, so it has 206 rows while preserving
+the 103 benchmark-specific primary repair tools. The five mini cases contain
+both original and HEART-revised items in
+\texttt{docs/interactive/data/mini\_cases.json}. The blinded expert-validation
+key and anonymized expert votes are stored under \texttt{survey/results/}; raw
+Google Form exports are not committed because they contain respondent initials.
+
+We include a resource card, datasheet, and metadata schema to support FAIR
+review. \texttt{RESOURCE\_CARD.md} summarizes the resource components,
+formats, DOI status, version, and reproduction instructions.
+\texttt{DATASHEET.md} documents motivation, composition, inclusion criteria,
+recommended uses, non-recommended uses, and maintenance. The metadata and
+provenance schema in \texttt{metadata/heart\_metadata\_schema.json} defines
+stable fields for benchmark entries, rubric records, repair tools, mini cases,
+and expert votes. Provenance fields record source URLs, BibTeX keys, evidence
+notes, verification dates, annotator roles, and review status.
+
+The current repository version is \texttt{v0.1.0}. A DOI has not yet been
+minted; the repository includes \texttt{.zenodo.json} so that an indexed
+Zenodo DOI can be created for the archival release and then back-filled into
+\texttt{CITATION.cff}. Until that archival deposit is complete, the GitHub
+repository and GitHub Pages site serve as the public review-access locations.
+The resource is reusable under CC-BY-4.0 for data, codebook, documentation,
+and rubric anchors, while scripts and website code are MIT licensed. Upstream
+benchmark datasets remain governed by their original licenses.
+
+The machine-readable codebook can support LLM-assisted evidence retrieval or
+draft scoring, but the HEART score tables should not be read as an automatic
+benchmark-of-benchmarks. Rubric calibration was performed through human expert
+reading of benchmark papers, repositories, related surveys, subsequent
+related-work discussions, and author-stated limitations. This design keeps
+LLM assistance available for search and drafting while preserving expert
+judgment for ethically sensitive scoring and claim limitation.

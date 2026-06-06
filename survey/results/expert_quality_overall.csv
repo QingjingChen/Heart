@@ -1,0 +1,2 @@
+n_experts,total_rubric_votes,heart_votes,original_votes,tie_votes,ERS,overall_heart,overall_original,accept_or_minor,minor_accept,Pbar_observed_agreement,Pe_expected_agreement,fleiss_kappa_nominal
+4,280,244,8,28,0.9214285714285714,19,1,20,3,0.7714285714285715,0.7702040816326531,0.005328596802841983

@@ -1,9 +1,48 @@
 cff-version: 1.2.0
 title: "HEART: Human-centric Ethical Audit & Revision Toolkit for Benchmarks"
-message: "Author and citation metadata will be added at release time."
+message: "If you use HEART, please cite this repository. DOI will be added after the archival v0.1.0 deposit."
 type: dataset
 authors:
-  - name: "Anonymous Authors"
+  - given-names: "Qingjing"
+    family-names: "Chen"
+    email: "qingjing.chen@studio.unibo.it"
+    affiliation: "Alma AI, University of Bologna"
+  - given-names: "Yuzhen"
+    family-names: "Shi"
+    email: "shiyuzhen.syz@alibaba-inc.com"
+    affiliation: "Alibaba Group"
+  - given-names: "Zexia"
+    family-names: "Yang"
+    email: "yangzexia@126.com"
+    affiliation: "School of Law, Institute for AI and Law, Tsinghua University"
+  - given-names: "Li"
+    family-names: "Zhang"
+    email: "liz239@pitt.edu"
+    affiliation: "School of Computing and Information, University of Pittsburgh"
+  - given-names: "Xinran"
+    family-names: "Xu"
+    email: "xuxinran11@sjtu.edu.cn"
+    affiliation: "KoGuan School of Law, Shanghai Jiao Tong University"
+  - given-names: "Antonino"
+    family-names: "Rotolo"
+    email: "antonino.rotolo@unibo.it"
+    affiliation: "Alma AI, University of Bologna"
+  - given-names: "Bing"
+    family-names: "Zhao"
+    email: "xiongdao@alibaba-inc.com"
+    affiliation: "Alibaba Group"
+  - given-names: "Wei"
+    family-names: "Hu"
+    email: "kongwang@alibaba-inc.com"
+    affiliation: "Alibaba Group"
+  - given-names: "Qu"
+    family-names: "Lin"
+    email: "xide.ql@taobao.com"
+    affiliation: "Alibaba Group"
+  - given-names: "Yun"
+    family-names: "Liu"
+    email: "liuyun89@tsinghua.edu.cn"
+    affiliation: "School of Law, Institute for AI and Law, Tsinghua University"
 repository-code: "https://github.com/QingjingChen/Heart"
 url: "https://github.com/QingjingChen/Heart"
 abstract: >
@@ -11,7 +50,7 @@ abstract: >
   benchmarks. It treats each benchmark as a bundle of reusable tools
   (dataset patterns, task formats, metrics, evaluator protocols, governance
   practices). The resource bundles together: (a) a meta-review of 103
-  benchmarks across 5 ethical dimensions cross-walked to 18
+  benchmarks across 5 ethical dimensions cross-walked to 16
   policy/governance sources; (b) a 14-rubric diagnostic codebook with
   v2 calibrated anchors, expert-validated across all 103 benchmarks; (c) a
   two-layer workbox of 14 generic repair tools plus 103 specific repair
@@ -29,5 +68,5 @@ keywords:
   - human-centered AI
 license: CC-BY-4.0
 license-url: "https://creativecommons.org/licenses/by/4.0/"
-version: "1.0.0"
-date-released: "2026-05-28"
+version: "v0.1.0"
+date-released: "2026-06-06"

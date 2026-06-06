@@ -1,0 +1,71 @@
+case_id,case_name,rubric,rubric_zh,layer,n_votes,heart_votes,original_votes,tie_votes,ERS,net_advantage
+C1,BBQ Age,R1,构念清晰度,Content Validity,4,3,0,1,0.875,0.75
+C1,BBQ Age,R2,规范依据,Content Validity,4,4,0,0,1.0,1.0
+C1,BBQ Age,R3,来源可追溯与适配性,Content Validity,4,3,0,1,0.875,0.75
+C1,BBQ Age,R4,情境与利益相关方覆盖,Content Validity,4,3,0,1,0.875,0.75
+C1,BBQ Age,R5,真实伤害链路,Content Validity,4,4,0,0,1.0,1.0
+C1,BBQ Age,R6,情境有效性,Evaluation Design,4,4,0,0,1.0,1.0
+C1,BBQ Age,R7,任务形式适配,Evaluation Design,4,4,0,0,1.0,1.0
+C1,BBQ Age,R8,标签结构与分歧设计,Evaluation Design,4,4,0,0,1.0,1.0
+C1,BBQ Age,R9,指标有效性,Evaluation Design,4,2,0,2,0.75,0.5
+C1,BBQ Age,R10,评分者可靠性,Evaluation Design,4,4,0,0,1.0,1.0
+C1,BBQ Age,R11,数据与标注质保,Governance Reliability,4,4,0,0,1.0,1.0
+C1,BBQ Age,R12,防作弊与防污染,Governance Reliability,4,1,0,3,0.625,0.25
+C1,BBQ Age,R13,文档与可复现性,Governance Reliability,4,3,0,1,0.875,0.75
+C1,BBQ Age,R14,维护与更新治理,Governance Reliability,4,2,0,2,0.75,0.5
+C2,XSTest,R1,构念清晰度,Content Validity,4,4,0,0,1.0,1.0
+C2,XSTest,R2,规范依据,Content Validity,4,4,0,0,1.0,1.0
+C2,XSTest,R3,来源可追溯与适配性,Content Validity,4,4,0,0,1.0,1.0
+C2,XSTest,R4,情境与利益相关方覆盖,Content Validity,4,4,0,0,1.0,1.0
+C2,XSTest,R5,真实伤害链路,Content Validity,4,4,0,0,1.0,1.0
+C2,XSTest,R6,情境有效性,Evaluation Design,4,4,0,0,1.0,1.0
+C2,XSTest,R7,任务形式适配,Evaluation Design,4,4,0,0,1.0,1.0
+C2,XSTest,R8,标签结构与分歧设计,Evaluation Design,4,4,0,0,1.0,1.0
+C2,XSTest,R9,指标有效性,Evaluation Design,4,4,0,0,1.0,1.0
+C2,XSTest,R10,评分者可靠性,Evaluation Design,4,4,0,0,1.0,1.0
+C2,XSTest,R11,数据与标注质保,Governance Reliability,4,4,0,0,1.0,1.0
+C2,XSTest,R12,防作弊与防污染,Governance Reliability,4,3,0,1,0.875,0.75
+C2,XSTest,R13,文档与可复现性,Governance Reliability,4,4,0,0,1.0,1.0
+C2,XSTest,R14,维护与更新治理,Governance Reliability,4,3,0,1,0.875,0.75
+C3,FreshQA,R1,构念清晰度,Content Validity,4,3,1,0,0.75,0.5
+C3,FreshQA,R2,规范依据,Content Validity,4,3,0,1,0.875,0.75
+C3,FreshQA,R3,来源可追溯与适配性,Content Validity,4,2,1,1,0.625,0.25
+C3,FreshQA,R4,情境与利益相关方覆盖,Content Validity,4,4,0,0,1.0,1.0
+C3,FreshQA,R5,真实伤害链路,Content Validity,4,3,0,1,0.875,0.75
+C3,FreshQA,R6,情境有效性,Evaluation Design,4,3,0,1,0.875,0.75
+C3,FreshQA,R7,任务形式适配,Evaluation Design,4,3,0,1,0.875,0.75
+C3,FreshQA,R8,标签结构与分歧设计,Evaluation Design,4,4,0,0,1.0,1.0
+C3,FreshQA,R9,指标有效性,Evaluation Design,4,3,0,1,0.875,0.75
+C3,FreshQA,R10,评分者可靠性,Evaluation Design,4,3,1,0,0.75,0.5
+C3,FreshQA,R11,数据与标注质保,Governance Reliability,4,3,1,0,0.75,0.5
+C3,FreshQA,R12,防作弊与防污染,Governance Reliability,4,3,0,1,0.875,0.75
+C3,FreshQA,R13,文档与可复现性,Governance Reliability,4,3,1,0,0.75,0.5
+C3,FreshQA,R14,维护与更新治理,Governance Reliability,4,3,1,0,0.75,0.5
+C4,PrivacyLens,R1,构念清晰度,Content Validity,4,4,0,0,1.0,1.0
+C4,PrivacyLens,R2,规范依据,Content Validity,4,3,0,1,0.875,0.75
+C4,PrivacyLens,R3,来源可追溯与适配性,Content Validity,4,3,1,0,0.75,0.5
+C4,PrivacyLens,R4,情境与利益相关方覆盖,Content Validity,4,4,0,0,1.0,1.0
+C4,PrivacyLens,R5,真实伤害链路,Content Validity,4,4,0,0,1.0,1.0
+C4,PrivacyLens,R6,情境有效性,Evaluation Design,4,4,0,0,1.0,1.0
+C4,PrivacyLens,R7,任务形式适配,Evaluation Design,4,4,0,0,1.0,1.0
+C4,PrivacyLens,R8,标签结构与分歧设计,Evaluation Design,4,4,0,0,1.0,1.0
+C4,PrivacyLens,R9,指标有效性,Evaluation Design,4,4,0,0,1.0,1.0
+C4,PrivacyLens,R10,评分者可靠性,Evaluation Design,4,4,0,0,1.0,1.0
+C4,PrivacyLens,R11,数据与标注质保,Governance Reliability,4,3,0,1,0.875,0.75
+C4,PrivacyLens,R12,防作弊与防污染,Governance Reliability,4,3,0,1,0.875,0.75
+C4,PrivacyLens,R13,文档与可复现性,Governance Reliability,4,2,1,1,0.625,0.25
+C4,PrivacyLens,R14,维护与更新治理,Governance Reliability,4,3,0,1,0.875,0.75
+C5,CounselBench-Adv,R1,构念清晰度,Content Validity,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R2,规范依据,Content Validity,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R3,来源可追溯与适配性,Content Validity,4,3,0,1,0.875,0.75
+C5,CounselBench-Adv,R4,情境与利益相关方覆盖,Content Validity,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R5,真实伤害链路,Content Validity,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R6,情境有效性,Evaluation Design,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R7,任务形式适配,Evaluation Design,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R8,标签结构与分歧设计,Evaluation Design,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R9,指标有效性,Evaluation Design,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R10,评分者可靠性,Evaluation Design,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R11,数据与标注质保,Governance Reliability,4,4,0,0,1.0,1.0
+C5,CounselBench-Adv,R12,防作弊与防污染,Governance Reliability,4,3,0,1,0.875,0.75
+C5,CounselBench-Adv,R13,文档与可复现性,Governance Reliability,4,3,0,1,0.875,0.75
+C5,CounselBench-Adv,R14,维护与更新治理,Governance Reliability,4,4,0,0,1.0,1.0

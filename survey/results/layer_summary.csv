@@ -1,0 +1,4 @@
+layer,n_votes,heart_votes,original_votes,tie_votes,ERS,net_advantage
+Content Validity,100,89,3,8,0.93,0.86
+Evaluation Design,100,94,1,5,0.965,0.93
+Governance Reliability,80,61,4,15,0.85625,0.7125

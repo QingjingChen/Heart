@@ -1,0 +1,281 @@
+expert_id,case_id,case_name,dimension,rubric,rubric_zh,layer,blind_choice,decoded_preference,score_for_ERS
+E01,C1,BBQ Age,Fairness & Inclusion,R1,构念清晰度,Content Validity,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R1,构念清晰度,Content Validity,Tie,tie,0.5
+E03,C1,BBQ Age,Fairness & Inclusion,R1,构念清晰度,Content Validity,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R1,构念清晰度,Content Validity,A,heart,1.0
+E01,C1,BBQ Age,Fairness & Inclusion,R2,规范依据,Content Validity,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R2,规范依据,Content Validity,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R2,规范依据,Content Validity,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R2,规范依据,Content Validity,A,heart,1.0
+E01,C1,BBQ Age,Fairness & Inclusion,R3,来源可追溯与适配性,Content Validity,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R3,来源可追溯与适配性,Content Validity,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R3,来源可追溯与适配性,Content Validity,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R3,来源可追溯与适配性,Content Validity,Tie,tie,0.5
+E01,C1,BBQ Age,Fairness & Inclusion,R4,情境与利益相关方覆盖,Content Validity,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R4,情境与利益相关方覆盖,Content Validity,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R4,情境与利益相关方覆盖,Content Validity,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R4,情境与利益相关方覆盖,Content Validity,Tie,tie,0.5
+E01,C1,BBQ Age,Fairness & Inclusion,R5,真实伤害链路,Content Validity,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R5,真实伤害链路,Content Validity,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R5,真实伤害链路,Content Validity,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R5,真实伤害链路,Content Validity,A,heart,1.0
+E01,C1,BBQ Age,Fairness & Inclusion,R6,情境有效性,Evaluation Design,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R6,情境有效性,Evaluation Design,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R6,情境有效性,Evaluation Design,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R6,情境有效性,Evaluation Design,A,heart,1.0
+E01,C1,BBQ Age,Fairness & Inclusion,R7,任务形式适配,Evaluation Design,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R7,任务形式适配,Evaluation Design,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R7,任务形式适配,Evaluation Design,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R7,任务形式适配,Evaluation Design,A,heart,1.0
+E01,C1,BBQ Age,Fairness & Inclusion,R8,标签结构与分歧设计,Evaluation Design,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R8,标签结构与分歧设计,Evaluation Design,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R8,标签结构与分歧设计,Evaluation Design,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R8,标签结构与分歧设计,Evaluation Design,A,heart,1.0
+E01,C1,BBQ Age,Fairness & Inclusion,R9,指标有效性,Evaluation Design,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R9,指标有效性,Evaluation Design,Tie,tie,0.5
+E03,C1,BBQ Age,Fairness & Inclusion,R9,指标有效性,Evaluation Design,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R9,指标有效性,Evaluation Design,Tie,tie,0.5
+E01,C1,BBQ Age,Fairness & Inclusion,R10,评分者可靠性,Evaluation Design,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R10,评分者可靠性,Evaluation Design,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R10,评分者可靠性,Evaluation Design,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R10,评分者可靠性,Evaluation Design,A,heart,1.0
+E01,C1,BBQ Age,Fairness & Inclusion,R11,数据与标注质保,Governance Reliability,A,heart,1.0
+E02,C1,BBQ Age,Fairness & Inclusion,R11,数据与标注质保,Governance Reliability,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R11,数据与标注质保,Governance Reliability,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R11,数据与标注质保,Governance Reliability,A,heart,1.0
+E01,C1,BBQ Age,Fairness & Inclusion,R12,防作弊与防污染,Governance Reliability,Tie,tie,0.5
+E02,C1,BBQ Age,Fairness & Inclusion,R12,防作弊与防污染,Governance Reliability,Tie,tie,0.5
+E03,C1,BBQ Age,Fairness & Inclusion,R12,防作弊与防污染,Governance Reliability,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R12,防作弊与防污染,Governance Reliability,Tie,tie,0.5
+E01,C1,BBQ Age,Fairness & Inclusion,R13,文档与可复现性,Governance Reliability,Tie,tie,0.5
+E02,C1,BBQ Age,Fairness & Inclusion,R13,文档与可复现性,Governance Reliability,A,heart,1.0
+E03,C1,BBQ Age,Fairness & Inclusion,R13,文档与可复现性,Governance Reliability,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R13,文档与可复现性,Governance Reliability,A,heart,1.0
+E01,C1,BBQ Age,Fairness & Inclusion,R14,维护与更新治理,Governance Reliability,Tie,tie,0.5
+E02,C1,BBQ Age,Fairness & Inclusion,R14,维护与更新治理,Governance Reliability,Tie,tie,0.5
+E03,C1,BBQ Age,Fairness & Inclusion,R14,维护与更新治理,Governance Reliability,A,heart,1.0
+E04,C1,BBQ Age,Fairness & Inclusion,R14,维护与更新治理,Governance Reliability,A,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R1,构念清晰度,Content Validity,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R1,构念清晰度,Content Validity,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R1,构念清晰度,Content Validity,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R1,构念清晰度,Content Validity,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R2,规范依据,Content Validity,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R2,规范依据,Content Validity,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R2,规范依据,Content Validity,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R2,规范依据,Content Validity,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R5,真实伤害链路,Content Validity,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R5,真实伤害链路,Content Validity,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R5,真实伤害链路,Content Validity,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R5,真实伤害链路,Content Validity,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R6,情境有效性,Evaluation Design,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R6,情境有效性,Evaluation Design,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R6,情境有效性,Evaluation Design,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R6,情境有效性,Evaluation Design,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R9,指标有效性,Evaluation Design,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R9,指标有效性,Evaluation Design,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R9,指标有效性,Evaluation Design,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R9,指标有效性,Evaluation Design,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R12,防作弊与防污染,Governance Reliability,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R12,防作弊与防污染,Governance Reliability,Tie,tie,0.5
+E03,C2,XSTest,Safety & Reliability,R12,防作弊与防污染,Governance Reliability,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R12,防作弊与防污染,Governance Reliability,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R13,文档与可复现性,Governance Reliability,B,heart,1.0
+E02,C2,XSTest,Safety & Reliability,R13,文档与可复现性,Governance Reliability,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R13,文档与可复现性,Governance Reliability,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R13,文档与可复现性,Governance Reliability,B,heart,1.0
+E01,C2,XSTest,Safety & Reliability,R14,维护与更新治理,Governance Reliability,Tie,tie,0.5
+E02,C2,XSTest,Safety & Reliability,R14,维护与更新治理,Governance Reliability,B,heart,1.0
+E03,C2,XSTest,Safety & Reliability,R14,维护与更新治理,Governance Reliability,B,heart,1.0
+E04,C2,XSTest,Safety & Reliability,R14,维护与更新治理,Governance Reliability,B,heart,1.0
+E01,C3,FreshQA,Trustworthiness,R1,构念清晰度,Content Validity,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R1,构念清晰度,Content Validity,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R1,构念清晰度,Content Validity,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R1,构念清晰度,Content Validity,B,original,0.0
+E01,C3,FreshQA,Trustworthiness,R2,规范依据,Content Validity,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R2,规范依据,Content Validity,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R2,规范依据,Content Validity,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R2,规范依据,Content Validity,Tie,tie,0.5
+E01,C3,FreshQA,Trustworthiness,R3,来源可追溯与适配性,Content Validity,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R3,来源可追溯与适配性,Content Validity,B,original,0.0
+E03,C3,FreshQA,Trustworthiness,R3,来源可追溯与适配性,Content Validity,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R3,来源可追溯与适配性,Content Validity,Tie,tie,0.5
+E01,C3,FreshQA,Trustworthiness,R4,情境与利益相关方覆盖,Content Validity,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R4,情境与利益相关方覆盖,Content Validity,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R4,情境与利益相关方覆盖,Content Validity,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R4,情境与利益相关方覆盖,Content Validity,A,heart,1.0
+E01,C3,FreshQA,Trustworthiness,R5,真实伤害链路,Content Validity,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R5,真实伤害链路,Content Validity,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R5,真实伤害链路,Content Validity,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R5,真实伤害链路,Content Validity,Tie,tie,0.5
+E01,C3,FreshQA,Trustworthiness,R6,情境有效性,Evaluation Design,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R6,情境有效性,Evaluation Design,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R6,情境有效性,Evaluation Design,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R6,情境有效性,Evaluation Design,Tie,tie,0.5
+E01,C3,FreshQA,Trustworthiness,R7,任务形式适配,Evaluation Design,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R7,任务形式适配,Evaluation Design,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R7,任务形式适配,Evaluation Design,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R7,任务形式适配,Evaluation Design,Tie,tie,0.5
+E01,C3,FreshQA,Trustworthiness,R8,标签结构与分歧设计,Evaluation Design,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R8,标签结构与分歧设计,Evaluation Design,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R8,标签结构与分歧设计,Evaluation Design,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R8,标签结构与分歧设计,Evaluation Design,A,heart,1.0
+E01,C3,FreshQA,Trustworthiness,R9,指标有效性,Evaluation Design,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R9,指标有效性,Evaluation Design,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R9,指标有效性,Evaluation Design,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R9,指标有效性,Evaluation Design,Tie,tie,0.5
+E01,C3,FreshQA,Trustworthiness,R10,评分者可靠性,Evaluation Design,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R10,评分者可靠性,Evaluation Design,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R10,评分者可靠性,Evaluation Design,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R10,评分者可靠性,Evaluation Design,B,original,0.0
+E01,C3,FreshQA,Trustworthiness,R11,数据与标注质保,Governance Reliability,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R11,数据与标注质保,Governance Reliability,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R11,数据与标注质保,Governance Reliability,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R11,数据与标注质保,Governance Reliability,B,original,0.0
+E01,C3,FreshQA,Trustworthiness,R12,防作弊与防污染,Governance Reliability,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R12,防作弊与防污染,Governance Reliability,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R12,防作弊与防污染,Governance Reliability,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R12,防作弊与防污染,Governance Reliability,Tie,tie,0.5
+E01,C3,FreshQA,Trustworthiness,R13,文档与可复现性,Governance Reliability,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R13,文档与可复现性,Governance Reliability,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R13,文档与可复现性,Governance Reliability,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R13,文档与可复现性,Governance Reliability,B,original,0.0
+E01,C3,FreshQA,Trustworthiness,R14,维护与更新治理,Governance Reliability,A,heart,1.0
+E02,C3,FreshQA,Trustworthiness,R14,维护与更新治理,Governance Reliability,A,heart,1.0
+E03,C3,FreshQA,Trustworthiness,R14,维护与更新治理,Governance Reliability,A,heart,1.0
+E04,C3,FreshQA,Trustworthiness,R14,维护与更新治理,Governance Reliability,B,original,0.0
+E01,C4,PrivacyLens,Privacy Protection,R1,构念清晰度,Content Validity,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R1,构念清晰度,Content Validity,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R1,构念清晰度,Content Validity,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R1,构念清晰度,Content Validity,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R2,规范依据,Content Validity,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R2,规范依据,Content Validity,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R2,规范依据,Content Validity,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R2,规范依据,Content Validity,Tie,tie,0.5
+E01,C4,PrivacyLens,Privacy Protection,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R3,来源可追溯与适配性,Content Validity,A,original,0.0
+E03,C4,PrivacyLens,Privacy Protection,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R5,真实伤害链路,Content Validity,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R5,真实伤害链路,Content Validity,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R5,真实伤害链路,Content Validity,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R5,真实伤害链路,Content Validity,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R6,情境有效性,Evaluation Design,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R6,情境有效性,Evaluation Design,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R6,情境有效性,Evaluation Design,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R6,情境有效性,Evaluation Design,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R9,指标有效性,Evaluation Design,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R9,指标有效性,Evaluation Design,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R9,指标有效性,Evaluation Design,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R9,指标有效性,Evaluation Design,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R11,数据与标注质保,Governance Reliability,Tie,tie,0.5
+E04,C4,PrivacyLens,Privacy Protection,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R12,防作弊与防污染,Governance Reliability,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R12,防作弊与防污染,Governance Reliability,Tie,tie,0.5
+E03,C4,PrivacyLens,Privacy Protection,R12,防作弊与防污染,Governance Reliability,B,heart,1.0
+E04,C4,PrivacyLens,Privacy Protection,R12,防作弊与防污染,Governance Reliability,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R13,文档与可复现性,Governance Reliability,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R13,文档与可复现性,Governance Reliability,A,original,0.0
+E03,C4,PrivacyLens,Privacy Protection,R13,文档与可复现性,Governance Reliability,Tie,tie,0.5
+E04,C4,PrivacyLens,Privacy Protection,R13,文档与可复现性,Governance Reliability,B,heart,1.0
+E01,C4,PrivacyLens,Privacy Protection,R14,维护与更新治理,Governance Reliability,B,heart,1.0
+E02,C4,PrivacyLens,Privacy Protection,R14,维护与更新治理,Governance Reliability,B,heart,1.0
+E03,C4,PrivacyLens,Privacy Protection,R14,维护与更新治理,Governance Reliability,Tie,tie,0.5
+E04,C4,PrivacyLens,Privacy Protection,R14,维护与更新治理,Governance Reliability,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R1,构念清晰度,Content Validity,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R1,构念清晰度,Content Validity,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R1,构念清晰度,Content Validity,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R1,构念清晰度,Content Validity,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R2,规范依据,Content Validity,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R2,规范依据,Content Validity,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R2,规范依据,Content Validity,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R2,规范依据,Content Validity,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R3,来源可追溯与适配性,Content Validity,Tie,tie,0.5
+E03,C5,CounselBench-Adv,Human-Centered,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R3,来源可追溯与适配性,Content Validity,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R4,情境与利益相关方覆盖,Content Validity,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R5,真实伤害链路,Content Validity,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R5,真实伤害链路,Content Validity,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R5,真实伤害链路,Content Validity,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R5,真实伤害链路,Content Validity,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R6,情境有效性,Evaluation Design,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R6,情境有效性,Evaluation Design,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R6,情境有效性,Evaluation Design,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R6,情境有效性,Evaluation Design,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R7,任务形式适配,Evaluation Design,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R8,标签结构与分歧设计,Evaluation Design,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R9,指标有效性,Evaluation Design,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R9,指标有效性,Evaluation Design,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R9,指标有效性,Evaluation Design,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R9,指标有效性,Evaluation Design,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R10,评分者可靠性,Evaluation Design,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R11,数据与标注质保,Governance Reliability,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R12,防作弊与防污染,Governance Reliability,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R12,防作弊与防污染,Governance Reliability,Tie,tie,0.5
+E03,C5,CounselBench-Adv,Human-Centered,R12,防作弊与防污染,Governance Reliability,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R12,防作弊与防污染,Governance Reliability,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R13,文档与可复现性,Governance Reliability,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R13,文档与可复现性,Governance Reliability,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R13,文档与可复现性,Governance Reliability,Tie,tie,0.5
+E04,C5,CounselBench-Adv,Human-Centered,R13,文档与可复现性,Governance Reliability,B,heart,1.0
+E01,C5,CounselBench-Adv,Human-Centered,R14,维护与更新治理,Governance Reliability,B,heart,1.0
+E02,C5,CounselBench-Adv,Human-Centered,R14,维护与更新治理,Governance Reliability,B,heart,1.0
+E03,C5,CounselBench-Adv,Human-Centered,R14,维护与更新治理,Governance Reliability,B,heart,1.0
+E04,C5,CounselBench-Adv,Human-Centered,R14,维护与更新治理,Governance Reliability,B,heart,1.0

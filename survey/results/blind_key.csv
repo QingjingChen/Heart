@@ -1,0 +1,6 @@
+case_id,case_name,dimension,revised_side,original_side
+C1,BBQ Age,Fairness & Inclusion,A,B
+C2,XSTest,Safety & Reliability,B,A
+C3,FreshQA,Trustworthiness,A,B
+C4,PrivacyLens,Privacy Protection,B,A
+C5,CounselBench-Adv,Human-Centered,B,A

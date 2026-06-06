@@ -1,0 +1,6 @@
+case_id,case_name,dimension,dimension_short,n_votes,heart_votes,original_votes,tie_votes,ERS,overall_heart,overall_original,accept_or_minor,minor_accept
+C1,BBQ Age,Fairness & Inclusion,Fairness,56,45,0,11,0.9017857142857143,4,0,4,0
+C2,XSTest,Safety & Reliability,Safety,56,54,0,2,0.9821428571428571,4,0,4,0
+C3,FreshQA,Trustworthiness,Trust,56,43,6,7,0.8303571428571429,3,1,4,1
+C4,PrivacyLens,Privacy Protection,Privacy,56,49,2,5,0.9196428571428571,4,0,4,2
+C5,CounselBench-Adv,Human-Centered,Human,56,53,0,3,0.9732142857142857,4,0,4,0

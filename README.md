@@ -14,6 +14,7 @@
 [📖 Docs](#-documentation-stack) ·
 [📊 Codebook](codebook/) ·
 [📚 Bench corpus](datasets/sources.md) ·
+[📦 Resource card](RESOURCE_CARD.md) ·
 [🤝 Contribute](.github/ISSUE_TEMPLATE/)
 
 </div>
@@ -52,7 +53,9 @@ that can be picked apart and re-applied. It bundles together:
 | 🩺 Audit one benchmark by hand | [`docs/05_guidebook_workflow.md`](docs/05_guidebook_workflow.md) (4-step workflow) |
 | 📊 Get the raw data | [`codebook/benchmarks.csv`](codebook/) |
 | 🔗 Look up a benchmark's paper / code / dataset mirror | [`datasets/sources.md`](datasets/sources.md) |
-| 📚 Cite HEART | [`CITATION.cff`](CITATION.cff) (placeholder; DOI at release) |
+| 🔬 Inspect anonymized expert validation results | [`survey/results/`](survey/results/) |
+| 📦 Review FAIR / resource-track metadata | [`RESOURCE_CARD.md`](RESOURCE_CARD.md), [`DATASHEET.md`](DATASHEET.md), [`metadata/`](metadata/) |
+| 📚 Cite HEART | [`CITATION.cff`](CITATION.cff) (v0.1.0 metadata; DOI pending archival release) |
 | ✅ Sanity-check the codebook is internally consistent | `python3 scripts/validate_codebook.py` |
 | ✅ Sanity-check the interactive site has no copy / vocab drift | `python3 scripts/site_consistency_check.py` |
 
@@ -76,6 +79,23 @@ by `codebook/build_codebook.py`. Sanity is enforced by
 | [`codebook/rubric_tool_matrix.csv`](codebook/rubric_tool_matrix.csv) | 14×14 | Evidence-score matrix used by the site's `Gap → Tool Workflow` heatmap. | `rubric`, `T01`…`T14` |
 | [`codebook/gap_detection.csv`](codebook/gap_detection.csv) | 14 | Per-rubric symptoms / red flags / evidence-to-inspect. | `code`, `typical_symptoms_en/_zh`, `red_flags`, `diagnostic_questions`, `domain_symptoms` |
 | [`codebook/heart_codebook.xlsx`](codebook/heart_codebook.xlsx) | — | All eight CSVs bundled as one workbook (one sheet each). | — |
+| [`survey/literature/tech_ethics_survey.bib`](survey/literature/tech_ethics_survey.bib) | 982 | Technology-ethics literature index used as the retrieval pool for corpus construction. | BibTeX keys, titles, authors, venues, years, URLs / DOIs |
+| [`survey/results/expert_votes_anonymized_long.csv`](survey/results/expert_votes_anonymized_long.csv) | 280 | Anonymized expert A/B votes for five mini cases × 14 rubrics × 4 experts. | `expert_id`, `case_id`, `rubric`, `blind_choice`, `decoded_preference`, `score_for_ERS` |
+| [`survey/results/rubric_case_summary.csv`](survey/results/rubric_case_summary.csv) | 70 | Detailed rubric-by-case validation statistics. | `case_id`, `rubric`, `heart_votes`, `original_votes`, `tie_votes`, `ERS`, `net_advantage` |
+| [`metadata/heart_metadata_schema.json`](metadata/heart_metadata_schema.json) | — | JSON Schema for benchmark, rubric, tool, mini-case, and expert-vote records. | provenance fields, source URLs, review status, expert-vote schema |
+
+The 103 benchmark corpus is therefore available as **CSV** (`codebook/benchmarks.csv`),
+**XLSX** (`codebook/heart_codebook.xlsx`), **Markdown** (`datasets/README.md` and
+`datasets/sources.md`), and **JSON-backed website data** under
+`docs/interactive/data/`.
+
+The 14-rubric codebook has a machine-readable version in
+`codebook/rubrics.csv` and `docs/interactive/data/rubrics_full.json`. Here,
+"machine-readable" means stable structured fields that a script or LLM-assisted
+workflow can parse (rubric IDs, layers, anchor text, score distributions,
+calibration notes). LLMs may assist evidence retrieval or draft scoring, but
+final rubric calibration is performed by human experts through paper,
+repository, related-work, survey, and limitation review.
 
 ### Manifest numbers
 
@@ -175,8 +195,26 @@ Each audited benchmark is treated as a **specific repair sub-tool** bound to one
 │   ├── README.md                        ← catalogue of 103 benches by dimension
 │   └── sources.md                       ← per-bench paper / code / Drive URLs
 │
+├── survey/                              🔬 expert validation + literature index
+│   ├── literature/tech_ethics_survey.bib ← 982-entry retrieval/literature pool
+│   └── results/                         ← anonymized A/B expert votes + figures
+│
+├── metadata/                            🧾 machine-readable schema + provenance fields
+│   ├── README.md
+│   └── heart_metadata_schema.json
+│
 └── paper/                               📝 companion paper (added at release time)
 ```
+
+Resource-track support files:
+
+- [`RESOURCE_CARD.md`](RESOURCE_CARD.md) — component manifest, formats, DOI
+  status, reproduction instructions, limitations.
+- [`DATASHEET.md`](DATASHEET.md) — motivation, composition, collection,
+  inclusion criteria, intended / non-intended uses, maintenance.
+- [`VERSION`](VERSION) — current release label (`v0.1.0`).
+- [`.zenodo.json`](.zenodo.json) — metadata prepared for DOI-backed archival
+  release; DOI is pending until deposit.
 
 ---
 

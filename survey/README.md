@@ -93,6 +93,19 @@
 - **Per-rubric inter-rater agreement**：Krippendorff's α（3 类）或两两 κ。
 - 文字理由可做 thematic coding，对照 14 rubric 看专家关注点。
 
+### 已提交的匿名结果
+
+本仓库已提交最新一轮匿名 pilot 结果，见 [`results/`](results/)：
+
+- [`results/blind_key.csv`](results/blind_key.csv)：研究者侧 A/B 解码表；
+- [`results/expert_votes_anonymized_long.csv`](results/expert_votes_anonymized_long.csv)：逐专家、逐 case、逐 rubric 的匿名投票；
+- [`results/expert_quality_table.csv`](results/expert_quality_table.csv)：H/O/T、ERS、整体偏好与接受度；
+- [`results/rubric_case_summary.csv`](results/rubric_case_summary.csv)：14 rubrics × 5 cases 的详细统计；
+- [`results/figures/rubric_case_heatmap_net_advantage.png`](results/figures/rubric_case_heatmap_net_advantage.png)：rubric 细分热力图。
+
+原始 Google Form 导出文件不提交，因为其中包含姓名缩写。仓库中的专家编号
+统一为 `E01`--`E04`，仅保留匿名投票和可审计的理由文本。
+
 ---
 
 ## ❓ 为什么用 Google Form 而不是站内 widget？

@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/QingjingChen/Heart/metadata/heart_metadata_schema.json",
+  "title": "HEART resource metadata schema",
+  "description": "Schema for machine-readable HEART benchmark, rubric, tool, mini-case, and expert-validation records.",
+  "type": "object",
+  "properties": {
+    "benchmark_entry": {
+      "type": "object",
+      "required": [
+        "benchmark",
+        "dimension_en",
+        "paper_url",
+        "primary_tool_id",
+        "rubrics_improved"
+      ],
+      "properties": {
+        "benchmark": { "type": "string" },
+        "dimension_en": { "type": "string" },
+        "dimension_zh": { "type": "string" },
+        "expert_tag_en": { "type": "string" },
+        "paper_url": { "type": "string" },
+        "code_url": { "type": "string" },
+        "dataset_url": { "type": "string" },
+        "primary_tool_id": { "type": "string", "pattern": "^T[0-9]{2}$" },
+        "secondary_tool_id": { "type": "string" },
+        "rubrics_improved": { "type": "string" },
+        "adaptation_prompt_en": { "type": "string" },
+        "adaptation_example_en": { "type": "string" },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "source_bib_key": { "type": "string" },
+            "source_file_path": { "type": "string" },
+            "source_url": { "type": "string" },
+            "evidence_quote_or_summary": { "type": "string" },
+            "last_verified": { "type": "string" },
+            "annotator_role": { "type": "string" },
+            "review_status": {
+              "type": "string",
+              "enum": ["draft", "expert-reviewed", "adjudicated", "needs-update"]
+            }
+          }
+        }
+      }
+    },
+    "rubric_record": {
+      "type": "object",
+      "required": ["code", "layer", "name_en", "key_question_en", "anchor_0_en", "anchor_5_en"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^R[0-9]{1,2}$" },
+        "layer": { "type": "string" },
+        "name_en": { "type": "string" },
+        "name_zh": { "type": "string" },
+        "key_question_en": { "type": "string" },
+        "anchor_0_en": { "type": "string" },
+        "anchor_1_2_en": { "type": "string" },
+        "anchor_3_4_en": { "type": "string" },
+        "anchor_5_en": { "type": "string" },
+        "score_distribution": { "type": "string" },
+        "mean": { "type": ["number", "string"] }
+      }
+    },
+    "tool_record": {
+      "type": "object",
+      "required": ["tool_id", "name_en", "layer", "core_practice_en"],
+      "properties": {
+        "tool_id": { "type": "string", "pattern": "^T[0-9]{2}$" },
+        "name_en": { "type": "string" },
+        "name_zh": { "type": "string" },
+        "layer": { "type": "string" },
+        "core_practice_en": { "type": "string" },
+        "core_rubrics_lifted": { "type": "string" },
+        "automatable_en": { "type": "string" },
+        "needs_human_en": { "type": "string" },
+        "limitations_en": { "type": "string" }
+      }
+    },
+    "mini_case_record": {
+      "type": "object",
+      "required": ["id", "source_dataset", "source_entry", "original_items", "revised_items", "tools_applied"],
+      "properties": {
+        "id": { "type": "string" },
+        "dimension": { "type": "string" },
+        "source_dataset": { "type": "string" },
+        "source_dataset_url": { "type": "string" },
+        "source_entry": { "type": "string" },
+        "original_items": { "type": "array" },
+        "revised_items": { "type": "array" },
+        "rubrics_lifted": { "type": "array", "items": { "type": "string" } },
+        "tools_applied": { "type": "array" }
+      }
+    },
+    "expert_vote_record": {
+      "type": "object",
+      "required": ["expert_id", "case_id", "rubric", "blind_choice", "decoded_preference", "score_for_ERS"],
+      "properties": {
+        "expert_id": { "type": "string", "pattern": "^E[0-9]{2}$" },
+        "case_id": { "type": "string" },
+        "rubric": { "type": "string", "pattern": "^R[0-9]{1,2}$" },
+        "blind_choice": { "type": "string", "enum": ["A", "B", "Tie"] },
+        "decoded_preference": {
+          "type": "string",
+          "enum": ["heart", "original", "tie", "missing"]
+        },
+        "score_for_ERS": { "type": "number" }
+      }
+    }
+  }
+}

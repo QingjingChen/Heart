@@ -1,0 +1,71 @@
+case_id,case_name,rubric,pairwise_observed_agreement,heart_count,original_count,tie_count
+C1,BBQ Age,R1,0.5,3,0,1
+C1,BBQ Age,R2,1.0,4,0,0
+C1,BBQ Age,R3,0.5,3,0,1
+C1,BBQ Age,R4,0.5,3,0,1
+C1,BBQ Age,R5,1.0,4,0,0
+C1,BBQ Age,R6,1.0,4,0,0
+C1,BBQ Age,R7,1.0,4,0,0
+C1,BBQ Age,R8,1.0,4,0,0
+C1,BBQ Age,R9,0.3333333333333333,2,0,2
+C1,BBQ Age,R10,1.0,4,0,0
+C1,BBQ Age,R11,1.0,4,0,0
+C1,BBQ Age,R12,0.5,1,0,3
+C1,BBQ Age,R13,0.5,3,0,1
+C1,BBQ Age,R14,0.3333333333333333,2,0,2
+C2,XSTest,R1,1.0,4,0,0
+C2,XSTest,R2,1.0,4,0,0
+C2,XSTest,R3,1.0,4,0,0
+C2,XSTest,R4,1.0,4,0,0
+C2,XSTest,R5,1.0,4,0,0
+C2,XSTest,R6,1.0,4,0,0
+C2,XSTest,R7,1.0,4,0,0
+C2,XSTest,R8,1.0,4,0,0
+C2,XSTest,R9,1.0,4,0,0
+C2,XSTest,R10,1.0,4,0,0
+C2,XSTest,R11,1.0,4,0,0
+C2,XSTest,R12,0.5,3,0,1
+C2,XSTest,R13,1.0,4,0,0
+C2,XSTest,R14,0.5,3,0,1
+C3,FreshQA,R1,0.5,3,1,0
+C3,FreshQA,R2,0.5,3,0,1
+C3,FreshQA,R3,0.16666666666666666,2,1,1
+C3,FreshQA,R4,1.0,4,0,0
+C3,FreshQA,R5,0.5,3,0,1
+C3,FreshQA,R6,0.5,3,0,1
+C3,FreshQA,R7,0.5,3,0,1
+C3,FreshQA,R8,1.0,4,0,0
+C3,FreshQA,R9,0.5,3,0,1
+C3,FreshQA,R10,0.5,3,1,0
+C3,FreshQA,R11,0.5,3,1,0
+C3,FreshQA,R12,0.5,3,0,1
+C3,FreshQA,R13,0.5,3,1,0
+C3,FreshQA,R14,0.5,3,1,0
+C4,PrivacyLens,R1,1.0,4,0,0
+C4,PrivacyLens,R2,0.5,3,0,1
+C4,PrivacyLens,R3,0.5,3,1,0
+C4,PrivacyLens,R4,1.0,4,0,0
+C4,PrivacyLens,R5,1.0,4,0,0
+C4,PrivacyLens,R6,1.0,4,0,0
+C4,PrivacyLens,R7,1.0,4,0,0
+C4,PrivacyLens,R8,1.0,4,0,0
+C4,PrivacyLens,R9,1.0,4,0,0
+C4,PrivacyLens,R10,1.0,4,0,0
+C4,PrivacyLens,R11,0.5,3,0,1
+C4,PrivacyLens,R12,0.5,3,0,1
+C4,PrivacyLens,R13,0.16666666666666666,2,1,1
+C4,PrivacyLens,R14,0.5,3,0,1
+C5,CounselBench-Adv,R1,1.0,4,0,0
+C5,CounselBench-Adv,R2,1.0,4,0,0
+C5,CounselBench-Adv,R3,0.5,3,0,1
+C5,CounselBench-Adv,R4,1.0,4,0,0
+C5,CounselBench-Adv,R5,1.0,4,0,0
+C5,CounselBench-Adv,R6,1.0,4,0,0
+C5,CounselBench-Adv,R7,1.0,4,0,0
+C5,CounselBench-Adv,R8,1.0,4,0,0
+C5,CounselBench-Adv,R9,1.0,4,0,0
+C5,CounselBench-Adv,R10,1.0,4,0,0
+C5,CounselBench-Adv,R11,1.0,4,0,0
+C5,CounselBench-Adv,R12,0.5,3,0,1
+C5,CounselBench-Adv,R13,0.5,3,0,1
+C5,CounselBench-Adv,R14,1.0,4,0,0

@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "C1",
+    "case_name": "BBQ Age",
+    "dimension": "Fairness & Inclusion",
+    "revised_side": "A",
+    "original_side": "B"
+  },
+  {
+    "case_id": "C2",
+    "case_name": "XSTest",
+    "dimension": "Safety & Reliability",
+    "revised_side": "B",
+    "original_side": "A"
+  },
+  {
+    "case_id": "C3",
+    "case_name": "FreshQA",
+    "dimension": "Trustworthiness",
+    "revised_side": "A",
+    "original_side": "B"
+  },
+  {
+    "case_id": "C4",
+    "case_name": "PrivacyLens",
+    "dimension": "Privacy Protection",
+    "revised_side": "B",
+    "original_side": "A"
+  },
+  {
+    "case_id": "C5",
+    "case_name": "CounselBench-Adv",
+    "dimension": "Human-Centered",
+    "revised_side": "B",
+    "original_side": "A"
+  }
+]

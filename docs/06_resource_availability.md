@@ -16,6 +16,11 @@ users.
 | Workbox (14 generic tools + 103 specific sub-tools) | [`docs/04_workbox_fourteen_tools.md`](04_workbox_fourteen_tools.md) + [`codebook/tools.csv`](../codebook/tools.csv) | Zenodo (TBD) |
 | Full benchmark catalogue (103 entries) | [`datasets/README.md`](../datasets/README.md) | Zenodo (TBD) |
 | Per-benchmark paper / code / Drive URL index | [`datasets/sources.md`](../datasets/sources.md) + Google Drive | Zenodo (TBD) |
+| Literature index pool | [`survey/literature/tech_ethics_survey.bib`](../survey/literature/tech_ethics_survey.bib) | Zenodo (TBD) |
+| Expert blind A/B validation results | [`survey/results/`](../survey/results/) | Zenodo (TBD) |
+| Resource card | [`RESOURCE_CARD.md`](../RESOURCE_CARD.md) | Zenodo (TBD) |
+| Datasheet | [`DATASHEET.md`](../DATASHEET.md) | Zenodo (TBD) |
+| Metadata / provenance schema | [`metadata/heart_metadata_schema.json`](../metadata/heart_metadata_schema.json) | Zenodo (TBD) |
 | Interactive site | [`docs/interactive/`](interactive/) (live at [qingjingchen.github.io/Heart/interactive/](https://qingjingchen.github.io/Heart/interactive/)) | GitHub Pages |
 | Companion paper PDF | [`paper/README.md`](../paper/README.md) (added at release time) | — |
 
@@ -29,7 +34,9 @@ into this table.
 ### Findable
 
 - This repository is **public** at <https://github.com/QingjingChen/Heart>.
-- A persistent **Zenodo DOI** will be issued at release time.
+- A persistent **Zenodo DOI** will be issued for the archival v0.1.0 release.
+  The repository already includes `.zenodo.json`; no DOI is claimed before
+  deposit.
 - The repository has a `CITATION.cff` with bibliographic metadata (final
   author / venue fields added at release time), so GitHub's "Cite this
   repository" feature works out-of-the-box.
@@ -40,7 +47,7 @@ into this table.
 
 - All documentation is plain markdown; no proprietary viewer required.
 - The codebook is provided both as **xlsx** (with formatting and notes) and
-  as **5 CSV exports** (tool-agnostic).
+  as **8 CSV exports** (tool-agnostic).
 - No login or registration required. The Google Drive folder linked from
   [`datasets/README.md`](../datasets/README.md) is set to public read access.
 
@@ -50,8 +57,10 @@ into this table.
 - The dataset index points to **upstream Hugging Face / GitHub** locations
   wherever the original authors made them available, so existing dataset
   tooling works unchanged.
-- Bibliographic metadata is exposed in `CITATION.cff` (CFF format) and will
-  be added in BibTeX form at release time.
+- Bibliographic metadata is exposed in `CITATION.cff` (CFF format), the
+  technology-ethics literature pool is provided as BibTeX in
+  `survey/literature/tech_ethics_survey.bib`, and per-record metadata /
+  provenance expectations are defined in `metadata/heart_metadata_schema.json`.
 
 ### Reusable
 
@@ -85,11 +94,12 @@ into this table.
 
 ## Versioning policy
 
-- Releases follow **semantic versioning** (e.g., `1.0.0`).
+- Releases follow **semantic versioning** (e.g., `v0.1.0`).
 - A `CHANGELOG.md` is appended on every release.
-- The current snapshot corresponds to **v1.0.0**.
-- Bug-fix and rubric-clarification updates go to `1.0.x`. New benchmark
-  additions to the codebook trigger a `1.x.0` release.
+- The current snapshot corresponds to **v0.1.0**.
+- Bug-fix and rubric-clarification updates go to `v0.1.x`. New benchmark
+  additions to the codebook trigger a `v0.x.0` release until the resource
+  reaches a DOI-backed stable `v1.0.0`.
 
 ---
 

@@ -292,7 +292,7 @@
     "rubric_layer": "Evaluation Design",
     "所属类别_en": "Task & Interaction Design Tools",
     "压缩/合并说明_en": "Multi-turn red teaming; Role-play/jailbreak/prompt-injection scaffolds; Gradual coaxing",
-    "核心做法_en": "Test boundary stability through multiple rounds of诱导, role-playing, emotional manipulation, context pollution, prompt injection, and semantic disguise. \n\n(Note: The term \"诱导\" was left untranslated as it seems to be a technical term or specific action in the context provided. If it should be translated, please provide further instructions.)",
+    "核心做法_en": "Test boundary stability through multi-turn coaxing, role-playing, emotional manipulation, context pollution, prompt injection, and semantic disguise.",
     "解决的 benchmark 问题_en": "Repair single-round safety tests that fail to detect boundary drift, long-term interaction, and strategic circumvention issues.",
     "适用伦理场景_en": "Safety, privacy leaks, illegal activities, psychological dependence, manipulation and persuasion, jailbreaking.",
     "工具边界 / 与相近工具区别_en": "Interaction Robustness Tool: Test multi-round inducement and boundary bypassing; do not equate attack success rate with overall security.",
