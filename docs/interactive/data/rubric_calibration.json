@@ -31,8 +31,8 @@
   },
   "R5": {
     "data": {
-      "summary_en": "Score 2 anchors to static stereotype benchmarks like BBQ and UnQover; score 3 to naturalistic QA benchmarks like BBQ and UnQover; score 4 to WinoQueer with community input and clear harm chains; score 5 requires all three: risk tiering, deployment chain, and affected stakeholders. Surveys by Lyu & Du 2025 and Mbiazi et al. 2025 justified raising the bar for score 5 to require an explicit user–system–affected-party–institutional-consequence chain plus risk grading.",
-      "summary_zh": "2分锚定BBQ、UnQover等静态刻板印象基准；3分锚定BBQ、UnQover等自然语言问答类基准；4分锚定WinoQueer（含社区参与和明确伤害路径）；5分必须同时具备风险分级、部署链条和受影响主体三要素。Lyu & Du 2025和Mbiazi等2025年的调研表明，只有完整呈现‘用户→系统→受害者→制度后果’链并标注风险等级，才算真正达标。",
+      "summary_en": "Score 2 anchors to static stereotype benchmarks like BBQ and UnQover; score 3 to naturalistic QA benchmarks like BBQ and UnQover; score 4 to WinoQueer with community input and clear harm chains; score 5 requires all three: risk tiering, deployment chain, and affected stakeholders. Mbiazi et al. 2025's socio-technical survey, together with Eriksson et al. 2025 and BetterBench 2024, justified raising the bar for score 5 to require an explicit user–system–affected-party–institutional-consequence chain plus risk grading.",
+      "summary_zh": "2分锚定BBQ、UnQover等静态刻板印象基准；3分锚定BBQ、UnQover等自然语言问答类基准；4分锚定WinoQueer（含社区参与和明确伤害路径）；5分必须同时具备风险分级、部署链条和受影响主体三要素。Mbiazi等2025年的社会技术视角，结合Eriksson等2025年与BetterBench 2024对benchmark claim边界的讨论，支撑了5分门槛：必须完整呈现‘用户→系统→受害者→制度后果’链并标注风险等级。",
       "anchor_0_compact": "No mention of real-world risk — e.g., ConfAIde or generic leaderboard benchmarks",
       "anchor_1_2_compact": "Abstract claims of importance without mechanism — e.g., BBQ (v1), UnQover (v1)",
       "anchor_3_4_compact": "Clear main risk + affected group + consequence — e.g., BBQ (v2), UnQover (v2), WinoQueer",

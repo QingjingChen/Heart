@@ -39,15 +39,10 @@
     "url": "https://arxiv.org/abs/2406.18841",
     "venue": "arXiv 2025"
   },
-  "Lyu & Du 2025": {
-    "title": "A Comprehensive Survey of Safety Evaluation Benchmarks for Large Language Models",
-    "url": "https://arxiv.org/abs/2506.05988",
-    "venue": "arXiv 2025"
-  },
   "Mbiazi et al. 2025": {
-    "title": "A Survey on Privacy-Preserving Benchmarks for Large Language Models",
-    "url": "https://arxiv.org/abs/2502.08915",
-    "venue": "arXiv 2025"
+    "title": "Survey on AI Ethics: A Socio-Technical Perspective",
+    "url": "https://doi.org/10.1111/coin.70149",
+    "venue": "Computational Intelligence 2025"
   },
   "Raji et al. 2021": {
     "title": "AI and the Everything in the Whole Wide World Benchmark",
@@ -65,8 +60,8 @@
     "venue": "arXiv 2025"
   },
   "Zhong et al. 2025": {
-    "title": "Evaluation of LLMs: Trustworthiness, Faithfulness, and Robustness — A Survey",
-    "url": "https://arxiv.org/abs/2502.16191",
-    "venue": "arXiv 2025"
+    "title": "Computational Machine Ethics: A Survey",
+    "url": "https://doi.org/10.1613/jair.1.16836",
+    "venue": "JAIR 2025"
   }
 }
