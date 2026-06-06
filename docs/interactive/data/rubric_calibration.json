@@ -81,11 +81,11 @@
       "anchor_0_compact": "脱离应用：BERT-Bartl（cloze模板）和StereoSet（去语境化短句），无用户、目标或现实约束。",
       "anchor_1_2_compact": "简单包装：HONEST/Panda（单句模板），仅带模糊角色或任务，缺上下文与后果。",
       "anchor_3_4_compact": "较真实场景：CBBQ/CrowS-Pairs（句对+基础情境）、BBQ/KoBBQ（角色+简略场景），含部分约束或后果。",
-      "anchor_5_compact": "完整反馈链：MoralStories/SaFeRDialogues（多步规范推理）、ConfAIde/BAD（安全工作流仿真），六要素齐全。",
+      "anchor_5_compact": "完整反馈链：MoralStories、SaFeRDialogues（多步规范推理），ConfAIde、BAD（安全工作流仿真），六要素齐全。",
       "anchor_0_zh": "脱离应用：BERT-Bartl（填空模板）和StereoSet（剥离语境的短句），没有真实用户、任务目标或使用约束。",
       "anchor_1_2_zh": "简单包装：HONEST/Panda（单句模板），只带模糊角色或任务，缺乏上下文、限制条件和后果。",
       "anchor_3_4_zh": "较真实场景：CBBQ/CrowS-Pairs（成对句子+基础情境）、BBQ/KoBBQ（角色+简略场景），包含部分约束或后果。",
-      "anchor_5_zh": "完整反馈链：MoralStories/SaFeRDialogues（多步规范推理）、ConfAIde/BAD（安全工作流仿真），角色、关系、目的、约束、风险后果、多方主体六者齐备。"
+      "anchor_5_zh": "完整反馈链：MoralStories、SaFeRDialogues（多步规范推理），ConfAIde、BAD（安全工作流仿真），角色、关系、目的、约束、风险后果、多方主体六者齐备。"
     },
     "status": "ok"
   },

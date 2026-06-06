@@ -270,7 +270,7 @@
 </section>
 
 <section class="card" id="chart-card">
-  <div id="chart" style="width:100%;height:640px;"></div>
+  <div id="chart" style="width:100%;height:760px;min-height:760px;"></div>
 </section>
 </main>
 
@@ -319,6 +319,9 @@ async function init() {
 function buildChart() {
   const lang = (window.HEART_LANG && window.HEART_LANG.get()) || 'en';
   const labels = RUBRICS.map(r => `${r.code}  ${lang==='zh' ? (r.name_zh||r.name) : r.name}`);
+  const chartEl = document.getElementById('chart');
+  const chartHeight = Math.max(760, RUBRICS.length * 48 + 170);
+  chartEl.style.height = `${chartHeight}px`;
   const traces = [];
   for (let s=0; s<=5; s++) {
     traces.push({
@@ -382,7 +385,8 @@ function buildChart() {
 
   const layout = {
     barmode:'stack',
-    margin:{l:220, r:90, t:20, b:60},
+    height: chartHeight,
+    margin:{l:220, r:90, t:20, b:90},
     xaxis:{range:[0,100], title: lang==='zh' ? '审计条目分布（%）' : 'Share of audited entries (%)', tickfont:{size:10}, gridcolor:'#E5E7EB'},
     yaxis:{automargin:true, tickfont:{size:10.5}, autorange:'reversed'},
     legend:{orientation:'h', y:-0.13, x:0.5, xanchor:'center', font:{size:11}},
@@ -408,26 +412,71 @@ function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 const BENCH_ALIASES = {
   'BERT-Bartl': 'BEC-pro (2020)',
   'NeuTral': 'NeuTral-WinoBiasPlus (2021)',
+  'MoralStories': 'MoralStories (2021)',
+  'Moral Stories': 'MoralStories (2021)',
+  'SaFeRDialogues': 'SaFeRDialogues (2022)',
+  'ConfAIde': 'ConfAIde (2023)',
+  'BAD': 'BAD / Bot-Adversarial Dialogue (2021)',
 };
 function resolveBenchName(rawName) {
   const name = (rawName || '').trim();
   if (!name) return '';
   return BENCH_ALIASES[name] || name;
 }
+function benchUrlForName(rawName) {
+  const lookupName = resolveBenchName(rawName);
+  if (!lookupName) return '';
+  if (BENCH_URLS[lookupName]) return BENCH_URLS[lookupName].paper || '';
+  const lower = lookupName.toLowerCase();
+  const compactLower = lower.replace(/[-\s\/]/g, '');
+  for (const k of Object.keys(BENCH_URLS || {})) {
+    const stripped = k.replace(/\s*\(.*\)\s*$/, '').toLowerCase();
+    const compactStripped = stripped.replace(/[-\s\/]/g, '');
+    if (stripped === lower || compactStripped === compactLower) {
+      return BENCH_URLS[k].paper || '';
+    }
+  }
+  return '';
+}
+function linkedBenchPill(rawName) {
+  const url = benchUrlForName(rawName);
+  if (url) return `<a class="bench-pill has-url" target="_blank" href="${url}">${escapeHtml(rawName)}</a>`;
+  return `<span class="bench-pill">${escapeHtml(rawName)}</span>`;
+}
+function escapeRegExp(s) {
+  return (s || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
-// Convert in-text "——如 BenchA、BenchB" → clickable pills linking to benches.html#Name,
-// stripping the "——如" prefix per user feedback. Preserves other text safely.
+// Convert in-text benchmark names to clickable paper links.
 function linkBenchesInText(text) {
   if (!text) return '';
   let s = escapeHtml(text);
+  const placeholders = [];
+  const stash = (html) => {
+    const token = `__BENCH_PILL_${placeholders.length}__`;
+    placeholders.push(html);
+    return token;
+  };
   s = s.replace(/(?:——|—|–|--)\s*如\s*([A-Za-z][A-Za-z0-9\-\.\/]*(?:\s*[\(（][^\)）]+[\)）])?(?:\s*[、,，]\s*[A-Za-z][A-Za-z0-9\-\.\/]*(?:\s*[\(（][^\)）]+[\)）])?)*)/g,
     (match, list) => {
       const names = list.split(/[、,，]\s*/).map(x => x.trim()).filter(Boolean);
       if (!names.length) return match;
-      const pills = names.map(n => `<a class="bench-pill has-url" href="benches.html#${encodeURIComponent(resolveBenchName(n))}">${n}</a>`).join(' ');
+      const pills = names.map(n => stash(linkedBenchPill(n))).join(' ');
       return ' ' + pills;
     });
-  return s;
+  const candidates = new Set(Object.keys(BENCH_ALIASES));
+  Object.keys(BENCH_URLS || {}).forEach(k => {
+    candidates.add(k);
+    candidates.add(k.replace(/\s*\(.*\)\s*$/, ''));
+  });
+  Array.from(candidates)
+    .filter(name => name && benchUrlForName(name))
+    .sort((a,b) => b.length - a.length)
+    .forEach(name => {
+      const re = new RegExp(`(^|[^A-Za-z0-9_])(${escapeRegExp(name)})(?![A-Za-z0-9_])`, 'g');
+      s = s.replace(re, (match, prefix, found) => `${prefix}${stash(linkedBenchPill(found))}`);
+    });
+  return s.replace(/__BENCH_PILL_(\d+)__/g, (_, i) => placeholders[Number(i)] || '');
 }
 
 function openRubric(rname) {
@@ -574,30 +623,9 @@ function openRubric(rname) {
   };
   parseCalAnchor(r.calibrated_anchors, reasonPerLevelZh);
   parseCalAnchor(r.calibrated_anchors_en, reasonPerLevelEn);
-  // Render bench → linked pill if found in BENCH_URLS, else plain
-  const benchPill = (rawName) => {
-    // try several lookups (exact, "X (year)", strip whitespace)
-    const lookupName = resolveBenchName(rawName);
-    let url = '';
-    if (BENCH_URLS[lookupName]) url = BENCH_URLS[lookupName].paper || '';
-    else {
-      // try fuzzy: find a key whose prefix matches rawName ignoring case
-      const lower = lookupName.toLowerCase();
-      for (const k of Object.keys(BENCH_URLS)) {
-        const stripped = k.replace(/\s*\(.*\)\s*$/, '').toLowerCase();
-        if (stripped === lower || stripped === lower.replace(/-/g,'')) {
-          url = BENCH_URLS[k].paper || '';
-          break;
-        }
-      }
-    }
-    if (url) return `<a class="bench-pill has-url" target="_blank" href="${url}">${escapeHtml(rawName)}</a>`;
-    return `<span class="bench-pill">${escapeHtml(rawName)}</span>`;
-  };
-
   const anchorRow = (badgeClass, label, criterion_en, criterion_zh, _unused, levelKey) => {
     const bns = (benchesPerLevel[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
-    const pills = bns.length ? `<div class="anchor-examples">${bns.map(benchPill).join(' ')}</div>` : '';
+    const pills = bns.length ? `<div class="anchor-examples">${bns.map(linkedBenchPill).join(' ')}</div>` : '';
     const reasonsZh = (reasonPerLevelZh[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
     const reasonsEn = (reasonPerLevelEn[levelKey] || []).filter((v,i,a)=>a.indexOf(v)===i);
     const reasonHtml = (reasonsZh.length || reasonsEn.length)

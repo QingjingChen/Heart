@@ -21,8 +21,8 @@ Each tool is sorted into the rubric layer matching its primary improved rubric:
 | Layer | Tools |
 |---|---|
 | **内容有效性 Content Validity** (R1–R5) | T01 · T02 · T03 · T05 · T10 |
-| **评测设计 Evaluation Design** (R6–R10) | T04 · T06 · T07 · T09 · T11 · T12 |
-| **治理可靠性 Governance Reliability** (R11–R14) | T08 · T13 · T14 |
+| **评测设计 Evaluation Design** (R6–R10) | T04 · T06 · T07 · T08 · T09 · T11 · T12 |
+| **治理可靠性 Governance Reliability** (R11–R14) | T13 · T14 |
 
 ## Data sources
 
