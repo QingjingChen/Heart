@@ -452,7 +452,7 @@
         "evidence_strength": "strong"
       },
       {
-        "source_name": "WebArena-Privacy",
+        "source_name": "AgentDAM",
         "domain": "web agent privacy",
         "contribution_type": "exemplifies",
         "contribution_en": "Exemplifies real-world privacy risks in interactive web environments where agents perform multi-step actions with access to personal data.",
