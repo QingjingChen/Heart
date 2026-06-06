@@ -406,10 +406,8 @@ window.addEventListener('heart-lang-change', () => { if (RUBRICS.length) buildCh
 function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 
 const BENCH_ALIASES = {
-  'Kleinberg': 'Kleinberg-FairTradeoffs (2016)',
   'BERT-Bartl': 'BEC-pro (2020)',
   'NeuTral': 'NeuTral-WinoBiasPlus (2021)',
-  'Dev': 'Dev-WordEmbed (2020)',
 };
 function resolveBenchName(rawName) {
   const name = (rawName || '').trim();
@@ -551,7 +549,7 @@ function openRubric(rname) {
   }).join('');
 
   // Parse the per-level bench mentions AND the parenthetical reasoning per level.
-  // Format example: "0=Kleinberg（理论）；2=StereoSet/CrowS-Pairs/Winogender（构念过窄或被 Blodgett 等系统否证）；…"
+  // Format example: "2=StereoSet/CrowS-Pairs/Winogender（构念过窄或被 Blodgett 等系统否证）；…"
   const benchesPerLevel = {0:[], '1-2':[], '3-4':[], 5:[]};
   const reasonPerLevelZh = {0:[], '1-2':[], '3-4':[], 5:[]};
   const reasonPerLevelEn = {0:[], '1-2':[], '3-4':[], 5:[]};
@@ -565,7 +563,9 @@ function openRubric(rname) {
       const reason = reasonMatch ? reasonMatch[1].trim() : '';
       const namesPart = txt.replace(/[（(].*$/g, '').trim();
       const key = lvl===0?0:(lvl<=2?'1-2':lvl<=4?'3-4':5);
-      if (namesPart && namesPart !== '暂无' && namesPart.toLowerCase() !== 'none' && namesPart.toLowerCase() !== 'n/a' && reasonStore === reasonPerLevelZh) {
+      const normalizedNames = namesPart.toLowerCase().replace(/[.。]/g, '').trim();
+      const isPlaceholder = namesPart.startsWith('暂无') || normalizedNames === 'none' || normalizedNames === 'n/a' || normalizedNames === '无';
+      if (namesPart && !isPlaceholder && reasonStore === reasonPerLevelZh) {
         const names = namesPart.split(/[\/、,]/).map(s=>s.trim()).filter(Boolean);
         benchesPerLevel[key].push(...names);
       }

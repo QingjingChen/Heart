@@ -9,7 +9,7 @@
     "anchor_1_2": "有主题标签或简单定义，但没有区分子维度，也没有说明该构念如何转化为任务。",
     "anchor_3_4": "明确定义被测构念及部分子维度，并能对应到数据、任务或指标设计。",
     "anchor_5": "明确定义构念、边界、子维度、排除范围和操作化路径，并说明为什么这些任务/指标能够测到该构念。",
-    "calibrated_anchors": "0=Kleinberg（理论）；2=StereoSet/CrowS-Pairs/Winogender（构念过窄或被 Blodgett 等系统否证）；3=BBQ/UnQover/RedditBias；4=CBBQ/KoBBQ/HolisticBias/WinoQueer（含本土维度或社区共建）；5=暂无（待补 Datasheets+rubric+排除范围+操作化路径全齐的样例）。",
+    "calibrated_anchors": "0=暂无（本轮103个benchmark中无稳定实证锚点）；2=StereoSet/CrowS-Pairs/Winogender（构念过窄或被 Blodgett 等系统否证）；3=BBQ/UnQover/RedditBias；4=CBBQ/KoBBQ/HolisticBias/WinoQueer（含本土维度或社区共建）；5=暂无（待补 Datasheets+rubric+排除范围+操作化路径全齐的样例）。",
     "revision_notes": "0/1-2/3-4 三档相对清晰，5 档锚点缺失。建议明示 5 分需同时满足：(a) 构念定义+边界+排除范围；(b) 子维度→任务→指标的链路图；(c) 与已有理论/规范的对应表。可参考 BetterBench/'Can We Trust AI Benchmarks'。",
     "survey_good_bad": "好：明确构念、边界、排除范围，并说明 task/metric/claim 链条；如 LLM Ethics Benchmark 的三维 moral reasoning、Gallegos 对 fairness 的 dataset/metric 区分。坏：Raji/Eriksson 批评的 everything benchmark，把窄任务当通用能力；Hancox-Li 批评 ETHICS 把伦理理论知识误当伦理能力。",
     "survey_sources": "Raji et al. 2021; Eriksson et al. 2025; Jiao et al. 2025; Gallegos et al. 2024; Hancox-Li & Blili-Hamelin 2024; BetterBench 2024",
@@ -31,7 +31,7 @@
     "anchor_1_2_en": "There is a thematic tag or simple definition, but no sub-dimensions are distinguished, and there is no explanation of how the construct translates into tasks.",
     "anchor_3_4_en": "Clearly defines the construct being measured and some sub-dimensions, and can be linked to data, task, or metric design.",
     "anchor_5_en": "Clearly define the construct, boundaries, sub-dimensions, exclusion scope, and operationalization path, and explain why these tasks/metrics can measure the construct.",
-    "calibrated_anchors_en": "0=Kleinberg (theoretical); 2=StereoSet/CrowS-Pairs/Winogender (construct too narrow or systematically refuted by Blodgett et al.); 3=BBQ/UnQover/RedditBias; 4=CBBQ/KoBBQ/HolisticBias/WinoQueer (includes local dimensions or community co-construction); 5=None (awaiting a complete example with Datasheets + rubric + exclusion scope + operationalization path).",
+    "calibrated_anchors_en": "0=None (no stable dataset benchmark anchor in this corpus); 2=StereoSet/CrowS-Pairs/Winogender (construct too narrow or systematically refuted by Blodgett et al.); 3=BBQ/UnQover/RedditBias; 4=CBBQ/KoBBQ/HolisticBias/WinoQueer (includes local dimensions or community co-construction); 5=None (awaiting a complete example with Datasheets + rubric + exclusion scope + operationalization path).",
     "revision_notes_en": "0/1-2/3-4 Three tiers are relatively clear, the 5th tier anchor point is missing. It is recommended to explicitly state that 5 points require meeting all of the following: (a) construct definition + boundaries + exclusion scope; (b) a diagram linking sub-dimensions → tasks → indicators; (c) a correspondence table with existing theories/norms. Can refer to BetterBench/'Can We Trust AI Benchmarks'."
   },
   {
@@ -79,7 +79,7 @@
     "anchor_1_2": "有来源描述，但较粗略；无法判断来源是否适合当前伦理评测目标。",
     "anchor_3_4": "来源基本清楚，并能说明主要来源与评测目标的关系，但对偏差、遗漏和代表性说明不足。",
     "anchor_5": "来源可追溯、可复核；说明不同来源的作用、局限和偏差，并能用多源证据进行校准。",
-    "calibrated_anchors": "0=Kleinberg；2=StereoSet/MoralChoice（来源粗糙/MTurk 噪声）；3=多数（基本可追溯）；4=KoBBQ/HolisticBias/WinoQueer（多源+部分偏差披露）；5=暂无。",
+    "calibrated_anchors": "0=暂无（本轮103个benchmark中无稳定实证锚点）；2=StereoSet/MoralChoice（来源粗糙/MTurk 噪声）；3=多数（基本可追溯）；4=KoBBQ/HolisticBias/WinoQueer（多源+部分偏差披露）；5=暂无。",
     "revision_notes": "建议把'来源适配'与'偏差披露'拆为两条 sub-criterion。当前 4 与 5 仅靠'多源校准'区分，操作不便。引入 datasheet 规范化字段（motivation/composition/collection/preprocess/use/distribution）。",
     "survey_good_bad": "好：题目、标签、规范和人类基线均可追溯，附 datasheet/benchmark card；LiveBench 说明近期来源，Jiao 保存原题/改写 prompt/人类基线。坏：Reddit/MTurk/LLM 生成或公开拼接数据缺来源适配和偏差披露。",
     "survey_sources": "Jiao et al. 2025; White et al. 2025; Gallegos et al. 2024; BetterBench 2024; Eriksson et al. 2025",
@@ -101,7 +101,7 @@
     "anchor_1_2_en": "There is a source description, but it is rather vague; it is impossible to determine whether the source is suitable for the current ethical evaluation objective.",
     "anchor_3_4_en": "The sources are basically clear and can explain the relationship between the main sources and the evaluation objectives, but there is insufficient explanation of biases, omissions, and representativeness.",
     "anchor_5_en": "Sources are traceable and verifiable; the roles, limitations, and biases of different sources are explained, and multi-source evidence is used for calibration.",
-    "calibrated_anchors_en": "0=Kleinberg; 2=StereoSet/MoralChoice (source is rough/MTurk noise); 3=Majority (basically traceable); 4=KoBBQ/HolisticBias/WinoQueer (multi-source + partial bias disclosure); 5=None yet.",
+    "calibrated_anchors_en": "0=None (no stable dataset benchmark anchor in this corpus); 2=StereoSet/MoralChoice (source is rough/MTurk noise); 3=Majority (basically traceable); 4=KoBBQ/HolisticBias/WinoQueer (multi-source + partial bias disclosure); 5=None yet.",
     "revision_notes_en": "Suggest splitting 'source adaptation' and 'bias disclosure' into two sub-criteria. Currently, 4 and 5 are only distinguished by 'multi-source calibration', which is inconvenient to operate. Introduce datasheet standardized fields (motivation/composition/collection/preprocess/use/distribution)."
   },
   {
@@ -149,7 +149,7 @@
     "anchor_1_2": "简单声称相关风险重要，但没有展开伤害机制或使用场景。",
     "anchor_3_4": "能说明该 benchmark 对应的主要风险、受影响主体和可能后果。",
     "anchor_5": "明确连接到真实使用链条、伤害机制、风险等级和制度后果，并能解释为什么该任务能捕捉这些风险。",
-    "calibrated_anchors": "2=多数静态 stereotype benchmark；3=naturalistic/QA 类（BBQ/UnQover）；4=WinoQueer（社区参与+伤害链条明确）；5=暂无（需要 risk-tier+部署链+受影响主体三件齐）。",
+    "calibrated_anchors": "2=StereoSet/HONEST/Panda（静态 stereotype 或短模板类）；3=BBQ/UnQover（naturalistic/QA 类）；4=WinoQueer（社区参与+伤害链条明确）；5=暂无（需要 risk-tier+部署链+受影响主体三件齐）。",
     "revision_notes": "目前 4 vs 5 仅靠'制度后果'区分。建议引入风险分级体系（low/mid/high）作为锚点，并要求 5 档展示伤害链条图（用户—系统—受影响者—社会）。",
     "survey_good_bad": "好：说明用户-系统-受影响者-制度后果链条和风险等级；Mbiazi 强调社会技术语境，Eriksson/BetterBench 强调 benchmark claim 与真实使用风险的边界。坏：只测抽象偏好/短模板/排行榜能力，无法说明下游伤害。",
     "survey_sources": "Raji et al. 2021; Eriksson et al. 2025; Mbiazi et al. 2025; BetterBench 2024",
@@ -171,7 +171,7 @@
     "anchor_1_2_en": "Simply claims that the relevant risks are important, but does not elaborate on the harm mechanisms or use cases.",
     "anchor_3_4_en": "Can explain the main risks, affected parties, and potential consequences corresponding to this benchmark.",
     "anchor_5_en": "Clearly linked to the real usage chain, harm mechanism, risk level, and institutional consequences, and can explain why the task captures these risks.",
-    "calibrated_anchors_en": "2=mostly static stereotype benchmark; 3=naturalistic/QA type (BBQ/UnQover); 4=WinoQueer (community involvement + clear harm chain); 5=none (requires all three: risk-tier, deployment chain, and affected parties).",
+    "calibrated_anchors_en": "2=StereoSet/HONEST/Panda (static stereotype or short-template benchmarks); 3=BBQ/UnQover (naturalistic/QA type); 4=WinoQueer (community involvement + clear harm chain); 5=None (requires all three: risk-tier, deployment chain, and affected parties).",
     "revision_notes_en": "Currently, 4 vs 5 is distinguished only by 'institutional consequences.' It is suggested to introduce a risk grading system (low/mid/high) as an anchor point, and require level 5 to present a harm chain diagram (user—system—affected party—society)."
   },
   {
@@ -219,7 +219,7 @@
     "anchor_1_2": "只使用单一简单题型，能测到局部现象，但难覆盖核心风险。",
     "anchor_3_4": "任务形式基本适配，必要时包含开放回答、对照集、多轮或场景化设计。",
     "anchor_5": "任务形式与风险机制高度匹配，并能说明为什么选择该题型；复杂风险配有多轮、开放生成、agent/workflow 或对照设计。",
-    "calibrated_anchors": "0=Kleinberg；2=StereoSet/HONEST/Panda（单一题型）；3=CrowS-Pairs/Winogender/WinoBias/GAP/CBBQ；4=BBQ/HolisticBias/WinoQueer（含对照集/多类型）；5=暂无。",
+    "calibrated_anchors": "0=暂无（本轮103个benchmark中无稳定实证锚点）；2=StereoSet/HONEST/Panda（单一题型）；3=CrowS-Pairs/Winogender/WinoBias/GAP/CBBQ；4=BBQ/HolisticBias/WinoQueer（含对照集/多类型）；5=暂无。",
     "revision_notes": "目前 4 vs 5 区分依赖'多轮+开放生成+agent'，与 fairness 题型不直接相关。建议 fairness 专版 5 档：(a) 内含 ambig+disambig 对照集 (b) 既有判别也有生成或 agent 实操 (c) 任务与风险机制有对应表。",
     "survey_good_bad": "好：题型匹配风险机制，如 fairness 用 ambiguous/disambiguated 对照，开放回答用 rubric/judge，多轮/agent 风险用 workflow。坏：复杂伦理问题只用单一 MCQ，或用 LLM judge 替代客观答案时未校准。",
     "survey_sources": "Gallegos et al. 2024; Gu et al. 2025; White et al. 2025; Eriksson et al. 2025; Hancox-Li & Blili-Hamelin 2024",
@@ -241,7 +241,7 @@
     "anchor_1_2_en": "Only using a single simple question type can measure partial phenomena, but it is difficult to cover core risks.",
     "anchor_3_4_en": "The task format is basically suitable, including open-ended responses, control sets, multiple rounds, or scenario-based design when necessary.",
     "anchor_5_en": "The task format is highly matched with the risk mechanism and can explain why this type of question was chosen; complex risks are paired with multi-round, open generation, agent/workflow, or control design.",
-    "calibrated_anchors_en": "0=Kleinberg; 2=StereoSet/HONEST/Panda (single question type); 3=CrowS-Pairs/Winogender/WinoBias/GAP/CBBQ; 4=BBQ/HolisticBias/WinoQueer (includes control set/multiple types); 5=None.",
+    "calibrated_anchors_en": "0=None (no stable dataset benchmark anchor in this corpus); 2=StereoSet/HONEST/Panda (single question type); 3=CrowS-Pairs/Winogender/WinoBias/GAP/CBBQ; 4=BBQ/HolisticBias/WinoQueer (includes control set/multiple types); 5=None.",
     "revision_notes_en": "Currently, the distinction between 4 and 5 relies on 'multi-turn + open generation + agent', which is not directly related to the fairness question type. It is suggested that for a fairness-specific version, the 5-level criteria should be: (a) includes an ambig+disambig comparison set (b) involves both discrimination and generation or agent practical operation (c) the task and risk mechanisms have a corresponding table."
   },
   {
@@ -324,7 +324,7 @@
     "anchor_1_2": "有评分者或自动评分，但缺少 rubric、校准、一致性检查或偏差说明。",
     "anchor_3_4": "有明确评分细则，并进行部分人工复核、多评分者比较或一致性检查。",
     "anchor_5": "评分流程可复核；有清晰 rubric、多评分者/人机混合校准、一致性或可靠性报告，并说明评分器偏差与局限。",
-    "calibrated_anchors": "0=BERT-Bartl/Kleinberg；1=Dev-WordEmbed/HONEST/UnQover（仅自动指标无校准）；2=StereoSet/HolisticBias（自动+少量人工）；3=BBQ/CBBQ/KoBBQ/WinoQueer/HolisticBias（评分细则+部分人工）；4=Panda（双人标注）；5=暂无。",
+    "calibrated_anchors": "0=BERT-Bartl；1=Dev-WordEmbed/HONEST/UnQover（仅自动指标无校准）；2=StereoSet/HolisticBias（自动+少量人工）；3=BBQ/CBBQ/KoBBQ/WinoQueer/HolisticBias（评分细则+部分人工）；4=Panda（双人标注）；5=暂无。",
     "revision_notes": "建议引入 Cohen's κ/Krippendorff α 作为 3-4 档量化阈值；5 档要求多评分者+人机混合校准+偏差消融。",
     "survey_good_bad": "好：清晰 rubric、多评分者/人机混合校准、一致性和 judge bias 报告；Gu 系统总结 position/self/verbosity bias。坏：闭源 GPT judge、单评分者或无一致性报告。",
     "survey_sources": "Gu et al. 2025; White et al. 2025; Eriksson et al. 2025; BetterBench 2024",
@@ -346,7 +346,7 @@
     "anchor_1_2_en": "There are scorers or automated scoring, but there is a lack of rubric, calibration, consistency checks, or bias explanations.",
     "anchor_3_4_en": "There are clear scoring guidelines, and partial human rechecks, comparisons among multiple scorers, or consistency checks are conducted.",
     "anchor_5_en": "Scoring process is reviewable; there is a clear rubric, multiple scorers/human-machine hybrid calibration, and reports on consistency or reliability, along with explanations of scorer bias and limitations.",
-    "calibrated_anchors_en": "0=BERT-Bartl/Kleinberg; 1=Dev-WordEmbed/HONEST/UnQover (only automatic metrics, no calibration); 2=StereoSet/HolisticBias (automatic + some manual); 3=BBQ/CBBQ/KoBBQ/WinoQueer/HolisticBias (scoring rubric + partial manual); 4=Panda (dual annotation); 5=None.",
+    "calibrated_anchors_en": "0=BERT-Bartl; 1=Dev-WordEmbed/HONEST/UnQover (only automatic metrics, no calibration); 2=StereoSet/HolisticBias (automatic + some manual); 3=BBQ/CBBQ/KoBBQ/WinoQueer/HolisticBias (scoring rubric + partial manual); 4=Panda (dual annotation); 5=None.",
     "revision_notes_en": "Suggest introducing Cohen's κ/Krippendorff α as the quantitative threshold for levels 3-4; level 5 requires multiple raters + human-machine hybrid calibration + bias ablation."
   },
   {
@@ -359,7 +359,7 @@
     "anchor_1_2": "有基本数据来源和标注说明，但缺少质检、冲突处理或错误分析。",
     "anchor_3_4": "有较清楚的数据构造和标注流程，包括人工复核、一致性检查或样本过滤。",
     "anchor_5": "有完整 QA 流程，包括标注指南、双人/多人标注、专家复核、冲突解决、错误分析、合成数据验证和版本记录。",
-    "calibrated_anchors": "0=Kleinberg；2=StereoSet/UnQover/Winogender（缺质检）；3=多数；4=BBQ/HolisticBias/WinoQueer/CrowS-Pairs/KoBBQ（含人工复核）；5=暂无。",
+    "calibrated_anchors": "0=暂无（本轮103个benchmark中无稳定实证锚点）；2=StereoSet/UnQover/Winogender（缺质检）；3=多数；4=BBQ/HolisticBias/WinoQueer/CrowS-Pairs/KoBBQ（含人工复核）；5=暂无。",
     "revision_notes": "现 4 档已较充实，但缺合成数据验证作为强差异化点。建议 5 档要求：双人/三人标注 + 专家复核 + 冲突解决日志 + 错误分析报告 + 合成数据 LLM 验真。",
     "survey_good_bad": "好：标注指南、双人/多人标注、专家复核、冲突解决、错误分析、合成数据验证；参与式/社区数据也需 QA。坏：crowd/LLM 标签无复核，社交媒体投票被直接当真。",
     "survey_sources": "Gallegos et al. 2024; BetterBench 2024; Gu et al. 2025; Eriksson et al. 2025",
@@ -381,7 +381,7 @@
     "anchor_1_2_en": "There is a basic data source and annotation explanation, but it lacks quality inspection, conflict resolution, or error analysis.",
     "anchor_3_4_en": "There is a relatively clear data construction and labeling process, including human review, consistency checks, or sample filtering.",
     "anchor_5_en": "There is a complete QA process, including annotation guidelines, dual/multiple annotations, expert review, conflict resolution, error analysis, synthetic data validation, and version logging.",
-    "calibrated_anchors_en": "0=Kleinberg; 2=StereoSet/UnQover/Winogender (lacks quality inspection); 3=majority; 4=BBQ/HolisticBias/WinoQueer/CrowS-Pairs/KoBBQ (includes manual review); 5=None.",
+    "calibrated_anchors_en": "0=None (no stable dataset benchmark anchor in this corpus); 2=StereoSet/UnQover/Winogender (lacks quality inspection); 3=majority; 4=BBQ/HolisticBias/WinoQueer/CrowS-Pairs/KoBBQ (includes manual review); 5=None.",
     "revision_notes_en": "Currently, level 4 is quite substantial, but lacks synthetic data validation as a strong differentiating point. It is suggested that level 5 requirements include: dual/triple annotation + expert review + conflict resolution log + error analysis report + synthetic data LLM verification."
   },
   {
@@ -394,7 +394,7 @@
     "anchor_1_2": "简单提到数据污染或过拟合风险，但没有具体防护设计。",
     "anchor_3_4": "有部分防护，例如去重、污染检测、隐藏测试集或限制公开答案。",
     "anchor_5": "系统设计了防污染、防刷榜和动态更新机制，如 public/private split、hidden official set、contamination check、版本化和异常分数审查。",
-    "calibrated_anchors": "0=11 篇；1=9 篇；2=BUG/HolisticBias/TrustGPT/WinoQueer（提到风险或部分隐藏）；3-5=无。",
+    "calibrated_anchors": "0=WinoQueer/HolisticBias（静态公开题库，未提防刷或污染）；1=BUG/TrustGPT（仅口头提风险或轻量保护）；2=BUG/HolisticBias/TrustGPT/WinoQueer（提到风险或部分隐藏）；3-5=暂无。",
     "revision_notes": "fairness 领域系统性弱项。建议把 0/1-2 拆细：0=完全未提；1=提及；2=部分（如 hash 对比/去重）；3=有 hidden set 或动态版本；4=public/private 双轨；5=系统化（含 contamination check + 异常分数审查 + 版本退役）。",
     "survey_good_bad": "好：hidden/private split、近期来源、动态更新、污染检测、版本化和异常分数审查；LiveBench 是正面例子。坏：静态公开题库、排行榜刷榜、Goodhart、训练集污染。",
     "survey_sources": "White et al. 2025; Eriksson et al. 2025; BetterBench 2024; Raji et al. 2021",
@@ -416,7 +416,7 @@
     "anchor_1_2_en": "Briefly mentions the risk of data pollution or overfitting, but lacks specific protective design.",
     "anchor_3_4_en": "There are some protections in place, such as deduplication, contamination detection, hidden test sets, or restrictions on public answers.",
     "anchor_5_en": "The system is designed with anti-pollution, anti-cheating, and dynamic update mechanisms, such as public/private split, hidden official set, contamination check, versioning, and abnormal score review.",
-    "calibrated_anchors_en": "0=11 articles; 1=9 articles; 2=BUG/HolisticBias/TrustGPT/WinoQueer (mentioning risks or partially hidden); 3-5=None.",
+    "calibrated_anchors_en": "0=WinoQueer/HolisticBias (static public item sets with no gaming or contamination plan); 1=BUG/TrustGPT (mentions risk or light mitigation only); 2=BUG/HolisticBias/TrustGPT/WinoQueer (mentioning risks or partially hidden); 3-5=None.",
     "revision_notes_en": "fairness domain systematic weakness. Suggest breaking down 0/1-2: 0=not mentioned at all; 1=mentioned; 2=partial (e.g., hash comparison/deduplication); 3=has hidden set or dynamic version; 4=public/private dual track; 5=systematic (including contamination check + anomaly score review + version retirement)."
   },
   {
@@ -429,7 +429,7 @@
     "anchor_1_2": "有论文或简单说明，但缺少数据说明、代码、指标解释、许可或限制说明。",
     "anchor_3_4": "提供主要文档、数据/代码或评估脚本，并说明任务、指标和限制。",
     "anchor_5": "有完整 benchmark card / dataset card / evaluation scripts / license / intended use / out-of-scope / limitations / examples，外部用户可复现并正确理解适用边界。",
-    "calibrated_anchors": "2=Kleinberg/Winogender/UnQover（仅论文）；3=多数；4=BBQ/CrowS-Pairs/HolisticBias/KoBBQ/MoralChoice/WinoQueer（含代码+数据+部分卡片）；5=暂无。",
+    "calibrated_anchors": "2=Winogender/UnQover（仅论文或极简说明）；3=多数；4=BBQ/CrowS-Pairs/HolisticBias/KoBBQ/MoralChoice/WinoQueer（含代码+数据+部分卡片）；5=暂无。",
     "revision_notes": "建议 5 档强制 datasheet/benchmark card/license/intended use/out-of-scope/limitations/examples 七件齐。当前 4 档锚点过宽，难分'有 README' 与 '有 dataset card' 的差距。",
     "survey_good_bad": "好：benchmark card/dataset card、代码、评估脚本、模型输出、license、intended/out-of-scope use、limitations、成本和版本说明。坏：缺脚本、缺限制、闭源 judge 或 API 版本不明。",
     "survey_sources": "White et al. 2025; Raji et al. 2021; Eriksson et al. 2025; BetterBench 2024; Corrêa et al. 2023",
@@ -451,7 +451,7 @@
     "anchor_1_2_en": "There is a paper or brief explanation, but it lacks data description, code, metric explanations, and information on licenses or restrictions.",
     "anchor_3_4_en": "Provide the main documentation, data/code, or evaluation scripts, and explain the tasks, metrics, and limitations.",
     "anchor_5_en": "Has a complete benchmark card / dataset card / evaluation scripts / license / intended use / out-of-scope / limitations / examples, allowing external users to reproduce and correctly understand the applicable boundaries.",
-    "calibrated_anchors_en": "2=Kleinberg/Winogender/UnQover (only papers); 3=majority; 4=BBQ/CrowS-Pairs/HolisticBias/KoBBQ/MoralChoice/WinoQueer (includes code + data + some cards); 5=none.",
+    "calibrated_anchors_en": "2=Winogender/UnQover (paper-only or minimal documentation); 3=majority; 4=BBQ/CrowS-Pairs/HolisticBias/KoBBQ/MoralChoice/WinoQueer (includes code + data + some cards); 5=none.",
     "revision_notes_en": "Suggest 5-tier mandatory datasheet/benchmark card/license/intended use/out-of-scope/limitations/examples all seven. The current 4-tier anchor is too broad, making it difficult to distinguish between 'having a README' and 'having a dataset card'."
   },
   {
@@ -464,7 +464,7 @@
     "anchor_1_2": "有发布日期或版本信息，但没有明确维护人、反馈渠道或更新策略。",
     "anchor_3_4": "有版本记录、维护人或反馈渠道，并进行过部分更新。",
     "anchor_5": "有清楚的生命周期治理：维护负责人、反馈渠道、版本管理、更新触发条件、历史归档、退役机制和适用边界变更说明。",
-    "calibrated_anchors": "0=Kleinberg/BERT-Bartl/BOLD/Dev/MoralChoice/NeuTral/WikiGenderBias/WinoBias；1=多数；2=CBBQ/HolisticBias/WinoQueer（少量更新或社区延续）；3-5=无。",
+    "calibrated_anchors": "0=BERT-Bartl/BOLD/Dev-WordEmbed/MoralChoice/NeuTral/WikiGenderBias/WinoBias；1=多数；2=CBBQ/HolisticBias/WinoQueer（少量更新或社区延续）；3-5=无。",
     "revision_notes": "fairness 领域全员弱项。建议 1 档明确为'有版本/发布日期但无任何后续治理'；2 档 = 有维护人或社区延续但无更新触发；3+ 需要明示反馈渠道+更新触发条件+退役机制。鼓励 living benchmark 思路（BetterBench）。",
     "survey_good_bad": "好：生命周期治理包含维护人、反馈渠道、更新触发、版本记录、历史归档和退役机制；LiveBench 月度更新和版本控制是较好锚点。坏：一次性发布后长期沿用，错误标签和污染无法修复。",
     "survey_sources": "White et al. 2025; Eriksson et al. 2025; BetterBench 2024; Raji et al. 2021",
@@ -486,7 +486,7 @@
     "anchor_1_2_en": "There is a publication date or version information, but no clear maintainer, feedback channel, or update strategy.",
     "anchor_3_4_en": "Has version records, maintainers, or feedback channels, and has undergone partial updates.",
     "anchor_5_en": "There is clear lifecycle governance: maintenance responsible person, feedback channels, version management, update trigger conditions, historical archiving, retirement mechanism, and explanation of changes in applicable boundaries.",
-    "calibrated_anchors_en": "0=Kleinberg/BERT-Bartl/BOLD/Dev/MoralChoice/NeuTral/WikiGenderBias/WinoBias; 1=Majority; 2=CBBQ/HolisticBias/WinoQueer (minor updates or community continuation); 3-5=None.",
+    "calibrated_anchors_en": "0=BERT-Bartl/BOLD/Dev-WordEmbed/MoralChoice/NeuTral/WikiGenderBias/WinoBias; 1=Majority; 2=CBBQ/HolisticBias/WinoQueer (minor updates or community continuation); 3-5=None.",
     "revision_notes_en": "fairness is a weak area for all. It is recommended that the 1st level be clearly defined as 'has version/release date but no subsequent governance'; 2nd level = has maintainers or community continuity but no update triggers; 3+ requires explicit feedback channels + update trigger conditions + retirement mechanism. Encourage the living benchmark approach (BetterBench)."
   }
 ]

@@ -46,13 +46,13 @@
   },
   "R7": {
     "data": {
-      "summary_en": "Score 0 is anchored by Kleinberg; scores 2–4 by StereoSet/HONEST/Panda (2), CrowS-Pairs/Winogender/WinoBias/GAP/CBBQ (3), and BBQ/HolisticBias/WinoQueer (4). The Phare and FActScore surveys justified raising the bar for score 5 to require explicit task-risk correspondence and multi-format design. The final 5-point threshold now requires both (a) ambig/disambig对照 sets *and* (b) either generation/agent execution *or* a documented task-risk mapping.",
-      "summary_zh": "0分锚定Kleinberg；2–4分分别锚定StereoSet/HONEST/Panda（2分）、CrowS-Pairs/Winogender/WinoBias/GAP/CBBQ（3分）、BBQ/HolisticBias/WinoQueer（4分）。Phare和FActScore两项调研推动了5分标准的升级。现在5分必须同时满足：既有歧义/消歧对照集，又包含生成/agent实操 *或* 明确写出任务形式与风险机制的对应关系。",
-      "anchor_0_compact": "明显错配：Kleinberg用MCQ测结构性偏见，无法暴露机制性偏差",
+      "summary_en": "No stable score-0 dataset benchmark anchor is displayed for this rubric; scores 2–4 are anchored by StereoSet/HONEST/Panda (2), CrowS-Pairs/Winogender/WinoBias/GAP/CBBQ (3), and BBQ/HolisticBias/WinoQueer (4). The Phare and FActScore surveys justified raising the bar for score 5 to require explicit task-risk correspondence and multi-format design. The final 5-point threshold now requires both (a) ambig/disambig contrast sets *and* (b) either generation/agent execution *or* a documented task-risk mapping.",
+      "summary_zh": "本条不再展示0分数据集锚点，因为当前语料中没有稳定、可核验的0分实证benchmark例子；2–4分分别锚定StereoSet/HONEST/Panda（2分）、CrowS-Pairs/Winogender/WinoBias/GAP/CBBQ（3分）、BBQ/HolisticBias/WinoQueer（4分）。Phare和FActScore两项调研推动了5分标准的升级。现在5分必须同时满足：既有歧义/消歧对照集，又包含生成/agent实操 *或* 明确写出任务形式与风险机制的对应关系。",
+      "anchor_0_compact": "No stable dataset benchmark anchor shown; use 0 only when the task format is demonstrably mismatched with the claimed ethical risk.",
       "anchor_1_2_compact": "单一题型局部适配：StereoSet/HONEST/Panda仅用判别MCQ，覆盖表面刻板印象但漏掉语境敏感性",
       "anchor_3_4_compact": "基本适配到机制匹配：CrowS-Pairs等含性别指代歧义设计；BBQ等加入对照集或多类型提示",
       "anchor_5_compact": "多形式组合+显式解释：如ambig/disambig对照 + 生成/agent实操 + 文档化任务-风险映射表",
-      "anchor_0_zh": "明显错配：Kleinberg用单选题测结构性偏见，根本测不出机制性偏差",
+      "anchor_0_zh": "不展示具体数据集锚点；仅当任务形式与声称的伦理风险明显错配时才给0分。",
       "anchor_1_2_zh": "单一题型只管表面：StereoSet/HONEST/Panda全靠判断题，能抓刻板印象，但抓不住语境变化",
       "anchor_3_4_zh": "从基本适配到机制对齐：CrowS-Pairs等设计指代歧义；BBQ等加入对照组或多类型提示",
       "anchor_5_zh": "多种题型组合+说清楚为什么：比如既有歧义/消歧对照，又有生成或agent动手做，还附上任务和风险的对应说明"
@@ -91,13 +91,13 @@
   },
   "R3": {
     "data": {
-      "summary_en": "Score 0 is anchored by Kleinberg; scores 2–4 by StereoSet/MoralChoice, KoBBQ/HolisticBias/WinoQueer; score 5 remains aspirational with no current benchmark meeting the full datasheet + sample-level traceability bar. LiveBench and HumaniBench surveys justified raising the bar for bias disclosure and source-target alignment. The threshold for score 5 was raised to require both multi-source calibration *and* standardized data cards (e.g., datasheet fields) plus sample-level provenance.",
-      "summary_zh": "0分锚定Kleinberg；2–4分锚定StereoSet/MoralChoice、KoBBQ/HolisticBias/WinoQueer；5分尚无实际基准达到。LiveBench和HumaniBench调研推动了偏差说明与目标适配性的细化要求。5分新标准明确要求：不仅多源交叉验证，还必须提供标准化数据卡（如datasheet字段）和样本级来源追溯。",
-      "anchor_0_compact": "来源完全不明，如 Kleinberg — 无出处、无采集方式、无法复现。",
+      "summary_en": "No stable score-0 dataset benchmark anchor is displayed for this rubric; scores 2–4 are anchored by StereoSet/MoralChoice and KoBBQ/HolisticBias/WinoQueer; score 5 remains aspirational with no current benchmark meeting the full datasheet + sample-level traceability bar. LiveBench and HumaniBench surveys justified raising the bar for bias disclosure and source-target alignment. The threshold for score 5 was raised to require both multi-source calibration *and* standardized data cards (e.g., datasheet fields) plus sample-level provenance.",
+      "summary_zh": "本条不再展示0分数据集锚点，因为当前语料中没有稳定、可核验的0分实证benchmark例子；2–4分锚定StereoSet/MoralChoice、KoBBQ/HolisticBias/WinoQueer；5分尚无实际基准达到。LiveBench和HumaniBench调研推动了偏差说明与目标适配性的细化要求。5分新标准明确要求：不仅多源交叉验证，还必须提供标准化数据卡（如datasheet字段）和样本级来源追溯。",
+      "anchor_0_compact": "No stable dataset benchmark anchor shown; use 0 only when data/item provenance is not traceable at all.",
       "anchor_1_2_compact": "仅列来源名称或可见但不说明适配性/偏差，如 StereoSet/MoralChoice — MTurk噪声未披露，伦理目标匹配模糊。",
       "anchor_3_4_compact": "来源与规模基本清楚，偏差部分说明，如 KoBBQ/HolisticBias/WinoQueer — 多源使用但缺数据卡和平台偏差细节。",
       "anchor_5_compact": "全链路可追溯：含 datasheet 六字段 + 样本级溯源 + 多源校准，当前无基准达标。",
-      "anchor_0_zh": "来源完全不明，例如Kleinberg——既没出处也没采集方法，根本没法复现。",
+      "anchor_0_zh": "不展示具体数据集锚点；仅当数据或题目来源完全不可追溯时才给0分。",
       "anchor_1_2_zh": "只写了来源名字，或能看见来源但说不清是否适合当前评测、有没有偏差，比如StereoSet/MoralChoice——用MTurk收集但没提数据噪声，也没讲清楚跟伦理评测目标怎么挂钩。",
       "anchor_3_4_zh": "来源和数据量基本说得清，偏差也提了一点，比如KoBBQ/HolisticBias/WinoQueer——用了多个数据源，但没配完整数据卡，也没细说Reddit或平台本身的偏差。",
       "anchor_5_zh": "全链条可查：包含datasheet六大要素（目的/构成/采集/预处理/用途/分发）+ 每个样本都能溯源 + 多个数据源互相验证，目前还没有哪个基准做到这一点。"
@@ -106,13 +106,13 @@
   },
   "R1": {
     "data": {
-      "summary_en": "Score 0 is anchored by Kleinberg (theory-only); scores 2–4 by StereoSet/CrowS-Pairs/Winogender (2), BBQ/UnQover/RedditBias (3), and CBBQ/KoBBQ/HolisticBias/WinoQueer (4). Raji et al. 2021 and Hancox-Li & Blili-Hamelin 2024 justified lowering ETHICS from 5 to ≤4, revealing the need for explicit exclusion ranges and full construct-to-metric chains. The bar for 5 was raised to require *all three*: (a) construct + boundary + exclusion range, (b) subdimension→task→metric mapping, and (c) alignment table with theory/norms.",
-      "summary_zh": "0分锚定Kleinberg（纯理论）；2–4分分别锚定StereoSet/CrowS-Pairs/Winogender（2分）、BBQ/UnQover/RedditBias（3分）、CBBQ/KoBBQ/HolisticBias/WinoQueer（4分）。Raji等2021年与Hancox-Li & Blili-Hamelin 2024年指出ETHICS不应得5分，因其缺排除范围和完整操作链。5分新标准要求三者齐备：(a)构念定义+边界+排除范围，(b)子维度→任务→指标的映射图，(c)与伦理理论/规范的对照表。",
-      "anchor_0_compact": "Pure theory without any task or metric link — e.g., Kleinberg (2018) defines fairness axiomatically but offers no benchmark design.",
+      "summary_en": "No stable score-0 dataset benchmark anchor is displayed for this rubric; scores 2–4 are anchored by StereoSet/CrowS-Pairs/Winogender (2), BBQ/UnQover/RedditBias (3), and CBBQ/KoBBQ/HolisticBias/WinoQueer (4). Raji et al. 2021 and Hancox-Li & Blili-Hamelin 2024 justified lowering ETHICS from 5 to ≤4, revealing the need for explicit exclusion ranges and full construct-to-metric chains. The bar for 5 was raised to require *all three*: (a) construct + boundary + exclusion range, (b) subdimension→task→metric mapping, and (c) alignment table with theory/norms.",
+      "summary_zh": "本条不再展示0分数据集锚点，因为当前语料中没有稳定、可核验的0分实证benchmark例子；2–4分分别锚定StereoSet/CrowS-Pairs/Winogender（2分）、BBQ/UnQover/RedditBias（3分）、CBBQ/KoBBQ/HolisticBias/WinoQueer（4分）。Raji等2021年与Hancox-Li & Blili-Hamelin 2024年指出ETHICS不应得5分，因其缺排除范围和完整操作链。5分新标准要求三者齐备：(a)构念定义+边界+排除范围，(b)子维度→任务→指标的映射图，(c)与伦理理论/规范的对照表。",
+      "anchor_0_compact": "No stable dataset benchmark anchor shown; use 0 only when no measurable ethical construct is specified.",
       "anchor_1_2_compact": "Broad label or shallow definition with no boundaries — e.g., StereoSet calls itself 'stereotype bias' but conflates social perception with language modeling ability.",
       "anchor_3_4_compact": "Defined construct with some subdimensions and partial task alignment — e.g., BBQ measures bias across demographic categories but lacks explicit exclusion criteria or metric justification.",
       "anchor_5_compact": "Full construct specification: definition, boundaries, exclusions, subdimension→task→metric chain, and theory alignment — no current public bench fully satisfies all five criteria.",
-      "anchor_0_zh": "纯理论，无任何任务或指标链接——例如Kleinberg（2018）公理化定义公平性，但未设计任何评测任务。",
+      "anchor_0_zh": "不展示具体数据集锚点；仅当完全没有说明可测伦理构念时才给0分。",
       "anchor_1_2_zh": "宽泛标签或浅层定义，无边界界定——例如StereoSet自称测‘刻板偏见’，却混淆社会认知能力与语言建模能力。",
       "anchor_3_4_zh": "构念定义清晰、含部分子维度且与任务初步对应——例如BBQ按人口统计类别测偏见，但未明确排除范围或指标合理性说明。",
       "anchor_5_zh": "构念全要素完备：定义+边界+排除范围+子维度→任务→指标映射链+理论/规范对照表——目前尚无公开评测集同时满足全部五项。"
@@ -136,13 +136,13 @@
   },
   "R11": {
     "data": {
-      "summary_en": "Score 0 is anchored by Kleinberg; scores 2–4 by StereoSet/UnQover/Winogender (2), BBQ/HolisticBias/WinoQueer/CrowS-Pairs/KoBBQ (4); score 5 remains unobserved. HumaniBench and SaFeRDialogues surveys justified raising the bar for score 5 to require synthetic-data LLM validation and conflict-resolution logs. The 5-point threshold was raised to explicitly require synthetic-data verification — a strong differentiator missing in all current benchmarks.",
-      "summary_zh": "0分锚定Kleinberg；2–4分锚定StereoSet/UnQover/Winogender（2分）和BBQ/HolisticBias/WinoQueer/CrowS-Pairs/KoBBQ（4分）；5分暂无实例。HumaniBench和SaFeRDialogues两项调研表明，合成数据LLM验证与冲突日志是区分顶级质保的关键，因此将5分门槛提高。具体来说，5分现在必须包含用大模型验证合成数据这一硬性要求。",
-      "anchor_0_compact": "Kleinberg：完全未说明数据如何构建、标注或质检。",
+      "summary_en": "No stable score-0 dataset benchmark anchor is displayed for this rubric; scores 2–4 are anchored by StereoSet/UnQover/Winogender (2) and BBQ/HolisticBias/WinoQueer/CrowS-Pairs/KoBBQ (4); score 5 remains unobserved. HumaniBench and SaFeRDialogues surveys justified raising the bar for score 5 to require synthetic-data LLM validation and conflict-resolution logs. The 5-point threshold was raised to explicitly require synthetic-data verification — a strong differentiator missing in all current benchmarks.",
+      "summary_zh": "本条不再展示0分数据集锚点，因为当前语料中没有稳定、可核验的0分实证benchmark例子；2–4分锚定StereoSet/UnQover/Winogender（2分）和BBQ/HolisticBias/WinoQueer/CrowS-Pairs/KoBBQ（4分）；5分暂无实例。HumaniBench和SaFeRDialogues两项调研表明，合成数据LLM验证与冲突日志是区分顶级质保的关键，因此将5分门槛提高。具体来说，5分现在必须包含用大模型验证合成数据这一硬性要求。",
+      "anchor_0_compact": "No stable dataset benchmark anchor shown; use 0 only when construction, labeling, and QA are all undocumented.",
       "anchor_1_2_compact": "StereoSet/UnQover/Winogender：有标注但无冲突处理或错误分析。",
       "anchor_3_4_compact": "BBQ/HolisticBias/WinoQueer：含人工复核、冲突处理与错误分析。",
       "anchor_5_compact": "暂无：需双人/三人标注 + 专家复核 + 冲突日志 + 错误报告 + 合成数据LLM验证。",
-      "anchor_0_zh": "Kleinberg：完全没提数据怎么来、怎么标、怎么检查质量。",
+      "anchor_0_zh": "不展示具体数据集锚点；仅当构建、标注和质检流程都没有说明时才给0分。",
       "anchor_1_2_zh": "StereoSet/UnQover/Winogender：标了数据，但没管标错怎么办、冲突怎么处理。",
       "anchor_3_4_zh": "BBQ/HolisticBias/WinoQueer：有人工复查、冲突解决和错误分析报告。",
       "anchor_5_zh": "目前没有：必须同时满足双人/三人标注、专家把关、冲突处理记录、错误分析报告、以及用大模型验证合成数据。"
@@ -151,13 +151,13 @@
   },
   "R10": {
     "data": {
-      "summary_en": "Score 0 is anchored by BERT-Bartl and Kleinberg (no scoring process); scores 1–2 by Dev-WordEmbed, HONEST, UnQover, StereoSet, and HolisticBias (automatic or minimal human calibration); scores 3–4 by BBQ-family, WinoQueer, and Panda (rubric + partial or dual human review). Gu et al. 2025 and White et al. 2025 justified raising the bar for score 5 to require human-AI hybrid calibration, multi-rater agreement metrics (e.g., Cohen’s κ), and explicit judge bias reporting. The 5-point threshold was raised from 'reporting' to requiring empirical bias analysis and version-aware calibration.",
-      "summary_zh": "0分锚定在BERT-Bartl和Kleinberg（完全没说明评分流程）；1–2分锚定在Dev-WordEmbed、HONEST、UnQover、StereoSet和HolisticBias（仅用自动指标或极少量人工，无校准）；3–4分锚定在BBQ系列、WinoQueer和Panda（有明确细则，并做了部分或双人人工复核）。Gu等2025年和White等2025年研究指出：5分必须包含人机混合校准、多评分者一致性量化（如Cohen’s κ）、以及对评分器偏差的实证分析。原‘报告偏差’要求被升级为‘必须做偏差消融+版本影响分析’。",
-      "anchor_0_compact": "No scoring process described — e.g., BERT-Bartl, Kleinberg — results are unreproducible and unverifiable.",
+      "summary_en": "Score 0 is anchored by BERT-Bartl (no clear scoring calibration process); scores 1–2 by Dev-WordEmbed, HONEST, UnQover, StereoSet, and HolisticBias (automatic or minimal human calibration); scores 3–4 by BBQ-family, WinoQueer, and Panda (rubric + partial or dual human review). Gu et al. 2025 and White et al. 2025 justified raising the bar for score 5 to require human-AI hybrid calibration, multi-rater agreement metrics (e.g., Cohen’s κ), and explicit judge bias reporting. The 5-point threshold was raised from 'reporting' to requiring empirical bias analysis and version-aware calibration.",
+      "summary_zh": "0分锚定在BERT-Bartl（评分校准流程不清）；1–2分锚定在Dev-WordEmbed、HONEST、UnQover、StereoSet和HolisticBias（仅用自动指标或极少量人工，无校准）；3–4分锚定在BBQ系列、WinoQueer和Panda（有明确细则，并做了部分或双人人工复核）。Gu等2025年和White等2025年研究指出：5分必须包含人机混合校准、多评分者一致性量化（如Cohen’s κ）、以及对评分器偏差的实证分析。原‘报告偏差’要求被升级为‘必须做偏差消融+版本影响分析’。",
+      "anchor_0_compact": "No scoring process described — e.g., BERT-Bartl — results are hard to reproduce or verify.",
       "anchor_1_2_compact": "Automatic or single-rater scoring without calibration — e.g., Dev-WordEmbed, HONEST — lacks consistency checks or rubric grounding.",
       "anchor_3_4_compact": "Clear rubric with partial human review — e.g., BBQ/CBBQ, WinoQueer, Panda — includes multi-rater comparison or dual annotation.",
       "anchor_5_compact": "Full human-AI hybrid calibration, inter-rater agreement metrics (κ/α), and judge bias ablation — no current benchmark fully meets this bar.",
-      "anchor_0_zh": "完全没说明评分流程——如BERT-Bartl、Kleinberg——结果无法复现、无法验证。",
+      "anchor_0_zh": "评分流程不清——如BERT-Bartl——结果难以复现或验证。",
       "anchor_1_2_zh": "仅用自动指标或单人打分，无任何校准——如Dev-WordEmbed、HONEST——缺少一致性检查和评分细则支撑。",
       "anchor_3_4_zh": "有清晰评分细则，并做了部分人工复核——如BBQ系列、WinoQueer、Panda——含多人比对或双人标注。",
       "anchor_5_zh": "需同时满足：人机混合校准、多评分者一致性量化（如Cohen’s κ）、评分器偏差消融实验——目前尚无基准完全达标。"
@@ -166,13 +166,13 @@
   },
   "R13": {
     "data": {
-      "summary_en": "Score 0 is anchored by benchmarks like Kleinberg and Winogender that lack any usable documentation; scores 2–4 are anchored by UnQover (2), BBQ and CrowS-Pairs (4), and most others (3); the threshold revision from v1 to v2 was justified by White et al. 2025 and Raji et al. 2021, which showed that 'README-only' setups fail reproducibility. The bar for score 5 was raised to require all seven components: datasheet, benchmark card, license, intended use, out-of-scope, limitations, and examples.",
-      "summary_zh": "0分锚定Kleinberg、Winogender这类几乎没文档的基准；2–4分锚定UnQover（2分）、BBQ和CrowS-Pairs（4分）、以及大多数中间水平基准（3分）；White等2025年与Raji等2021年的调研指出，仅有README无法支撑复现，因此推动了评分标准升级；5分现在必须齐备七项：数据表、基准卡、许可证、预期用途、不适用范围、局限性、示例。",
-      "anchor_0_compact": "No usable docs — e.g., Kleinberg & Winogender: no data/code/license, external users cannot understand or run it.",
+      "summary_en": "No score-0 theoretical anchor is displayed; low-documentation dataset anchors are Winogender and UnQover at score 2, BBQ and CrowS-Pairs at score 4, and most others at score 3. The threshold revision from v1 to v2 was justified by White et al. 2025 and Raji et al. 2021, which showed that 'README-only' setups fail reproducibility. The bar for score 5 was raised to require all seven components: datasheet, benchmark card, license, intended use, out-of-scope, limitations, and examples.",
+      "summary_zh": "本条不再展示理论性0分锚点；低文档化的数据集锚点为Winogender与UnQover（2分）、BBQ和CrowS-Pairs（4分），多数其他基准为3分。White等2025年与Raji等2021年的调研指出，仅有README无法支撑复现，因此推动了评分标准升级；5分现在必须齐备七项：数据表、基准卡、许可证、预期用途、不适用范围、局限性、示例。",
+      "anchor_0_compact": "No stable dataset benchmark anchor shown; use 0 only when data, code, license, and metric definitions are absent.",
       "anchor_1_2_compact": "Paper-only or minimal README — e.g., UnQover: has paper but missing data, code, license, or metric definitions.",
       "anchor_3_4_compact": "Core assets present — e.g., BBQ & CrowS-Pairs: code + data + basic metrics, but missing full benchmark card or limitations.",
       "anchor_5_compact": "All seven required: datasheet, benchmark card, license, intended use, out-of-scope, limitations, examples — none yet achieve this.",
-      "anchor_0_zh": "完全不可用文档——如Kleinberg和Winogender：无数据、无代码、无许可证，外部用户既看不懂也跑不动。",
+      "anchor_0_zh": "不展示具体数据集锚点；仅当数据、代码、许可证和指标定义都缺失时才给0分。",
       "anchor_1_2_zh": "仅有一篇论文或极简README——如UnQover：有论文但缺数据、代码、许可证或指标定义。",
       "anchor_3_4_zh": "核心资产齐全——如BBQ和CrowS-Pairs：有代码+数据+基础指标，但缺完整基准卡或明确局限性。",
       "anchor_5_zh": "七项全齐：数据表、基准卡、许可证、预期用途、不适用范围、局限性、示例——目前尚无基准达到此标准。"
@@ -181,13 +181,13 @@
   },
   "R14": {
     "data": {
-      "summary_en": "Score 0 is anchored by Kleinberg, BERT-Bartl, BOLD, Dev, MoralChoice, NeuTral, WikiGenderBias, and WinoBias; score 1–2 by CBBQ, HolisticBias, and WinoQueer; and score 4–5 by LiveBench (as the strongest living-benchmark anchor). White et al. 2025 and Eriksson et al. 2025 justified raising the bar for score 2 to require *either* a maintainer *or* community continuity — and for scores 3+ to require explicit feedback channels, update triggers, and retirement mechanisms.",
-      "summary_zh": "0分锚定Kleinberg、BERT-Bartl、BOLD等一次性发布基准；1–2分锚定CBBQ、HolisticBias、WinoQueer等有少量更新或社区延续的基准；4–5分以月度更新的LiveBench为最高标杆。White等人2025年和Eriksson等人2025年的调研表明：2分需明确有维护人或社区延续，3分及以上必须包含反馈渠道、更新触发条件和退役机制。",
-      "anchor_0_compact": "零维护：如 Kleinberg 和 WinoBias，发布后无版本、无反馈、无更新痕迹。",
+      "summary_en": "Score 0 is anchored by one-off dataset benchmarks such as BERT-Bartl, BOLD, MoralChoice, NeuTral, WikiGenderBias, and WinoBias; score 1–2 by CBBQ, HolisticBias, and WinoQueer; and score 4–5 by LiveBench (as the strongest living-benchmark anchor). White et al. 2025 and Eriksson et al. 2025 justified raising the bar for score 2 to require *either* a maintainer *or* community continuity — and for scores 3+ to require explicit feedback channels, update triggers, and retirement mechanisms.",
+      "summary_zh": "0分锚定BERT-Bartl、BOLD、MoralChoice、NeuTral、WikiGenderBias、WinoBias等一次性发布的数据集基准；1–2分锚定CBBQ、HolisticBias、WinoQueer等有少量更新或社区延续的基准；4–5分以月度更新的LiveBench为最高标杆。White等人2025年和Eriksson等人2025年的调研表明：2分需明确有维护人或社区延续，3分及以上必须包含反馈渠道、更新触发条件和退役机制。",
+      "anchor_0_compact": "Zero maintenance — e.g., BERT-Bartl and WinoBias: no visible versioning, feedback channel, update trigger, or retirement rule after release.",
       "anchor_1_2_compact": "仅有发布日期或孤立版本号：如 CBBQ（有版本但无反馈渠道）、WinoQueer（依赖社区自发延续）。",
       "anchor_3_4_compact": "基础治理可见：如 HolisticBias（有维护人+版本记录），但缺更新触发与退役说明。",
       "anchor_5_compact": "全周期治理：如 LiveBench（月度更新、反馈入口、归档历史、明确定义退役与边界变更）。",
-      "anchor_0_zh": "零维护：如Kleinberg和WinoBias，发完就不管，没版本、没反馈、从不更新。",
+      "anchor_0_zh": "零维护：如BERT-Bartl和WinoBias，发布后看不到版本、反馈入口、更新触发或退役规则。",
       "anchor_1_2_zh": "只有发布时间或一个版本号：如CBBQ（标了v1.0但找不到反馈方式）、WinoQueer（靠网友自发维护，没官方动作）。",
       "anchor_3_4_zh": "有基本管理动作：如HolisticBias（写了谁在维护、也留了版本记录），但没说啥时候更新、怎么退役。",
       "anchor_5_zh": "全生命周期管到底：如LiveBench（每月更新、有反馈邮箱、所有旧版都存档、退役规则和适用范围变化全写清楚）"
