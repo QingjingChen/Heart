@@ -35,7 +35,7 @@
     "mirror": ""
   },
   "CPsyExam (2024)": {
-    "paper": "https://arxiv.org/abs/2405.18743",
+    "paper": "https://aclanthology.org/2025.coling-main.745/",
     "code": "https://github.com/CAS-SIAT-XinHai/CPsyExam",
     "mirror": "https://drive.google.com/drive/folders/1zO7imfVcKEl_vHUahrrJHibXCVoFicA3"
   },
@@ -95,7 +95,7 @@
     "mirror": ""
   },
   "SOCKET (2023)": {
-    "paper": "https://aclanthology.org/2023.findings-emnlp.969/",
+    "paper": "https://aclanthology.org/2023.emnlp-main.699/",
     "code": "https://github.com/minjechoi/SOCKET",
     "mirror": ""
   },
@@ -105,7 +105,7 @@
     "mirror": ""
   },
   "EtiCor (2023)": {
-    "paper": "https://aclanthology.org/2023.emnlp-main.747/",
+    "paper": "https://aclanthology.org/2023.emnlp-main.428/",
     "code": "https://github.com/exploration-lab/EtiCor",
     "mirror": ""
   },
@@ -150,7 +150,7 @@
     "mirror": "https://drive.google.com/drive/folders/1bKWlqkqlHkEFoojXETmCxJwzks6H4R2m"
   },
   "Dev-WordEmbed (2020)": {
-    "paper": "https://aclanthology.org/2020.acl-main.487/",
+    "paper": "https://ojs.aaai.org/index.php/AAAI/article/view/6267",
     "code": "https://github.com/sunipa/On-Measuring-and-Mitigating-Biased-Inferences-of-Word-Embeddings",
     "mirror": ""
   },
@@ -160,7 +160,7 @@
     "mirror": "https://drive.google.com/drive/folders/1JQLmeM_Ogo3oSp3E3SW6pVACI2FpJ92q"
   },
   "WikiGenderBias (2020)": {
-    "paper": "https://aclanthology.org/2020.findings-emnlp.106/",
+    "paper": "https://aclanthology.org/2020.acl-main.265/",
     "code": "https://github.com/uclanlp/reducingbias",
     "mirror": "https://drive.google.com/drive/folders/14cmybbLYE2AQNdNb5raG4l5fr0BdD_zE"
   },
@@ -170,7 +170,7 @@
     "mirror": "https://drive.google.com/drive/folders/19vZBkiKE6NDazrRpui9lnA4lfax1vpEi"
   },
   "BUG (2021)": {
-    "paper": "https://aclanthology.org/2021.emnlp-main.211/",
+    "paper": "https://aclanthology.org/2021.findings-emnlp.211/",
     "code": "https://github.com/SLAB-NLP/BUG",
     "mirror": "https://drive.google.com/drive/folders/1WIkQXrnSSZhWDAsZUylkZTgJ2mDTIhwF"
   },
@@ -180,7 +180,7 @@
     "mirror": "https://drive.google.com/drive/folders/11fvUPnsf8X3p3TU2wQgL4ofm5baBnLjA"
   },
   "NeuTral-WinoBiasPlus (2021)": {
-    "paper": "https://aclanthology.org/2021.eacl-main.163/",
+    "paper": "https://aclanthology.org/2021.emnlp-main.704/",
     "code": "https://github.com/uclanlp/corefBias",
     "mirror": "https://drive.google.com/drive/folders/1jBhbTfJn1_2atfNlMZOz9StaDMfYmcY5"
   },
@@ -235,7 +235,7 @@
     "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
   },
   "FLEX (2025)": {
-    "paper": "https://aclanthology.org/2025.findings-naacl.201/",
+    "paper": "https://aclanthology.org/2025.findings-naacl.199/",
     "code": "https://github.com/ekgus9/FLEX",
     "mirror": ""
   },
@@ -250,9 +250,9 @@
     "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
   },
   "JBBQ (2024/2025)": {
-    "paper": "https://arxiv.org/abs/2506.12327",
-    "code": "https://github.com/nyu-mll/BBQ",
-    "mirror": "https://drive.google.com/drive/folders/1caP795gTBJtp8UqhFNMBFyAnzVOw46l_"
+    "paper": "https://aclanthology.org/2025.gebnlp-1.1/",
+    "code": "https://github.com/ynklab/JBBQ_data",
+    "mirror": ""
   },
   "RealToxicityPrompts (2020)": {
     "paper": "https://aclanthology.org/2020.findings-emnlp.301/",
@@ -280,7 +280,7 @@
     "mirror": ""
   },
   "Do-not-answer (2024)": {
-    "paper": "https://arxiv.org/abs/2403.01244",
+    "paper": "https://aclanthology.org/2024.findings-eacl.61/",
     "code": "https://github.com/Libr-AI/do-not-answer",
     "mirror": "https://drive.google.com/drive/folders/130aFvSdUJ7ecgul3DnbyhthwsQlD0MRM"
   },
@@ -300,14 +300,14 @@
     "mirror": "https://drive.google.com/drive/folders/13RQ0kav6pBAOBk6c0KovCuYs1t4lC3l8"
   },
   "LifeTox (2024)": {
-    "paper": "https://aclanthology.org/2024.naacl-short.59/",
+    "paper": "https://aclanthology.org/2024.naacl-short.60/",
     "code": "https://huggingface.co/datasets/mbkim/LifeTox",
     "mirror": "https://drive.google.com/drive/folders/1baFmEIQlSVA1VTt6jIEW3Q-oJJgcE2tQ"
   },
   "MM-SafetyBench (2024)": {
     "paper": "https://arxiv.org/abs/2311.17600",
-    "code": "https://github.com/thu-coai/SafetyBench",
-    "mirror": "https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM"
+    "code": "https://github.com/isXinLiu/MM-SafetyBench",
+    "mirror": ""
   },
   "SALAD-bench (2024)": {
     "paper": "https://aclanthology.org/2024.findings-acl.235/",
@@ -315,7 +315,7 @@
     "mirror": "https://drive.google.com/drive/folders/1qrYJ5ooiUAaI6pNf0M7VnVshA4I5t6yJ"
   },
   "SafetyBench (2024)": {
-    "paper": "https://arxiv.org/abs/2311.17600",
+    "paper": "https://arxiv.org/abs/2309.07045",
     "code": "https://github.com/thu-coai/SafetyBench",
     "mirror": "https://drive.google.com/drive/folders/19Km-8VzvIT9N4exB2zV13QV5Lgf1i0eM"
   },
@@ -344,7 +344,7 @@
     "code": "https://parl.ai/projects/safety_recipes/",
     "mirror": ""
   },
-  "HarmEval (2025)": {
+  "TechHazardQA (2025)": {
     "paper": "https://arxiv.org/abs/2402.15302",
     "code": "https://huggingface.co/datasets/SoftMINER-Group/TechHazardQA",
     "mirror": "https://drive.google.com/drive/folders/1B4iPpDasT-Tl3pMxB7mkKMXamM1ZnXQW"
@@ -375,7 +375,7 @@
     "mirror": ""
   },
   "C-Do-not-answer (2024)": {
-    "paper": "https://arxiv.org/abs/2403.01244",
+    "paper": "https://aclanthology.org/2024.findings-acl.184/",
     "code": "https://github.com/Libr-AI/do-not-answer",
     "mirror": "https://drive.google.com/drive/folders/1Da5wlPwg3t811fcWedaJ9E0YrqJY2Lxk"
   },
@@ -410,7 +410,7 @@
     "mirror": ""
   },
   "PatentEval (2024)": {
-    "paper": "https://aclanthology.org/2024.findings-naacl.142/",
+    "paper": "https://aclanthology.org/2024.naacl-long.147/",
     "code": "https://github.com/ZoeYou/PatentEval",
     "mirror": ""
   },
@@ -472,10 +472,10 @@
   "AgentDAM (2025)": {
     "paper": "https://arxiv.org/abs/2503.09780",
     "code": "https://github.com/facebookresearch/ai-agent-privacy",
-    "mirror": "https://drive.google.com/drive/folders/12EDOGC-Md8UA8RLUIKvgB76bq3F4cI1Z"
+    "mirror": ""
   },
   "PrivaCI-Bench (2025)": {
-    "paper": "https://arxiv.org/abs/2503.04340",
+    "paper": "https://aclanthology.org/2025.acl-long.518/",
     "code": "https://github.com/HKUST-KnowComp/PrivaCI-Bench",
     "mirror": ""
   },
@@ -512,11 +512,6 @@
   "Converse (2024)": {
     "paper": "https://arxiv.org/abs/2511.05359",
     "code": "",
-    "mirror": ""
-  },
-  "WebArena-Privacy (2024)": {
-    "paper": "https://arxiv.org/abs/2503.09780",
-    "code": "https://github.com/sail-sg/AgentDAM",
     "mirror": ""
   },
   "EAI-Bench (2024)": {
