@@ -1,0 +1,98 @@
+\subsection{Annotation and Tool Extraction}
+\label{sec:annotation-tool-extraction}
+
+The corpus was annotated in multiple passes with evidence tracing as a hard
+requirement. In the diagnostic pass, each benchmark was mapped to a primary
+ethical dimension and assessed against the 14-rubric HEART codebook.
+Annotators recorded source evidence from the paper, repository, dataset card,
+or evaluation artifact, rather than relying on impressionistic judgments. In
+the extraction pass, two primary experts annotated the reusable evaluation
+mechanisms that each paper could contribute and assigned expert tool labels.
+Other experts then spot-checked and adjudicated disagreements between the two
+primary annotations. The expert team also co-authored the guidebook cards from
+the benchmark evidence, so that later users can follow the same toolkit to
+adapt benchmark items rather than only inspect our final labels.
+
+The extracted mechanisms include, for example, ambiguous/disambiguated
+contrast sets, safe/unsafe contrast pairs, contextual integrity schemas,
+temporal factuality checks, workflow simulations, and multi-turn adversarial
+protocols. These mechanisms were then mapped to the corresponding HEART repair
+tools and preserved as benchmark-specific sub-tools in the machine-readable
+codebook and website cards.
+
+Inclusion and exclusion were performed through iterative expert screening and
+consensus discussion rather than a one-shot independent coding protocol.
+Accordingly, we do not report Cohen's \(\kappa\) or Krippendorff's \(\alpha\)
+for corpus selection: the screening logs were designed to produce a curated
+resource and repair taxonomy, not to estimate independent-coder reliability.
+Disagreements were resolved by evidence-based adjudication, with claims
+narrowed when artifacts were incomplete, non-reproducible, or only weakly
+supported by the source. Quantitative expert consistency is instead reported
+for the blinded mini-case quality assessment in Section~\ref{sec:expert-quality},
+where experts compare original and HEART-guided revisions under the 14 rubrics.
+
+\subsection{Dimensions, Rubrics, and Tools}
+\label{sec:dimensions-rubrics-tools}
+
+The HEART framework organizes benchmark evaluation and repair along three
+axes. First, the five ethical dimensions are derived from international policy
+and governance sources, including UNESCO principles, GDPR, and the EU AI Act,
+rather than from benchmark naming conventions. The dimensions are
+Human-Centeredness, Fairness and Inclusiveness, Safety and Reliability,
+Trustworthiness and Controllability, and Privacy Protection. They correspond
+to distinct evidence needs: fairness requires evidence about protected
+interests and proxy attributes, privacy requires evidence about information
+flows, authorization, purpose, and consent, and safety requires evidence about
+hazard type, risk level, vulnerable subjects, and escalation boundaries.
+
+Second, the 14 diagnostic rubrics are grouped into three layers that target
+different failure modes. Content Validity asks whether the benchmark has a
+valid ethical measurement target: R1 construct clarity defines what capability
+or risk is measured; R2 normative grounding records the legal, policy,
+professional, or community basis for judgment; R3 source provenance and
+evidence fitness checks whether the data source is traceable and suitable; R4
+context and stakeholder coverage asks whether actors, affected parties,
+relationships, and purposes are represented; and R5 real-world harm linkage
+connects the task to concrete harm pathways. Evaluation Design asks whether
+the task can actually measure that construct: R6 scenario validity checks
+realism and domain fit; R7 task-format fit checks whether multiple choice,
+open generation, multi-turn interaction, or agent workflow matches the risk;
+R8 ground-truth and disagreement design records answer keys, uncertainty, and
+legitimate disagreement; R9 metric validity checks whether the metric measures
+the intended failure mode rather than an easy proxy; and R10 evaluator
+reliability checks whether human or model judges are calibrated and
+reviewable. Governance Reliability asks whether the benchmark remains usable
+and auditable over time: R11 data and annotation QA checks annotation,
+filtering, and conflict-resolution procedures; R12 robustness against gaming
+and contamination checks hidden sets, leakage, and leaderboard overfitting;
+R13 documentation and reproducibility checks cards, scripts, licenses, and
+parameter records; and R14 maintenance and update governance checks release
+versioning, feedback channels, update triggers, and retirement rules.
+
+Third, the toolkit includes 14 generic repair operations to keep the workbox
+actionable and reusable across dimensions. T01 maps broad ethical claims to
+measurable constructs and protected interests, such as reframing a privacy
+item around patient confidentiality rather than only leaked strings. T02
+records normative sources and decision boundaries, such as noting that a
+clinically knowledgeable friend is not automatically an authorized recipient
+of therapy notes. T03 fills scenario, stakeholder, and information-flow slots,
+such as sender, recipient, data subject, purpose, authorization, and harm. T04
+adds risk tiers and hazard categories, useful for crisis or self-harm advice
+where escalation thresholds matter. T05 adapts cultural and cross-lingual
+categories, such as replacing identity groups or institutional settings with
+locally valid ones. T06 builds contrast sets, such as BBQ-style
+ambiguous/disambiguated pairs or safe/unsafe prompt pairs. T07 builds coverage
+matrices over capabilities, scenarios, stakeholders, and risk modifiers. T08
+turns single-round tests into multi-turn or adversarial red-team protocols.
+T09 simulates agents and workflows, such as a Notion search followed by a
+Gmail send action. T10 verifies evidence and claims, such as checking whether
+a time-sensitive CEO question has a stale false premise. T11 reports
+multi-metric failure profiles instead of a single score, such as separating
+privacy leakage, insufficient de-identification, and helpfulness. T12 uses
+rubric-based and multi-judge scoring for open-ended outputs. T13 packages
+benchmark cards, data cards, scripts, model versions, prompts, and reproduction
+commands. T14 governs lifecycle, hidden splits, contamination checks, update
+triggers, and retirement. Domain-specific mechanisms extracted from the corpus
+are maintained as instantiated sub-tools rather than promoted into additional
+generic tools, which keeps the core toolkit stable while preserving concrete
+evidence from the 103 audited benchmarks.
