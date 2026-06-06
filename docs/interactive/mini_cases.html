@@ -556,6 +556,42 @@ const ITEM_LABELS = {
   source:                        ['Source',                        '来源'],
   metadata:                      ['Metadata',                      '元数据'],
 };
+const TOOL_NAME_ZH = {
+  T01: '声明-构念-受保护利益映射器',
+  T02: '规范来源与决策边界台账',
+  T03: '场景-利益相关方-信息流模板',
+  T04: '风险等级与危害分类',
+  T05: '文化与跨语言适配流程',
+  T06: '对照集构造器',
+  T07: '行为覆盖矩阵',
+  T08: '多轮与对抗红队协议',
+  T09: '智能体与工作流仿真',
+  T10: '证据与声明核验流水线',
+  T11: '多指标失败模式画像',
+  T12: '细则化与多评分者评估协议',
+  T13: '可复现评测与基准卡包',
+  T14: '生命周期、隐藏集与污染治理',
+};
+const OP_ZH = {
+  'Ambiguity/Disambiguation Contrast': '模糊/消歧对照',
+  'Benchmark/Dataset Card': '基准/数据集卡',
+  'Construct Definition': '构念界定',
+  'Contextual Integrity Test': '情境完整性测试',
+  'Dynamic Updates and Version Management': '动态更新与版本管理',
+  'Multi-metric / Failure-mode Reporting': '多指标/失败模式报告',
+  'Multi-metric Reporting': '多指标报告',
+  'Multi-rater Aggregation': '多评分者聚合',
+  'Normative Source Coding': '规范来源编码',
+  'Professional Boundary Rubric': '专业边界评分细则',
+  'Red-line/Consensus/Contested Labeling': '红线/共识/争议标注',
+  'Retrieval + entailment': '检索与蕴含核验',
+  'Risk-level Classification': '风险等级分类',
+  'Rubric-based Scoring': '基于细则评分',
+  'Safe/Unsafe Contrast Set': '安全/不安全对照集',
+  'Scenario Template': '场景模板',
+  'Stakeholder Coverage Expansion': '利益相关方覆盖扩展',
+  'Temporal/factuality checks': '时效性/事实性核查',
+};
 function bilField(fld, it, tpl) {
   // Renders one field row if value present.  Falls back to the EN string when no _zh sibling exists.
   const v = it[fld];
@@ -722,9 +758,14 @@ function renderCase(c, idx) {
     const pp = purposeByWebId[t.id];
     const isPrimary = primarySet.has(t.id);
     const purposeHtml = pp ? `<div class="tool-purpose"><span class="lang-en">${escapeHtml(pp.en||'')}</span><span class="lang-zh">${escapeHtml(pp.zh||'')}</span></div>` : '';
-    const opsHtml = t.operations && t.operations.length ? `<div class="tool-ops"><span class="lang-en">Operations:</span><span class="lang-zh">操作：</span> ${t.operations.join(' · ')}</div>` : '';
+    const opsEn = (t.operations || []).map(o => escapeHtml(o)).join(' · ');
+    const opsZh = (t.operations || []).map(o => escapeHtml(OP_ZH[o] || o)).join(' · ');
+    const opsHtml = t.operations && t.operations.length ? `<div class="tool-ops"><span class="lang-en">Operations:</span><span class="lang-zh">操作：</span> <span class="lang-en">${opsEn}</span><span class="lang-zh">${opsZh}</span></div>` : '';
+    const rolePill = isPrimary
+      ? '<span class="tool-pri-pill"><span class="lang-en">primary</span><span class="lang-zh">主工具</span></span>'
+      : '<span class="tool-sec-pill"><span class="lang-en">secondary</span><span class="lang-zh">次工具</span></span>';
     return `<div class="tool-row ${isPrimary ? 'tool-row-primary' : ''}">
-      <div class="tool-row-head"><a href="tools.html#${t.id}" class="tool-link"><b>${t.id}</b></a> <span class="tool-name">${t.name}</span> ${isPrimary ? '<span class="tool-pri-pill">primary</span>' : '<span class="tool-sec-pill">secondary</span>'}</div>
+      <div class="tool-row-head"><a href="tools.html#${t.id}" class="tool-link"><b>${t.id}</b></a> <span class="tool-name"><span class="lang-en">${escapeHtml(t.name)}</span><span class="lang-zh">${escapeHtml(TOOL_NAME_ZH[t.id] || t.name)}</span></span> ${rolePill}</div>
       ${purposeHtml}
       ${opsHtml}
     </div>`;
