@@ -46,7 +46,7 @@ The reviewed v0.1.0 artifact is archived at Zenodo:
 
 - All documentation is plain markdown; no proprietary viewer required.
 - The codebook is provided both as **xlsx** (with formatting and notes) and
-  as **8 CSV exports** (tool-agnostic).
+  as **9 CSV exports** (tool-agnostic).
 - No login or registration required. The Google Drive folder linked from
   [`datasets/README.md`](../datasets/README.md) is set to public read access.
 

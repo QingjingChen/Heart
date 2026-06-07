@@ -78,7 +78,8 @@ by `codebook/build_codebook.py`. Sanity is enforced by
 | [`codebook/mini_cases.csv`](codebook/mini_cases.csv) | 5 | Worked before/after revision examples. | `id`, `dimension`, `title`, `source_dataset`, `rubrics_lifted`, `tools_applied` |
 | [`codebook/rubric_tool_matrix.csv`](codebook/rubric_tool_matrix.csv) | 14×14 | Evidence-score matrix used by the site's `Gap → Tool Workflow` heatmap. | `rubric`, `T01`…`T14` |
 | [`codebook/gap_detection.csv`](codebook/gap_detection.csv) | 14 | Per-rubric symptoms / red flags / evidence-to-inspect. | `code`, `typical_symptoms_en/_zh`, `red_flags`, `diagnostic_questions`, `domain_symptoms` |
-| [`codebook/heart_codebook.xlsx`](codebook/heart_codebook.xlsx) | — | All eight CSVs bundled as one workbook (one sheet each). | — |
+| [`codebook/expert_subtool_labels.csv`](codebook/expert_subtool_labels.csv) | 103 | Imported expert labels for the benchmark-specific repair sub-tools. | `benchmark`, `expert_label_cqj`, `expert_label_second_expert_yzx` |
+| [`codebook/heart_codebook.xlsx`](codebook/heart_codebook.xlsx) | — | All nine CSVs bundled as one workbook (one sheet each). | — |
 | [`survey/literature/tech_ethics_survey.bib`](survey/literature/tech_ethics_survey.bib) | 982 | Technology-ethics literature index used as the retrieval pool for corpus construction. | BibTeX keys, titles, authors, venues, years, URLs / DOIs |
 | [`survey/results/expert_votes_anonymized_long.csv`](survey/results/expert_votes_anonymized_long.csv) | 280 | Anonymized expert A/B votes for five mini cases × 14 rubrics × 4 experts. | `expert_id`, `case_id`, `rubric`, `blind_choice`, `decoded_preference`, `score_for_ERS` |
 | [`survey/results/rubric_case_summary.csv`](survey/results/rubric_case_summary.csv) | 70 | Detailed rubric-by-case validation statistics. | `case_id`, `rubric`, `heart_votes`, `original_votes`, `tie_votes`, `ERS`, `net_advantage` |
@@ -185,7 +186,7 @@ Each audited benchmark is treated as a **specific repair sub-tool** bound to one
 │   ├── 06_resource_availability.md      ← release statement
 │   └── interactive/                     🌐 GitHub-Pages-served interactive site
 │
-├── codebook/                            📊 site-derived codebook (8 CSVs + xlsx bundle)
+├── codebook/                            📊 site-derived codebook (9 CSVs + xlsx bundle)
 │   ├── heart_codebook.xlsx              ← multi-sheet bundle of all CSVs
 │   ├── benchmarks.csv · tools.csv · sub_tools.csv · rubrics.csv
 │   ├── policies.csv · mini_cases.csv · rubric_tool_matrix.csv · gap_detection.csv
