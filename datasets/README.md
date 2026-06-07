@@ -154,7 +154,7 @@ the `Tool Source Distribution` sheet; the full 27-column rubric annotations live
 In addition to the 103 individual benchmark papers catalogued above, the
 meta-review draws on the following surveys for the benchmark inventory,
 rubric calibration, normative grounding, and cross-comparison of evidence.
-These surveys appear in the `External views (Survey 原文)` column of the
+These surveys appear in the `External views (survey source text)` column of the
 codebook's `Tool Source Distribution` sheet and in `codebook/
 citation_verification.csv`.
 

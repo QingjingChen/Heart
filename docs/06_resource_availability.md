@@ -80,12 +80,13 @@ The reviewed v0.1.0 artifact is archived at Zenodo:
 
 1. **Clone or download** this repository.
 2. Open [`codebook/heart_codebook.xlsx`](../codebook/heart_codebook.xlsx) — it
-   should contain seven sheets: `Tool来源分布表`, `Toolbox整合说明`,
-   `Benchmark诊断`, `诊断rubrics说明`, `引用核验`, plus two legacy
-   "评价体系（旧）" sheets retained for reproducibility of the rubric
-   re-derivation.
-3. Spot-check any benchmark row in `Tool来源分布表` — every row should have
-   a `Source file/path` and a non-empty `Tool explanation (原文，全文)`.
+   should contain nine sheets corresponding to the CSV files in
+   [`codebook/`](../codebook/): benchmarks, tools, sub-tools, expert sub-tool
+   labels, rubrics, policies, mini cases, the rubric-tool matrix, and gap
+   detection.
+3. Spot-check any benchmark row in `benchmarks.csv` — each row should include
+   source links, tool assignments, rubric-improvement tags, and adaptation
+   guidance.
 4. Run the Web Demo per [`demo/README.md`](../demo/README.md) and confirm
    the rubric → tool recommendation flow.
 

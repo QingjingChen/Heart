@@ -17,7 +17,7 @@ build script.
 | `benchmarks.csv` | One row per audited benchmark with dimension, expert tag, CQJ manual check label, YZX second-expert label, paper / code URLs, primary + secondary tool assignments, sub-tool names (EN/ZH), rubrics-improved tags, and adaptation prompt + example. | 103 |
 | `tools.csv` | One row per generic repair tool (T01–T14) with EN/ZH name, layer, core practice, problem fixed, applicable scope, boundary vs. nearby tools, automatable vs. needs-human parts, limitations, and evidence counts. | 14 |
 | `sub_tools.csv` | One row per (benchmark × role) pair giving the specific repair sub-tool's name (EN/ZH), parent tool, and imported expert labels. | 206 |
-| `expert_subtool_labels.csv` | One row per audited benchmark giving the primary/secondary repair sub-tools and the two imported expert labels from `HEART_Excel_二审yzx.xlsx` sheet `Tool来源分布表-cqj`: `expert_label_cqj` and `expert_label_second_expert_yzx`. | 103 |
+| `expert_subtool_labels.csv` | One row per audited benchmark giving the primary/secondary repair sub-tools and the two imported expert labels from the second-review expert labeling workbook: `expert_label_cqj` and `expert_label_second_expert_yzx`. | 103 |
 | `expert_label_import_report.json` | Import audit for the CQJ/YZX expert labels, including exact matches, benchmark-only matches, and Excel rows not imported because the source benchmark is not present in the current 103-row corpus. | — |
 | `rubrics.csv` | One row per calibrated audit rubric (R1–R14): name, key question, full 0/1–2/3–4/5 anchors, calibration anchors with bench examples, revision notes, current score distribution + mean — all bilingual. | 14 |
 | `policies.csv` | One row per policy / governance source with source name, type, URL, and per-dimension support code (D1/D2/D3). | 16 |
@@ -53,22 +53,25 @@ Requires `openpyxl` for the xlsx bundle (CSV generation works without it).
 The rubric columns and order are kept in sync with
 [`../docs/03_fourteen_rubrics.md`](../docs/03_fourteen_rubrics.md):
 
-| Code | EN | ZH |
-|---|---|---|
-| R1 | Construct clarity | 构念清晰度 |
-| R2 | Normative grounding | 规范根据 |
-| R3 | Source provenance and evidence fitness | 来源可追溯与证据适配 |
-| R4 | Context and stakeholder coverage | 情境与利益相关方覆盖 |
-| R5 | Real-world harm linkage | 与现实危害的关联 |
-| R6 | Scenario validity | 场景真实性 |
-| R7 | Task-format fit | 任务形式适配 |
-| R8 | Ground truth and disagreement design | 答案与分歧设计 |
-| R9 | Metric validity | 指标有效性 |
-| R10 | Evaluator reliability | 评分者可靠性 |
-| R11 | Data and annotation QA | 数据与标注质保 |
-| R12 | Robustness against gaming and contamination | 对抗博弈与污染稳健性 |
-| R13 | Documentation and reproducibility | 文档与可复现 |
-| R14 | Maintenance and update governance | 维护与更新治理 |
+| Code | Rubric |
+|---|---|
+| R1 | Construct clarity |
+| R2 | Normative grounding |
+| R3 | Source provenance and evidence fitness |
+| R4 | Context and stakeholder coverage |
+| R5 | Real-world harm linkage |
+| R6 | Scenario validity |
+| R7 | Task-format fit |
+| R8 | Ground truth and disagreement design |
+| R9 | Metric validity |
+| R10 | Evaluator reliability |
+| R11 | Data and annotation QA |
+| R12 | Robustness against gaming and contamination |
+| R13 | Documentation and reproducibility |
+| R14 | Maintenance and update governance |
+
+The CSV and XLSX codebook still include bilingual fields where available; this
+README lists only the English display names for reviewer-facing readability.
 
 ## What was here before
 

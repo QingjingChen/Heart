@@ -1,6 +1,6 @@
 {
-  "source_excel": "/Users/juiceq/Desktop/ethics benchmark/HEART_Excel_二审yzx.xlsx",
-  "source_sheet": "Tool来源分布表-cqj",
+  "source_excel": "second-review expert labeling workbook (local source file not redistributed)",
+  "source_sheet": "Tool source distribution - CQJ",
   "matched_exact": [
     {
       "excel_row": 2,
@@ -516,15 +516,15 @@
       "excel_row": 72,
       "dimension": "Safety",
       "benchmark": "HarmEval (2025)",
-      "manual_label_cqj": "安全放大，提出不同的安全",
-      "second_expert_label_yzx": "安全向量引导"
+      "manual_label_cqj": "safety amplification; differentiated safety claims",
+      "second_expert_label_yzx": "safety-vector guidance"
     },
     {
       "excel_row": 98,
       "dimension": "Privacy",
       "benchmark": "WebArena-Privacy (2024)",
-      "manual_label_cqj": "沙盒，真实工具链和界面约束",
-      "second_expert_label_yzx": "网页PII沙盒"
+      "manual_label_cqj": "sandboxed real tool-chain and interface constraints",
+      "second_expert_label_yzx": "web PII sandbox"
     }
   ],
   "counts": {
