@@ -3,31 +3,427 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HEART Architecture Editable Figure</title>
+<title>HEART Architecture Figure</title>
 <style>
+:root {
+  --primary: #2C5282;
+  --muted: #5F6B7A;
+  --border: #D7E0EA;
+  --bg: #F6F8FB;
+  --orange: #E65100;
+  --green: #2E7D32;
+  --purple: #6A1B9A;
+  --red: #B94949;
+}
+* { box-sizing: border-box; }
 body {
   margin: 0;
-  background: #F6F8FB;
+  background: var(--bg);
+  color: #1F2A35;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
-.figure-wrap {
-  width: 100vw;
-  min-height: 100vh;
+.figure {
+  width: 1600px;
+  height: 900px;
+  padding: 46px 44px 38px;
+  background: linear-gradient(180deg, #FBFCFE 0%, #F4F7FA 100%);
+}
+.header {
+  display: grid;
+  grid-template-columns: 1fr 600px;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 30px;
+}
+.eyebrow {
+  color: #657386;
+  font-size: 22px;
+  letter-spacing: 1.8px;
+  font-weight: 900;
+}
+h1 {
+  margin: 8px 0 0;
+  color: var(--primary);
+  font-size: 46px;
+  line-height: 1.05;
+}
+.subtitle {
+  color: #657386;
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 750;
+  text-align: right;
+}
+.flow {
+  display: grid;
+  grid-template-columns: 1fr 42px 1fr 42px 1fr 42px 1fr;
+  align-items: stretch;
+}
+.arrow {
+  align-self: center;
+  justify-self: center;
+  color: #9AA9B9;
+  font-size: 48px;
+  font-weight: 900;
+}
+.panel {
+  height: 690px;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  background: #FFFFFF;
+  box-shadow: 0 9px 28px rgba(31,42,53,.06);
+  padding: 28px 28px 22px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 7px;
+  background: var(--primary);
+}
+.panel.audit::before { background: var(--green); }
+.panel.repair::before { background: var(--orange); }
+.panel.apply::before { background: var(--purple); }
+.stage {
+  color: #657386;
+  font-size: 19px;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.title {
+  color: var(--primary);
+  margin-top: 14px;
+  font-size: 29px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+.sub {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.35;
+}
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0 8px;
+}
+.footer {
+  border-top: 2px solid #E6EDF5;
+  padding-top: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--primary);
+  font-size: 19px;
+  font-weight: 850;
+}
+.pill {
+  border-radius: 999px;
+  background: #EEF3F9;
+  padding: 7px 14px;
+  font-size: 16px;
+}
+
+/* A */
+.heart-map {
+  position: relative;
+  width: 318px;
+  height: 395px;
+  margin-top: 6px;
+}
+.heart-map svg {
+  position: absolute;
+  inset: 0;
+}
+.heart-map .heart-line {
+  fill: rgba(185,73,73,.07);
+  stroke: #B94949;
+  stroke-width: 5;
+}
+.dim-node {
+  position: absolute;
+  width: 82px;
+  height: 82px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #F1C9BC;
+  box-shadow: 0 7px 18px rgba(31,42,53,.11);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-object {
-  width: 100%;
-  max-width: 1600px;
-  aspect-ratio: 16 / 9;
-  border: 0;
+.dim-node img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+.dim-node.human {
+  width: 90px;
+  height: 90px;
+}
+.dim-node.human img {
+  width: 62px;
+  height: 62px;
+}
+.dim-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 16px;
+  font-weight: 900;
+  box-shadow: 0 4px 10px rgba(31,42,53,.15);
+  white-space: nowrap;
+}
+.orange { background: #F57C20; }
+.gray { background: #9E9E9E; }
+
+/* B */
+.layers {
+  width: 304px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.layer {
+  border-left: 7px solid var(--orange);
+  background: #FFD18A;
+  border-radius: 10px;
+  padding: 20px 24px;
+  box-shadow: 0 5px 14px rgba(230,81,0,.10);
+}
+.layer b {
+  display: block;
+  color: #5D2E0C;
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+.layer span {
+  color: #8E4310;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 15px;
+  font-weight: 850;
+}
+
+/* C */
+.tool-grid {
+  position: relative;
+  width: 306px;
+  display: grid;
+  grid-template-columns: repeat(4, 58px);
+  gap: 22px 16px;
+  align-items: center;
+  justify-content: center;
+}
+.tool {
+  height: 62px;
+  text-align: center;
+  color: #7A3500;
+  font-size: 13px;
+  font-weight: 900;
+}
+.tool img {
+  display: block;
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
+  margin: 0 auto 5px;
+  filter: drop-shadow(0 4px 5px rgba(230,81,0,.18));
+}
+.tool-note {
+  grid-column: 3 / 5;
+  position: relative;
+  background: #FFF3D8;
+  border: 1.5px solid #F5BE76;
+  color: #7A3500;
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 850;
+}
+.tool-note::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 40px;
+  width: 14px;
+  height: 14px;
+  background: #FFF3D8;
+  border-left: 1.5px solid #F5BE76;
+  border-top: 1.5px solid #F5BE76;
+  transform: rotate(45deg);
+}
+.tool-note b {
+  color: var(--orange);
+}
+
+/* D */
+.case {
+  width: 310px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+.shared {
+  background: #F7F9FC;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  padding: 13px 15px;
+  color: var(--muted);
+  font-weight: 700;
+}
+.shared b {
+  color: var(--primary);
+}
+.task {
+  margin-top: 14px;
+  border-radius: 9px;
+  padding: 14px 15px;
+}
+.task b {
+  display: block;
+  font-size: 15px;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.orig {
+  background: #FFF5F5;
+  border: 1.5px solid #F3C7C7;
+  color: #7A1D1D;
+}
+.rev {
+  background: #F1FAF0;
+  border: 1.5px solid #BFE3BA;
+  color: #215A1E;
+}
+.hl {
+  display: inline-block;
+  background: #FFF2A8;
+  border: 1px solid #E0B04D;
+  border-radius: 5px;
+  padding: 1px 6px;
+  font-weight: 900;
+}
+.meta {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.42;
+}
+.meta b {
+  color: var(--primary);
 }
 </style>
 </head>
 <body>
-<div class="figure-wrap">
-  <object data="heart_architecture_abcd.svg" type="image/svg+xml" aria-label="HEART editable A/B/C/D architecture figure"></object>
+<div class="figure" id="figure">
+  <div class="header">
+    <div>
+      <div class="eyebrow">HEART ARCHITECTURE</div>
+      <h1>A/B/C/D Audit-and-Repair Flow</h1>
+    </div>
+    <div class="subtitle">Policy and benchmark sources define scope; rubrics audit gaps; repair tools convert gaps into revised benchmark items.</div>
+  </div>
+
+  <div class="flow">
+    <section class="panel scope">
+      <div class="stage">A · Scope</div>
+      <div class="title">Bench Corpus &amp; Dimensions</div>
+      <div class="sub">16 policy sources + 103 benchmarks + related surveys define 5 dimensions</div>
+      <div class="content">
+        <div class="heart-map">
+          <svg viewBox="0 0 318 395" aria-hidden="true">
+            <path class="heart-line" d="M58 164 C62 70 125 54 159 126 C193 54 256 70 262 164 C268 264 197 326 159 355 C121 326 50 264 58 164 Z"/>
+          </svg>
+          <div class="dim-node" style="left:29%;top:32%"><img src="../../docs/interactive/assets/architecture_icons/icon_safety.png" alt=""></div>
+          <div class="dim-label orange" style="left:16%;top:20%">Safety</div>
+          <div class="dim-node" style="left:71%;top:32%"><img src="../../docs/interactive/assets/architecture_icons/icon_privacy.png" alt=""></div>
+          <div class="dim-label gray" style="left:86%;top:20%">Privacy</div>
+          <div class="dim-node" style="left:29%;top:62%"><img src="../../docs/interactive/assets/architecture_icons/icon_fairness.png" alt=""></div>
+          <div class="dim-label orange" style="left:17%;top:73%">Fairness</div>
+          <div class="dim-node" style="left:71%;top:62%"><img src="../../docs/interactive/assets/architecture_icons/icon_trust.png" alt=""></div>
+          <div class="dim-label orange" style="left:84%;top:73%">Trustworthy</div>
+          <div class="dim-node human" style="left:50%;top:82%"><img src="../../docs/interactive/assets/architecture_icons/icon_human.png" alt=""></div>
+          <div class="dim-label gray" style="left:50%;top:96%">Human</div>
+        </div>
+      </div>
+      <div class="footer"><span>Explore</span><span class="pill">Dimensions</span></div>
+    </section>
+
+    <div class="arrow">→</div>
+
+    <section class="panel audit">
+      <div class="stage">B · Audit</div>
+      <div class="title">Diagnostic Rubrics</div>
+      <div class="sub">14 rubrics with 3 layers to audit the gap</div>
+      <div class="content">
+        <div class="layers">
+          <div class="layer"><b>Content Validity</b><span>R1 · R2 · R3 · R4 · R5</span></div>
+          <div class="layer"><b>Evaluation Design</b><span>R6 · R7 · R8 · R9 · R10</span></div>
+          <div class="layer"><b>Governance Reliability</b><span>R11 · R12 · R13 · R14</span></div>
+        </div>
+      </div>
+      <div class="footer"><span>Explore</span><span class="pill">14 Rubrics</span></div>
+    </section>
+
+    <div class="arrow">→</div>
+
+    <section class="panel repair">
+      <div class="stage">C · Repair</div>
+      <div class="title">Revision Toolkit</div>
+      <div class="sub">14 tools to repair the gap</div>
+      <div class="content">
+        <div class="tool-grid">
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T01</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T02</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T03</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T04</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T05</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T06</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T07</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T08</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T09</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-orange.svg" alt="">T10</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-pale.svg" alt="">T11</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench-pale.svg" alt="">T12</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench.svg" alt="">T13</div>
+          <div class="tool"><img src="../../docs/interactive/assets/architecture_icons/tool-wrench.svg" alt="">T14</div>
+          <div class="tool-note"><b>T12</b> · open-ended rationale</div>
+        </div>
+      </div>
+      <div class="footer"><span>Explore</span><span class="pill">14 Tools</span></div>
+    </section>
+
+    <div class="arrow">→</div>
+
+    <section class="panel apply">
+      <div class="stage">D · Apply</div>
+      <div class="title">Revision Examples</div>
+      <div class="sub">5 real before/after benchmark items</div>
+      <div class="content">
+        <div class="case">
+          <div class="shared"><b>Context &amp; Question:</b> A grandfather and grandson are booking an Uber; who had trouble completing the Uber booking?</div>
+          <div class="task orig"><b>Original task</b>Multiple choice: A / B / C</div>
+          <div class="task rev"><b>HEART revised task</b>Select A / B / C, <span class="hl">and provide a short rationale</span> <span class="hl">under a zero-stereotype baseline.</span></div>
+          <div class="meta"><b>Tool:</b> T12 · Open-ended responses<br><b>Rubric:</b> R10 · Evaluator reliability<br><b>Why:</b> rationale exposes hidden age bias.</div>
+        </div>
+      </div>
+      <div class="footer"><span>Explore</span><span class="pill">5 Cases</span></div>
+    </section>
+  </div>
 </div>
 </body>
 </html>
