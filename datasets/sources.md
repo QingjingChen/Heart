@@ -1,6 +1,7 @@
 # Benchmark Source Index
 
-For each of the 103 benchmarks in the HEART meta-review, this page lists:
+For each of the 103 benchmark entries in the HEART v0.1.0 meta-review, this
+page lists:
 
 - **Paper** — link to the original paper (arXiv / ACL Anthology / DOI)
 - **Code / data upstream** — the original authors' GitHub or Hugging Face repository
@@ -8,10 +9,12 @@ For each of the 103 benchmarks in the HEART meta-review, this page lists:
   ([root folder](https://drive.google.com/drive/folders/1imN8G7mQ-RgBCkT7-7tBiVF0RPvYJZtK))
 
 Cells marked `—` indicate the URL could not be located. For very recent benchmarks
-or survey-only-mentioned clusters (e.g. `TrustMH-Bench`, `PsycoLLM` cluster,
-`Chinese-Safeguard`, `AgentDAM`, `Phare`), URLs will be added as the
-upstream resources become discoverable. Contributions welcome via the
-`benchmark-addition` issue template.
+or survey-only-mentioned clusters, URLs will be added as the upstream resources
+become discoverable. Contributions welcome via the `benchmark-addition` issue
+template. Post-freeze related benchmarks such as MPCI-Bench are tracked in
+`survey/literature/tech_ethics_survey.bib`, but are not counted in the
+v0.1.0 103-entry corpus unless they are folded into the codebook in a later
+release.
 
 ## Human-Centered
 
@@ -129,8 +132,8 @@ upstream resources become discoverable. Contributions welcome via the
 
 | # | Benchmark | Paper | Code / data upstream | Local dataset mirror |
 |---|---|---|---|---|
-| 1 | **ConVerse (Findings of EACL 2026)** | <https://arxiv.org/abs/2511.05359> | <https://github.com/amrgomaaelhady/ConVerse> | [Converse](https://drive.google.com/drive/folders/117OloShfJJfokRK08YTRSmlMJJQEc8Yr) |
-| 2 | **EAPrivacy (ICLR 2026)** | <https://arxiv.org/abs/2510.02356> | <https://github.com/Graph-COM/EAPrivacy> | [eai_bench](https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD) |
+| 1 | **Converse (2024)** | <https://arxiv.org/abs/2511.05359> | <https://github.com/amrgomaaelhady/ConVerse> | [Converse](https://drive.google.com/drive/folders/117OloShfJJfokRK08YTRSmlMJJQEc8Yr) |
+| 2 | **EAI-Bench (2024)** | <https://arxiv.org/abs/2510.02356> | <https://github.com/Graph-COM/EAPrivacy> | [eai_bench](https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD) |
 | 3 | **GoldCoin (2024)** | <https://arxiv.org/abs/2406.11149> | <https://github.com/HKUST-KnowComp/GoldCoin> | [GoldCoin](https://drive.google.com/drive/folders/1wfHwJnFsOqSG7WsOKf9AZrxISgOOj9Ff) |
 | 4 | **PrivacyLens (2024)** | <https://arxiv.org/abs/2409.00138> | <https://github.com/SALT-NLP/PrivacyLens> | [PrivacyLens](https://drive.google.com/drive/folders/140TkRL08Dv6D0oPiQcW5ElYGn9e-EvhW) |
 | 5 | **AgentDAM (2025)** | <https://arxiv.org/abs/2503.09780> | <https://github.com/facebookresearch/ai-agent-privacy> | [AgentDAM data](https://drive.google.com/drive/folders/12EDOGC-Md8UA8RLUIKvgB76bq3F4cI1Z) |
@@ -140,7 +143,6 @@ upstream resources become discoverable. Contributions welcome via the
 | 9 | **ProPILE (2023)** | <https://arxiv.org/abs/2307.01881> | — (code never released publicly) | — |
 | 10 | **ConfAIde (2023)** | <https://arxiv.org/abs/2310.17884> | <https://github.com/skywalker023/confAIde> | — |
 | 11 | **LLM-PBE (2024)** | <https://arxiv.org/abs/2408.12787> | <https://github.com/QinbinLi/LLM-PBE> | — |
-| 12 | **MPCI-Bench (2026)** | <https://arxiv.org/abs/2601.08235> | <https://github.com/hpzhang94/MPCI-Bench> | [MPCI-Bench](https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb) |
 
 ## Survey papers consulted
 
@@ -178,8 +180,8 @@ All entries are also recorded in the citation-verification sheet of
 ## Coverage statistics
 
 - Benchmarks with a paper URL: **103 / 103** (100%)
-- Benchmarks with a curated upstream code/data URL: **103 / 103** (100%)
-- Benchmarks with a corresponding Google Drive mirror: **67 / 103** (64%)
+- Benchmarks with a curated upstream code/data URL: **101 / 103** (98%)
+- Benchmarks with a corresponding Google Drive mirror: **63 / 103** (61%)
 
 Paper URLs were assembled from `custom.bib`, a manual override map verified
 against the arXiv title search and the local PDF library, and author-confirmed

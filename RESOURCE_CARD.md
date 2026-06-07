@@ -18,7 +18,7 @@
 | Literature index pool | BibTeX | `survey/literature/tech_ethics_survey.bib` | Yes |
 | 14 diagnostic rubrics | CSV, XLSX, Markdown, JSON | `codebook/rubrics.csv`, `docs/03_fourteen_rubrics.md`, `docs/interactive/data/rubrics_full.json` | Yes |
 | 14 generic repair tools | CSV, XLSX, Markdown, JSON | `codebook/tools.csv`, `docs/04_workbox_fourteen_tools.md`, `docs/interactive/data/t_tools.json` | Yes |
-| 103 benchmark-specific repair sub-tools | CSV, XLSX | `codebook/sub_tools.csv`, `codebook/heart_codebook.xlsx` | Yes |
+| 103 entry-level repair sub-tools; 206 primary/secondary role rows | CSV, XLSX | `codebook/sub_tools.csv`, `codebook/heart_codebook.xlsx` | Yes |
 | Five worked mini cases | CSV, JSON, website cards | `codebook/mini_cases.csv`, `docs/interactive/data/mini_cases.json`, `docs/interactive/mini_cases.html` | Yes |
 | Blind expert A/B validation | anonymized CSV, PNG/PDF figures | `survey/results/` | Yes |
 | Metadata and provenance schema | JSON Schema, Markdown | `metadata/heart_metadata_schema.json`, `metadata/README.md` | Yes |

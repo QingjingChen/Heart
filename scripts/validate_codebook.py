@@ -19,7 +19,7 @@ EXPECT = {
     'tools': 14,
     'rubrics': 14,
     'policies': 16,
-    'sub_tools': 206,   # 103 primary + 103 secondary slots; some empty
+    'sub_tools': 206,   # 103 primary + 103 secondary role rows
     'mini_cases': 5,
     'dimensions': 5,
 }
@@ -73,15 +73,17 @@ counts = {
     'mini_cases': len(mini_cases),
 }
 for k, expected in EXPECT.items():
-    if k == 'sub_tools':
-        # sub_tools can range; just sanity-check upper bound
-        if counts.get(k, 0) > 206:
-            err(f"sub_tools row count {counts[k]} > expected ≤206")
-        continue
     if k == 'dimensions':
         continue
     if counts.get(k) != expected:
         err(f"{k}.csv has {counts.get(k)} rows, expected {expected}")
+
+role_counts = {}
+for row in sub_tools:
+    role = (row.get('role') or '').strip()
+    role_counts[role] = role_counts.get(role, 0) + 1
+if role_counts.get('primary') != 103 or role_counts.get('secondary') != 103:
+    err(f"sub_tools.csv role counts {role_counts}, expected primary=103 and secondary=103")
 
 # ----------------------------------------------------------------------
 # 2. ID uniqueness & controlled vocabularies
@@ -152,6 +154,13 @@ for src_name, src_rows in [('benchmarks', benchmarks), ('tools', tools), ('rubri
 # 8. Site/codebook drift — paper URLs match bench_urls.json
 # ----------------------------------------------------------------------
 bench_urls = load_json('bench_urls.json') or {}
+bench_map = load_json('bench_map.json') or []
+bench_map_names = {b.get('Benchmark / Source', '').strip() for b in bench_map if b.get('Benchmark / Source')}
+bench_url_names = set(bench_urls)
+if bench_map_names and bench_url_names != bench_map_names:
+    err("bench_urls.json keys do not match bench_map.json Benchmark / Source names: "
+        f"extra={sorted(bench_url_names - bench_map_names)[:10]} "
+        f"missing={sorted(bench_map_names - bench_url_names)[:10]}")
 for b in benchmarks:
     name = b['benchmark']
     site_entry = bench_urls.get(name) or {}
@@ -182,7 +191,7 @@ print(f"benchmarks:        {counts['benchmarks']:>3}   (expect 103)")
 print(f"tools:             {counts['tools']:>3}   (expect 14)")
 print(f"rubrics:           {counts['rubrics']:>3}   (expect 14)")
 print(f"policies:          {counts['policies']:>3}   (expect 16)")
-print(f"sub_tools:         {counts['sub_tools']:>3}   (expect ≤206)")
+print(f"sub_tools:         {counts['sub_tools']:>3}   (expect 206 = 103 primary + 103 secondary role rows)")
 print(f"mini_cases:        {counts['mini_cases']:>3}   (expect 5)")
 print()
 if errors:

@@ -16,7 +16,8 @@ The resource contains:
 - 16 policy and governance sources used for normative grounding;
 - 14 diagnostic rubrics organized into three audit layers;
 - 14 generic repair tools;
-- 103 benchmark-specific repair sub-tools;
+- 103 entry-level repair sub-tools, represented in the codebook as 206
+  primary/secondary tool-role rows;
 - five mini cases with original items, HEART-revised items, gap tables, tool
   prescriptions, repair execution notes, and limitations;
 - anonymized expert A/B pilot validation results.

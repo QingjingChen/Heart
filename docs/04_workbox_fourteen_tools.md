@@ -1,4 +1,4 @@
-# 04 — The HEART Workbox: 14 Generic Repair Tools + 103 Specific Sub-tools
+# 04 — The HEART Workbox: 14 Generic Repair Tools + 103 Entry-level Sub-tools
 
 The HEART Workbox is a **two-layer** repair toolbox for adapting existing
 benchmarks into stronger ethics evaluations. The same structure powers the
@@ -8,7 +8,7 @@ master codebook.
 | Layer | Live tab | Count | What's in it |
 |:---|:---|:---:|:---|
 | **Generic repair tools** | [Generic Repair Tools](https://qingjingchen.github.io/Heart/interactive/tools.html) | 14 | Canonical, reusable repair operations (T01–T14) organised by rubric layer |
-| **Specific repair sub-tools** | [Specific Repair Sub-tools](https://qingjingchen.github.io/Heart/interactive/benches.html) | 103 | Each audited benchmark, treated as a bench-specific sub-tool bound to a generic parent |
+| **Entry-level repair sub-tools** | [Specific Repair Sub-tools](https://qingjingchen.github.io/Heart/interactive/benches.html) | 103 | Each audited benchmark entry, treated as a bench-specific sub-tool bound to one or more generic parents |
 | **Gap → Tool workflow** | [Gap → Tool Workflow](https://qingjingchen.github.io/Heart/interactive/rubric_matrix.html) | 14×14 | Diagnosis-to-tool prescription matrix: when a benchmark fails rubric R*y*, which tool fixes it |
 
 Underlying tables live in `codebook/heart_codebook.xlsx`; the per-tool /
@@ -50,12 +50,14 @@ per-benchmark / per-rubric records mirror to the JSON files under
 
 ---
 
-## The 103 specific sub-tools
+## The 103 entry-level sub-tools
 
-Every benchmark in the meta-review is treated as a **specific repair
-sub-tool**: it inherits the generic tool's mechanism but adds bench-level
+Every benchmark entry in the meta-review is treated as a **specific repair
+sub-tool**: it inherits a generic tool's mechanism but adds bench-level
 specifics (the exact slots / labels / contrast structure / annotation
-protocol the benchmark used). The full catalogue lives in:
+protocol the benchmark used). The raw `codebook/sub_tools.csv` table has 206
+rows because it records primary and secondary tool-role annotations for these
+103 entry-level sub-tools. The full catalogue lives in:
 
 - 🌐 Interactive view (sortable, filterable, with adaptation guide + example per bench): [Specific Repair Sub-tools](https://qingjingchen.github.io/Heart/interactive/benches.html)
 - 📚 Markdown catalogue: [`../datasets/README.md`](../datasets/README.md)

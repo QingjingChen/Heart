@@ -449,16 +449,6 @@
     "code": "https://github.com/AI-secure/DecodingTrust",
     "mirror": "https://drive.google.com/drive/folders/16c6hPtRXdl7UxWoyOIO_36jR3i7QfWgP"
   },
-  "ConVerse (Findings of EACL 2026)": {
-    "paper": "https://arxiv.org/abs/2511.05359",
-    "code": "https://github.com/amrgomaaelhady/ConVerse",
-    "mirror": "https://drive.google.com/drive/folders/117OloShfJJfokRK08YTRSmlMJJQEc8Yr"
-  },
-  "EAPrivacy (ICLR 2026)": {
-    "paper": "https://arxiv.org/abs/2510.02356",
-    "code": "https://github.com/Graph-COM/EAPrivacy",
-    "mirror": "https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD"
-  },
   "GoldCoin (2024)": {
     "paper": "https://arxiv.org/abs/2406.11149",
     "code": "https://github.com/HKUST-KnowComp/GoldCoin",
@@ -504,19 +494,14 @@
     "code": "https://github.com/QinbinLi/LLM-PBE",
     "mirror": ""
   },
-  "MPCI-Bench (2026)": {
-    "paper": "https://arxiv.org/abs/2601.08235",
-    "code": "https://github.com/hpzhang94/MPCI-Bench",
-    "mirror": "https://drive.google.com/drive/folders/1Yk-FdwqiuuzyhsGhxw-WcXVD_2fAJXSb"
-  },
   "Converse (2024)": {
     "paper": "https://arxiv.org/abs/2511.05359",
-    "code": "",
-    "mirror": ""
+    "code": "https://github.com/amrgomaaelhady/ConVerse",
+    "mirror": "https://drive.google.com/drive/folders/117OloShfJJfokRK08YTRSmlMJJQEc8Yr"
   },
   "EAI-Bench (2024)": {
-    "paper": "",
-    "code": "",
-    "mirror": ""
+    "paper": "https://arxiv.org/abs/2510.02356",
+    "code": "https://github.com/Graph-COM/EAPrivacy",
+    "mirror": "https://drive.google.com/drive/folders/1qGGsHxd8DDrSAS8o_itdRViccfjZmXoD"
   }
 }

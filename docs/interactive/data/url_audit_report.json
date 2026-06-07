@@ -1,6 +1,8 @@
 {
   "note": "Audit superseded by sync with canonical datasets/sources.md",
-  "final_paper_urls": 102,
-  "total_bench_entries": 102,
+  "final_paper_urls": 103,
+  "total_bench_entries": 103,
+  "curated_code_or_data_urls": 101,
+  "drive_mirrors": 63,
   "restored_from_canonical_sources": 20
 }

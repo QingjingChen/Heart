@@ -13,7 +13,7 @@ users.
 | Master codebook (xlsx) | [`codebook/heart_codebook.xlsx`](../codebook/heart_codebook.xlsx) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
 | Codebook CSV exports | [`codebook/`](../codebook/) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
 | 14-rubric definitions & anchors | [`docs/03_fourteen_rubrics.md`](03_fourteen_rubrics.md) + [`codebook/rubrics.csv`](../codebook/rubrics.csv) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
-| Workbox (14 generic tools + 103 specific sub-tools) | [`docs/04_workbox_fourteen_tools.md`](04_workbox_fourteen_tools.md) + [`codebook/tools.csv`](../codebook/tools.csv) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Workbox (14 generic tools + 103 entry-level sub-tools) | [`docs/04_workbox_fourteen_tools.md`](04_workbox_fourteen_tools.md) + [`codebook/tools.csv`](../codebook/tools.csv) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
 | Full benchmark catalogue (103 entries) | [`datasets/README.md`](../datasets/README.md) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
 | Per-benchmark paper / code / Drive URL index | [`datasets/sources.md`](../datasets/sources.md) + Google Drive | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
 | Literature index pool | [`survey/literature/tech_ethics_survey.bib`](../survey/literature/tech_ethics_survey.bib) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |

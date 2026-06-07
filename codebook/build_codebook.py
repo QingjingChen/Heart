@@ -4,8 +4,8 @@ canonical JSON data in docs/interactive/data/.
 Outputs (all written into codebook/):
   benchmarks.csv        — 103 audited benchmarks (full rubric scores + EN/ZH labels)
   tools.csv             — 14 generic repair tools (T01–T14, EN/ZH)
-  sub_tools.csv         — 206 (benchmark × role) repair sub-tool rows, EN/ZH
-  expert_subtool_labels.csv — 103 benchmark-specific repair sub-tool expert labels
+  sub_tools.csv         — 206 primary/secondary repair sub-tool role rows, EN/ZH
+  expert_subtool_labels.csv — 103 entry-level repair sub-tool expert labels
   rubrics.csv           — 14 calibrated rubrics (anchors + score distribution + key question), EN/ZH
   policies.csv          — 16 policy / governance sources × 5 dimension support codes
   mini_cases.csv        — 5 mini cases (id, dimension, title, source dataset)
@@ -142,7 +142,7 @@ def main():
         tool_rows.append(row)
     write_csv('tools.csv', tool_rows, list(tool_rows[0].keys()))
 
-    # ---------- sub_tools.csv (103 specific repair sub-tools) ----------
+    # ---------- sub_tools.csv (103 entry-level sub-tools × 2 tool roles) ----------
     sub_rows = []
     for b in bench_map:
         for role, id_key, name_key, en_key, zh_key in [
@@ -166,7 +166,7 @@ def main():
             })
     write_csv('sub_tools.csv', sub_rows, list(sub_rows[0].keys()))
 
-    # ---------- expert_subtool_labels.csv (103 expert labels for specific sub-tools) ----------
+    # ---------- expert_subtool_labels.csv (103 expert labels for entry-level sub-tools) ----------
     expert_label_rows = []
     for b in bench_map:
         expert_label_rows.append({

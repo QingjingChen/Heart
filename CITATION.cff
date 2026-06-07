@@ -54,8 +54,8 @@ abstract: >
   benchmarks across 5 ethical dimensions cross-walked to 16
   policy/governance sources; (b) a 14-rubric diagnostic codebook with
   v2 calibrated anchors, expert-validated across all 103 benchmarks; (c) a
-  two-layer workbox of 14 generic repair tools plus 103 specific repair
-  sub-tools (one per audited bench); (d) a 4-step
+  two-layer workbox of 14 generic repair tools plus 103 entry-level repair
+  sub-tools with primary/secondary tool-role annotations; (d) a 4-step
   audit-diagnosis-prescription-revision guidebook; and (e) an interactive
   site that walks through the full workflow in the browser.
 keywords:

@@ -72,6 +72,7 @@ for html_path in SITE.glob('*.html'):
 # 2. Stat-strip / manifest numbers
 # ----------------------------------------------------------------------
 bench_map = json.loads((DATA / 'bench_map.json').read_text(encoding='utf-8'))
+bench_urls = json.loads((DATA / 'bench_urls.json').read_text(encoding='utf-8'))
 t_tools   = json.loads((DATA / 't_tools.json').read_text(encoding='utf-8'))
 rubrics   = json.loads((DATA / 'rubrics_full.json').read_text(encoding='utf-8'))
 mini_cases = json.loads((DATA / 'mini_cases.json').read_text(encoding='utf-8'))
@@ -90,6 +91,13 @@ expected = {'benchmarks': 103, 'tools': 14, 'rubrics': 14,
 for k, v in expected.items():
     if actual[k] != v:
         err(f"data drift: {k} actual {actual[k]} != expected {v}")
+
+bench_names = {b.get('Benchmark / Source', '').strip() for b in bench_map if b.get('Benchmark / Source')}
+url_names = set(bench_urls)
+if url_names != bench_names:
+    err("bench_urls.json keys do not match bench_map.json names: "
+        f"extra={sorted(url_names - bench_names)[:10]} "
+        f"missing={sorted(bench_names - url_names)[:10]}")
 
 # Homepage stat-strip — re-derive from the file
 index_html = (SITE / 'index.html').read_text(encoding='utf-8')

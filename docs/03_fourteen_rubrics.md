@@ -1,9 +1,8 @@
 # 03 — The 14 Audit Rubrics
 
 The HEART meta-review applies the same **14 rubrics** to every one of the
-103 surveyed papers (the 103 papers folded into the rubric score-distribution
-analysis below, plus MPCI-Bench, added later and not yet folded into the
-distribution counts). Each rubric has a 0–5 anchor scale; each anchor is
+103 benchmark entries folded into the rubric score-distribution analysis
+below. Each rubric has a 0–5 anchor scale; each anchor is
 described by **observable evidence in the benchmark paper or dataset
 documentation** (not a subjective impression). At least four experts
 cross-check every score and resolve disagreements by returning to traceable

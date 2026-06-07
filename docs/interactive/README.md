@@ -1,17 +1,18 @@
 # HEART · Interactive Workbox & Rubric Index
 
-Static HTML/JS companion to the HEART resource paper. 6 pages, no build
+Static HTML/JS companion to the HEART resource paper. 7 pages, no build
 step. GitHub Pages serves it as-is.
 
 ## Pages
 
 | Page | Purpose |
 |---|---|
-| `index.html` | Landing + 3 rubric layers overview + tool category table. |
+| `index.html` | Overview architecture: scope → audit → repair → apply. |
+| `dimensions.html` | Five policy-grounded ethical dimensions and 16 policy/governance sources. |
+| `rubrics.html` | Fourteen diagnostic rubrics grouped into three audit layers. |
 | `rubric_matrix.html` | Plotly 14×14 heatmap. Click any cell to open explainable card with repair mechanism, strongest benchmark evidence (with deep paper link), and adaptation prompt. |
 | `tools.html` | 14 tools as a toolbox UI grouped by the **3 rubric layers** (Content Validity / Evaluation Design / Governance Reliability). Click any card to open a modal with collapsible accordion sections. |
-| `benches.html` | DataTables-searchable 103-bench lookup. Column 3 is **专家标签** (expert label — all 103 are filled; the 18 originally blank ones were extracted via Qwen Plus from each bench's tool explanation + adaptation example). Click `+` for the full primary/secondary mapping with sub-tool, prompt, example. |
-| `vignettes.html` | 5 paper-level vignettes (one per policy dimension), 150–220 words each. |
+| `benches.html` | DataTables-searchable 103-entry lookup. Column 3 is **专家标签** (expert label — all 103 are filled; the 18 originally blank ones were extracted via Qwen Plus from each entry's tool explanation + adaptation example). Click `+` for the full primary/secondary mapping with sub-tool, prompt, example. |
 | `mini_cases.html` | **5 real-data adaptation examples** (BBQ Age / XSTest / FreshQA / PrivacyLens / CounselBench-Adv). Each shows the original item verbatim (with entry ID), the HEART-revised item, and which T-tools + operations were applied, the lifted rubrics, and a why-improved note. |
 
 ## Tool layering (rubric layer)
@@ -32,14 +33,13 @@ All data lives under `data/` and is exported once from
 | File | Source sheet |
 |---|---|
 | `t_tools.json` | `交付物4_Toolbox整合说明_压缩` (14 T-tools + rubric_layer field added) |
-| `bench_map.json` | `Bench→整合工具映射` (103 benches; column renamed: 人工核对标签 → 专家标签; blanks filled) |
+| `bench_map.json` | `Bench→整合工具映射` (103 benchmark entries; column renamed: 人工核对标签 → 专家标签; blanks filled) |
 | `rubric_index.json` | `Tool→Rubric索引_可解释` (37 explainable cells) |
 | `matrix.json` | `Tool×Rubric矩阵_压缩` (14×14 numeric) |
 | `prompts.json` | `细分工具→Prompt示例` (206 sub-tool prompts) |
 | `manual_labels.json` | `人工标签→压缩工具映射` (85 expert labels) |
 | `cqj.json` | `Tool来源分布表-cqj` (103-bench source) |
-| `bench_urls.json` | parsed from `datasets/sources.md` (102 paper URLs) |
-| `vignettes.json` | dimension vignettes |
+| `bench_urls.json` | parsed from `datasets/sources.md` (103 paper URLs; 101 upstream code/data URLs) |
 | `mini_cases.json` | 5 real-data mini cases (BBQ / XSTest / FreshQA / PrivacyLens / CounselBench-Adv) |
 | `filled_labels.json` | the 18 expert labels filled via Qwen for originally-blank rows |
 
