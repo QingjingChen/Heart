@@ -79,9 +79,9 @@ limitations.
 
 ## Distribution and DOI
 
-This GitHub repository is the working release. The intended archival release is
-v0.1.0 with a Zenodo DOI. DOI metadata is prepared in `.zenodo.json`; the DOI
-will be added after archival deposit.
+This GitHub repository is the working release. The reviewed archival release is
+v0.1.0 with Zenodo DOI: <https://doi.org/10.5281/zenodo.20578201>. DOI metadata
+is recorded in `.zenodo.json`.
 
 ## Maintenance
 

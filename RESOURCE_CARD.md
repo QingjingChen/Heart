@@ -6,7 +6,7 @@
 - **Version:** v0.1.0
 - **Repository:** <https://github.com/QingjingChen/Heart>
 - **Interactive site:** <https://qingjingchen.github.io/Heart/interactive/>
-- **DOI:** Pending Zenodo archival release. The repository includes `.zenodo.json`; a DOI will be minted for the indexed v0.1.0 release and back-filled into `CITATION.cff`.
+- **DOI:** <https://doi.org/10.5281/zenodo.20578201>
 - **License:** CC-BY-4.0 for data, documentation, codebook, rubric anchors, and resource metadata; MIT for scripts and site code.
 
 ## What Is Included
@@ -79,8 +79,8 @@ in `survey/results/`. The committed figures were generated from
 
 ## Known Limitations
 
-- The DOI is pending until the v0.1.0 archival release is deposited on Zenodo or
-  another indexed dataset-sharing service.
+- The reviewed v0.1.0 artifact is archived with a Zenodo DOI:
+  <https://doi.org/10.5281/zenodo.20578201>.
 - The 103-entry corpus is curated, not an exhaustive systematic review of all AI
   ethics literature.
 - Expert rubric scores are evidence-guided human judgments; they should not be

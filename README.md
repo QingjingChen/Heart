@@ -55,7 +55,7 @@ that can be picked apart and re-applied. It bundles together:
 | 🔗 Look up a benchmark's paper / code / dataset mirror | [`datasets/sources.md`](datasets/sources.md) |
 | 🔬 Inspect anonymized expert validation results | [`survey/results/`](survey/results/) |
 | 📦 Review FAIR / resource-track metadata | [`RESOURCE_CARD.md`](RESOURCE_CARD.md), [`DATASHEET.md`](DATASHEET.md), [`metadata/`](metadata/) |
-| 📚 Cite HEART | [`CITATION.cff`](CITATION.cff) (v0.1.0 metadata; DOI pending archival release) |
+| 📚 Cite HEART | [`CITATION.cff`](CITATION.cff) (resource DOI: [`10.5281/zenodo.20578201`](https://doi.org/10.5281/zenodo.20578201)) |
 | ✅ Sanity-check the codebook is internally consistent | `python3 scripts/validate_codebook.py` |
 | ✅ Sanity-check the interactive site has no copy / vocab drift | `python3 scripts/site_consistency_check.py` |
 
@@ -213,8 +213,8 @@ Resource-track support files:
 - [`DATASHEET.md`](DATASHEET.md) — motivation, composition, collection,
   inclusion criteria, intended / non-intended uses, maintenance.
 - [`VERSION`](VERSION) — current release label (`v0.1.0`).
-- [`.zenodo.json`](.zenodo.json) — metadata prepared for DOI-backed archival
-  release; DOI is pending until deposit.
+- [`.zenodo.json`](.zenodo.json) — metadata used for the DOI-backed Zenodo
+  archival release: [`10.5281/zenodo.20578201`](https://doi.org/10.5281/zenodo.20578201).
 
 ---
 

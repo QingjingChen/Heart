@@ -1,7 +1,8 @@
 cff-version: 1.2.0
 title: "HEART: Human-centric Ethical Audit & Revision Toolkit for Benchmarks"
-message: "If you use HEART, please cite this repository. DOI will be added after the archival v0.1.0 deposit."
+message: "If you use HEART, please cite the archived resource DOI and the living GitHub repository."
 type: dataset
+doi: "10.5281/zenodo.20578201"
 authors:
   - given-names: "Qingjing"
     family-names: "Chen"

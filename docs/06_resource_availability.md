@@ -10,22 +10,22 @@ users.
 
 | Component | Primary location | Mirror / DOI |
 |---|---|---|
-| Master codebook (xlsx) | [`codebook/heart_codebook.xlsx`](../codebook/heart_codebook.xlsx) | Zenodo (TBD, at release) |
-| Codebook CSV exports | [`codebook/`](../codebook/) | Zenodo (TBD) |
-| 14-rubric definitions & anchors | [`docs/03_fourteen_rubrics.md`](03_fourteen_rubrics.md) + [`codebook/rubrics.csv`](../codebook/rubrics.csv) | Zenodo (TBD) |
-| Workbox (14 generic tools + 103 specific sub-tools) | [`docs/04_workbox_fourteen_tools.md`](04_workbox_fourteen_tools.md) + [`codebook/tools.csv`](../codebook/tools.csv) | Zenodo (TBD) |
-| Full benchmark catalogue (103 entries) | [`datasets/README.md`](../datasets/README.md) | Zenodo (TBD) |
-| Per-benchmark paper / code / Drive URL index | [`datasets/sources.md`](../datasets/sources.md) + Google Drive | Zenodo (TBD) |
-| Literature index pool | [`survey/literature/tech_ethics_survey.bib`](../survey/literature/tech_ethics_survey.bib) | Zenodo (TBD) |
-| Expert blind A/B validation results | [`survey/results/`](../survey/results/) | Zenodo (TBD) |
-| Resource card | [`RESOURCE_CARD.md`](../RESOURCE_CARD.md) | Zenodo (TBD) |
-| Datasheet | [`DATASHEET.md`](../DATASHEET.md) | Zenodo (TBD) |
-| Metadata / provenance schema | [`metadata/heart_metadata_schema.json`](../metadata/heart_metadata_schema.json) | Zenodo (TBD) |
+| Master codebook (xlsx) | [`codebook/heart_codebook.xlsx`](../codebook/heart_codebook.xlsx) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Codebook CSV exports | [`codebook/`](../codebook/) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| 14-rubric definitions & anchors | [`docs/03_fourteen_rubrics.md`](03_fourteen_rubrics.md) + [`codebook/rubrics.csv`](../codebook/rubrics.csv) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Workbox (14 generic tools + 103 specific sub-tools) | [`docs/04_workbox_fourteen_tools.md`](04_workbox_fourteen_tools.md) + [`codebook/tools.csv`](../codebook/tools.csv) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Full benchmark catalogue (103 entries) | [`datasets/README.md`](../datasets/README.md) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Per-benchmark paper / code / Drive URL index | [`datasets/sources.md`](../datasets/sources.md) + Google Drive | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Literature index pool | [`survey/literature/tech_ethics_survey.bib`](../survey/literature/tech_ethics_survey.bib) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Expert blind A/B validation results | [`survey/results/`](../survey/results/) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Resource card | [`RESOURCE_CARD.md`](../RESOURCE_CARD.md) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Datasheet | [`DATASHEET.md`](../DATASHEET.md) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
+| Metadata / provenance schema | [`metadata/heart_metadata_schema.json`](../metadata/heart_metadata_schema.json) | [Zenodo DOI: 10.5281/zenodo.20578201](https://doi.org/10.5281/zenodo.20578201) |
 | Interactive site | [`docs/interactive/`](interactive/) (live at [qingjingchen.github.io/Heart/interactive/](https://qingjingchen.github.io/Heart/interactive/)) | GitHub Pages |
 | Companion paper PDF | [`paper/README.md`](../paper/README.md) (added at release time) | — |
 
-A permanent **Zenodo DOI** will be minted at release time and back-filled
-into this table.
+The reviewed v0.1.0 artifact is archived at Zenodo:
+<https://doi.org/10.5281/zenodo.20578201>.
 
 ---
 
@@ -34,9 +34,8 @@ into this table.
 ### Findable
 
 - This repository is **public** at <https://github.com/QingjingChen/Heart>.
-- A persistent **Zenodo DOI** will be issued for the archival v0.1.0 release.
-  The repository already includes `.zenodo.json`; no DOI is claimed before
-  deposit.
+- The archival v0.1.0 release has a persistent **Zenodo DOI**:
+  <https://doi.org/10.5281/zenodo.20578201>.
 - The repository has a `CITATION.cff` with bibliographic metadata (final
   author / venue fields added at release time), so GitHub's "Cite this
   repository" feature works out-of-the-box.
@@ -98,8 +97,8 @@ into this table.
 - A `CHANGELOG.md` is appended on every release.
 - The current snapshot corresponds to **v0.1.0**.
 - Bug-fix and rubric-clarification updates go to `v0.1.x`. New benchmark
-  additions to the codebook trigger a `v0.x.0` release until the resource
-  reaches a DOI-backed stable `v1.0.0`.
+  additions to the codebook trigger a `v0.x.0` release; DOI-backed archival
+  snapshots are created for reviewed releases.
 
 ---
 
