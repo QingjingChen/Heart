@@ -24,55 +24,31 @@ body {
 }
 .figure {
   width: 1600px;
-  height: 900px;
-  padding: 46px 44px 38px;
-  background: linear-gradient(180deg, #FBFCFE 0%, #F4F7FA 100%);
-}
-.header {
-  display: grid;
-  grid-template-columns: 1fr 600px;
-  gap: 32px;
-  align-items: start;
-  margin-bottom: 30px;
-}
-.eyebrow {
-  color: #657386;
-  font-size: 22px;
-  letter-spacing: 1.8px;
-  font-weight: 900;
-}
-h1 {
-  margin: 8px 0 0;
-  color: var(--primary);
-  font-size: 46px;
-  line-height: 1.05;
-}
-.subtitle {
-  color: #657386;
-  font-size: 22px;
-  line-height: 1.35;
-  font-weight: 750;
-  text-align: right;
+  height: 430px;
+  padding: 7px 8px;
+  background: #F6F8FB;
 }
 .flow {
   display: grid;
-  grid-template-columns: 1fr 42px 1fr 42px 1fr 42px 1fr;
+  grid-template-columns: 1fr 34px 1fr 34px 1fr 34px 1fr;
+  gap: 10px;
   align-items: stretch;
+  height: 100%;
 }
 .arrow {
   align-self: center;
   justify-self: center;
   color: #9AA9B9;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 900;
 }
 .panel {
-  height: 690px;
+  height: 416px;
   border: 1.5px solid var(--border);
-  border-radius: 14px;
+  border-radius: 8px;
   background: #FFFFFF;
-  box-shadow: 0 9px 28px rgba(31,42,53,.06);
-  padding: 28px 28px 22px;
+  box-shadow: none;
+  padding: 22px 24px 14px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -84,7 +60,7 @@ h1 {
   left: 0;
   right: 0;
   top: 0;
-  height: 7px;
+  height: 4px;
   background: var(--primary);
 }
 .panel.audit::before { background: var(--green); }
@@ -92,22 +68,22 @@ h1 {
 .panel.apply::before { background: var(--purple); }
 .stage {
   color: #657386;
-  font-size: 19px;
+  font-size: 13px;
   letter-spacing: 1.7px;
   text-transform: uppercase;
   font-weight: 900;
 }
 .title {
   color: var(--primary);
-  margin-top: 14px;
-  font-size: 29px;
+  margin-top: 8px;
+  font-size: 18px;
   line-height: 1.15;
   font-weight: 900;
 }
 .sub {
-  margin-top: 8px;
+  margin-top: 7px;
   color: var(--muted);
-  font-size: 18px;
+  font-size: 13.5px;
   line-height: 1.35;
 }
 .content {
@@ -115,31 +91,15 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 0 8px;
-}
-.footer {
-  border-top: 2px solid #E6EDF5;
-  padding-top: 17px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--primary);
-  font-size: 19px;
-  font-weight: 850;
-}
-.pill {
-  border-radius: 999px;
-  background: #EEF3F9;
-  padding: 7px 14px;
-  font-size: 16px;
+  padding: 8px 0 0;
 }
 
 /* A */
 .heart-map {
   position: relative;
-  width: 318px;
-  height: 395px;
-  margin-top: 6px;
+  width: 282px;
+  height: 260px;
+  margin-top: 2px;
 }
 .heart-map svg {
   position: absolute;
@@ -148,12 +108,12 @@ h1 {
 .heart-map .heart-line {
   fill: rgba(185,73,73,.07);
   stroke: #B94949;
-  stroke-width: 5;
+  stroke-width: 4;
 }
 .dim-node {
   position: absolute;
-  width: 82px;
-  height: 82px;
+  width: 64px;
+  height: 64px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: #FFFFFF;
@@ -164,25 +124,25 @@ h1 {
   justify-content: center;
 }
 .dim-node img {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
 }
 .dim-node.human {
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
 }
 .dim-node.human img {
-  width: 62px;
-  height: 62px;
+  width: 49px;
+  height: 49px;
 }
 .dim-label {
   position: absolute;
   transform: translate(-50%, -50%);
   color: #FFFFFF;
-  border-radius: 8px;
-  padding: 6px 14px;
-  font-size: 16px;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 13.5px;
   font-weight: 900;
   box-shadow: 0 4px 10px rgba(31,42,53,.15);
   white-space: nowrap;
@@ -192,52 +152,52 @@ h1 {
 
 /* B */
 .layers {
-  width: 304px;
+  width: 270px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
 }
 .layer {
-  border-left: 7px solid var(--orange);
+  border-left: 5px solid var(--orange);
   background: #FFD18A;
-  border-radius: 10px;
-  padding: 20px 24px;
+  border-radius: 6px;
+  padding: 14px 18px;
   box-shadow: 0 5px 14px rgba(230,81,0,.10);
 }
 .layer b {
   display: block;
   color: #5D2E0C;
-  font-size: 19px;
-  margin-bottom: 12px;
+  font-size: 15.5px;
+  margin-bottom: 8px;
 }
 .layer span {
   color: #8E4310;
   font-family: Menlo, Consolas, monospace;
-  font-size: 15px;
+  font-size: 12.5px;
   font-weight: 850;
 }
 
 /* C */
 .tool-grid {
   position: relative;
-  width: 306px;
+  width: 250px;
   display: grid;
-  grid-template-columns: repeat(4, 58px);
-  gap: 22px 16px;
+  grid-template-columns: repeat(4, 48px);
+  gap: 12px 12px;
   align-items: center;
   justify-content: center;
 }
 .tool {
-  height: 62px;
+  height: 49px;
   text-align: center;
   color: #7A3500;
-  font-size: 13px;
+  font-size: 10.5px;
   font-weight: 900;
 }
 .tool img {
   display: block;
-  width: 43px;
-  height: 43px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
   margin: 0 auto 5px;
   filter: drop-shadow(0 4px 5px rgba(230,81,0,.18));
@@ -248,19 +208,19 @@ h1 {
   background: #FFF3D8;
   border: 1.5px solid #F5BE76;
   color: #7A3500;
-  border-radius: 9px;
-  padding: 10px 12px;
-  font-size: 14px;
+  border-radius: 7px;
+  padding: 7px 8px;
+  font-size: 10.5px;
   line-height: 1.2;
   font-weight: 850;
 }
 .tool-note::before {
   content: "";
   position: absolute;
-  top: -8px;
-  right: 40px;
-  width: 14px;
-  height: 14px;
+  top: -6px;
+  right: 30px;
+  width: 10px;
+  height: 10px;
   background: #FFF3D8;
   border-left: 1.5px solid #F5BE76;
   border-top: 1.5px solid #F5BE76;
@@ -272,15 +232,15 @@ h1 {
 
 /* D */
 .case {
-  width: 310px;
-  font-size: 15px;
-  line-height: 1.35;
+  width: 300px;
+  font-size: 12px;
+  line-height: 1.28;
 }
 .shared {
   background: #F7F9FC;
   border: 1.5px solid var(--border);
-  border-radius: 9px;
-  padding: 13px 15px;
+  border-radius: 6px;
+  padding: 8px 10px;
   color: var(--muted);
   font-weight: 700;
 }
@@ -288,16 +248,16 @@ h1 {
   color: var(--primary);
 }
 .task {
-  margin-top: 14px;
-  border-radius: 9px;
-  padding: 14px 15px;
+  margin-top: 7px;
+  border-radius: 6px;
+  padding: 8px 10px;
 }
 .task b {
   display: block;
-  font-size: 15px;
+  font-size: 11.5px;
   letter-spacing: .6px;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 .orig {
   background: #FFF5F5;
@@ -313,15 +273,15 @@ h1 {
   display: inline-block;
   background: #FFF2A8;
   border: 1px solid #E0B04D;
-  border-radius: 5px;
-  padding: 1px 6px;
+  border-radius: 4px;
+  padding: 1px 5px;
   font-weight: 900;
 }
 .meta {
-  margin-top: 15px;
+  margin-top: 8px;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.42;
+  font-size: 11.5px;
+  line-height: 1.3;
 }
 .meta b {
   color: var(--primary);
@@ -330,14 +290,6 @@ h1 {
 </head>
 <body>
 <div class="figure" id="figure">
-  <div class="header">
-    <div>
-      <div class="eyebrow">HEART ARCHITECTURE</div>
-      <h1>A/B/C/D Audit-and-Repair Flow</h1>
-    </div>
-    <div class="subtitle">Policy and benchmark sources define scope; rubrics audit gaps; repair tools convert gaps into revised benchmark items.</div>
-  </div>
-
   <div class="flow">
     <section class="panel scope">
       <div class="stage">A · Scope</div>
@@ -360,7 +312,6 @@ h1 {
           <div class="dim-label gray" style="left:50%;top:96%">Human</div>
         </div>
       </div>
-      <div class="footer"><span>Explore</span><span class="pill">Dimensions</span></div>
     </section>
 
     <div class="arrow">→</div>
@@ -376,7 +327,6 @@ h1 {
           <div class="layer"><b>Governance Reliability</b><span>R11 · R12 · R13 · R14</span></div>
         </div>
       </div>
-      <div class="footer"><span>Explore</span><span class="pill">14 Rubrics</span></div>
     </section>
 
     <div class="arrow">→</div>
@@ -404,7 +354,6 @@ h1 {
           <div class="tool-note"><b>T12</b> · open-ended rationale</div>
         </div>
       </div>
-      <div class="footer"><span>Explore</span><span class="pill">14 Tools</span></div>
     </section>
 
     <div class="arrow">→</div>
@@ -421,7 +370,6 @@ h1 {
           <div class="meta"><b>Tool:</b> T12 · Open-ended responses<br><b>Rubric:</b> R10 · Evaluator reliability<br><b>Why:</b> rationale exposes hidden age bias.</div>
         </div>
       </div>
-      <div class="footer"><span>Explore</span><span class="pill">5 Cases</span></div>
     </section>
   </div>
 </div>
