@@ -4,7 +4,8 @@ canonical JSON data in docs/interactive/data/.
 Outputs (all written into codebook/):
   benchmarks.csv        — 103 audited benchmarks (full rubric scores + EN/ZH labels)
   tools.csv             — 14 generic repair tools (T01–T14, EN/ZH)
-  sub_tools.csv         — 103 specific repair sub-tools (one per audited bench), EN/ZH
+  sub_tools.csv         — 206 (benchmark × role) repair sub-tool rows, EN/ZH
+  expert_subtool_labels.csv — 103 benchmark-specific repair sub-tool expert labels
   rubrics.csv           — 14 calibrated rubrics (anchors + score distribution + key question), EN/ZH
   policies.csv          — 16 policy / governance sources × 5 dimension support codes
   mini_cases.csv        — 5 mini cases (id, dimension, title, source dataset)
@@ -84,6 +85,11 @@ def main():
             'dimension_zh': b.get('一级标签_zh', '') or b.get('一级标签', ''),
             'expert_tag_en': b.get('专家标签_en', '') or b.get('专家标签', ''),
             'expert_tag_zh': b.get('专家标签', ''),
+            'expert_label_cqj': b.get('人工核对标签_cqj', ''),
+            'expert_label_second_expert_yzx': b.get('阿也二审标签_yzx', ''),
+            'expert_label_source': b.get('专家打标来源', ''),
+            'expert_label_match_note': b.get('专家打标匹配说明', ''),
+            'expert_label_excel_row': b.get('专家打标Excel行号', ''),
             'paper_url': urls.get('paper', ''),
             'code_url': urls.get('code', ''),
             'primary_tool_id': b.get('主整合工具ID', ''),
@@ -152,8 +158,34 @@ def main():
                 'parent_tool_zh': b.get(name_key.replace('工具', '工具_zh'), '') or b.get(name_key + '_zh', ''),
                 'subtool_name_en': b.get(en_key, '') or b.get(en_key.replace('_en',''), ''),
                 'subtool_name_zh': b.get(zh_key, '') or b.get(zh_key.replace('_zh',''), ''),
+                'expert_label_cqj': b.get('人工核对标签_cqj', ''),
+                'expert_label_second_expert_yzx': b.get('阿也二审标签_yzx', ''),
+                'expert_label_source': b.get('专家打标来源', ''),
+                'expert_label_match_note': b.get('专家打标匹配说明', ''),
+                'expert_label_excel_row': b.get('专家打标Excel行号', ''),
             })
     write_csv('sub_tools.csv', sub_rows, list(sub_rows[0].keys()))
+
+    # ---------- expert_subtool_labels.csv (103 expert labels for specific sub-tools) ----------
+    expert_label_rows = []
+    for b in bench_map:
+        expert_label_rows.append({
+            'benchmark': b.get('Benchmark / Source', ''),
+            'dimension_en': b.get('一级标签_en', '') or b.get('一级标签', ''),
+            'dimension_zh': b.get('一级标签_zh', '') or b.get('一级标签', ''),
+            'primary_tool_id': b.get('主整合工具ID', ''),
+            'primary_subtool_en': b.get('主细分工具_en', '') or b.get('主细分工具', ''),
+            'primary_subtool_zh': b.get('主细分工具_zh', '') or b.get('主细分工具', ''),
+            'secondary_tool_id': b.get('次整合工具ID', ''),
+            'secondary_subtool_en': b.get('次细分工具_en', '') or b.get('次细分工具', ''),
+            'secondary_subtool_zh': b.get('次细分工具_zh', '') or b.get('次细分工具', ''),
+            'expert_label_cqj': b.get('人工核对标签_cqj', ''),
+            'expert_label_second_expert_yzx': b.get('阿也二审标签_yzx', ''),
+            'expert_label_source': b.get('专家打标来源', ''),
+            'expert_label_match_note': b.get('专家打标匹配说明', ''),
+            'expert_label_excel_row': b.get('专家打标Excel行号', ''),
+        })
+    write_csv('expert_subtool_labels.csv', expert_label_rows, list(expert_label_rows[0].keys()))
 
     # ---------- rubrics.csv (14 rubrics, full calibration) ----------
     rubric_rows = []
@@ -268,6 +300,7 @@ def main():
         ('benchmarks', 'benchmarks.csv'),
         ('tools', 'tools.csv'),
         ('sub_tools', 'sub_tools.csv'),
+        ('expert_subtool_labels', 'expert_subtool_labels.csv'),
         ('rubrics', 'rubrics.csv'),
         ('policies', 'policies.csv'),
         ('mini_cases', 'mini_cases.csv'),

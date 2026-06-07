@@ -14,15 +14,17 @@ build script.
 
 | File | What it is | Rows |
 |---|---|---|
-| `benchmarks.csv` | One row per audited benchmark with dimension, expert tag, paper / code URLs, primary + secondary tool assignments, sub-tool names (EN/ZH), rubrics-improved tags, and adaptation prompt + example. | 103 |
+| `benchmarks.csv` | One row per audited benchmark with dimension, expert tag, CQJ manual check label, YZX second-expert label, paper / code URLs, primary + secondary tool assignments, sub-tool names (EN/ZH), rubrics-improved tags, and adaptation prompt + example. | 103 |
 | `tools.csv` | One row per generic repair tool (T01–T14) with EN/ZH name, layer, core practice, problem fixed, applicable scope, boundary vs. nearby tools, automatable vs. needs-human parts, limitations, and evidence counts. | 14 |
-| `sub_tools.csv` | One row per (benchmark × role) pair giving the specific repair sub-tool's name (EN/ZH) and its parent tool. | 206 |
+| `sub_tools.csv` | One row per (benchmark × role) pair giving the specific repair sub-tool's name (EN/ZH), parent tool, and imported expert labels. | 206 |
+| `expert_subtool_labels.csv` | One row per audited benchmark giving the primary/secondary repair sub-tools and the two imported expert labels from `HEART_Excel_二审yzx.xlsx` sheet `Tool来源分布表-cqj`: `expert_label_cqj` and `expert_label_second_expert_yzx`. | 103 |
+| `expert_label_import_report.json` | Import audit for the CQJ/YZX expert labels, including exact matches, benchmark-only matches, and Excel rows not imported because the source benchmark is not present in the current 103-row corpus. | — |
 | `rubrics.csv` | One row per calibrated audit rubric (R1–R14): name, key question, full 0/1–2/3–4/5 anchors, calibration anchors with bench examples, revision notes, current score distribution + mean — all bilingual. | 14 |
 | `policies.csv` | One row per policy / governance source with source name, type, URL, and per-dimension support code (D1/D2/D3). | 16 |
 | `mini_cases.csv` | One row per mini case: id, dimension, title, source dataset + entry, rubrics lifted, tools applied, why-improved narrative. | 5 |
 | `rubric_tool_matrix.csv` | 14 rubrics × 14 tools evidence-score matrix used for the rubric-matrix heatmap on the website. | 14 |
 | `gap_detection.csv` | One row per rubric: typical symptoms, red flags, evidence to inspect, diagnostic questions, per-ethics-domain symptoms (JSON), common misdiagnosis — all bilingual. | 14 |
-| `heart_codebook.xlsx` | All eight CSVs as one workbook (one sheet each). Convenience bundle for analysts who prefer Excel. | — |
+| `heart_codebook.xlsx` | All nine CSVs as one workbook (one sheet each). Convenience bundle for analysts who prefer Excel. | — |
 
 ## Regenerating from website data
 
@@ -34,7 +36,7 @@ python3 codebook/build_codebook.py
 The script (`codebook/build_codebook.py`) reads from
 `docs/interactive/data/`:
 
-- `bench_map.json` → `benchmarks.csv`, `sub_tools.csv` (parts)
+- `bench_map.json` → `benchmarks.csv`, `sub_tools.csv` (parts), `expert_subtool_labels.csv`
 - `t_tools.json` → `tools.csv`
 - `rubrics_full.json` → `rubrics.csv`
 - `dimensions.json` → `policies.csv`

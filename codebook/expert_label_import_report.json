@@ -1,0 +1,538 @@
+{
+  "source_excel": "/Users/juiceq/Desktop/ethics benchmark/HEART_Excel_二审yzx.xlsx",
+  "source_sheet": "Tool来源分布表-cqj",
+  "matched_exact": [
+    {
+      "excel_row": 2,
+      "dimension": "Human centered",
+      "benchmark": "MoralMachine (2018)"
+    },
+    {
+      "excel_row": 3,
+      "dimension": "Human centered",
+      "benchmark": "MoralStories (2021)"
+    },
+    {
+      "excel_row": 4,
+      "dimension": "Human centered",
+      "benchmark": "SCRUPLES (2021)"
+    },
+    {
+      "excel_row": 5,
+      "dimension": "Human centered",
+      "benchmark": "ETHICS (2023)"
+    },
+    {
+      "excel_row": 6,
+      "dimension": "Human centered",
+      "benchmark": "MFQ-2 (2023)"
+    },
+    {
+      "excel_row": 7,
+      "dimension": "Human centered",
+      "benchmark": "MoralChoice (2023)"
+    },
+    {
+      "excel_row": 8,
+      "dimension": "Human centered",
+      "benchmark": "CMoralEval (2024)"
+    },
+    {
+      "excel_row": 9,
+      "dimension": "Human centered",
+      "benchmark": "CPsyExam (2024)"
+    },
+    {
+      "excel_row": 10,
+      "dimension": "Human centered",
+      "benchmark": "EmotionBench (2024)"
+    },
+    {
+      "excel_row": 11,
+      "dimension": "Human centered",
+      "benchmark": "SMILE (2024)"
+    },
+    {
+      "excel_row": 12,
+      "dimension": "Human centered",
+      "benchmark": "Educator-LLM (2025)"
+    },
+    {
+      "excel_row": 13,
+      "dimension": "Human centered",
+      "benchmark": "HeartBench (2025)"
+    },
+    {
+      "excel_row": 14,
+      "dimension": "Human centered",
+      "benchmark": "HumaniBench (2025)"
+    },
+    {
+      "excel_row": 15,
+      "dimension": "Human centered",
+      "benchmark": "MoReBench (2025)"
+    },
+    {
+      "excel_row": 16,
+      "dimension": "Human centered",
+      "benchmark": "NaVAB (2025)"
+    },
+    {
+      "excel_row": 17,
+      "dimension": "Human centered",
+      "benchmark": "VITAL (2025)"
+    },
+    {
+      "excel_row": 18,
+      "dimension": "Human centered",
+      "benchmark": "TrustMH-Bench (2026)"
+    },
+    {
+      "excel_row": 19,
+      "dimension": "Human centered",
+      "benchmark": "WVS / World Values Survey (2012)"
+    },
+    {
+      "excel_row": 20,
+      "dimension": "Human centered",
+      "benchmark": "PsycoLLM / Psychometrics / PsychCounsel / ValueBench (survey-mentioned psychology/value benchmarks)"
+    },
+    {
+      "excel_row": 21,
+      "dimension": "Human centered",
+      "benchmark": "SOCKET (2023)"
+    },
+    {
+      "excel_row": 22,
+      "dimension": "Human centered",
+      "benchmark": "SOCIAL-CHEM-101 (2020)"
+    },
+    {
+      "excel_row": 23,
+      "dimension": "Human centered",
+      "benchmark": "EtiCor (2023)"
+    },
+    {
+      "excel_row": 24,
+      "dimension": "Human centered",
+      "benchmark": "MoralBench / MIC (survey-mentioned value benchmarks)"
+    },
+    {
+      "excel_row": 25,
+      "dimension": "Human centered",
+      "benchmark": "MFTCXplain (survey-mentioned)"
+    },
+    {
+      "excel_row": 26,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "Kleinberg-FairTradeoffs (2016)"
+    },
+    {
+      "excel_row": 27,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "GAP (2018)"
+    },
+    {
+      "excel_row": 28,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "WinoBias (2018)"
+    },
+    {
+      "excel_row": 29,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "Winogender (2018)"
+    },
+    {
+      "excel_row": 30,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "BEC-pro (2020)"
+    },
+    {
+      "excel_row": 31,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "CrowS-Pairs (2020)"
+    },
+    {
+      "excel_row": 32,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "Dev-WordEmbed (2020)"
+    },
+    {
+      "excel_row": 33,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "UnQover (2020)"
+    },
+    {
+      "excel_row": 34,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "WikiGenderBias (2020)"
+    },
+    {
+      "excel_row": 35,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "BOLD (2021)"
+    },
+    {
+      "excel_row": 36,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "BUG (2021)"
+    },
+    {
+      "excel_row": 37,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "HONEST (2021)"
+    },
+    {
+      "excel_row": 38,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "NeuTral-WinoBiasPlus (2021)"
+    },
+    {
+      "excel_row": 39,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "RedditBias (2021)"
+    },
+    {
+      "excel_row": 40,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "StereoSet (2021)"
+    },
+    {
+      "excel_row": 41,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "BBQ (2022)"
+    },
+    {
+      "excel_row": 42,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "HolisticBias (2022)"
+    },
+    {
+      "excel_row": 43,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "Panda (2022)"
+    },
+    {
+      "excel_row": 44,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "Grep-BiasIR (2023)"
+    },
+    {
+      "excel_row": 45,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "MoralChoice (2023)"
+    },
+    {
+      "excel_row": 46,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "TrustGPT (2023)"
+    },
+    {
+      "excel_row": 47,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "WinoQueer (2023)"
+    },
+    {
+      "excel_row": 48,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "CBBQ (2024)"
+    },
+    {
+      "excel_row": 49,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "KoBBQ (2024)"
+    },
+    {
+      "excel_row": 50,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "FLEX (2025)"
+    },
+    {
+      "excel_row": 52,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "BharatBBQ (2024/2025)"
+    },
+    {
+      "excel_row": 53,
+      "dimension": "Fairness&inclusive",
+      "benchmark": "JBBQ (2024/2025)"
+    },
+    {
+      "excel_row": 54,
+      "dimension": "Safety",
+      "benchmark": "RealToxicityPrompts (2020)"
+    },
+    {
+      "excel_row": 55,
+      "dimension": "Safety",
+      "benchmark": "HateCheck (2021)"
+    },
+    {
+      "excel_row": 56,
+      "dimension": "Safety",
+      "benchmark": "ToxiGen (2022)"
+    },
+    {
+      "excel_row": 57,
+      "dimension": "Safety",
+      "benchmark": "ToxicChat (2023)"
+    },
+    {
+      "excel_row": 58,
+      "dimension": "Safety",
+      "benchmark": "Chinese-Safeguard (2024)"
+    },
+    {
+      "excel_row": 59,
+      "dimension": "Safety",
+      "benchmark": "Do-not-answer (2024)"
+    },
+    {
+      "excel_row": 60,
+      "dimension": "Safety",
+      "benchmark": "FFT (2024)"
+    },
+    {
+      "excel_row": 61,
+      "dimension": "Safety",
+      "benchmark": "HarmBench (2024)"
+    },
+    {
+      "excel_row": 62,
+      "dimension": "Safety",
+      "benchmark": "JailBreakV (2024)"
+    },
+    {
+      "excel_row": 63,
+      "dimension": "Safety",
+      "benchmark": "LifeTox (2024)"
+    },
+    {
+      "excel_row": 64,
+      "dimension": "Safety",
+      "benchmark": "MM-SafetyBench (2024)"
+    },
+    {
+      "excel_row": 65,
+      "dimension": "Safety",
+      "benchmark": "SALAD-bench (2024)"
+    },
+    {
+      "excel_row": 66,
+      "dimension": "Safety",
+      "benchmark": "SafetyBench (2024)"
+    },
+    {
+      "excel_row": 67,
+      "dimension": "Safety",
+      "benchmark": "XSTest (2024)"
+    },
+    {
+      "excel_row": 68,
+      "dimension": "Safety",
+      "benchmark": "Agent-SafetyBench (2025)"
+    },
+    {
+      "excel_row": 69,
+      "dimension": "Safety",
+      "benchmark": "SafeInfer (2025)"
+    },
+    {
+      "excel_row": 70,
+      "dimension": "Safety",
+      "benchmark": "SaFeRDialogues (2022)"
+    },
+    {
+      "excel_row": 71,
+      "dimension": "Safety",
+      "benchmark": "BAD / Bot-Adversarial Dialogue (2021)"
+    },
+    {
+      "excel_row": 73,
+      "dimension": "Safety",
+      "benchmark": "HH-RLHF / Anthropic H&H (2022)"
+    },
+    {
+      "excel_row": 74,
+      "dimension": "Safety",
+      "benchmark": "AdvBench (2023)"
+    },
+    {
+      "excel_row": 75,
+      "dimension": "Safety",
+      "benchmark": "Red-Eval (2024)"
+    },
+    {
+      "excel_row": 76,
+      "dimension": "Safety",
+      "benchmark": "LatentJailbreak (2024)"
+    },
+    {
+      "excel_row": 77,
+      "dimension": "Safety",
+      "benchmark": "CyberSec.Eval (2024)"
+    },
+    {
+      "excel_row": 78,
+      "dimension": "Safety",
+      "benchmark": "C-Do-not-answer (2024)"
+    },
+    {
+      "excel_row": 79,
+      "dimension": "Trustworthy",
+      "benchmark": "FEVER (2018)"
+    },
+    {
+      "excel_row": 80,
+      "dimension": "Trustworthy",
+      "benchmark": "HotpotQA (2018)"
+    },
+    {
+      "excel_row": 81,
+      "dimension": "Trustworthy",
+      "benchmark": "TruthfulQA (2022)"
+    },
+    {
+      "excel_row": 82,
+      "dimension": "Trustworthy",
+      "benchmark": "LegalBench (2023)"
+    },
+    {
+      "excel_row": 83,
+      "dimension": "Trustworthy",
+      "benchmark": "TrustGPT (2023)"
+    },
+    {
+      "excel_row": 84,
+      "dimension": "Trustworthy",
+      "benchmark": "HallusionBench (2024)"
+    },
+    {
+      "excel_row": 85,
+      "dimension": "Trustworthy",
+      "benchmark": "LawBench (2024)"
+    },
+    {
+      "excel_row": 86,
+      "dimension": "Trustworthy",
+      "benchmark": "PatentEval (2024)"
+    },
+    {
+      "excel_row": 87,
+      "dimension": "Trustworthy",
+      "benchmark": "TrustLLM (2024)"
+    },
+    {
+      "excel_row": 88,
+      "dimension": "Trustworthy",
+      "benchmark": "Sycophancy-Sharma (2025)"
+    },
+    {
+      "excel_row": 89,
+      "dimension": "Trustworthy",
+      "benchmark": "HaluEval (2023)"
+    },
+    {
+      "excel_row": 90,
+      "dimension": "Trustworthy",
+      "benchmark": "FActScore (2023)"
+    },
+    {
+      "excel_row": 91,
+      "dimension": "Trustworthy",
+      "benchmark": "FreshQA / FreshLLMs (2024)"
+    },
+    {
+      "excel_row": 92,
+      "dimension": "Trustworthy",
+      "benchmark": "SycophancyBench / Model-Written Evaluations (2022)"
+    },
+    {
+      "excel_row": 93,
+      "dimension": "Trustworthy",
+      "benchmark": "DecodingTrust (2023)"
+    },
+    {
+      "excel_row": 94,
+      "dimension": "Privacy",
+      "benchmark": "Converse (2024)"
+    },
+    {
+      "excel_row": 95,
+      "dimension": "Privacy",
+      "benchmark": "EAI-Bench (2024)"
+    },
+    {
+      "excel_row": 96,
+      "dimension": "Privacy",
+      "benchmark": "GoldCoin (2024)"
+    },
+    {
+      "excel_row": 97,
+      "dimension": "Privacy",
+      "benchmark": "PrivacyLens (2024)"
+    },
+    {
+      "excel_row": 99,
+      "dimension": "Privacy",
+      "benchmark": "PrivaCI-Bench (2025)"
+    },
+    {
+      "excel_row": 100,
+      "dimension": "Privacy",
+      "benchmark": "Carlini Extraction / Training Data Extraction (2021)"
+    },
+    {
+      "excel_row": 101,
+      "dimension": "Privacy",
+      "benchmark": "DecodingTrust-Privacy (2023)"
+    },
+    {
+      "excel_row": 102,
+      "dimension": "Privacy",
+      "benchmark": "ProPILE (2023)"
+    },
+    {
+      "excel_row": 103,
+      "dimension": "Privacy",
+      "benchmark": "ConfAIde (2023)"
+    },
+    {
+      "excel_row": 104,
+      "dimension": "Privacy",
+      "benchmark": "LLM-PBE (2024)"
+    }
+  ],
+  "matched_by_benchmark_only": [
+    {
+      "excel_row": 51,
+      "benchmark": "Phare (2025)",
+      "excel_dimension": "Fairness&inclusive",
+      "codebook_dimension": "Safety"
+    }
+  ],
+  "unmatched": [
+    {
+      "excel_row": 72,
+      "dimension": "Safety",
+      "benchmark": "HarmEval (2025)",
+      "manual_label_cqj": "安全放大，提出不同的安全",
+      "second_expert_label_yzx": "安全向量引导"
+    },
+    {
+      "excel_row": 98,
+      "dimension": "Privacy",
+      "benchmark": "WebArena-Privacy (2024)",
+      "manual_label_cqj": "沙盒，真实工具链和界面约束",
+      "second_expert_label_yzx": "网页PII沙盒"
+    }
+  ],
+  "counts": {
+    "excel_rows": 103,
+    "codebook_rows": 103,
+    "matched_exact": 100,
+    "matched_by_benchmark_only": 1,
+    "unmatched": 2,
+    "labels_written": 101
+  }
+}
